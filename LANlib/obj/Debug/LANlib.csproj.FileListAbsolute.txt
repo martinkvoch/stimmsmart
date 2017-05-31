@@ -8,3 +8,5 @@ C:\Martin\ZAT\MDM\LANlib\obj\Debug\LANlib.dll
 C:\Martin\ZAT\MDM\LANlib\obj\Debug\LANlib.pdb
 C:\Martin\ZAT\MDM\LANlib\obj\Debug\LANlib.csprojResolveAssemblyReference.cache
 C:\Martin\Projekty\ZAT\MDM\LANlib\obj\Debug\LANlib.csprojResolveAssemblyReference.cache
+C:\Martin\Projekty\ZAT\MDM\StimSmart\LANlib.dll
+C:\Martin\Projekty\ZAT\MDM\StimSmart\LANlib.pdb

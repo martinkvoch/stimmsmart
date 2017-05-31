@@ -125,3 +125,9 @@ C:\Martin\ZAT\MDM\MDM\obj\Debug\MDM.exe
 C:\Martin\ZAT\MDM\MDM\obj\Debug\MDM.pdb
 C:\Martin\Projekty\ZAT\MDM\MDM\bin\Debug\LANlib.dll
 C:\Martin\Projekty\ZAT\MDM\MDM\bin\Debug\LANlib.pdb
+C:\Martin\Projekty\ZAT\MDM\StimSmart\MDM.exe.config
+C:\Martin\Projekty\ZAT\MDM\StimSmart\MDM.exe
+C:\Martin\Projekty\ZAT\MDM\StimSmart\MDM.pdb
+C:\Martin\Projekty\ZAT\MDM\StimSmart\cs\MDM.resources.dll
+C:\Martin\Projekty\ZAT\MDM\StimSmart\ru\MDM.resources.dll
+C:\Martin\Projekty\ZAT\MDM\StimSmart\en\MDM.resources.dll
