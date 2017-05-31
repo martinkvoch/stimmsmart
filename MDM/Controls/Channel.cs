@@ -355,6 +355,7 @@ namespace MDM.Controls
         private void activate()
         {
             cbPatSelect.Enabled = true;
+            //muj prvni github komentar
             cbStart.Enabled = false;
             lbPatName.ForeColor = lbDiagnosis.ForeColor = lbProcNum.ForeColor = SystemColors.ActiveCaptionText;
             tbCurrent.Value = current = 0;
