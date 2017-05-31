@@ -1,0 +1,38 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MDM.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="lang" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cs</Value>
+    </Setting>
+    <Setting Name="ManAddr" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Zat a.s.|K Podlesí 541|26180 Příbram VI|Czech Republic||Ph.: +420 318 652 111|Fax: +420 318 627 471|E-mail: mdm@zat.cz|www: www.zat.cz</Value>
+    </Setting>
+    <Setting Name="ProtBy" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">PV 2006-665, PUV 2006-18183</Value>
+    </Setting>
+    <Setting Name="NOC" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="MDMConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=MDM.db;Version=3;New=False;Compress=True;DateTimeFormat=CurrentCulture;&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SQLite.EF6&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=MDM.db;Version=3;New=False;Compress=True;DateTimeFormat=CurrentCulture;</Value>
+    </Setting>
+    <Setting Name="ProtByRU" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ПB 2006-665, ПYB 2006-18183</Value>
+    </Setting>
+    <Setting Name="NOP" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">13</Value>
+    </Setting>
+    <Setting Name="ProcDur" Type="System.Int16" Scope="User">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="LanIP" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.10.18.3</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

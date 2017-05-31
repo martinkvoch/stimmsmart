@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="tbAbout.Text" xml:space="preserve">
+    <value>O aplikaci...</value>
+  </data>
+  <data name="tbAbout.ToolTipText" xml:space="preserve">
+    <value>O aplikaci...</value>
+  </data>
+  <data name="tbShutdown.Text" xml:space="preserve">
+    <value>Vypnutí</value>
+  </data>
+  <data name="tbShutdown.ToolTipText" xml:space="preserve">
+    <value>Vypnutí</value>
+  </data>
+  <data name="tbRestart.Text" xml:space="preserve">
+    <value>Nové spuštění</value>
+  </data>
+  <data name="tbRestart.ToolTipText" xml:space="preserve">
+    <value>Nové spuštění</value>
+  </data>
+  <data name="tbExit.Text" xml:space="preserve">
+    <value>Konec</value>
+  </data>
+  <data name="tbExit.ToolTipText" xml:space="preserve">
+    <value>Konec</value>
+  </data>
+  <data name="tbLogin.Text" xml:space="preserve">
+    <value>Přihlášení</value>
+  </data>
+  <data name="tbLogin.ToolTipText" xml:space="preserve">
+    <value>Přihlášení</value>
+  </data>
+  <data name="tbLogout.Text" xml:space="preserve">
+    <value>Odhlášení</value>
+  </data>
+  <data name="tbLogout.ToolTipText" xml:space="preserve">
+    <value>Odhlášení</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="miAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
+  </data>
+  <data name="miAbout.Text" xml:space="preserve">
+    <value>O aplikaci</value>
+  </data>
+  <data name="miAbout.ToolTipText" xml:space="preserve">
+    <value>Zobrazí informace o aplikaci</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 6</value>
+  </data>
+  <data name="miExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
+  </data>
+  <data name="miExit.Text" xml:space="preserve">
+    <value>Konec</value>
+  </data>
+  <data name="miExit.ToolTipText" xml:space="preserve">
+    <value>Ukončí aplikaci</value>
+  </data>
+  <data name="miRestart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
+  </data>
+  <data name="miRestart.Text" xml:space="preserve">
+    <value>Nové spuštění</value>
+  </data>
+  <data name="miRestart.ToolTipText" xml:space="preserve">
+    <value>Ukončí a znovu spustí aplikaci i zařízení</value>
+  </data>
+  <data name="miSwitchOff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
+  </data>
+  <data name="miSwitchOff.Text" xml:space="preserve">
+    <value>Vypnutí</value>
+  </data>
+  <data name="miSwitchOff.ToolTipText" xml:space="preserve">
+    <value>Ukončí aplikaci a vypne přístroj</value>
+  </data>
+  <data name="miFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
+  <data name="miFile.Text" xml:space="preserve">
+    <value>Soubor</value>
+  </data>
+  <data name="miUserList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="miUserList.Text" xml:space="preserve">
+    <value>Seznam...</value>
+  </data>
+  <data name="miUserList.ToolTipText" xml:space="preserve">
+    <value>Otevře panel se seznamem uživatelů</value>
+  </data>
+  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="miLogIn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="miLogIn.Text" xml:space="preserve">
+    <value>Přihlášení</value>
+  </data>
+  <data name="miLogIn.ToolTipText" xml:space="preserve">
+    <value>Provede přihlášení uživatele k aplikaci</value>
+  </data>
+  <data name="miLogOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="miLogOut.Text" xml:space="preserve">
+    <value>Odhlášení</value>
+  </data>
+  <data name="miLogOut.ToolTipText" xml:space="preserve">
+    <value>Provede odhlášení uživatele od aplikace</value>
+  </data>
+  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="miNewUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="miNewUser.Text" xml:space="preserve">
+    <value>Nový</value>
+  </data>
+  <data name="miNewUser.ToolTipText" xml:space="preserve">
+    <value>Přidá nového uživatele</value>
+  </data>
+  <data name="miEditUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="miEditUser.Text" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="miEditUser.ToolTipText" xml:space="preserve">
+    <value>Upraví údaje o uživateli</value>
+  </data>
+  <data name="toolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="miDeleteUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="miDeleteUser.Text" xml:space="preserve">
+    <value>Smazat</value>
+  </data>
+  <data name="miDeleteUser.ToolTipText" xml:space="preserve">
+    <value>Označí uživatele ke smazání</value>
+  </data>
+  <data name="miUndeleteUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="miUndeleteUser.Text" xml:space="preserve">
+    <value>Odmazat...</value>
+  </data>
+  <data name="miUndeleteUser.ToolTipText" xml:space="preserve">
+    <value>Zruší příznak smazání uživatelů</value>
+  </data>
+  <data name="miWipeUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="miWipeUser.Text" xml:space="preserve">
+    <value>Odstranit</value>
+  </data>
+  <data name="miWipeUser.ToolTipText" xml:space="preserve">
+    <value>Fyzicky vymaže uživatele z tabulky uživatelů</value>
+  </data>
+  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 6</value>
+  </data>
+  <data name="miPurgeUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="miPurgeUser.Text" xml:space="preserve">
+    <value>Vyčistit</value>
+  </data>
+  <data name="miPurgeUser.ToolTipText" xml:space="preserve">
+    <value>Vyčistí tabulku uživatelů od záznamů označených ke smazání</value>
+  </data>
+  <data name="miTruncateUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="miTruncateUser.Text" xml:space="preserve">
+    <value>Vyprázdnit</value>
+  </data>
+  <data name="miTruncateUser.ToolTipText" xml:space="preserve">
+    <value>Kompletně vyprázdní tabulku uživatelů</value>
+  </data>
+  <data name="miUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="miUser.Text" xml:space="preserve">
+    <value>Uživatel</value>
+  </data>
+  <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 6</value>
+  </data>
+  <data name="miPatientList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="miPatientList.Text" xml:space="preserve">
+    <value>Seznam...</value>
+  </data>
+  <data name="miPatientList.ToolTipText" xml:space="preserve">
+    <value>Otevře panel se seznamem pacientů</value>
+  </data>
+  <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 6</value>
+  </data>
+  <data name="miNewPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="miNewPatient.Text" xml:space="preserve">
+    <value>Nový</value>
+  </data>
+  <data name="miNewPatient.ToolTipText" xml:space="preserve">
+    <value>Přidá nového pacienta</value>
+  </data>
+  <data name="miEditPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="miEditPatient.Text" xml:space="preserve">
+    <value>Upravit</value>
+  </data>
+  <data name="miEditPatient.ToolTipText" xml:space="preserve">
+    <value>Upraví údaje o pacientovi</value>
+  </data>
+  <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 6</value>
+  </data>
+  <data name="miDeletePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="miDeletePatient.Text" xml:space="preserve">
+    <value>Smazat</value>
+  </data>
+  <data name="miDeletePatient.ToolTipText" xml:space="preserve">
+    <value>Označí záznam pacienta ke smazání</value>
+  </data>
+  <data name="miUndeletePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="miUndeletePatient.Text" xml:space="preserve">
+    <value>Odmazat...</value>
+  </data>
+  <data name="miUndeletePatient.ToolTipText" xml:space="preserve">
+    <value>Zruší označení záznamu pacienta ke zrušení</value>
+  </data>
+  <data name="miWipePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="miWipePatient.Text" xml:space="preserve">
+    <value>Odstranit</value>
+  </data>
+  <data name="miWipePatient.ToolTipText" xml:space="preserve">
+    <value>Fyzicky vymaže záznam pacienta</value>
+  </data>
+  <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 6</value>
+  </data>
+  <data name="miPurgePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="miPurgePatient.Text" xml:space="preserve">
+    <value>Vyčistit</value>
+  </data>
+  <data name="miPurgePatient.ToolTipText" xml:space="preserve">
+    <value>Vyčistí tabulku pacientů od záznamů označených ke zrušení</value>
+  </data>
+  <data name="miTruncatePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="miTruncatePatient.Text" xml:space="preserve">
+    <value>Vyprázdnit</value>
+  </data>
+  <data name="miTruncatePatient.ToolTipText" xml:space="preserve">
+    <value>Kompletně vyprázdní tabulku pacientů</value>
+  </data>
+  <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>171, 6</value>
+  </data>
+  <data name="miHIC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 22</value>
+  </data>
+  <data name="miHIC.Text" xml:space="preserve">
+    <value>Zdravotní pojišťovny</value>
+  </data>
+  <data name="miHIC.ToolTipText" xml:space="preserve">
+    <value>Otevře seznam zdravotních pojišťoven a umožní provádět v něm změny</value>
+  </data>
+  <data name="miPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 20</value>
+  </data>
+  <data name="miPatient.Text" xml:space="preserve">
+    <value>Pacient</value>
+  </data>
+  <data name="miBackupDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="miBackupDatabase.Text" xml:space="preserve">
+    <value>Záloha databáze</value>
+  </data>
+  <data name="miBackupDatabase.ToolTipText" xml:space="preserve">
+    <value>Vytvoří zálohu databáze k tomuto okamžiku</value>
+  </data>
+  <data name="miRestoreDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="miRestoreDatabase.Text" xml:space="preserve">
+    <value>Obnovení databáze...</value>
+  </data>
+  <data name="miRestoreDatabase.ToolTipText" xml:space="preserve">
+    <value>Obnoví databázi ze zálohy</value>
+  </data>
+  <data name="miSystem.Text" xml:space="preserve">
+    <value>Systém</value>
+  </data>
+  <data name="miLog.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAA5xJREFUOE9l
+        kmtMU2ccxt9kWz+JuyTLvGy4T8tCQtyyKYk5uI1tTJyAIAmhm9Mt0U03nRuHgyPRXSI1RETEDehcFUVY
+        hxSqgWYIKDoQqG1RagU6Si9Ie27taUtZ1izh2XuafTDZSX45/+TN83vz5vkT9fuyNIPUHXxV01SxYUUz
+        tyFNz72e9vN/ND/C2SomzfDd1hUnynMeB5DKktvte4lFv/Olm+2Hvh3tOtI01n20aVSl6/8Md1Q23Wzd
+        19hv+KS89Xjp85bGjwmZ7vmCDBh27XNca1j0T40h4LYt+9z2Ze+MLYU6+92O5cDsxLLHNYypcROclvr4
+        rPnMD3/3mVaSh337ycAvOysmh84npVAIkihBoPC8AF4QINJZlsOIRJTU7J2bg9f2BxaHr4wnzc2ZxG/Z
+        Q/r0WvbujXNJKRiEpAYpISoLBkOpWRRlhGUJkmcQrlEjRm5c+2fowmn9+LHPnyXurt3E0ljKTjwqEEQq
+        4FMIAg0KISgeMyJ9ufizqwy3r19dqq1muedWPaUhk52lpOfHEnbiuiqgT6BhNcTzYgqRn0dkpg3h3mz4
+        2hn47hjhmrQn6o9z3Lq1VGBvKyFXThelBGF6e1iSIckyRPUvzEOZOgv5ahZ8xrfhn+iFJEmYfuBMnNJV
+        cC+uoYLxc/mku66QdQyqApEKwpDDCmTBi6izHqJpPbydRQhOj9AwPZMjmJm6TwUsl756pYaM6POJqXYb
+        a6cChdoVGlakOcTu6SBezoTPvAu8x4ZoLJ4Ky2FV4ErUVVdw6auoYOjMFtJRk8faBwzJKK0rLrgRd1SB
+        N2bA27MfYmAasdgilGic1qs+L4LpqQeJOl0l98LqJzWk71QOMepyWVu/IRlbmER87CCC7Rnw9x+FHPIh
+        Fl+CotDbw1HaCq2Xl+C670zUVldy6Wuf1pDBhvfIr6rg98akYqtH0JiF+VsnEJWDSCSWEI8v0iWKphZJ
+        3Qu1Iec9x1LN919x69ZQwYWaPaT12NYDQy2H/3Jc+hp3e08i4J3FAt2JhYWHCATm4fcFMDfnhcczi4Df
+        i1sD5kTVIS2buf4VDTnw6UdEV16QdbKi2PzTN9vunG84bO3ubLOaTZTOS5RWa/fli1bTby1Wc0eL1dTW
+        bK05stdS8v6mgvzSzx4jhfl5ZHvBlie0xW++/GERw3xQ9Aaj3ZFLeZcp2/EOoy3OYbRFbzFl2zczZYUM
+        U1awKTsvZ+Nr2dmbnwFA/gXWRrZx9GwqXAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="miLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="miLog.Text" xml:space="preserve">
+    <value>Deník</value>
+  </data>
+  <data name="miLog.ToolTipText" xml:space="preserve">
+    <value>Funkce pro správu deníku</value>
+  </data>
+  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 6</value>
+  </data>
+  <data name="miNewDatabase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAnlJREFUOE91
+        U0lPU1EY7d4NQ4FEdybGtTH+Adb+A0JEl2zUhERXUqpGwixVQghQwJTUYk0L2sFg0kJbRqGYtq8TdmBo
+        m0LCQuMA5Pidh3mBJt7ke/lyvnPOu/fc93QAdFxXnn+61WD0WGs7PD+q292oanddKGKckUMuNaqWj8vP
+        vA+v93xGmysK85c8FrIH8GfKF4oYZ+SQS41moO/wwLaVl8rBspnFm40MpiqKGGfkkEuNZlAtW0z+BuZ3
+        v2NGKcEczsO8WVGCcUYOudRoBjUGN/oXFNiTZYQOjhH9A0SEFPn1r6QnFjw8xrtEGb3+GKjRDLidPr8i
+        AwWmQBKjK2lYNrKYTRThiO6pPTHTYgLdPgU9vtjFI9QZvXgZiGMwmMTw8jYm1jN4u7WDWWUfc/Gi2hMb
+        XkpjQF7Qv6igXjSagb7N8qGx04mWCT8M7i2MrX6DPbIHV7IId6qk9mOraTxxhXHH7EfjCyeo0QxqHs/Y
+        Y3JW01IO9+1hNI0H0Ty5hBbLCu5Z1tS+aTyABzIbDOVALjWaQa3Box7BuX2ItaMTpE6BxAkQPz4r9sRW
+        j07hSB2qgVOjGTAQBqiGKDmMrmxjeiOHOTmCU0Kc3sypmClwFmJ3ZYh6owcDC3EMLMYxJEGZJTBreAeO
+        2L4EWYBVQiQ2FEqhT3h8UZ1oNIOGp171bodCSYzIm6bk2ma+7soNFPAxUYJNemIjy2m8kh12+aKgRjOo
+        b33de61rHndta+j0xfE+sgO3fAM+/gfyD7gSBRXrlO232NZBLjWagayGqtutzfWPrN46g/snv7LzfyR7
+        YpyRQy415w24LkldlbohdfM/xRk55IoWur835syHjSUlhAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="miNewDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="miNewDatabase.Text" xml:space="preserve">
+    <value>Nová databáze</value>
+  </data>
+  <data name="miNewDatabase.ToolTipText" xml:space="preserve">
+    <value>Vytvoří novou databázi místo staré</value>
+  </data>
+  <data name="miCompactDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 22</value>
+  </data>
+  <data name="miCompactDatabase.Text" xml:space="preserve">
+    <value>Komprese databáze</value>
+  </data>
+  <data name="miAdministration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 20</value>
+  </data>
+  <data name="miAdministration.Text" xml:space="preserve">
+    <value>Správa</value>
+  </data>
+  <data name="miClearLogInformation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="miClearLogInformation.Text" xml:space="preserve">
+    <value>Informace</value>
+  </data>
+  <data name="miClearLogInformation.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="miClearLogInformation.ToolTipText" xml:space="preserve">
+    <value>Z deníku vymaže všechny informační záznamy</value>
+  </data>
+  <data name="miClearLogWarning.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="miClearLogWarning.Text" xml:space="preserve">
+    <value>Varování</value>
+  </data>
+  <data name="miClearLogWarning.ToolTipText" xml:space="preserve">
+    <value>Z deníku vymaže všechna varování</value>
+  </data>
+  <data name="miClearLogError.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="miClearLogError.Text" xml:space="preserve">
+    <value>Chyby</value>
+  </data>
+  <data name="miClearLogError.ToolTipText" xml:space="preserve">
+    <value>Z deníku vymaže všechny chybové záznamy</value>
+  </data>
+  <data name="miClearLogSelection.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="miClearLogSelection.Text" xml:space="preserve">
+    <value>Výběr</value>
+  </data>
+  <data name="miClearLogSelection.ToolTipText" xml:space="preserve">
+    <value>Z deníku vymaže všechny označené záznamy</value>
+  </data>
+  <data name="miClearLogAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="miClearLogAll.Text" xml:space="preserve">
+    <value>Vše</value>
+  </data>
+  <data name="miClearLogAll.ToolTipText" xml:space="preserve">
+    <value>Z deníku vymaže všechny záznamy</value>
+  </data>
+  <data name="miClear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 22</value>
+  </data>
+  <data name="miClear.Text" xml:space="preserve">
+    <value>Vymazat</value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 6</value>
+  </data>
+  <data name="miClosePanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 22</value>
+  </data>
+  <data name="miClosePanel.Text" xml:space="preserve">
+    <value>Zavřít</value>
+  </data>
+  <data name="miClosePanel.ToolTipText" xml:space="preserve">
+    <value>Uzavře otevřený panel</value>
+  </data>
+  <data name="miTheLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 20</value>
+  </data>
+  <data name="miTheLog.Text" xml:space="preserve">
+    <value>Deník</value>
+  </data>
+  <data name="miLang.ToolTipText" xml:space="preserve">
+    <value>Česky</value>
+  </data>
+  <data name="restoreFromThisBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
+  </data>
+  <data name="restoreFromThisBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Obnovit z této zálohy</value>
+  </data>
+  <data name="restoreFromThisBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Obnoví databázi z aktuální zálohy</value>
+  </data>
+  <data name="makeNewBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
+  </data>
+  <data name="makeNewBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Vytvořit novou zálohu</value>
+  </data>
+  <data name="makeNewBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Vytvoří novou zálohu</value>
+  </data>
+  <data name="deleteBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
+  </data>
+  <data name="deleteBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Smazat zálohu</value>
+  </data>
+  <data name="deleteBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Smaže aktuální zálohu</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 6</value>
+  </data>
+  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 22</value>
+  </data>
+  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Zavřít</value>
+  </data>
+  <data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Zavře panel obnovy</value>
+  </data>
+  <data name="miDBRestore.Text" xml:space="preserve">
+    <value>Obnova</value>
+  </data>
+</root>

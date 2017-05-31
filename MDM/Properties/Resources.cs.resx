@@ -1,0 +1,522 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="curLang" xml:space="preserve">
+    <value>Aktuální jazyk: {0}</value>
+  </data>
+  <data name="exitMsg" xml:space="preserve">
+    <value>Aplikace byla ukončena.</value>
+  </data>
+  <data name="exitQ" xml:space="preserve">
+    <value>Opravdu chcete ukončit aplikaci?</value>
+  </data>
+  <data name="exitQH" xml:space="preserve">
+    <value>Ukončení aplikace</value>
+  </data>
+  <data name="finish" xml:space="preserve">
+    <value>Ukončení inicializace.</value>
+  </data>
+  <data name="LogHdrDate" xml:space="preserve">
+    <value>Datum a čas</value>
+  </data>
+  <data name="LogHdrRecord" xml:space="preserve">
+    <value>Záznam</value>
+  </data>
+  <data name="LogHdrSender" xml:space="preserve">
+    <value>Zapsal</value>
+  </data>
+  <data name="LogHdrType" xml:space="preserve">
+    <value>Typ</value>
+  </data>
+  <data name="numberOfChannels" xml:space="preserve">
+    <value>Počet kanálů v přístroji: {0}</value>
+  </data>
+  <data name="pressEscButton" xml:space="preserve">
+    <value>Stiskněte klávesu ESC nebo tlačítko "X" na konci tohoto pruhu</value>
+  </data>
+  <data name="restartMsg" xml:space="preserve">
+    <value>Aplikace i přístroj se znovu spouští.</value>
+  </data>
+  <data name="restartQ" xml:space="preserve">
+    <value>Opravdu chcete provést restart přístroje?</value>
+  </data>
+  <data name="restartQH" xml:space="preserve">
+    <value>Restart přístroje</value>
+  </data>
+  <data name="shutdownMsg" xml:space="preserve">
+    <value>Aplikace i přístroj jsou vypnuty.</value>
+  </data>
+  <data name="shutdownQ" xml:space="preserve">
+    <value>Opravdu chcete vypnout přístroj?</value>
+  </data>
+  <data name="shutdownQH" xml:space="preserve">
+    <value>Vypnutí přístroje</value>
+  </data>
+  <data name="startInitMsg" xml:space="preserve">
+    <value>Zahajuje se inicializace {0}.</value>
+  </data>
+  <data name="startMsg" xml:space="preserve">
+    <value>Spouští se {0}...</value>
+  </data>
+  <data name="startup" xml:space="preserve">
+    <value>Start inicializace...</value>
+  </data>
+  <data name="testChannel" xml:space="preserve">
+    <value>Probíhá autotest...</value>
+  </data>
+  <data name="testDongle" xml:space="preserve">
+    <value>Ověření hardwarového klíče...</value>
+  </data>
+  <data name="newDataQ" xml:space="preserve">
+    <value>Chystáte se vytvořit novou databázi, stará bude odstraněna. Opravdu to chcete udělat?</value>
+  </data>
+  <data name="newDataQH" xml:space="preserve">
+    <value>Nová databáze</value>
+  </data>
+  <data name="bckDataH" xml:space="preserve">
+    <value>Záložní kopie databáze</value>
+  </data>
+  <data name="bckDataKO" xml:space="preserve">
+    <value>Vytvoření záložní kopie databáze se nezdařilo.</value>
+  </data>
+  <data name="bckDataOK" xml:space="preserve">
+    <value>Byla vytvořena záložní kopie databáze k {0}.</value>
+  </data>
+  <data name="newDataKO" xml:space="preserve">
+    <value>Vytvoření nové databáze se nezdařilo.</value>
+  </data>
+  <data name="newDataOK" xml:space="preserve">
+    <value>Byla vytvořena nová databáze.</value>
+  </data>
+  <data name="errExecCmd" xml:space="preserve">
+    <value>Chyba {0} při vykonávání {1}</value>
+  </data>
+  <data name="LogError" xml:space="preserve">
+    <value>Chyba</value>
+  </data>
+  <data name="LogInfo" xml:space="preserve">
+    <value>Informace</value>
+  </data>
+  <data name="LogWarn" xml:space="preserve">
+    <value>Varování</value>
+  </data>
+  <data name="startMsg1" xml:space="preserve">
+    <value>{0} byl spuštěn.</value>
+  </data>
+  <data name="noBacksAvail" xml:space="preserve">
+    <value>Záloha není k dispozici</value>
+  </data>
+  <data name="restoreKO" xml:space="preserve">
+    <value>Obnova databáze nebyla úspěšná.</value>
+  </data>
+  <data name="restoreOK" xml:space="preserve">
+    <value>Databáze byla obnovena ze zálohy ze dne {0}</value>
+  </data>
+  <data name="restoreQ" xml:space="preserve">
+    <value>Skutečně chcete obnovit databázi ze starší zálohy?</value>
+  </data>
+  <data name="restoreQH" xml:space="preserve">
+    <value>Obnova databáze</value>
+  </data>
+  <data name="dbIsClosed" xml:space="preserve">
+    <value>Databáze je uzavřena.</value>
+  </data>
+  <data name="dbIsOpen" xml:space="preserve">
+    <value>Databáze je otevřena.</value>
+  </data>
+  <data name="UserHdrLang" xml:space="preserve">
+    <value>Jazyk</value>
+  </data>
+  <data name="UserHdrLogin" xml:space="preserve">
+    <value>Uživatelské jméno</value>
+  </data>
+  <data name="UserHdrName" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
+  <data name="UserHdrRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="UserRoleAdmin" xml:space="preserve">
+    <value>Administrátor</value>
+  </data>
+  <data name="UserRoleUser" xml:space="preserve">
+    <value>Uživatel</value>
+  </data>
+  <data name="UserEditHdr" xml:space="preserve">
+    <value>Úpravy uživatele</value>
+  </data>
+  <data name="UserNewHdr" xml:space="preserve">
+    <value>Nový uživatel</value>
+  </data>
+  <data name="UserNewMsg" xml:space="preserve">
+    <value>Byl založen nový uživatel "{0}".</value>
+  </data>
+  <data name="curLang1" xml:space="preserve">
+    <value>Aktuální</value>
+  </data>
+  <data name="delNRows" xml:space="preserve">
+    <value>Z tabulky {1} bylo smazáno {0} řádků.</value>
+  </data>
+  <data name="vacuumMsg" xml:space="preserve">
+    <value>Byla provedena komprese databáze.</value>
+  </data>
+  <data name="delAllMsg" xml:space="preserve">
+    <value>Tabulka "{0}" byla vyčištěna.</value>
+  </data>
+  <data name="delAllQ" xml:space="preserve">
+    <value>Chystáte se vymazat celý obsah tabulky {0}, čímž budou všechna data z tabulky ztracena. Skutečně to chcete udělat?</value>
+  </data>
+  <data name="delAllQH" xml:space="preserve">
+    <value>Vymazání obsahu tabulky</value>
+  </data>
+  <data name="UserEditMsg" xml:space="preserve">
+    <value>Uživatel "{0}" byl upraven.</value>
+  </data>
+  <data name="pswMatchMsg" xml:space="preserve">
+    <value>Hesla se shodují</value>
+  </data>
+  <data name="pswNotMatchMsg" xml:space="preserve">
+    <value>* Hesla se neshodují *</value>
+  </data>
+  <data name="signedOutMsg" xml:space="preserve">
+    <value>Odhlášen</value>
+  </data>
+  <data name="signedInUser" xml:space="preserve">
+    <value>Uživatel {0} se přihlásil.</value>
+  </data>
+  <data name="signedNotMsg" xml:space="preserve">
+    <value>Nepřihlášen</value>
+  </data>
+  <data name="signedOutUser" xml:space="preserve">
+    <value>Uživatel {0} se odhlásil.</value>
+  </data>
+  <data name="signedUnsuccessful" xml:space="preserve">
+    <value>Přihlášení uživatele {0} se nezdařilo.</value>
+  </data>
+  <data name="dgEndocrinology" xml:space="preserve">
+    <value>Endokrinologie</value>
+  </data>
+  <data name="dgMicrocirculation" xml:space="preserve">
+    <value>Mikrocirkulace</value>
+  </data>
+  <data name="dgCLesions" xml:space="preserve">
+    <value>Chronické léze</value>
+  </data>
+  <data name="dgCPain" xml:space="preserve">
+    <value>Chronická bolest (neonkogenní)</value>
+  </data>
+  <data name="dgDPNP" xml:space="preserve">
+    <value>Diabetická polyneuropatie</value>
+  </data>
+  <data name="dgEDis" xml:space="preserve">
+    <value>Poruchy erekce</value>
+  </data>
+  <data name="langChanged" xml:space="preserve">
+    <value>Jazyk byl změněn na {0}</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Stimsmart</value>
+  </data>
+  <data name="HICEditHdr" xml:space="preserve">
+    <value>Úpravy zdravotní pojišťovny</value>
+  </data>
+  <data name="HICEditMsg" xml:space="preserve">
+    <value>ZP "{0}" byla upravena.</value>
+  </data>
+  <data name="HICHdrCode" xml:space="preserve">
+    <value>Kód zdravotní pojišťovny</value>
+  </data>
+  <data name="HICHdrName" xml:space="preserve">
+    <value>Název zdravotní pojišťovny</value>
+  </data>
+  <data name="HICNewHdr" xml:space="preserve">
+    <value>Nová zdravotní pojišťovna</value>
+  </data>
+  <data name="HICNewMsg" xml:space="preserve">
+    <value>Byla založena nová ZP "{0}".</value>
+  </data>
+  <data name="PatHdrAddr" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="PatHdrBirthDate" xml:space="preserve">
+    <value>Datum narození</value>
+  </data>
+  <data name="PatHdrCity" xml:space="preserve">
+    <value>Město</value>
+  </data>
+  <data name="PatHdrCountry" xml:space="preserve">
+    <value>Stát</value>
+  </data>
+  <data name="PatHdrDg" xml:space="preserve">
+    <value>Diagnóza</value>
+  </data>
+  <data name="PatHdrFName" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
+  <data name="PatHdrHIC" xml:space="preserve">
+    <value>Zdravotní pojišťovna</value>
+  </data>
+  <data name="PatHdrLName" xml:space="preserve">
+    <value>Příjmení</value>
+  </data>
+  <data name="PatHdrMedRec" xml:space="preserve">
+    <value>Číslo chorobopisu</value>
+  </data>
+  <data name="PatHdrMName" xml:space="preserve">
+    <value>Prostřední jméno</value>
+  </data>
+  <data name="PatHdrNote" xml:space="preserve">
+    <value>Poznámky</value>
+  </data>
+  <data name="PatHdrPhone" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
+  <data name="PatHdrSex" xml:space="preserve">
+    <value>Pohlaví</value>
+  </data>
+  <data name="PatHdrZip" xml:space="preserve">
+    <value>PSČ</value>
+  </data>
+  <data name="PatSexFemale" xml:space="preserve">
+    <value>Žena</value>
+  </data>
+  <data name="PatSexMale" xml:space="preserve">
+    <value>Muž</value>
+  </data>
+  <data name="dgNotSelected" xml:space="preserve">
+    <value>Diagnóza nebyla vybrána</value>
+  </data>
+  <data name="PatEditHdr" xml:space="preserve">
+    <value>Úpravy údajů pacienta</value>
+  </data>
+  <data name="PatNewHdr" xml:space="preserve">
+    <value>Nový pacient</value>
+  </data>
+  <data name="PatNewMsg" xml:space="preserve">
+    <value>Byl založen nový pacient "{0}".</value>
+  </data>
+  <data name="PatEditMsg" xml:space="preserve">
+    <value>Pacient "{0}" byl upraven.</value>
+  </data>
+  <data name="PatHdrSomTyp" xml:space="preserve">
+    <value>Somatotyp</value>
+  </data>
+  <data name="PatSomTypHyperergic" xml:space="preserve">
+    <value>Hyperergický</value>
+  </data>
+  <data name="PatSomTypHypotype" xml:space="preserve">
+    <value>Hypotyp</value>
+  </data>
+  <data name="PatSomTypNormotype" xml:space="preserve">
+    <value>Normotyp</value>
+  </data>
+  <data name="chActive" xml:space="preserve">
+    <value>Připojte elektrody</value>
+  </data>
+  <data name="chDisconected" xml:space="preserve">
+    <value>Kanál odpojen</value>
+  </data>
+  <data name="chError" xml:space="preserve">
+    <value>Nastala chyba</value>
+  </data>
+  <data name="chInactive" xml:space="preserve">
+    <value>Kanál neaktivní</value>
+  </data>
+  <data name="chInProgress" xml:space="preserve">
+    <value>Procedura probíhá...</value>
+  </data>
+  <data name="chPaused" xml:space="preserve">
+    <value>Procedura je pozastavena</value>
+  </data>
+  <data name="chReady" xml:space="preserve">
+    <value>Kanál připraven</value>
+  </data>
+  <data name="chRestored" xml:space="preserve">
+    <value>Procedura je obnovena...</value>
+  </data>
+  <data name="patSelName" xml:space="preserve">
+    <value>Jméno</value>
+  </data>
+  <data name="patSelNumber" xml:space="preserve">
+    <value>Číslo</value>
+  </data>
+  <data name="patSelYrOfBirth" xml:space="preserve">
+    <value>Rok narození</value>
+  </data>
+  <data name="chSetCurrent" xml:space="preserve">
+    <value>Nastavte proud...</value>
+  </data>
+  <data name="procAbortH" xml:space="preserve">
+    <value>Předčasné ukončení procedury</value>
+  </data>
+  <data name="procAbortQ" xml:space="preserve">
+    <value>Skutečně chcete ukončit tuto proceduru předčasně?</value>
+  </data>
+  <data name="exitNo" xml:space="preserve">
+    <value>V tomto okamžiku nelze ukončit aplikaci.</value>
+  </data>
+  <data name="restartNo" xml:space="preserve">
+    <value>V tuto chvíli nelze přístroj restartovat.</value>
+  </data>
+  <data name="shutdownNo" xml:space="preserve">
+    <value>V tuto chvíli nelze přístroj vypnout.</value>
+  </data>
+  <data name="patDuplMsg" xml:space="preserve">
+    <value>Tento pacient je již připojen na jiný kanál.</value>
+  </data>
+  <data name="patDuplMsgH" xml:space="preserve">
+    <value>Pacient je již připojený</value>
+  </data>
+  <data name="testChError11" xml:space="preserve">
+    <value>Nezapnuly se všechny kanály: {0}</value>
+  </data>
+  <data name="testChError12" xml:space="preserve">
+    <value>Dioda kanálu {0} nesvítí červeně</value>
+  </data>
+  <data name="testChError13" xml:space="preserve">
+    <value>Dioda kanálu {0} nesvítí zeleně</value>
+  </data>
+  <data name="testChError14" xml:space="preserve">
+    <value>Dioda kanálu {0} nesvítí modře</value>
+  </data>
+  <data name="testChError2" xml:space="preserve">
+    <value>Nedostatečné napětí VN na kanálu {0}</value>
+  </data>
+  <data name="testChError31" xml:space="preserve">
+    <value>Odpojte náhlavní soupravu od kanálu {0}</value>
+  </data>
+  <data name="testChError32" xml:space="preserve">
+    <value>Příliš vysoká impedance na kanálu {0}</value>
+  </data>
+  <data name="testChError4" xml:space="preserve">
+    <value>Napětí při zátěži kanálu {0} neodpovídá toleranci ({1}). Útlumový koeficient = {2}</value>
+  </data>
+  <data name="testChError5" xml:space="preserve">
+    <value>Vyhodnocení limitace proudu na hodnotě 10 mA na kanálu {0}</value>
+  </data>
+  <data name="testChError6" xml:space="preserve">
+    <value>Pokles napětí VN při maximálním zatížení na kanálu {0}</value>
+  </data>
+  <data name="testChError7" xml:space="preserve">
+    <value>Vyhodnocení příliš vysoké impedance proudu na hodnotě 10 mA na kanálu {0}</value>
+  </data>
+  <data name="testChErrors" xml:space="preserve">
+    <value>Chyby během autotestu</value>
+  </data>
+</root>

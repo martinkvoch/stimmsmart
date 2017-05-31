@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F35BF695-60FC-490A-AE74-C050A9E1C14C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MDM</RootNamespace>
+    <AssemblyName>MDM</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.102.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\Channels.cs" />
+    <Compile Include="Classes\LANQueue.cs" />
+    <Compile Include="Controls\Channel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\Channel.Designer.cs">
+      <DependentUpon>Channel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\dbRestorePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\dbRestorePanel.Designer.cs">
+      <DependentUpon>dbRestorePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Database.cs" />
+    <Compile Include="Data\DBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Diagnosis.cs" />
+    <Compile Include="Data\EncryptionUtilities.cs" />
+    <Compile Include="Data\HIC.cs" />
+    <Compile Include="Data\Log.cs" />
+    <Compile Include="Controls\DBPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\DBPanel.Designer.cs">
+      <DependentUpon>DBPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MDMTable.cs" />
+    <Compile Include="Data\Patient.cs" />
+    <Compile Include="Data\Procedure.cs" />
+    <Compile Include="Data\User.cs" />
+    <Compile Include="DlgBox\DialogBox.cs" />
+    <Compile Include="DlgBox\wDialogBoxOK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgBox\wDialogBoxOK.Designer.cs">
+      <DependentUpon>wDialogBoxOK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgBox\wDialogBoxYN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgBox\wDialogBoxYN.Designer.cs">
+      <DependentUpon>wDialogBoxYN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\mainPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\mainPanel.Designer.cs">
+      <DependentUpon>mainPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MDMPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.cs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.cs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.ru.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ThreadHelper.cs" />
+    <Compile Include="Windows\wDiagnosis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\wDiagnosis.Designer.cs">
+      <DependentUpon>wDiagnosis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\wHIC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\wHIC.Designer.cs">
+      <DependentUpon>wHIC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\wLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\wLogin.Designer.cs">
+      <DependentUpon>wLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\wMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\wMain.Designer.cs">
+      <DependentUpon>wMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows\wPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\wPatient.Designer.cs">
+      <DependentUpon>wPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\wPatSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\wPatSelect.Designer.cs">
+      <DependentUpon>wPatSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\wSplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\wSplashScreen.Designer.cs">
+      <DependentUpon>wSplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\wUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\wUser.Designer.cs">
+      <DependentUpon>wUser.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Controls\Channel.cs.resx">
+      <DependentUpon>Channel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Channel.resx">
+      <DependentUpon>Channel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Channel.ru.resx">
+      <DependentUpon>Channel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DBPanel.cs.resx">
+      <DependentUpon>DBPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DBPanel.resx">
+      <DependentUpon>DBPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\DBPanel.ru.resx">
+      <DependentUpon>DBPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\dbRestorePanel.cs.resx">
+      <DependentUpon>dbRestorePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\dbRestorePanel.resx">
+      <DependentUpon>dbRestorePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\dbRestorePanel.ru.resx">
+      <DependentUpon>dbRestorePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgBox\wDialogBoxOK.cs.resx">
+      <DependentUpon>wDialogBoxOK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgBox\wDialogBoxOK.resx">
+      <DependentUpon>wDialogBoxOK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgBox\wDialogBoxOK.ru.resx">
+      <DependentUpon>wDialogBoxOK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgBox\wDialogBoxYN.cs.resx">
+      <DependentUpon>wDialogBoxYN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgBox\wDialogBoxYN.resx">
+      <DependentUpon>wDialogBoxYN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgBox\wDialogBoxYN.ru.resx">
+      <DependentUpon>wDialogBoxYN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\mainPanel.resx">
+      <DependentUpon>mainPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wDiagnosis.cs.resx">
+      <DependentUpon>wDiagnosis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wDiagnosis.resx">
+      <DependentUpon>wDiagnosis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wDiagnosis.ru.resx">
+      <DependentUpon>wDiagnosis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wHIC.cs.resx">
+      <DependentUpon>wHIC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wHIC.resx">
+      <DependentUpon>wHIC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wHIC.ru.resx">
+      <DependentUpon>wHIC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wLogin.cs.resx">
+      <DependentUpon>wLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wLogin.resx">
+      <DependentUpon>wLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wLogin.ru.resx">
+      <DependentUpon>wLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wMain.cs.resx">
+      <DependentUpon>wMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wMain.en.resx">
+      <DependentUpon>wMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wMain.resx">
+      <DependentUpon>wMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.cs.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.cs.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wMain.ru.resx">
+      <DependentUpon>wMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wPatient.cs.resx">
+      <DependentUpon>wPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wPatient.resx">
+      <DependentUpon>wPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wPatient.ru.resx">
+      <DependentUpon>wPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wPatSelect.cs.resx">
+      <DependentUpon>wPatSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wPatSelect.resx">
+      <DependentUpon>wPatSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wPatSelect.ru.resx">
+      <DependentUpon>wPatSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wSplashScreen.cs.resx">
+      <DependentUpon>wSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wSplashScreen.en.resx">
+      <DependentUpon>wSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wSplashScreen.resx">
+      <DependentUpon>wSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wSplashScreen.ru.resx">
+      <DependentUpon>wSplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wUser.cs.resx">
+      <DependentUpon>wUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wUser.resx">
+      <DependentUpon>wUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wUser.ru.resx">
+      <DependentUpon>wUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Data\DBDataSet.xsc">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Data\DBDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Data\DBDataSet.xss">
+      <DependentUpon>DBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="WorkSheet.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_ZAT.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\en.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ru.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dbbackup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dbrestore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backuprestore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backupdelete.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backupmakenew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libs\Ionic.Zip.Reduced.dll" />
+    <Content Include="Resources\deluser.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\pause.png" />
+    <None Include="Resources\start.png" />
+    <None Include="Resources\hic.png" />
+    <None Include="Resources\pswempty.png" />
+    <None Include="Resources\undeleteuser.png" />
+    <None Include="Resources\userlist.png" />
+    <None Include="Resources\erase1.png" />
+    <None Include="Resources\dbcompact.png" />
+    <None Include="Resources\dbnew.png" />
+    <None Include="Resources\log.png" />
+    <None Include="Resources\question.png" />
+    <None Include="Resources\no.png" />
+    <None Include="Resources\yes.png" />
+    <None Include="Resources\switchoff.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\login.png" />
+    <None Include="Resources\clear.png" />
+    <None Include="Resources\savedatabase.png" />
+    <None Include="Resources\userdelete.png" />
+    <None Include="Resources\useredit.png" />
+    <None Include="Resources\useradd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LANlib\LANlib.csproj">
+      <Project>{6d439893-be96-446b-99f8-0bb002a0b5ab}</Project>
+      <Name>LANlib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

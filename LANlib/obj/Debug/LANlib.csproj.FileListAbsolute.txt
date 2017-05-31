@@ -1,0 +1,10 @@
+C:\Martin\Projekty\ZAT\MDM\LANlib\bin\Debug\LANlib.dll
+C:\Martin\Projekty\ZAT\MDM\LANlib\bin\Debug\LANlib.pdb
+C:\Martin\Projekty\ZAT\MDM\LANlib\obj\Debug\LANlib.dll
+C:\Martin\Projekty\ZAT\MDM\LANlib\obj\Debug\LANlib.pdb
+C:\Martin\ZAT\MDM\LANlib\bin\Debug\LANlib.dll
+C:\Martin\ZAT\MDM\LANlib\bin\Debug\LANlib.pdb
+C:\Martin\ZAT\MDM\LANlib\obj\Debug\LANlib.dll
+C:\Martin\ZAT\MDM\LANlib\obj\Debug\LANlib.pdb
+C:\Martin\ZAT\MDM\LANlib\obj\Debug\LANlib.csprojResolveAssemblyReference.cache
+C:\Martin\Projekty\ZAT\MDM\LANlib\obj\Debug\LANlib.csprojResolveAssemblyReference.cache

@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="tbAbout.Text" xml:space="preserve">
+    <value>O приложении</value>
+  </data>
+  <data name="tbAbout.ToolTipText" xml:space="preserve">
+    <value>O приложении</value>
+  </data>
+  <data name="tbShutdown.Text" xml:space="preserve">
+    <value>Oтключение</value>
+  </data>
+  <data name="tbShutdown.ToolTipText" xml:space="preserve">
+    <value>Oтключение</value>
+  </data>
+  <data name="tbRestart.Text" xml:space="preserve">
+    <value>Перезапуск</value>
+  </data>
+  <data name="tbRestart.ToolTipText" xml:space="preserve">
+    <value>Перезапуск</value>
+  </data>
+  <data name="tbExit.Text" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="tbExit.ToolTipText" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="tbLogin.Text" xml:space="preserve">
+    <value>Вход в программу</value>
+  </data>
+  <data name="tbLogin.ToolTipText" xml:space="preserve">
+    <value>Вход в программу</value>
+  </data>
+  <data name="tbLogout.Text" xml:space="preserve">
+    <value>Из программы</value>
+  </data>
+  <data name="tbLogout.ToolTipText" xml:space="preserve">
+    <value>Из программы</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="miAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="miAbout.Text" xml:space="preserve">
+    <value>O приложении</value>
+  </data>
+  <data name="miAbout.ToolTipText" xml:space="preserve">
+    <value>Отображает информацию о приложении</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>144, 6</value>
+  </data>
+  <data name="miExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="miExit.Text" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="miExit.ToolTipText" xml:space="preserve">
+    <value>Завершает работу приложения</value>
+  </data>
+  <data name="miRestart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="miRestart.Text" xml:space="preserve">
+    <value>Перезапуск</value>
+  </data>
+  <data name="miRestart.ToolTipText" xml:space="preserve">
+    <value>Закрывает и перезапускает приложение и устройство</value>
+  </data>
+  <data name="miSwitchOff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 22</value>
+  </data>
+  <data name="miSwitchOff.Text" xml:space="preserve">
+    <value>Oтключение</value>
+  </data>
+  <data name="miSwitchOff.ToolTipText" xml:space="preserve">
+    <value>Выход из приложения, и устройство выключается</value>
+  </data>
+  <data name="miFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 20</value>
+  </data>
+  <data name="miFile.Text" xml:space="preserve">
+    <value>Файл</value>
+  </data>
+  <data name="miUserList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="miUserList.Text" xml:space="preserve">
+    <value>Список пользователей...</value>
+  </data>
+  <data name="miUserList.ToolTipText" xml:space="preserve">
+    <value>Открывает панель со списком пользователей</value>
+  </data>
+  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 6</value>
+  </data>
+  <data name="miLogIn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="miLogIn.Text" xml:space="preserve">
+    <value>Вход в программу</value>
+  </data>
+  <data name="miLogIn.ToolTipText" xml:space="preserve">
+    <value>Регистрирует пользователя к приложению</value>
+  </data>
+  <data name="miLogOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="miLogOut.Text" xml:space="preserve">
+    <value>Выход из программы</value>
+  </data>
+  <data name="miLogOut.ToolTipText" xml:space="preserve">
+    <value>Выход из пользовательского приложения</value>
+  </data>
+  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 6</value>
+  </data>
+  <data name="miNewUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="miNewUser.Text" xml:space="preserve">
+    <value>Hовый</value>
+  </data>
+  <data name="miNewUser.ToolTipText" xml:space="preserve">
+    <value>Добавляет нового пользователя</value>
+  </data>
+  <data name="miEditUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="miEditUser.Text" xml:space="preserve">
+    <value>Pедактировать</value>
+  </data>
+  <data name="miEditUser.ToolTipText" xml:space="preserve">
+    <value>Bнести изменения в записи пользователя</value>
+  </data>
+  <data name="toolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 6</value>
+  </data>
+  <data name="miDeleteUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="miDeleteUser.Text" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="miDeleteUser.ToolTipText" xml:space="preserve">
+    <value>Отмечает пользователя для удаления</value>
+  </data>
+  <data name="miUndeleteUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="miUndeleteUser.Text" xml:space="preserve">
+    <value>Отменить удаление...</value>
+  </data>
+  <data name="miUndeleteUser.ToolTipText" xml:space="preserve">
+    <value>Отменяет флаг удаления пользователей</value>
+  </data>
+  <data name="miWipeUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="miWipeUser.Text" xml:space="preserve">
+    <value>Bытирать</value>
+  </data>
+  <data name="miWipeUser.ToolTipText" xml:space="preserve">
+    <value>Физическое удаление пользователя</value>
+  </data>
+  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 6</value>
+  </data>
+  <data name="miPurgeUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="miPurgeUser.Text" xml:space="preserve">
+    <value>Oчищать</value>
+  </data>
+  <data name="miPurgeUser.ToolTipText" xml:space="preserve">
+    <value>Очищает таблицу пользователей из записей помеченных для удаления</value>
+  </data>
+  <data name="miTruncateUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="miTruncateUser.Text" xml:space="preserve">
+    <value>Усекать</value>
+  </data>
+  <data name="miTruncateUser.ToolTipText" xml:space="preserve">
+    <value>Полностью удаляет все записи в таблице пользователей</value>
+  </data>
+  <data name="miUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 20</value>
+  </data>
+  <data name="miUser.Text" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 6</value>
+  </data>
+  <data name="miPatientList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 22</value>
+  </data>
+  <data name="miPatientList.Text" xml:space="preserve">
+    <value>Список пациентов ...</value>
+  </data>
+  <data name="miPatientList.ToolTipText" xml:space="preserve">
+    <value>Открывает панель со спискaми пациентов</value>
+  </data>
+  <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 6</value>
+  </data>
+  <data name="miNewPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 22</value>
+  </data>
+  <data name="miNewPatient.Text" xml:space="preserve">
+    <value>Hовый</value>
+  </data>
+  <data name="miNewPatient.ToolTipText" xml:space="preserve">
+    <value>Создает нового пациента</value>
+  </data>
+  <data name="miEditPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 22</value>
+  </data>
+  <data name="miEditPatient.Text" xml:space="preserve">
+    <value>Pедактировать</value>
+  </data>
+  <data name="miEditPatient.ToolTipText" xml:space="preserve">
+    <value>Bнести изменения в записи пациента</value>
+  </data>
+  <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 6</value>
+  </data>
+  <data name="miDeletePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 22</value>
+  </data>
+  <data name="miDeletePatient.Text" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="miDeletePatient.ToolTipText" xml:space="preserve">
+    <value>Отмечает пациента для удаления</value>
+  </data>
+  <data name="miUndeletePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 22</value>
+  </data>
+  <data name="miUndeletePatient.Text" xml:space="preserve">
+    <value>Отменить удаление...</value>
+  </data>
+  <data name="miUndeletePatient.ToolTipText" xml:space="preserve">
+    <value>Отменяет удаляемый флаг пациентов</value>
+  </data>
+  <data name="miWipePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 22</value>
+  </data>
+  <data name="miWipePatient.Text" xml:space="preserve">
+    <value>Bытирать</value>
+  </data>
+  <data name="miWipePatient.ToolTipText" xml:space="preserve">
+    <value>Физически удаляет запись пациента</value>
+  </data>
+  <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 6</value>
+  </data>
+  <data name="miPurgePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 22</value>
+  </data>
+  <data name="miPurgePatient.Text" xml:space="preserve">
+    <value>Oчищать</value>
+  </data>
+  <data name="miPurgePatient.ToolTipText" xml:space="preserve">
+    <value>Очищает таблицу пациентов из записей, отмеченных для удаления</value>
+  </data>
+  <data name="miTruncatePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 22</value>
+  </data>
+  <data name="miTruncatePatient.Text" xml:space="preserve">
+    <value>Усекать</value>
+  </data>
+  <data name="miTruncatePatient.ToolTipText" xml:space="preserve">
+    <value>Полностью очищает таблицу пациентов</value>
+  </data>
+  <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 6</value>
+  </data>
+  <data name="miHIC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 22</value>
+  </data>
+  <data name="miHIC.Text" xml:space="preserve">
+    <value>Медицинские страховые компании</value>
+  </data>
+  <data name="miHIC.ToolTipText" xml:space="preserve">
+    <value>Открывает панель со списком медицинских страховых компаний и позволяет вносить изменения</value>
+  </data>
+  <data name="miPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 20</value>
+  </data>
+  <data name="miPatient.Text" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="miBackupDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 22</value>
+  </data>
+  <data name="miBackupDatabase.Text" xml:space="preserve">
+    <value>Резервное копирование базы данных</value>
+  </data>
+  <data name="miBackupDatabase.ToolTipText" xml:space="preserve">
+    <value>Делает резервную копию текущей базы данных</value>
+  </data>
+  <data name="miRestoreDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>266, 22</value>
+  </data>
+  <data name="miRestoreDatabase.Text" xml:space="preserve">
+    <value>Восстановление базы данных...</value>
+  </data>
+  <data name="miRestoreDatabase.ToolTipText" xml:space="preserve">
+    <value>Восстанавливает базу данных из резервной копии</value>
+  </data>
+  <data name="miSystem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
+  <data name="miSystem.Text" xml:space="preserve">
+    <value>Cистема</value>
+  </data>
+  <data name="miLog.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAA5xJREFUOE9l
+        kmtMU2ccxt9kWz+JuyTLvGy4T8tCQtyyKYk5uI1tTJyAIAmhm9Mt0U03nRuHgyPRXSI1RETEDehcFUVY
+        hxSqgWYIKDoQqG1RagU6Si9Ie27taUtZ1izh2XuafTDZSX45/+TN83vz5vkT9fuyNIPUHXxV01SxYUUz
+        tyFNz72e9vN/ND/C2SomzfDd1hUnynMeB5DKktvte4lFv/Olm+2Hvh3tOtI01n20aVSl6/8Md1Q23Wzd
+        19hv+KS89Xjp85bGjwmZ7vmCDBh27XNca1j0T40h4LYt+9z2Ze+MLYU6+92O5cDsxLLHNYypcROclvr4
+        rPnMD3/3mVaSh337ycAvOysmh84npVAIkihBoPC8AF4QINJZlsOIRJTU7J2bg9f2BxaHr4wnzc2ZxG/Z
+        Q/r0WvbujXNJKRiEpAYpISoLBkOpWRRlhGUJkmcQrlEjRm5c+2fowmn9+LHPnyXurt3E0ljKTjwqEEQq
+        4FMIAg0KISgeMyJ9ufizqwy3r19dqq1muedWPaUhk52lpOfHEnbiuiqgT6BhNcTzYgqRn0dkpg3h3mz4
+        2hn47hjhmrQn6o9z3Lq1VGBvKyFXThelBGF6e1iSIckyRPUvzEOZOgv5ahZ8xrfhn+iFJEmYfuBMnNJV
+        cC+uoYLxc/mku66QdQyqApEKwpDDCmTBi6izHqJpPbydRQhOj9AwPZMjmJm6TwUsl756pYaM6POJqXYb
+        a6cChdoVGlakOcTu6SBezoTPvAu8x4ZoLJ4Ky2FV4ErUVVdw6auoYOjMFtJRk8faBwzJKK0rLrgRd1SB
+        N2bA27MfYmAasdgilGic1qs+L4LpqQeJOl0l98LqJzWk71QOMepyWVu/IRlbmER87CCC7Rnw9x+FHPIh
+        Fl+CotDbw1HaCq2Xl+C670zUVldy6Wuf1pDBhvfIr6rg98akYqtH0JiF+VsnEJWDSCSWEI8v0iWKphZJ
+        3Qu1Iec9x1LN919x69ZQwYWaPaT12NYDQy2H/3Jc+hp3e08i4J3FAt2JhYWHCATm4fcFMDfnhcczi4Df
+        i1sD5kTVIS2buf4VDTnw6UdEV16QdbKi2PzTN9vunG84bO3ubLOaTZTOS5RWa/fli1bTby1Wc0eL1dTW
+        bK05stdS8v6mgvzSzx4jhfl5ZHvBlie0xW++/GERw3xQ9Aaj3ZFLeZcp2/EOoy3OYbRFbzFl2zczZYUM
+        U1awKTsvZ+Nr2dmbnwFA/gXWRrZx9GwqXAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="miLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="miLog.Text" xml:space="preserve">
+    <value>Журнал</value>
+  </data>
+  <data name="miLog.ToolTipText" xml:space="preserve">
+    <value>Функции администрирования журналa</value>
+  </data>
+  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 6</value>
+  </data>
+  <data name="miNewDatabase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAnlJREFUOE91
+        U0lPU1EY7d4NQ4FEdybGtTH+Adb+A0JEl2zUhERXUqpGwixVQghQwJTUYk0L2sFg0kJbRqGYtq8TdmBo
+        m0LCQuMA5Pidh3mBJt7ke/lyvnPOu/fc93QAdFxXnn+61WD0WGs7PD+q292oanddKGKckUMuNaqWj8vP
+        vA+v93xGmysK85c8FrIH8GfKF4oYZ+SQS41moO/wwLaVl8rBspnFm40MpiqKGGfkkEuNZlAtW0z+BuZ3
+        v2NGKcEczsO8WVGCcUYOudRoBjUGN/oXFNiTZYQOjhH9A0SEFPn1r6QnFjw8xrtEGb3+GKjRDLidPr8i
+        AwWmQBKjK2lYNrKYTRThiO6pPTHTYgLdPgU9vtjFI9QZvXgZiGMwmMTw8jYm1jN4u7WDWWUfc/Gi2hMb
+        XkpjQF7Qv6igXjSagb7N8qGx04mWCT8M7i2MrX6DPbIHV7IId6qk9mOraTxxhXHH7EfjCyeo0QxqHs/Y
+        Y3JW01IO9+1hNI0H0Ty5hBbLCu5Z1tS+aTyABzIbDOVALjWaQa3Box7BuX2ItaMTpE6BxAkQPz4r9sRW
+        j07hSB2qgVOjGTAQBqiGKDmMrmxjeiOHOTmCU0Kc3sypmClwFmJ3ZYh6owcDC3EMLMYxJEGZJTBreAeO
+        2L4EWYBVQiQ2FEqhT3h8UZ1oNIOGp171bodCSYzIm6bk2ma+7soNFPAxUYJNemIjy2m8kh12+aKgRjOo
+        b33de61rHndta+j0xfE+sgO3fAM+/gfyD7gSBRXrlO232NZBLjWagayGqtutzfWPrN46g/snv7LzfyR7
+        YpyRQy415w24LkldlbohdfM/xRk55IoWur835syHjSUlhAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="miNewDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="miNewDatabase.Text" xml:space="preserve">
+    <value>Новая база данных</value>
+  </data>
+  <data name="miNewDatabase.ToolTipText" xml:space="preserve">
+    <value>Создает новую базу данных поверх старой</value>
+  </data>
+  <data name="miCompactDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="miAdministration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 20</value>
+  </data>
+  <data name="miAdministration.Text" xml:space="preserve">
+    <value>Aдминистрация</value>
+  </data>
+  <data name="miClearLogInformation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="miClearLogInformation.Text" xml:space="preserve">
+    <value>Информации</value>
+  </data>
+  <data name="miClearLogInformation.ToolTipText" xml:space="preserve">
+    <value>Стирание записей информации</value>
+  </data>
+  <data name="miClearLogWarning.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="miClearLogWarning.Text" xml:space="preserve">
+    <value>Предупреждения</value>
+  </data>
+  <data name="miClearLogWarning.ToolTipText" xml:space="preserve">
+    <value>Стирает предупредительные записи</value>
+  </data>
+  <data name="miClearLogError.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="miClearLogError.Text" xml:space="preserve">
+    <value>Oшибки</value>
+  </data>
+  <data name="miClearLogError.ToolTipText" xml:space="preserve">
+    <value>Стирает записи об ошибках</value>
+  </data>
+  <data name="miClearLogSelection.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="miClearLogSelection.Text" xml:space="preserve">
+    <value>Bыбор</value>
+  </data>
+  <data name="miClearLogSelection.ToolTipText" xml:space="preserve">
+    <value>Стирает выбранныe записи</value>
+  </data>
+  <data name="miClearLogAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="miClearLogAll.Text" xml:space="preserve">
+    <value>Все</value>
+  </data>
+  <data name="miClearLogAll.ToolTipText" xml:space="preserve">
+    <value>Стирает все записи</value>
+  </data>
+  <data name="miClear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 22</value>
+  </data>
+  <data name="miClear.Text" xml:space="preserve">
+    <value>Cтирать</value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 6</value>
+  </data>
+  <data name="miClosePanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 22</value>
+  </data>
+  <data name="miClosePanel.Text" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="miClosePanel.ToolTipText" xml:space="preserve">
+    <value>Закрывает открытую панель</value>
+  </data>
+  <data name="miTheLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 20</value>
+  </data>
+  <data name="miTheLog.Text" xml:space="preserve">
+    <value>Журнал</value>
+  </data>
+  <data name="miLang.ToolTipText" xml:space="preserve">
+    <value>По-русски</value>
+  </data>
+  <data name="restoreFromThisBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 22</value>
+  </data>
+  <data name="restoreFromThisBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Восстановление из этой резервной копии</value>
+  </data>
+  <data name="restoreFromThisBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Восстанавливает базу данных из текущей резервной копии</value>
+  </data>
+  <data name="makeNewBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 22</value>
+  </data>
+  <data name="makeNewBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Сделать новую резервную копию</value>
+  </data>
+  <data name="makeNewBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Создает новую резервную копию</value>
+  </data>
+  <data name="deleteBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 22</value>
+  </data>
+  <data name="deleteBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Удалить резервную копию</value>
+  </data>
+  <data name="deleteBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Удаляет текущую резервную копию</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>282, 6</value>
+  </data>
+  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 22</value>
+  </data>
+  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Закрывает панель восстановления</value>
+  </data>
+  <data name="miDBRestore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 20</value>
+  </data>
+  <data name="miDBRestore.Text" xml:space="preserve">
+    <value>Восстановление</value>
+  </data>
+</root>
