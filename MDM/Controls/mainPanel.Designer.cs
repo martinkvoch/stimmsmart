@@ -37,7 +37,6 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.Name = "mainPanel";
             this.Size = new System.Drawing.Size(150, 287);
-            this.EnabledChanged += new System.EventHandler(this.mainPanel_EnabledChanged);
             this.ResumeLayout(false);
 
         }

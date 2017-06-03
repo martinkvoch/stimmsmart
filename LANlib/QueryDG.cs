@@ -69,15 +69,14 @@ namespace LANlib
         }
         #endregion
 
-        public QueryDG(byte pckNum = 0, byte addr = 0, QueryCmd cmd = QueryCmd.CmdWr, byte led = 0/*, bool reset = false, bool off = false*/, ModbusHolding modbus = null)
+        public QueryDG(byte pckNum = 0, byte addr = 0, QueryCmd cmd = QueryCmd.CmdWr, byte led = 0, ModbusHolding modbus = null)
         {
             PacketNum = pckNum;
             Address = addr;// Math.Max((byte)0, Math.Min(addr, NOC));
             Command = cmd;
-            Bits dio = new Bits((byte)(led & Helper.BDioLedMask));
-            //dio[DioReg.Reset] = reset;
-            //dio[DioReg.OnOff] = off;
-            DioWR = dio.ByteValue;
+            //Bits dio = new Bits(led);
+            //DioWR = dio.ByteValue;
+            DioWR = led;
             modbusR = modbus ?? new ModbusHolding();
         }
 

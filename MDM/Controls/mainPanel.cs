@@ -21,11 +21,5 @@ namespace MDM.Controls
             Channels = new Channels(this);
             Channels.On(Program.ChErrors);
         }
-
-        private void mainPanel_EnabledChanged(object sender, EventArgs e)
-        {
-            Channels.Enabled = Enabled;
-            if(Enabled) Channels.Deactivation(); else Channels.Reset();
-        }
     }
 }

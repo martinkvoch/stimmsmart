@@ -21,12 +21,33 @@ namespace LANlib
         public static ResponseDG Lan(byte dio)
         {
             QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), led: dio);
-            ResponseDG res = ChRd(0);
+            ResponseDG res = LAN.MasterCmd(q);
 
-            res = LAN.MasterCmd(q);
             return res;
         }
 
+        public static void LanChOnOff(byte chnum, bool on = true)
+        {
+            byte dio;
+            Bits chDio;
+            ResponseDG res = ChRd(chnum);
+
+            dio = res.DioRD;
+            chDio = new LANlib.Bits(dio);
+            chDio[chnum - 1] = on;
+            Lan(dio);
+        }
+
+        public static void LanRd()
+        {
+            ChRd(0);
+        }
+
+        /// <summary>
+        /// Čtení MODBUS kanálu
+        /// </summary>
+        /// <param name="chnum">číslo kanálu</param>
+        /// <returns></returns>
         public static ResponseDG ChRd(byte chnum)
         {
             QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), chnum);
@@ -37,38 +58,38 @@ namespace LANlib
             return res;
         }
 
-        private static ResponseDG chOnOff(byte chnum, bool onoff = true)
-        {
-            QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF));
-            ResponseDG res = ChRd(0);
-            Bits diowr = new Bits(res.DioRD);
+        //private static ResponseDG chOnOff(byte chnum, bool onoff = true)
+        //{
+        //    QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF));
+        //    ResponseDG res = ChRd(chnum);
+        //    Bits diowr = new Bits(res.DioRD);
 
-            diowr[chnum - 1] = onoff;
-            q.DioWR = diowr.ByteValue;
-            res = LAN.MasterCmd(q);
-            return res;
-        }
+        //    diowr[DioReg.LedBlink] = onoff;
+        //    q.DioWR = diowr.ByteValue;
+        //    res = LAN.MasterCmd(q);
+        //    return res;
+        //}
 
-        public static ResponseDG ChOn(byte chnum) { return chOnOff(chnum, true); }
+        //public static ResponseDG ChOn(byte chnum) { return chOnOff(chnum, true); }
 
-        public static ResponseDG ChOff(byte chnum) { return chOnOff(chnum, false); }
+        //public static ResponseDG ChOff(byte chnum) { return chOnOff(chnum, false); }
 
-        public static ResponseDG ChRst(byte chnum)
-        {
-            QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), chnum);
-            ResponseDG res = ChRd(chnum);
-            Bits diowr = new Bits(Helper.DioLedGreen);
+        //public static ResponseDG ChRst(byte chnum)
+        //{
+        //    QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), chnum);
+        //    ResponseDG res = ChRd(chnum);
+        //    Bits diowr = new Bits(Helper.DioLedGreen);
 
-            q.DioWR = res.DioRD;
-            q.HoldingR = res.InputR.Verified;
-            //diowr[DioReg.OnOff] = false;
-            //diowr[DioReg.Reset] = true;
-            q.DioWR = diowr.ByteValue;
-            res = LAN.MasterCmd(q);
-            return res;
-        }
+        //    q.DioWR = res.DioRD;
+        //    q.HoldingR = res.InputR.Verified;
+        //    //diowr[DioReg.OnOff] = false;
+        //    //diowr[DioReg.Reset] = true;
+        //    q.DioWR = diowr.ByteValue;
+        //    res = LAN.MasterCmd(q);
+        //    return res;
+        //}
 
-        public static ResponseDG ChDio(byte chnum, byte dio/*, bool rst = false, bool onoff = false*/)
+        public static ResponseDG ChDio(byte chnum, byte dio)
         {
             QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), chnum, led: dio);
             ResponseDG res = ChRd(chnum);

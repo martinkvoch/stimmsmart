@@ -13,6 +13,7 @@ using LANlib;
 using System;
 using MDM.Data;
 using MDM.DlgBox;
+using System.Reflection;
 
 namespace MDM.Classes
 {
@@ -27,6 +28,7 @@ namespace MDM.Classes
         private List<Channel> channels = new List<Channel>();
         private LANQueue<QueryDG> queue = new LANQueue<QueryDG>();
         private BackgroundWorker qWorker = new BackgroundWorker();
+        private BackgroundWorker rWorker = new BackgroundWorker();
 
         #region bool Enabled
         private bool enabled = true;
@@ -41,7 +43,7 @@ namespace MDM.Classes
                 if(enabled != value)
                 {
                     enabled = value;
-                    channels.ForEach(ch => ch.ChannelEnabled = enabled);
+                    channels.ForEach(ch => { if(ch.Status != ChannelStatus.Error) ch.ChannelEnabled = enabled; });
                     //foreach(Channel ch in channels) ch.ChannelEnabled = enabled;
                 }
             }
@@ -75,12 +77,15 @@ namespace MDM.Classes
             int screenWidth = (int)SystemParameters.PrimaryScreenWidth;
 
             LAN.SlaveIP = new Settings().LanIP;
+            qWorker.WorkerSupportsCancellation = true;
+            rWorker.WorkerSupportsCancellation = true;
             qWorker.DoWork += QWorker_DoWork;
+            rWorker.DoWork += RWorker_DoWork;
+            rWorker.RunWorkerAsync();
             for(byte ch = noc; ch > 0; ch--)
             {
-                Channel chnl = new Channel(ch);
+                Channel chnl = new Channel(ch, this);
 
-                chnl.Channels = this;
                 chnl.Width = screenWidth / noc;
                 chnl.Dock = DockStyle.Left;
                 chnl.Enabled = chnl.IsConnected();
@@ -90,6 +95,16 @@ namespace MDM.Classes
             Enabled = false;
         }
 
+        private void RWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while(!rWorker.CancellationPending)
+            {
+                LANFunc.LanRd();
+                Thread.Sleep(1000);
+            }
+            e.Cancel = true;
+        }
+
         /// <summary>
         /// Obsluhuje frontu požadavků na LAN
         /// </summary>
@@ -97,7 +112,7 @@ namespace MDM.Classes
         /// <param name="e">parametry události</param>
         private void QWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            do
+            while(true)
             {
                 if(queue.Count > 0)
                 {
@@ -115,74 +130,104 @@ namespace MDM.Classes
                     }
                 }
                 Thread.Sleep(1);
-            } while(true);
+            }
         }
         #endregion
 
         #region Autotest()
         public static bool[] Autotest()
         {
+            const string methodFmt = "{0}.{1}()";
             ResponseDG resp;
+            string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
             string protocol = string.Empty;
             Bits led = new Bits();
+            byte ledErr;
             bool[] chErrors = new bool[noc];
+            Thread lanr = new Thread(() =>
+            {
+                while(true)
+                {
+                    LANFunc.LanRd();
+                    Thread.Sleep(1000);
+                }
+            });
 
+            lanr.IsBackground = true;
+            lanr.SetApartmentState(ApartmentState.STA);
+            lanr.Start();
+            led[DioReg.LedR] = true;
+            led[DioReg.LedNBlink] = true;
+            ledErr = led.ByteValue;
+            led = new Bits();
             LANFunc.Lan(0);
             // 0. postupné zapnutí všech kanálů
-            for(int i = 0; i < noc; i++)
+            for(byte b = 1; b <= noc; b++)
             {
-                led[i] = true;
+                led[b - 1] = true;
                 LANFunc.Lan(led.ByteValue);
                 Thread.Sleep(100);
             }
             resp = LANFunc.ChRd(0);
-            if(resp.DioRD != led.ByteValue) protocol += string.Format(Resources.testChError12 + Environment.NewLine, led);
+            if(resp.DioRD != led.ByteValue) protocol += string.Format(Resources.testChError11 + Environment.NewLine, led);
             // 1. test LED
-            led = new Bits(d0: true);
-            for(byte b = 0; b < noc; b++) LANFunc.ChDio(b, led.ByteValue);
+            led = new Bits();
+            for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
             Thread.Sleep(1000);
-            for(byte b = 0; b < noc; b++)
+            led[DioReg.LedR] = true;
+            led[DioReg.LedNBlink] = true;
+            for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
+            Thread.Sleep(1000);
+            for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
                 if(resp.DioRD != led.ByteValue) protocol += string.Format(Resources.testChError12 + Environment.NewLine, b);
             }
             led = new Bits();
-            for(byte b = 0; b < noc; b++) LANFunc.ChDio(b, led.ByteValue);
+            for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
             Thread.Sleep(1000);
-            led = new Bits(d1: true);
-            for(byte b = 0; b < noc; b++) LANFunc.ChDio(b, led.ByteValue);
+            led = new Bits();
+            led[DioReg.LedG] = true;
+            led[DioReg.LedNBlink] = true;
+            for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
             Thread.Sleep(1000);
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
                 if(resp.DioRD != led.ByteValue) protocol += string.Format(Resources.testChError13 + Environment.NewLine, b);
             }
             led = new Bits();
-            for(byte b = 0; b < noc; b++) LANFunc.ChDio(b, led.ByteValue);
+            for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
             Thread.Sleep(1000);
-            led = new Bits(d2: true);
-            for(byte b = 0; b < noc; b++) LANFunc.ChDio(b, led.ByteValue);
+            led = new Bits();
+            led[DioReg.LedB] = true;
+            led[DioReg.LedNBlink] = true;
+            for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
             Thread.Sleep(1000);
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
                 if(resp.DioRD != led.ByteValue) protocol += string.Format(Resources.testChError14 + Environment.NewLine, b);
             }
             led = new Bits();
-            for(byte b = 0; b < noc; b++) LANFunc.ChDio(b, led.ByteValue);
+            for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
             Thread.Sleep(1000);
             // 2. test přítomnosti napájecího napětí VN (+85V)
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
                 if(resp.InputR.AIN2 < 850)
                 {
                     protocol += string.Format(Resources.testChError2 + Environment.NewLine, b);
-                    chErrors[b] = true;
+                    chErrors[b - 1] = true;
+                    led = new Bits();
+                    led[DioReg.LedR] = true;
+                    led[DioReg.LedNBlink] = true;
+                    LANFunc.ChDio(b, led.ByteValue);
                 }
             }
             // 3. ověření, že na výstupu není nic připojeno
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
                 ResponseDG res = LANFunc.ChRd(b);
@@ -191,26 +236,44 @@ namespace MDM.Classes
                 q.HoldingR = res.InputR.Verified;
                 q.HoldingR.DAC = 32768;
                 q.HoldingR.DOUT = new Bits(d1: true);
+                res = LAN.MasterCmd(q);
+            }
+            Thread.Sleep(300);
+            for(byte b = 1; b <= noc; b++)
+            {
+                QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
+                ResponseDG res = LANFunc.ChRd(b);
+
+                q.DioWR = res.DioRD;
+                q.HoldingR = res.InputR.Verified;
                 q.HoldingR.AttenCoef = 16;
                 res = LAN.MasterCmd(q);
             }
             Thread.Sleep(300);
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
                 if(resp.InputR.AIN1 > 10)
                 {
                     protocol += string.Format(Resources.testChError31 + Environment.NewLine, b);
-                    chErrors[b] = true;
+                    chErrors[b - 1] = true;
+                    led = new Bits();
+                    led[DioReg.LedR] = true;
+                    led[DioReg.LedNBlink] = true;
+                    LANFunc.ChDio(b, led.ByteValue);
                 }
-                if(resp.InputR.Status[1])
+                if(!resp.InputR.Status[1])
                 {
                     protocol += string.Format(Resources.testChError32 + Environment.NewLine, b);
-                    chErrors[b] = true;
+                    chErrors[b - 1] = true;
+                    led = new Bits();
+                    led[DioReg.LedR] = true;
+                    led[DioReg.LedNBlink] = true;
+                    LANFunc.ChDio(b, led.ByteValue);
                 }
             }
             // 4. test zpětné proudové vazby + měření napětí na zátěži
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
                 ResponseDG res = LANFunc.ChRd(b);
@@ -222,35 +285,50 @@ namespace MDM.Classes
                 q.HoldingR.AttenCoef = 0;
                 res = LAN.MasterCmd(q);
             }
-            Thread.Sleep(300);
-            for(byte b = 0; b < noc; b++)
+            Thread.Sleep(500);
+            for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
                 if(Math.Abs(resp.InputR.AIN2 - resp.InputR.AIN1) > 2)
                 {
                     protocol += string.Format(Resources.testChError4 + Environment.NewLine, b, resp.InputR.AIN2 - resp.InputR.AIN1, resp.InputR.Holding.AttenCoef);
-                    chErrors[b] = true;
+                    chErrors[b - 1] = true;
+                    led = new Bits();
+                    led[DioReg.LedR] = true;
+                    led[DioReg.LedNBlink] = true;
+                    LANFunc.ChDio(b, led.ByteValue);
                 }
             }
-            byte uk = 32;
+            byte uk = 32, dif = 25;
             do
             {
-                for(byte b = 0; b < noc; b++) LANFunc.ChAcf(b, uk);
-                Thread.Sleep(300);
-                for(byte b = 0; b < noc; b++)
+                for(byte b = 1; b <= noc; b++) LANFunc.ChAcf(b, uk);
+                Thread.Sleep(500);
+                for(byte b = 1; b <= noc; b++)
                 {
+                    int res;
+
                     resp = LANFunc.ChRd(b);
-                    if(Math.Abs(resp.InputR.AIN2 - resp.InputR.AIN1) > 2)
+                    res = resp.InputR.AIN2 - resp.InputR.AIN1 - dif;
+                    if(Math.Abs(res) > 2)
                     {
-                        protocol += string.Format(Resources.testChError4 + Environment.NewLine, b, resp.InputR.AIN2 - resp.InputR.AIN1, resp.InputR.Holding.AttenCoef);
-                        chErrors[b] = true;
+                        protocol += string.Format(Resources.testChError4 + Environment.NewLine, b, res, resp.InputR.Holding.AttenCoef);
+                        chErrors[b - 1] = true;
+                        led = new Bits();
+                        led[DioReg.LedR] = true;
+                        led[DioReg.LedNBlink] = true;
+                        LANFunc.ChDio(b, led.ByteValue);
                     }
                 }
                 if(uk == byte.MaxValue) uk = 0;
-                if((uk + 32) > byte.MaxValue) uk = byte.MaxValue; else uk += 32;
+                if(uk > 0)
+                {
+                    if((uk + 32) > byte.MaxValue) uk = byte.MaxValue; else uk += 32;
+                    dif += 25;
+                }
             } while(uk == 0);
             // 5. test limitace výstupní proudové smyčky
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
                 ResponseDG res = LANFunc.ChRd(b);
@@ -258,21 +336,25 @@ namespace MDM.Classes
                 q.DioWR = res.DioRD;
                 q.HoldingR = res.InputR.Verified;
                 q.HoldingR.DAC = 65535;
-                q.HoldingR.DOUT = new Bits(1);
+                q.HoldingR.DOUT = new Bits(d0: true);
                 q.HoldingR.AttenCoef = 185;
                 res = LAN.MasterCmd(q);
             }
             Thread.Sleep(100);
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
                 if(resp.InputR.Status[0])
                 {
                     protocol += string.Format(Resources.testChError5 + Environment.NewLine, b);
-                    chErrors[b] = true;
+                    chErrors[b - 1] = true;
+                    led = new Bits();
+                    led[DioReg.LedR] = true;
+                    led[DioReg.LedNBlink] = true;
+                    LANFunc.ChDio(b, led.ByteValue);
                 }
             }
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
                 ResponseDG res = LANFunc.ChRd(b);
@@ -283,27 +365,35 @@ namespace MDM.Classes
                 res = LAN.MasterCmd(q);
             }
             Thread.Sleep(100);
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
                 if(!resp.InputR.Status[0])
                 {
                     protocol += string.Format(Resources.testChError5 + Environment.NewLine, b);
-                    chErrors[b] = true;
+                    chErrors[b - 1] = true;
+                    led = new Bits();
+                    led[DioReg.LedR] = true;
+                    led[DioReg.LedNBlink] = true;
+                    LANFunc.ChDio(b, led.ByteValue);
                 }
             }
             // 6. pokles hodnoty napětí zdroje při zatížení výstupu (do náhradní zátěže)
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
                 if(resp.InputR.AIN2 < 800)
                 {
                     protocol += string.Format(Resources.testChError6 + Environment.NewLine, b);
-                    chErrors[b] = true;
+                    chErrors[b - 1] = true;
+                    led = new Bits();
+                    led[DioReg.LedR] = true;
+                    led[DioReg.LedNBlink] = true;
+                    LANFunc.ChDio(b, led.ByteValue);
                 }
             }
             // 7. vyhodnocení příznaku "Status D1 - příliš vysoká impedance" při proudu 10 mA
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
                 ResponseDG res = LANFunc.ChRd(b);
@@ -313,17 +403,21 @@ namespace MDM.Classes
                 q.HoldingR.AttenCoef = 220;
                 res = LAN.MasterCmd(q);
             }
-            Thread.Sleep(100);
-            for(byte b = 0; b < noc; b++)
+            Thread.Sleep(200);
+            for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
-                if(!resp.InputR.Status[1])
+                if(resp.InputR.Status[1])
                 {
                     protocol += string.Format(Resources.testChError7 + Environment.NewLine, b);
-                    chErrors[b] = true;
+                    chErrors[b - 1] = true;
+                    led = new Bits();
+                    led[DioReg.LedR] = true;
+                    led[DioReg.LedNBlink] = true;
+                    LANFunc.ChDio(b, led.ByteValue);
                 }
             }
-            for(byte b = 0; b < noc; b++)
+            for(byte b = 1; b <= noc; b++)
             {
                 QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
                 ResponseDG res = LANFunc.ChRd(b);
@@ -333,22 +427,32 @@ namespace MDM.Classes
                 q.HoldingR.AttenCoef = 240;
                 res = LAN.MasterCmd(q);
             }
-            Thread.Sleep(100);
-            for(byte b = 0; b < noc; b++)
+            Thread.Sleep(200);
+            for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
-                if(resp.InputR.Status[1])
+                if(!resp.InputR.Status[1])
                 {
                     protocol += string.Format(Resources.testChError7 + Environment.NewLine, b);
-                    chErrors[b] = true;
+                    chErrors[b - 1] = true;
+                    led = new Bits();
+                    led[DioReg.LedR] = true;
+                    led[DioReg.LedNBlink] = true;
+                    LANFunc.ChDio(b, led.ByteValue);
                 }
             }
-            LANFunc.Lan(0); // vypnout
+            // vypnout kanály
+            led = new Bits();
+            for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
+            Thread.Sleep(200);
+            LANFunc.Lan(0);
+            // pokud nastala chyba, zobrazíme ji
             if(protocol.Trim().Length > 0)
             {
-                Log.InfoToLog(Resources.testChErrors + ":" + Environment.NewLine + protocol);
+                Log.ErrorToLog(methodName, Resources.testChErrors + ":" + Environment.NewLine + protocol);
                 DialogBox.ShowError(protocol, Resources.testChErrors);
             }
+            lanr.Abort();
             return chErrors;
         }
         #endregion
@@ -363,30 +467,21 @@ namespace MDM.Classes
             {
                 Bits led = new Bits();
 
+                qWorker.RunWorkerAsync();
                 SendLANCmd(new QueryDG((byte)(pck++)));
                 Thread.Sleep(100);
                 channels.ForEach(ch => {
                     led[ch.Number - 1] = true;
-                    SendLANCmd(new QueryDG((byte)(pck++), led: led.ByteValue));
-                    if(chErrors[ch.Number]) ch.Status = ChannelStatus.Error;
+                    if(chErrors[ch.Number - 1])
+                    {
+                        ch.Status = ChannelStatus.Error;
+                        led[ch.Number - 1] = false;
+                    }
+                    else LANFunc.Lan(led.ByteValue);
                     Thread.Sleep(100);
                 });
                 Enabled = true;
-                Reset();
-                qWorker.RunWorkerAsync();
             }
-        }
-
-        public void Reset(byte chNum = 0)
-        {
-            if(chNum == 0) channels.ForEach(ch => ch.Status = ChannelStatus.Disabled);
-            else if(chNum > 0 && chNum <= noc) channels.First(ch => ch.Number == chNum).Status = ChannelStatus.Disabled;
-        }
-
-        public void Deactivation(byte chNum = 0)
-        {
-            if(chNum == 0) channels.ForEach(ch => ch.Status = ChannelStatus.Inactive);
-            else if(chNum > 0 && chNum <= noc) channels.First(ch => ch.Number == chNum).Status = ChannelStatus.Inactive;
         }
 
         /// <summary>

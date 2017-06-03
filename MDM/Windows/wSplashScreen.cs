@@ -61,8 +61,7 @@ namespace MDM
         private void testChannel(/*int ch*/)
         {
             setProgress(Resources.testChannel);
-            //Program.ChErrors = Channels.Autotest();
-            Program.ChErrors = new bool[new Settings().NOC];
+            Program.ChErrors = Channels.Autotest();
             ////Log.InfoToLog(string.Format("testChannel({0})", ch));
             //Thread.Sleep(DELAY);
         }

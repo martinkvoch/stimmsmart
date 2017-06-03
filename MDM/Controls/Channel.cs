@@ -180,6 +180,7 @@ namespace MDM.Controls
                     enabled = value;
                     cbPatSelect.Enabled = cbSetCurrent.Enabled = tbCurrent.Enabled =
                     cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = enabled;
+                    if(enabled) Status = ChannelStatus.Inactive; else Status = ChannelStatus.Disabled;
                 }
             }
         }
@@ -194,13 +195,14 @@ namespace MDM.Controls
             {
                 if(ledBits.Value != value.Value)
                 {
-                    byte pckNum;
+                    //byte pckNum;
 
                     ledBits = new Bits(value.Value);
                     Helper.LEDBits(Led, ledBits);
-                    pckNum = sendLANCmd(new QueryDG(led: ledBits.ByteValue));
-                    while(Response == null || Response.PacketNum != pckNum) Application.DoEvents();
-                    respQueue.Pull();
+                    LANFunc.ChDio(Number, ledBits.ByteValue);
+                    //pckNum = sendLANCmd(new QueryDG(addr: Number, led: ledBits.ByteValue));
+                    //while(Response == null || Response.PacketNum != pckNum) Application.DoEvents();
+                    //respQueue.Pull();
                 }
             }
         }
@@ -219,15 +221,18 @@ namespace MDM.Controls
         /// Konstruktor kanálu s konkrétním číslem
         /// </summary>
         /// <param name="chnum">číslo přidělené kanálu</param>
-        public Channel(byte chnum)
+        /// <param name="parent">odkaz na desku LAN</param>
+        public Channel(byte chnum, Channels parent)
         {
             InitializeComponent();
             chNum = chnum;
+            Channels = parent;
             chNumTxt = groupBox1.Text;
             remainTxt = lbRemain.Text;
             FontHeight = Width < 240 ? 8 : 10;
             Channel_FontChanged(null, null);
             pbProgress.Maximum = procDuration;
+            chWorker.WorkerSupportsCancellation = true;
             chWorker.DoWork += chWorker_DoWork;
             timer.Interval = 1000;
             timer.Tick += timerTick;
@@ -249,7 +254,7 @@ namespace MDM.Controls
             if(query.Command == QueryCmd.CmdWr && query.HoldingR == null)
             {
                 ResponseDG resp;
-                QueryDG q = new QueryDG(cmd: QueryCmd.CmdRd);
+                QueryDG q = new QueryDG(addr: Number, cmd: QueryCmd.CmdRd);
 
                 resp = waitFor((byte)pck);
                 if(resp != null && resp.InputR != null && resp.InputR.Holding != null) query.HoldingR = resp.InputR.Holding;
@@ -319,7 +324,8 @@ namespace MDM.Controls
             lbStatus.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
             Bits lb = new Bits();
-            lb[DioReg.LedG] = true;
+            lb[DioReg.LedR] = true;
+            //lb[DioReg.LedNBlink] = true;
             LEDBits = lb;
         }
         #endregion
@@ -330,10 +336,9 @@ namespace MDM.Controls
         /// </summary>
         private void deactivate()
         {
-            chWorker.RunWorkerAsync();
+            if(!chWorker.IsBusy) chWorker.RunWorkerAsync();
             timer.Stop();
             pbProgress.Value = tbCurrent.Value = current = 0;
-            reset();
             if(IsConnected())
             {
                 cbPatSelect.Enabled = true;
@@ -342,9 +347,10 @@ namespace MDM.Controls
                 lbStatus.ForeColor = SystemColors.ActiveCaptionText;
                 lbStatus.BackColor = SystemColors.Window;
             }
-            Led.Color = Color.LightGray;
-            Led.Blink(0);
-            Led.On = true;
+            Bits lb = new Bits();
+            lb[DioReg.LedR] = true;
+            lb[DioReg.LedNBlink] = true;
+            LEDBits = lb;
         }
         #endregion
 
@@ -366,7 +372,7 @@ namespace MDM.Controls
             Status = ChannelStatus.SetCurrent;
             Bits lb = new Bits();
             lb[DioReg.LedG] = true;
-            lb[DioReg.LedBlink] = true;
+            lb[DioReg.LedNBlink] = true;
             LEDBits = lb;
         }
         #endregion
@@ -444,7 +450,7 @@ namespace MDM.Controls
             lbStatus.BackColor = Color.OrangeRed;
             Bits lb = new Bits();
             lb[DioReg.LedG] = true;
-            lb[DioReg.LedBlink] = true;
+            lb[DioReg.LedNBlink] = true;
             LEDBits = lb;
             //Led.Color = Color.FromArgb(255, 153, 255, 54);
             //Led.Blink(500);
@@ -483,9 +489,10 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.Yellow;
             lbStatus.BackColor = Color.Red;
             Bits lb = new Bits();
-            lb[DioReg.LedR] = true;
-            lb[DioReg.LedBlink] = true;
+            //lb[DioReg.LedR] = true;
+            //lb[DioReg.LedNBlink] = false;
             LEDBits = lb;
+            LANFunc.LanChOnOff(Number, false);
         }
         #endregion
         #endregion

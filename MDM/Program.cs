@@ -17,7 +17,20 @@ namespace MDM
         const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}";
         public static string Language = "xx";
         public static TUser LoggedUser = new TUser();
-        public static bool[] ChErrors = new bool[0];
+
+        private static bool[] chErrors = new bool[0];
+        public static bool[] ChErrors
+        {
+            get
+            {
+                if(chErrors.Count() == 0) chErrors = new bool[6];
+                return chErrors;
+            }
+            set
+            {
+                chErrors = value;
+            }
+        }
 
         public static bool KeepRunning { get; set; }
 
@@ -102,13 +115,13 @@ namespace MDM
         {
             Settings settings = new Settings();
 
-            //AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
             Application.CurrentCulture = new CultureInfo(settings.lang);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Database.Open();
             Language = settings.lang;
             SetLanguage();
+            Database.Open();
             ShowSplash(true);
             Application.ApplicationExit += AppExit;
             KeepRunning = false;

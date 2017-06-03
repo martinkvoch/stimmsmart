@@ -50,18 +50,19 @@ namespace MDM.Data
         #region Init()
         private static string[] getLangs() 
         {
-            bool haveDisposed = false;
-            wMain frm = null;
-            string[] res = new string[0];
+            //bool haveDisposed = false;
+            //wMain frm = null;
+            //string[] res = new string[0];
 
-            if(Application.OpenForms != null && (Application.OpenForms[0] is wMain)) frm = (Application.OpenForms[0] as wMain);
-            else
-            {
-                frm = new wMain(Program.Language);
-                haveDisposed = true;
-            }
-            res = frm.miLang.DropDownItems.OfType<ToolStripMenuItem>().Select(i => i.Tag.ToString()).ToArray();
-            if(haveDisposed && frm != null) frm.Dispose();
+            //if(Application.OpenForms != null && Application.OpenForms.Count > 0 && (Application.OpenForms[0] is wMain)) frm = (Application.OpenForms[0] as wMain);
+            //else
+            //{
+            //    frm = new wMain(Program.Language);
+            //    haveDisposed = true;
+            //}
+            //res = frm.miLang.DropDownItems.OfType<ToolStripMenuItem>().Select(i => i.Tag.ToString()).ToArray();
+            //if(haveDisposed && frm != null) frm.Dispose();
+            string[] res = new string[] { "cs", "en", "ru" };
             return res; 
         }
 

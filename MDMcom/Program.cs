@@ -29,7 +29,9 @@ namespace MDMcom
         {
             Console.WriteLine("Usage:");
             Console.WriteLine("  lan <dio>");
-            Console.WriteLine("  ch <num> {on|off|rst|rd|dac|dac0|<dio>}");
+            Console.WriteLine("  ch <num> {rd|<dio>}");
+            //Console.WriteLine("  ch <num> {on|off|rst|rd|dac|dac0|<dio>}");
+            Console.WriteLine("  ch <num> dac [<num>]   (default: 32768)");
             Console.WriteLine("  ch <num> dout <num>");
             Console.WriteLine("  ch <num> acf <num>");
             Console.WriteLine("  ch <num> mode <shape> <t3max> <t3min> <t3sweep> <acf>");
@@ -75,17 +77,17 @@ namespace MDMcom
                     //r = LANFunc.ChDio(chNum, (byte)(Convert.ToUInt32(cmd[1]) & 0xFF), reset, off);
                     r = LANFunc.ChDio(chNum, Convert.ToByte(cmd[1]));
                 }
-                else if(cmd[1].Equals("on", StringComparison.OrdinalIgnoreCase))
-                {
-                    LANFunc.ChDio(chNum, Helper.DioLedGreen);
-                    r = LANFunc.ChOn(chNum);
-                }
-                else if(cmd[1].Equals("on", StringComparison.OrdinalIgnoreCase)) r = LANFunc.ChOn(chNum);
-                else if(cmd[1].Equals("off", StringComparison.OrdinalIgnoreCase)) r = LANFunc.ChOff(chNum);
-                else if(cmd[1].Equals("rst", StringComparison.OrdinalIgnoreCase)) r = LANFunc.ChRst(chNum);
+                //else if(cmd[1].Equals("on", StringComparison.OrdinalIgnoreCase)) r = LANFunc.ChOn(chNum);
+                //else if(cmd[1].Equals("off", StringComparison.OrdinalIgnoreCase)) r = LANFunc.ChOff(chNum);
+                //else if(cmd[1].Equals("rst", StringComparison.OrdinalIgnoreCase)) r = LANFunc.ChRst(chNum);
                 else if(cmd[1].Equals("rd", StringComparison.OrdinalIgnoreCase)) r = LANFunc.ChRd(chNum);
-                else if(cmd[1].Equals("dac0", StringComparison.OrdinalIgnoreCase)) r = LANFunc.ChDAC(chNum, 0);
-                else if(cmd[1].Equals("dac", StringComparison.OrdinalIgnoreCase)) r = LANFunc.ChDAC(chNum);
+                //else if(cmd[1].Equals("dac0", StringComparison.OrdinalIgnoreCase)) r = LANFunc.ChDAC(chNum, 0);
+                else if(cmd[1].Equals("dac", StringComparison.OrdinalIgnoreCase))
+                {
+                    word dac = cmd.Length > 2 && isNumber(cmd[2]) ? Convert.ToByte(cmd[2]) : (word)32768;
+
+                    r = LANFunc.ChDAC(chNum, dac);
+                }
                 else if(cmd[1].Equals("dout", StringComparison.OrdinalIgnoreCase) && cmd.Length > 2 && isNumber(cmd[2])) r = LANFunc.ChDOUT(chNum, Convert.ToByte(cmd[2]));
                 else if(cmd[1].Equals("acf", StringComparison.OrdinalIgnoreCase) && cmd.Length > 2 && isNumber(cmd[2])) r = LANFunc.ChAcf(chNum, Convert.ToByte(cmd[2]));
                 else if(cmd[1].Equals("mode", StringComparison.OrdinalIgnoreCase) && cmd.Length > 2 && isNumber(cmd[2]))

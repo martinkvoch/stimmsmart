@@ -12,7 +12,7 @@ using dword = System.UInt32;
 
 namespace LANlib
 {
-    public enum DioReg : byte { LedB, LedG, LedR, LedBlink }
+    public enum DioReg : byte { LedR, LedG, LedB, LedNBlink }
     public enum LANReg : byte { G1 = 0x01, G2 = 0x02, G3 = 0x04, G4 = 0x08, G5 = 0x10, G6 = 0x20 }
 
     #region Bits
@@ -76,13 +76,18 @@ namespace LANlib
     public static class Helper
     {
         public const byte DioLedOff = 0x00,
-                          DioLenBlue = 0x01,
+                          DioLedRed = 0x01,
                           DioLedGreen = 0x02,
-                          DioLedLightBlue = 0x03,
-                          DioLedRed = 0x04,
-                          DioLedViolet = 0x05,
-                          DioLedYellow = 0x06,
-                          DioLedWhite = 0x07;
+                          DioLedBlue = 0x04,
+                          DioLedBlink = 0x08;
+        //public const byte DioLedOff = 0x00,
+        //                  DioLenBlue = 0x01,
+        //                  DioLedGreen = 0x02,
+        //                  DioLedLightBlue = 0x03,
+        //                  DioLedRed = 0x04,
+        //                  DioLedViolet = 0x05,
+        //                  DioLedYellow = 0x06,
+        //                  DioLedWhite = 0x07;
 
         public static byte[] ToBytes(word[] words)
         {
@@ -132,7 +137,7 @@ namespace LANlib
                 bits[DioReg.LedR] = true;
                 bits[DioReg.LedG] = true;
                 bits[DioReg.LedB] = true;
-                bits[DioReg.LedBlink] = true;
+                bits[DioReg.LedNBlink] = true;
                 return bits.ByteValue;
             }
         }
@@ -141,7 +146,7 @@ namespace LANlib
         {
             //value = new Bits((byte)(value.ByteValue & BDioLedMask));
             led.Color = Color.FromArgb(value[DioReg.LedR] ? 255 : 0, value[DioReg.LedG] ? 255 : 0, value[DioReg.LedB] ? 255 : 0);
-            led.Blink(value[DioReg.LedBlink] ? 500 : 0);
+            led.Blink(!value[DioReg.LedNBlink] ? 500 : 0);
             led.On = true;
             //led.On = !value[DioReg.OnOff];
             led.Refresh();
