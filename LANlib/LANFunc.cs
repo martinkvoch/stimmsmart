@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using word = System.UInt16;
 using dword = System.UInt32;
+using System.Threading;
 
 namespace LANlib
 {
@@ -23,6 +24,8 @@ namespace LANlib
             QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), led: dio);
             ResponseDG res = LAN.MasterCmd(q);
 
+            Thread.Sleep(100);
+            res = ChRd(0);
             return res;
         }
 
@@ -38,9 +41,9 @@ namespace LANlib
             Lan(dio);
         }
 
-        public static void LanRd()
+        public static ResponseDG LanRd()
         {
-            ChRd(0);
+            return ChRd(0);
         }
 
         /// <summary>
@@ -99,6 +102,8 @@ namespace LANlib
             q.HoldingR = res.InputR.Verified;
             q.DioWR = diowr.ByteValue;
             res = LAN.MasterCmd(q);
+            Thread.Sleep(100);
+            res = ChRd(chnum);
             return res;
         }
 
@@ -111,6 +116,8 @@ namespace LANlib
             q.HoldingR = res.InputR.Verified;
             q.HoldingR.DAC = dac;
             res = LAN.MasterCmd(q);
+            Thread.Sleep(100);
+            res = ChRd(chnum);
             return res;
         }
 
@@ -125,6 +132,8 @@ namespace LANlib
             if(dout > 0) q.HoldingR.DAC = 32768;
             q.HoldingR.DOUT = new Bits(dout);
             res = LAN.MasterCmd(q);
+            Thread.Sleep(100);
+            res = ChRd(chnum);
             return res;
         }
 
@@ -137,6 +146,8 @@ namespace LANlib
             q.HoldingR = res.InputR.Verified;
             q.HoldingR.AttenCoef = acf;
             res = LAN.MasterCmd(q);
+            Thread.Sleep(100);
+            res = ChRd(chnum);
             return res;
         }
 
@@ -154,6 +165,8 @@ namespace LANlib
             if(t3sweep.HasValue) q.HoldingR.T3Sweep = t3sweep.Value;
             if(acf.HasValue) q.HoldingR.AttenCoef = acf.Value;
             res = LAN.MasterCmd(q);
+            Thread.Sleep(100);
+            res = ChRd(chnum);
             return res;
         }
     }

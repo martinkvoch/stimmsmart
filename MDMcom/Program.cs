@@ -4,6 +4,7 @@ using word = System.UInt16;
 using dword = System.UInt32;
 
 using LANlib;
+using System.Threading;
 
 namespace MDMcom
 {
@@ -13,6 +14,7 @@ namespace MDMcom
     {
         //static dword pck = 0U;
         //static byte lanDio = 0;
+        const byte noc = 6;
         static byte[] chDio = new byte[] { 0, 0, 0, 0, 0, 0 };
         static ModbusHolding[] holding = new LANlib.ModbusHolding[] { new ModbusHolding(), new ModbusHolding(), new ModbusHolding(), new ModbusHolding(), new ModbusHolding(), new ModbusHolding() };
 
@@ -28,7 +30,7 @@ namespace MDMcom
         private static void help()
         {
             Console.WriteLine("Usage:");
-            Console.WriteLine("  lan <dio>");
+            Console.WriteLine("  lan {rd|<dio>}");
             Console.WriteLine("  ch <num> {rd|<dio>}");
             //Console.WriteLine("  ch <num> {on|off|rst|rd|dac|dac0|<dio>}");
             Console.WriteLine("  ch <num> dac [<num>]   (default: 32768)");
@@ -40,7 +42,19 @@ namespace MDMcom
         static void Main(string[] args)
         {
             string cmd = string.Empty;
+            Thread lanr = new Thread(() =>
+            {
+                while(true)
+                {
+                    LANFunc.LanRd();
+                    for(byte b = 1; b <= noc; b++) LANFunc.ChRd(b);
+                    Thread.Sleep(1000);
+                }
+            });
 
+            lanr.IsBackground = true;
+            lanr.SetApartmentState(ApartmentState.STA);
+            lanr.Start();
             Console.WriteLine("MDMcom -- MDM command testing");
             while(!cmd.Equals(Commands.exit.ToString(), StringComparison.OrdinalIgnoreCase))
             {
@@ -51,6 +65,7 @@ namespace MDMcom
                 else if(cmd.Equals(Commands.help.ToString(), StringComparison.OrdinalIgnoreCase)) help();
                 //else if(cmd.Equals(Commands.exit.ToString(), StringComparison.OrdinalIgnoreCase)) exit();
             }
+            lanr.Abort();
         }
 
         static void lan(string[] cmd)
@@ -58,6 +73,7 @@ namespace MDMcom
             ResponseDG r = new ResponseDG();
 
             if(isNumber(cmd[0])) r = LANFunc.Lan((byte)(Convert.ToUInt32(cmd[0]) & 0xFF));
+            else if(cmd[0].Equals("rd", StringComparison.OrdinalIgnoreCase)) r = LANFunc.LanRd();
             Console.WriteLine(ansReport(r));
         }
 
