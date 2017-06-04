@@ -164,6 +164,15 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Channel inaccessible.
+        /// </summary>
+        public static string chInaccessible {
+            get {
+                return ResourceManager.GetString("chInaccessible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Channel inactive.
         /// </summary>
         public static string chInactive {

@@ -519,4 +519,7 @@
   <data name="testChErrors" xml:space="preserve">
     <value>Chyby během autotestu</value>
   </data>
+  <data name="chInaccessible" xml:space="preserve">
+    <value>Kanál nepřístupný</value>
+  </data>
 </root>

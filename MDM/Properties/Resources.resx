@@ -655,4 +655,7 @@
   <data name="testChErrors" xml:space="preserve">
     <value>Errors during self-test</value>
   </data>
+  <data name="chInaccessible" xml:space="preserve">
+    <value>Channel inaccessible</value>
+  </data>
 </root>

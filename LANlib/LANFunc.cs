@@ -36,7 +36,7 @@ namespace LANlib
             ResponseDG res = ChRd(chnum);
 
             dio = res.DioRD;
-            chDio = new LANlib.Bits(dio);
+            chDio = new Bits(dio);
             chDio[chnum - 1] = on;
             Lan(dio);
         }
@@ -77,20 +77,18 @@ namespace LANlib
 
         //public static ResponseDG ChOff(byte chnum) { return chOnOff(chnum, false); }
 
-        //public static ResponseDG ChRst(byte chnum)
-        //{
-        //    QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), chnum);
-        //    ResponseDG res = ChRd(chnum);
-        //    Bits diowr = new Bits(Helper.DioLedGreen);
+        public static ResponseDG ChRst(byte chnum)
+        {
+            ResponseDG res;
+            QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), chnum);
+            Bits diowr = new Bits();
 
-        //    q.DioWR = res.DioRD;
-        //    q.HoldingR = res.InputR.Verified;
-        //    //diowr[DioReg.OnOff] = false;
-        //    //diowr[DioReg.Reset] = true;
-        //    q.DioWR = diowr.ByteValue;
-        //    res = LAN.MasterCmd(q);
-        //    return res;
-        //}
+            diowr[DioReg.LedR] = true;
+            diowr[DioReg.LedNBlink] = true;
+            q.DioWR = diowr.ByteValue;
+            res = LAN.MasterCmd(q);
+            return res;
+        }
 
         public static ResponseDG ChDio(byte chnum, byte dio)
         {

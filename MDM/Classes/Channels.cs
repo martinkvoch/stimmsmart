@@ -43,7 +43,7 @@ namespace MDM.Classes
                 if(enabled != value)
                 {
                     enabled = value;
-                    channels.ForEach(ch => { if(ch.Status != ChannelStatus.Error) ch.ChannelEnabled = enabled; });
+                    channels.ForEach(ch => { if(ch.Status != ChannelStatus.Inaccessible && ch.Status != ChannelStatus.Error) ch.ChannelEnabled = enabled; });
                     //foreach(Channel ch in channels) ch.ChannelEnabled = enabled;
                 }
             }
@@ -160,6 +160,7 @@ namespace MDM.Classes
             led[DioReg.LedNBlink] = true;
             ledErr = led.ByteValue;
             led = new Bits();
+            LANFunc.LanRd();
             LANFunc.Lan(0);
             // 0. postupné zapnutí všech kanálů
             for(byte b = 1; b <= noc; b++)
@@ -168,7 +169,7 @@ namespace MDM.Classes
                 LANFunc.Lan(led.ByteValue);
                 Thread.Sleep(100);
             }
-            resp = LANFunc.ChRd(0);
+            resp = LANFunc.LanRd();
             if(resp.DioRD != led.ByteValue) protocol += string.Format(Resources.testChError11 + Environment.NewLine, led);
             // 1. test LED
             led = new Bits();
@@ -474,7 +475,7 @@ namespace MDM.Classes
                     led[ch.Number - 1] = true;
                     if(chErrors[ch.Number - 1])
                     {
-                        ch.Status = ChannelStatus.Error;
+                        ch.Status = ChannelStatus.Inaccessible;
                         led[ch.Number - 1] = false;
                     }
                     else LANFunc.Lan(led.ByteValue);

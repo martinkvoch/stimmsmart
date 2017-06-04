@@ -13,7 +13,7 @@ using dword = System.UInt32;
 namespace LANlib
 {
     public enum DioReg : byte { LedR, LedG, LedB, LedNBlink }
-    public enum LANReg : byte { G1 = 0x01, G2 = 0x02, G3 = 0x04, G4 = 0x08, G5 = 0x10, G6 = 0x20 }
+    //public enum LANReg : byte { G1 = 0x01, G2 = 0x02, G3 = 0x04, G4 = 0x08, G5 = 0x10, G6 = 0x20 }
 
     #region Bits
     public class Bits
@@ -75,11 +75,11 @@ namespace LANlib
     #region Helper
     public static class Helper
     {
-        public const byte DioLedOff = 0x00,
-                          DioLedRed = 0x01,
-                          DioLedGreen = 0x02,
-                          DioLedBlue = 0x04,
-                          DioLedBlink = 0x08;
+        //public const byte DioLedOff = 0x00,
+        //                  DioLedRed = 0x01,
+        //                  DioLedGreen = 0x02,
+        //                  DioLedBlue = 0x04,
+        //                  DioLedBlink = 0x08;
         //public const byte DioLedOff = 0x00,
         //                  DioLenBlue = 0x01,
         //                  DioLedGreen = 0x02,
@@ -142,15 +142,15 @@ namespace LANlib
             }
         }
 
-        public static void LEDBits(LedBulb led, Bits value)
-        {
-            //value = new Bits((byte)(value.ByteValue & BDioLedMask));
-            led.Color = Color.FromArgb(value[DioReg.LedR] ? 255 : 0, value[DioReg.LedG] ? 255 : 0, value[DioReg.LedB] ? 255 : 0);
-            led.Blink(!value[DioReg.LedNBlink] ? 500 : 0);
-            led.On = true;
-            //led.On = !value[DioReg.OnOff];
-            led.Refresh();
-        }
+        //public static void LEDBits(LedBulb led, Bits value)
+        //{
+        //    //value = new Bits((byte)(value.ByteValue & BDioLedMask));
+        //    led.Color = Color.FromArgb(value[DioReg.LedR] ? 255 : 0, value[DioReg.LedG] ? 255 : 0, value[DioReg.LedB] ? 255 : 0);
+        //    led.Blink(!value[DioReg.LedNBlink] ? 500 : 0);
+        //    led.On = true;
+        //    //led.On = !value[DioReg.OnOff];
+        //    led.Refresh();
+        //}
     }
     #endregion
 }

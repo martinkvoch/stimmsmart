@@ -522,4 +522,7 @@
   <data name="testChErrors" xml:space="preserve">
     <value>Ошибки во время самопроверки</value>
   </data>
+  <data name="chInaccessible" xml:space="preserve">
+    <value>Недоступный канал</value>
+  </data>
 </root>

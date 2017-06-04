@@ -14,7 +14,7 @@ using MDM.Classes;
 
 namespace MDM.Controls
 {
-    public enum ChannelStatus { Disabled, Inactive, Active, SetCurrent, Ready, InProgress, Paused, Restored, Error }
+    public enum ChannelStatus { Disabled, Inactive, Active, Ready, InProgress, SetCurrent, Paused, Restored, Error, Inaccessible }
 
     #region struct SelectedPatient
     public struct SelectedPatient
@@ -107,6 +107,7 @@ namespace MDM.Controls
                         case ChannelStatus.Paused: paused(); break;
                         case ChannelStatus.Restored: restored(); break;
                         case ChannelStatus.Error: error(); break;
+                        case ChannelStatus.Inaccessible: inaccessible(); break;
                     }
                 }
             }
@@ -136,9 +137,12 @@ namespace MDM.Controls
 
         #region Current
         /// <summary>
-        /// Aktuální nastavená hodnota proudu. Pro všechny stavy s výjimkou InProgress a Restored by měla být nulová.
+        /// Aktuálně nastavená hodnota proudu. Pro všechny stavy s výjimkou InProgress a Restored by měla být nulová.
         /// </summary>
-        public float Current { get { return tbCurrent.Value / 100F; } }
+        public float Current
+        {
+            get { return tbCurrent.Value / 100F; }
+        }
         #endregion
 
         #region Elapsed, Remained
@@ -198,7 +202,10 @@ namespace MDM.Controls
                     //byte pckNum;
 
                     ledBits = new Bits(value.Value);
-                    Helper.LEDBits(Led, ledBits);
+                    Led.Color = Color.FromArgb(value[DioReg.LedR] ? 255 : 0, value[DioReg.LedG] ? 255 : 0, value[DioReg.LedB] ? 255 : 0);
+                    Led.Blink(!value[DioReg.LedNBlink] ? 500 : 0);
+                    Led.On = true;
+                    Led.Refresh();
                     LANFunc.ChDio(Number, ledBits.ByteValue);
                     //pckNum = sendLANCmd(new QueryDG(addr: Number, led: ledBits.ByteValue));
                     //while(Response == null || Response.PacketNum != pckNum) Application.DoEvents();
@@ -245,6 +252,18 @@ namespace MDM.Controls
         #endregion
 
         #region Utility kanálu
+        private void led(DioReg clr, bool blink = false)
+        {
+            Bits lb = new Bits();
+
+            lb[clr] = true;
+            lb[DioReg.LedNBlink] = !blink;
+            LEDBits = lb;
+        }
+        private void ledRed(bool blink = false) { led(DioReg.LedR, blink); }
+        private void ledGreen(bool blink = false) { led(DioReg.LedG, blink); }
+        private void ledBlue(bool blink = false) { led(DioReg.LedB, blink); }
+
         /// <summary>
         /// Do fronty dotazů/požadavků na LAN vloží novou položku
         /// </summary>
@@ -280,7 +299,7 @@ namespace MDM.Controls
             {
                 if(resp.Command == QueryCmd.CmdRd)
                 {
-                    LEDBits = new Bits(resp.DioRD);
+                    //LEDBits = new Bits(resp.DioRD);
                 }
             }
         }
@@ -289,13 +308,38 @@ namespace MDM.Controls
         {
             bool res = true;
 
-            Thread.Sleep(500);
+            //Thread.Sleep(500);
             return res;
         }
 
-        private void electrodesReady() // simulace nasazení elektrod
+        // kontroluje připojení pacienta na elektrody pomocí odporu < 10,5 kOhm
+        // proud = 0,5 mA
+        // (AIN2 - AIN1) < 52
+        private void electrodesReady()
         {
-            Thread.Sleep(2000);
+            ResponseDG resp;
+            //byte pckNum;
+            //QueryDG q = new QueryDG(modbus: new ModbusHolding(dac: 32768, dout: 2));
+
+            LANFunc.ChDAC(Number);
+            LANFunc.ChDOUT(Number, 2);
+            Thread.Sleep(100);
+            LANFunc.ChAcf(Number, 32);
+            Thread.Sleep(100);
+            //pckNum = sendLANCmd(q);
+            //Thread.Sleep(50);
+            //resp = waitFor(pckNum);
+            //q.HoldingR.AttenCoef = 32;
+            //pckNum = sendLANCmd(q);
+            //Thread.Sleep(50);
+            //resp = waitFor(pckNum);
+            do
+            {
+                resp = LANFunc.ChRd(Number);
+                //q = new QueryDG(cmd: QueryCmd.CmdRd);
+                //pckNum = sendLANCmd(q);
+                //resp = waitFor(pckNum);
+            } while((resp.InputR.AIN2 - resp.InputR.AIN1) >= 52);
         }
         #endregion
 
@@ -323,10 +367,10 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chDisconected;
             lbStatus.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
-            Bits lb = new Bits();
-            lb[DioReg.LedR] = true;
-            //lb[DioReg.LedNBlink] = true;
-            LEDBits = lb;
+
+            ResponseDG resp = LANFunc.ChRst(Number);
+
+            LEDBits = new Bits(resp.DioRD);
         }
         #endregion
 
@@ -347,20 +391,24 @@ namespace MDM.Controls
                 lbStatus.ForeColor = SystemColors.ActiveCaptionText;
                 lbStatus.BackColor = SystemColors.Window;
             }
-            Bits lb = new Bits();
-            lb[DioReg.LedR] = true;
-            lb[DioReg.LedNBlink] = true;
-            LEDBits = lb;
+
+            ResponseDG resp = LANFunc.ChRst(Number);
+
+            LEDBits = new Bits(resp.DioRD);
+            //Bits lb = new Bits();
+            //lb[DioReg.LedR] = true;
+            //lb[DioReg.LedNBlink] = true;
+            //LEDBits = lb;
         }
         #endregion
 
         #region activate()
         /// <summary>
-        /// Uvede kanál do stavu "aktivní". V tomto stavu je třeba připojit elektrody a vložit je pacientovi na hlavu. Poté kanál přechází do stavu "nastav proud".
+        /// Uvede kanál do stavu "aktivní". V tomto stavu je třeba připojit elektrody a vložit je pacientovi na hlavu. Poté kanál přechází do stavu "připraven".
         /// </summary>
         private void activate()
         {
-            cbPatSelect.Enabled = true;
+            cbPatSelect.Enabled = cbStop.Enabled = true;
             cbStart.Enabled = false;
             lbPatName.ForeColor = lbDiagnosis.ForeColor = lbProcNum.ForeColor = SystemColors.ActiveCaptionText;
             tbCurrent.Value = current = 0;
@@ -369,11 +417,43 @@ namespace MDM.Controls
             lbStatus.BackColor = Color.OrangeRed;
             Refresh();
             electrodesReady();
-            Status = ChannelStatus.SetCurrent;
-            Bits lb = new Bits();
-            lb[DioReg.LedG] = true;
-            lb[DioReg.LedNBlink] = true;
-            LEDBits = lb;
+            Status = ChannelStatus.Ready;
+            //Status = ChannelStatus.SetCurrent;
+            //ledGreen();
+        }
+        #endregion
+
+        #region ready()
+        /// <summary>
+        /// Uvede kanál do stavu "připraven". V tomto stavu proběhne nastavení hodnoty proudu, poté kanál přechází do stavu "procedura probíhá" nebo  "aktivní".
+        /// </summary>
+        private void ready()
+        {
+            cbPatSelect.Enabled = true;
+            cbSetCurrent.Enabled = false;
+            cbStart.Enabled = true;
+            lbStatus.Text = Resources.chReady;
+            lbStatus.ForeColor = Color.White;
+            lbStatus.BackColor = Color.Green;
+            ledGreen(true);
+        }
+        #endregion
+
+        #region inProgress()
+        /// <summary>
+        /// Uvede kanál do stavu "procedura probíhá". Z tohoto stavu může kanál přejít do stavu "pozastaven", "chyba" nebo "neaktivní".
+        /// </summary>
+        private void inProgress()
+        {
+            cbPatSelect.Enabled = false;
+            cbStart.Enabled = false;
+            cbPause.Enabled = cbStop.Enabled = true;
+            lbPatName.ForeColor = lbDiagnosis.ForeColor = lbProcNum.ForeColor = SystemColors.InactiveCaptionText;
+            lbStatus.Text = Resources.chInProgress;
+            lbStatus.ForeColor = Color.White;
+            lbStatus.BackColor = Color.Green;
+            timer.Start();
+            ledGreen();
         }
         #endregion
 
@@ -394,47 +474,6 @@ namespace MDM.Controls
         }
         #endregion
 
-        #region ready()
-        /// <summary>
-        /// Uvede kanál do stavu "připraven". V tomto stavu proběhne nastavení hodnoty proudu, poté kanál přechází do stavu "procedura probíhá" nebo  "aktivní".
-        /// </summary>
-        private void ready()
-        {
-            cbPatSelect.Enabled = true;
-            cbSetCurrent.Enabled = false;
-            cbStart.Enabled = true;
-            lbStatus.Text = Resources.chReady;
-            lbStatus.ForeColor = Color.White;
-            lbStatus.BackColor = Color.Green;
-            Bits lb = new Bits();
-            lb[DioReg.LedG] = true;
-            LEDBits = lb;
-        }
-        #endregion
-
-        #region inProgress()
-        /// <summary>
-        /// Uvede kanál do stavu "procedura probíhá". Z tohoto stavu může kanál přejít do stavu "pozastaven", "chyba" nebo "neaktivní".
-        /// </summary>
-        private void inProgress()
-        {
-            cbPatSelect.Enabled = false;
-            cbStart.Enabled = false;
-            cbPause.Enabled = cbStop.Enabled = true;
-            lbPatName.ForeColor = lbDiagnosis.ForeColor = lbProcNum.ForeColor = SystemColors.InactiveCaptionText;
-            lbStatus.Text = Resources.chInProgress;
-            lbStatus.ForeColor = Color.White;
-            lbStatus.BackColor = Color.Green;
-            timer.Start();
-            Bits lb = new Bits();
-            lb[DioReg.LedG] = true;
-            LEDBits = lb;
-            //Led.Color = Color.FromArgb(255, 153, 255, 54);
-            //Led.Blink(0);
-            //Led.On = true;
-        }
-        #endregion
-
         #region paused()
         //TODO: pozastavení a obnovení také na mezerník
         /// <summary>
@@ -448,12 +487,7 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chPaused;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
-            Bits lb = new Bits();
-            lb[DioReg.LedG] = true;
-            lb[DioReg.LedNBlink] = true;
-            LEDBits = lb;
-            //Led.Color = Color.FromArgb(255, 153, 255, 54);
-            //Led.Blink(500);
+            ledGreen(true);
         }
         #endregion
 
@@ -469,12 +503,7 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chRestored;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
-            Bits lb = new Bits();
-            lb[DioReg.LedG] = true;
-            LEDBits = lb;
-            //Led.Color = Color.FromArgb(255, 153, 255, 54);
-            //Led.Blink(0);
-            //Led.On = true;
+            ledGreen();
         }
         #endregion
 
@@ -488,10 +517,33 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chError;
             lbStatus.ForeColor = Color.Yellow;
             lbStatus.BackColor = Color.Red;
-            Bits lb = new Bits();
-            //lb[DioReg.LedR] = true;
-            //lb[DioReg.LedNBlink] = false;
-            LEDBits = lb;
+            ledRed(true);
+        }
+        #endregion
+
+        #region inaccessible()
+        /// <summary>
+        /// Uvede kanál do stavu "nepřístupný". Z tohoto stavu se kanál nedostane do žádného jiného stavu.
+        /// </summary>
+        private void inaccessible()
+        {
+            chWorker.CancelAsync();
+            cbSetCurrent.Enabled = cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = false;
+            timer.Stop();
+            Patient = new SelectedPatient();
+            lbPatName.Text = lbDiagnosis.Text = lbProcNum.Text = lbStatus.Text = string.Empty;
+            lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
+            tbCurrent.Value = 0;
+            tbCurrent.Maximum = maxCurrent;
+            tbCurrent.TickFrequency = maxCurrent / 10;
+            tbCurrent_ValueChanged(null, null);
+            pbProgress.Value = 0;
+            Elapsed = 0;
+            ChannelEnabled = false;
+            lbStatus.Text = Resources.chInaccessible;
+            lbStatus.ForeColor = Color.White;
+            lbStatus.BackColor = Color.Red;
+            LEDBits = new Bits();
             LANFunc.LanChOnOff(Number, false);
         }
         #endregion
@@ -523,11 +575,12 @@ namespace MDM.Controls
             while(!chWorker.CancellationPending)
             {
                 ResponseDG resp;
-                byte pckNum;
-                QueryDG q = new QueryDG(cmd: QueryCmd.CmdRd);
+                //byte pckNum;
+                //QueryDG q = new QueryDG(cmd: QueryCmd.CmdRd);
 
-                pckNum = sendLANCmd(q);
-                resp = waitFor(pckNum);
+                //pckNum = sendLANCmd(q);
+                //resp = waitFor(pckNum);
+                resp = LANFunc.ChRd(Number);
                 processResponse(resp);
                 Thread.Sleep(1000);
             }
