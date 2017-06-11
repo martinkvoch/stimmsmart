@@ -522,4 +522,13 @@
   <data name="chInaccessible" xml:space="preserve">
     <value>Kanál nepřístupný</value>
   </data>
+  <data name="patAddErrFName" xml:space="preserve">
+    <value>Jméno pacienta musí být zadáno!</value>
+  </data>
+  <data name="patAddErrHdr" xml:space="preserve">
+    <value>Chyba zadání</value>
+  </data>
+  <data name="patAddErrLName" xml:space="preserve">
+    <value>Příjmení pacienta musí být zadáno!</value>
+  </data>
 </root>

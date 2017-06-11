@@ -525,4 +525,13 @@
   <data name="chInaccessible" xml:space="preserve">
     <value>Недоступный канал</value>
   </data>
+  <data name="patAddErrFName" xml:space="preserve">
+    <value>Имя пациента должно быть введено!</value>
+  </data>
+  <data name="patAddErrHdr" xml:space="preserve">
+    <value>Ошибка ввода</value>
+  </data>
+  <data name="patAddErrLName" xml:space="preserve">
+    <value>Фамилия пациента должны быть введены!</value>
+  </data>
 </root>

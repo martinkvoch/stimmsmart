@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 using MDM.Data;
 using MDM.Properties;
+using MDM.DlgBox;
 
 namespace MDM.Windows
 {
@@ -92,7 +93,11 @@ namespace MDM.Windows
         private TDiagnosis currDg = new TDiagnosis();
         public TDiagnosis Diagnosis
         {
-            get { return currDg; }
+            get
+            {
+                if(currDg == null || currDg.ID == 0) currDg = Data.Diagnosis.GetFirst();
+                return currDg;
+            }
             set { currDg = value; DgName = currDg.Name; }
         }
 
@@ -151,7 +156,7 @@ namespace MDM.Windows
                 Text = Resources.PatNewHdr;
                 cbxHIC.SelectedIndex = 0;
                 Somtype = Somatotype.Normotype;
-                DgName = currDg.Name;
+                DgName = Diagnosis.Name;
             }
             else
             {
@@ -178,6 +183,24 @@ namespace MDM.Windows
         private void somtype_Click(object sender, EventArgs e)
         {
             somtype = sender == rbHyperergic ? Somatotype.Hyperergic : sender == rbHypotype ? Somatotype.Hypotype : Somatotype.Normotype;
+        }
+
+        private void wPatient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(DialogResult == DialogResult.OK)
+            {
+                if(string.IsNullOrEmpty(FirstName))
+                {
+                    DialogBox.ShowError(Resources.patAddErrFName, Resources.patAddErrHdr);
+                    txtFName.Focus();
+                }
+                if(string.IsNullOrEmpty(LastName))
+                {
+                    DialogBox.ShowError(Resources.patAddErrLName, Resources.patAddErrHdr);
+                    txtLName.Focus();
+                }
+                e.Cancel = string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(LastName);
+            }
         }
     }
 }

@@ -27,6 +27,7 @@ namespace MDM.Windows
             using(User user = new User()) cbxUserName.DataSource = user.Select("ID, LOGIN, NAME, PSW, ROLE, LANG", "not DELETED");
             cbxUserName.DisplayMember = "LOGIN";
             cbxUserName.SelectedIndex = cbxUserName.Items.Count > 1 ? 1 : 0;
+            txtPassword.Focus();
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)

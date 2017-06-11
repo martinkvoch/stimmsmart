@@ -149,18 +149,19 @@ namespace MDM.Classes
                 while(true)
                 {
                     LANFunc.LanRd();
+                    for(byte b = 1; b <= noc; b++) LANFunc.ChRd(b);
                     Thread.Sleep(1000);
                 }
             });
 
             lanr.IsBackground = true;
-            lanr.SetApartmentState(ApartmentState.STA);
+            lanr.SetApartmentState(ApartmentState.MTA);
             lanr.Start();
+            Thread.Sleep(300);
             led[DioReg.LedR] = true;
             led[DioReg.LedNBlink] = true;
             ledErr = led.ByteValue;
             led = new Bits();
-            LANFunc.LanRd();
             LANFunc.Lan(0);
             // 0. postupné zapnutí všech kanálů
             for(byte b = 1; b <= noc; b++)
@@ -170,7 +171,21 @@ namespace MDM.Classes
                 Thread.Sleep(100);
             }
             resp = LANFunc.LanRd();
-            if(resp.DioRD != led.ByteValue) protocol += string.Format(Resources.testChError11 + Environment.NewLine, led);
+            if(resp.DioRD != led.ByteValue)
+            {
+                Bits ledBits = new Bits(resp.DioRD);
+
+                protocol += string.Format(Resources.testChError11 + Environment.NewLine, ledBits);
+                for(byte b = 1; b <= noc; b++)
+                    if(!ledBits[b - 1])
+                    {
+                        chErrors[b - 1] = true;
+                        led = new Bits();
+                        led[DioReg.LedR] = true;
+                        led[DioReg.LedNBlink] = true;
+                        LANFunc.ChDio(b, led.ByteValue);
+                    }
+            }
             // 1. test LED
             led = new Bits();
             for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
@@ -286,7 +301,7 @@ namespace MDM.Classes
                 q.HoldingR.AttenCoef = 0;
                 res = LAN.MasterCmd(q);
             }
-            Thread.Sleep(500);
+            Thread.Sleep(400);
             for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
@@ -304,7 +319,7 @@ namespace MDM.Classes
             do
             {
                 for(byte b = 1; b <= noc; b++) LANFunc.ChAcf(b, uk);
-                Thread.Sleep(500);
+                Thread.Sleep(400);
                 for(byte b = 1; b <= noc; b++)
                 {
                     int res;
@@ -444,7 +459,11 @@ namespace MDM.Classes
             }
             // vypnout kanály
             led = new Bits();
-            for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
+            for(byte b = 1; b <= noc; b++)
+            {
+                LANFunc.ChDio(b, led.ByteValue);
+                LANFunc.ChRst(b);
+            }
             Thread.Sleep(200);
             LANFunc.Lan(0);
             // pokud nastala chyba, zobrazíme ji

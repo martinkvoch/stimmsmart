@@ -826,6 +826,33 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Patient first name must be entered!.
+        /// </summary>
+        public static string patAddErrFName {
+            get {
+                return ResourceManager.GetString("patAddErrFName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input error.
+        /// </summary>
+        public static string patAddErrHdr {
+            get {
+                return ResourceManager.GetString("patAddErrHdr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patient surname must be entered!.
+        /// </summary>
+        public static string patAddErrLName {
+            get {
+                return ResourceManager.GetString("patAddErrLName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This patient is already attached to another channel..
         /// </summary>
         public static string patDuplMsg {

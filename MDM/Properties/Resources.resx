@@ -658,4 +658,13 @@
   <data name="chInaccessible" xml:space="preserve">
     <value>Channel inaccessible</value>
   </data>
+  <data name="patAddErrFName" xml:space="preserve">
+    <value>Patient first name must be entered!</value>
+  </data>
+  <data name="patAddErrHdr" xml:space="preserve">
+    <value>Input error</value>
+  </data>
+  <data name="patAddErrLName" xml:space="preserve">
+    <value>Patient surname must be entered!</value>
+  </data>
 </root>

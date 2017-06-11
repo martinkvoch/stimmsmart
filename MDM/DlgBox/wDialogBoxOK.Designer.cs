@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbMessage = new System.Windows.Forms.Label();
             this.imgClass = new System.Windows.Forms.PictureBox();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClass)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +50,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.vScrollBar1);
             this.panel1.Controls.Add(this.lbMessage);
             this.panel1.Controls.Add(this.imgClass);
             resources.ApplyResources(this.panel1, "panel1");
@@ -65,6 +67,11 @@
             resources.ApplyResources(this.imgClass, "imgClass");
             this.imgClass.Name = "imgClass";
             this.imgClass.TabStop = false;
+            // 
+            // vScrollBar1
+            // 
+            resources.ApplyResources(this.vScrollBar1, "vScrollBar1");
+            this.vScrollBar1.Name = "vScrollBar1";
             // 
             // wDialogBoxOK
             // 
@@ -92,5 +99,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbMessage;
         private System.Windows.Forms.PictureBox imgClass;
+        private System.Windows.Forms.VScrollBar vScrollBar1;
     }
 }

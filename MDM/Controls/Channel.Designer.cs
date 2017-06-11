@@ -77,11 +77,11 @@
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
-            // led
+            // Led
             // 
-            resources.ApplyResources(this.Led, "led");
+            resources.ApplyResources(this.Led, "Led");
             this.Led.Color = System.Drawing.Color.WhiteSmoke;
-            this.Led.Name = "led";
+            this.Led.Name = "Led";
             this.Led.On = true;
             // 
             // lbElapsed
@@ -127,9 +127,9 @@
             // 
             resources.ApplyResources(this.tbCurrent, "tbCurrent");
             this.tbCurrent.LargeChange = 10;
-            this.tbCurrent.Maximum = 1000;
+            this.tbCurrent.Maximum = 255;
             this.tbCurrent.Name = "tbCurrent";
-            this.tbCurrent.TickFrequency = 100;
+            this.tbCurrent.TickFrequency = 16;
             this.tbCurrent.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.tbCurrent.ValueChanged += new System.EventHandler(this.tbCurrent_ValueChanged);
             // 

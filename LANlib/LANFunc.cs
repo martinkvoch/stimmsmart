@@ -96,7 +96,7 @@ namespace LANlib
             ResponseDG res = ChRd(chnum);
             Bits diowr = new Bits(dio);
 
-            q.DioWR = res.DioRD;
+            //q.DioWR = res.DioRD;
             q.HoldingR = res.InputR.Verified;
             q.DioWR = diowr.ByteValue;
             res = LAN.MasterCmd(q);

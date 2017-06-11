@@ -136,12 +136,30 @@ namespace MDM.Controls
         #endregion
 
         #region Current
+        const double maxmA = 4.0;
         /// <summary>
-        /// Aktuálně nastavená hodnota proudu. Pro všechny stavy s výjimkou InProgress a Restored by měla být nulová.
+        /// Aktuálně nastavená hodnota proudu.
+        /// Nastavení probíhá po krocích ACF = 32.
         /// </summary>
-        public float Current
+        public double Current
         {
-            get { return tbCurrent.Value / 100F; }
+            //get { return tbCurrent.Value * .015625; }
+            get { return tbCurrent.Value * (maxmA / tbCurrent.Maximum); }
+            set
+            {
+                int actCur = tbCurrent.Value, toBeSet = (int)(value / (maxmA / tbCurrent.Maximum));
+
+                if(toBeSet > byte.MaxValue) toBeSet = byte.MaxValue;
+                for(int i = actCur + 32; i < toBeSet; i += 32)
+                {
+                    int c = i;
+
+                    if(c > toBeSet) c = toBeSet;
+                    LANFunc.ChAcf(Number, (byte)c);
+                    Thread.Sleep(100);
+                }
+                tbCurrent.Value = toBeSet;
+            }
         }
         #endregion
 
@@ -299,7 +317,8 @@ namespace MDM.Controls
             {
                 if(resp.Command == QueryCmd.CmdRd)
                 {
-                    //LEDBits = new Bits(resp.DioRD);
+                    LEDBits = new Bits(resp.DioRD);
+                    tbCurrent.Value = (int)(resp.InputR.Verified.AttenCoef * (maxmA / tbCurrent.Maximum));
                 }
             }
         }
@@ -318,27 +337,16 @@ namespace MDM.Controls
         private void electrodesReady()
         {
             ResponseDG resp;
-            //byte pckNum;
-            //QueryDG q = new QueryDG(modbus: new ModbusHolding(dac: 32768, dout: 2));
 
             LANFunc.ChDAC(Number);
             LANFunc.ChDOUT(Number, 2);
-            Thread.Sleep(100);
-            LANFunc.ChAcf(Number, 32);
-            Thread.Sleep(100);
-            //pckNum = sendLANCmd(q);
-            //Thread.Sleep(50);
-            //resp = waitFor(pckNum);
-            //q.HoldingR.AttenCoef = 32;
-            //pckNum = sendLANCmd(q);
-            //Thread.Sleep(50);
-            //resp = waitFor(pckNum);
+            //LANFunc.ChAcf(Number, 32);
+            //Thread.Sleep(100);
+            Current = .5;
             do
             {
                 resp = LANFunc.ChRd(Number);
-                //q = new QueryDG(cmd: QueryCmd.CmdRd);
-                //pckNum = sendLANCmd(q);
-                //resp = waitFor(pckNum);
+                Application.DoEvents();
             } while((resp.InputR.AIN2 - resp.InputR.AIN1) >= 52);
         }
         #endregion
@@ -357,10 +365,11 @@ namespace MDM.Controls
             Patient = new SelectedPatient();
             lbPatName.Text = lbDiagnosis.Text = lbProcNum.Text = lbStatus.Text = string.Empty;
             lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
-            tbCurrent.Value = 0;
-            tbCurrent.Maximum = maxCurrent;
-            tbCurrent.TickFrequency = maxCurrent / 10;
-            tbCurrent_ValueChanged(null, null);
+            Current = 0D;
+            //tbCurrent.Value = 0;
+            //tbCurrent.Maximum = maxCurrent;
+            //tbCurrent.TickFrequency = maxCurrent / 10;
+            //tbCurrent_ValueChanged(null, null);
             pbProgress.Value = 0;
             Elapsed = 0;
             ChannelEnabled = false;
@@ -382,7 +391,9 @@ namespace MDM.Controls
         {
             if(!chWorker.IsBusy) chWorker.RunWorkerAsync();
             timer.Stop();
-            pbProgress.Value = tbCurrent.Value = current = 0;
+            pbProgress.Value = current = 0;
+            Current = 0D;
+            lbPatName.Text = lbDiagnosis.Text = lbProcNum.Text = string.Empty;
             if(IsConnected())
             {
                 cbPatSelect.Enabled = true;
@@ -411,13 +422,12 @@ namespace MDM.Controls
             cbPatSelect.Enabled = cbStop.Enabled = true;
             cbStart.Enabled = false;
             lbPatName.ForeColor = lbDiagnosis.ForeColor = lbProcNum.ForeColor = SystemColors.ActiveCaptionText;
-            tbCurrent.Value = current = 0;
             lbStatus.Text = Resources.chActive;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
             Refresh();
             electrodesReady();
-            Status = ChannelStatus.Ready;
+            if(Status == ChannelStatus.Active) Status = ChannelStatus.Ready;
             //Status = ChannelStatus.SetCurrent;
             //ledGreen();
         }
@@ -452,8 +462,8 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chInProgress;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
-            timer.Start();
             ledGreen();
+            timer.Start();
         }
         #endregion
 
@@ -533,10 +543,11 @@ namespace MDM.Controls
             Patient = new SelectedPatient();
             lbPatName.Text = lbDiagnosis.Text = lbProcNum.Text = lbStatus.Text = string.Empty;
             lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
-            tbCurrent.Value = 0;
-            tbCurrent.Maximum = maxCurrent;
-            tbCurrent.TickFrequency = maxCurrent / 10;
-            tbCurrent_ValueChanged(null, null);
+            Current = 0;
+            //tbCurrent.Value = 0;
+            //tbCurrent.Maximum = maxCurrent;
+            //tbCurrent.TickFrequency = maxCurrent / 10;
+            //tbCurrent_ValueChanged(null, null);
             pbProgress.Value = 0;
             Elapsed = 0;
             ChannelEnabled = false;
@@ -575,13 +586,10 @@ namespace MDM.Controls
             while(!chWorker.CancellationPending)
             {
                 ResponseDG resp;
-                //byte pckNum;
-                //QueryDG q = new QueryDG(cmd: QueryCmd.CmdRd);
 
-                //pckNum = sendLANCmd(q);
-                //resp = waitFor(pckNum);
                 resp = LANFunc.ChRd(Number);
-                processResponse(resp);
+                if(IsHandleCreated) Invoke(new MethodInvoker(delegate { processResponse(resp); }));
+                //processResponse(resp);
                 Thread.Sleep(1000);
             }
             e.Cancel = true;
@@ -619,8 +627,6 @@ namespace MDM.Controls
             if(tbCurrent.Value == 0) Status = ChannelStatus.Active;
             else
             {
-                //sendLANCmd(new QueryDG(0, Number, QueryCmd.CmdWr, 0, new ModbusHolding()));
-                //ResponseDG resp = Response;
                 current = tbCurrent.Value;
                 Status = ChannelStatus.Ready;
             }
@@ -677,7 +683,7 @@ namespace MDM.Controls
 
         private void tbCurrent_ValueChanged(object sender, EventArgs e)
         {
-            lbCurrent.Text = ((float)tbCurrent.Value / 100F).ToString("F2");// + " mA";
+            lbCurrent.Text = ((float)tbCurrent.Value * (maxmA / tbCurrent.Maximum)).ToString("F2");// + " mA";
         }
         #endregion
     }

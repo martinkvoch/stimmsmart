@@ -110,6 +110,24 @@ namespace MDM.Data
             return res;
         }
 
+        public static TDiagnosis GetFirst()
+        {
+            TDiagnosis res = new TDiagnosis();
+
+            using(Diagnosis dg = new Diagnosis())
+            {
+                DataRow dr;
+
+                dr = dg.Select("ID,NAME,LANG", string.Format("PARENT is null and not DELETED and LANG = '{0}'", Program.Language)).Rows.OfType<DataRow>().FirstOrDefault();
+                if(dr != null)
+                {
+                    dr = dg.Select("ID,NAME,LANG", string.Format("PARENT = {0} and not DELETED and LANG = '{1}'", Convert.ToInt32(dr[0]), Program.Language)).Rows.OfType<DataRow>().FirstOrDefault();
+                    if(dr != null) res = new TDiagnosis(Convert.ToInt32(dr[0]), dr[1].ToString(), dr[2].ToString());
+                }
+            }
+            return res;
+        }
+
         public Diagnosis() : base(tname) { }
     }
 }
