@@ -81,18 +81,10 @@ namespace LANlib
                 using(UdpClient client = new UdpClient())
                 {
                     byte[] buf = cmd.Datagram;
-                    IPEndPoint epi = new IPEndPoint(IPAddress.Parse(SlaveIP), listenPort);
-                    IPEndPoint epo = new IPEndPoint(IPAddress.Any, listenPort);
+                    IPEndPoint ep = new IPEndPoint(IPAddress.Parse(SlaveIP), listenPort);
 
-                    //client.EnableBroadcast = true;
-                    //client.ExclusiveAddressUse = false;
-                    //client.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReuseAddress, true);
-                    //client.Connect(ep);
-                    //client.Client.Bind(ep);
-                    client.Ttl = 255;
-                    client.Send(buf, buf.Length, epi);
-                    //res = ResponseDG.FromBytes(client.ReceiveAsync().Result.Buffer);
-                    res = ResponseDG.FromBytes(client.Receive(ref epo));
+                    client.Send(buf, buf.Length, ep);
+                    res = ResponseDG.FromBytes(client.Receive(ref ep));
                 }
             }
             catch(SocketException e)

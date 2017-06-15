@@ -105,7 +105,7 @@ namespace MDMcom
                     r = LANFunc.ChDAC(chNum, dac);
                 }
                 else if(cmd[1].Equals("dout", StringComparison.OrdinalIgnoreCase) && cmd.Length > 2 && isNumber(cmd[2])) r = LANFunc.ChDOUT(chNum, Convert.ToByte(cmd[2]));
-                else if(cmd[1].Equals("acf", StringComparison.OrdinalIgnoreCase) && cmd.Length > 2 && isNumber(cmd[2])) r = LANFunc.ChAcf(chNum, Convert.ToByte(cmd[2]));
+                else if(cmd[1].Equals("acf", StringComparison.OrdinalIgnoreCase) && cmd.Length > 2 && isNumber(cmd[2])) r = LANFunc.ChAtCf(chNum, Convert.ToByte(cmd[2]));
                 else if(cmd[1].Equals("mode", StringComparison.OrdinalIgnoreCase) && cmd.Length > 2 && isNumber(cmd[2]))
                 {
                     byte mode = Convert.ToByte(cmd[2]);

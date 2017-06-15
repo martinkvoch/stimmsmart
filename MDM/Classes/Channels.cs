@@ -91,6 +91,7 @@ namespace MDM.Classes
                 chnl.Enabled = chnl.IsConnected();
                 channels.Add(chnl);
                 parent.Controls.Add(chnl);
+                chnl.Status = ChannelStatus.Disabled;
             }
             Enabled = false;
         }
@@ -318,7 +319,7 @@ namespace MDM.Classes
             byte uk = 32, dif = 25;
             do
             {
-                for(byte b = 1; b <= noc; b++) LANFunc.ChAcf(b, uk);
+                for(byte b = 1; b <= noc; b++) LANFunc.ChAtCf(b, uk);
                 Thread.Sleep(400);
                 for(byte b = 1; b <= noc; b++)
                 {
@@ -498,6 +499,7 @@ namespace MDM.Classes
                         led[ch.Number - 1] = false;
                     }
                     else LANFunc.Lan(led.ByteValue);
+                    SendLANCmd(new QueryDG((byte)(pck++), ch.Number)); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
                     Thread.Sleep(100);
                 });
                 Enabled = true;

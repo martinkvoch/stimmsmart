@@ -137,6 +137,24 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Resume.
+        /// </summary>
+        public static string cbPauseResumeText {
+            get {
+                return ResourceManager.GetString("cbPauseResumeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suspend.
+        /// </summary>
+        public static string cbPauseText {
+            get {
+                return ResourceManager.GetString("cbPauseText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connect the electrodes.
         /// </summary>
         public static string chActive {

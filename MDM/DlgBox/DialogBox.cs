@@ -23,7 +23,8 @@ namespace MDM.DlgBox
             box.Text = hdr;
             box.Message = msg;
             box.SetIcon(icon);
-            box.ShowDialog();
+            box.Show();
+            //box.ShowDialog();
         }
 
         public static void ShowWarn(string msg, string hdr, MessageBoxIcon icon = MessageBoxIcon.Warning)
@@ -33,7 +34,7 @@ namespace MDM.DlgBox
             box.Text = hdr;
             box.Message = msg;
             box.SetIcon(icon);
-            box.ShowDialog();
+            box.Show();
         }
 
         public static void ShowError(string msg, string hdr, MessageBoxIcon icon = MessageBoxIcon.Error)
@@ -43,7 +44,7 @@ namespace MDM.DlgBox
             box.Text = hdr;
             box.Message = msg;
             box.SetIcon(icon);
-            box.ShowDialog();
+            box.Show();
         }
     }
 }

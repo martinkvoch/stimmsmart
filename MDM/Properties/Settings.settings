@@ -29,7 +29,7 @@
       <Value Profile="(Default)">13</Value>
     </Setting>
     <Setting Name="ProcDur" Type="System.Int16" Scope="User">
-      <Value Profile="(Default)">30</Value>
+      <Value Profile="(Default)">1800</Value>
     </Setting>
     <Setting Name="LanIP" Type="System.String" Scope="User">
       <Value Profile="(Default)">10.10.18.3</Value>

@@ -135,7 +135,7 @@ namespace LANlib
             return res;
         }
 
-        public static ResponseDG ChAcf(byte chnum, byte acf = 0)
+        public static ResponseDG ChAtCf(byte chnum, byte acf = 0)
         {
             QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), chnum);
             ResponseDG res = ChRd(chnum);

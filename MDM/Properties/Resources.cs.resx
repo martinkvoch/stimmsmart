@@ -531,4 +531,10 @@
   <data name="patAddErrLName" xml:space="preserve">
     <value>Příjmení pacienta musí být zadáno!</value>
   </data>
+  <data name="cbPauseResumeText" xml:space="preserve">
+    <value>Obnovit</value>
+  </data>
+  <data name="cbPauseText" xml:space="preserve">
+    <value>Pozastavit</value>
+  </data>
 </root>

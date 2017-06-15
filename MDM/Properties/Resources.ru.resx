@@ -534,4 +534,10 @@
   <data name="patAddErrLName" xml:space="preserve">
     <value>Фамилия пациента должны быть введены!</value>
   </data>
+  <data name="cbPauseResumeText" xml:space="preserve">
+    <value>Возобновлять</value>
+  </data>
+  <data name="cbPauseText" xml:space="preserve">
+    <value>Приостановить</value>
+  </data>
 </root>

@@ -100,7 +100,7 @@ namespace MDM.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1800")]
         public short ProcDur {
             get {
                 return ((short)(this["ProcDur"]));
