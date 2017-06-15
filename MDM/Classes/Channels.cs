@@ -88,7 +88,7 @@ namespace MDM.Classes
 
                 chnl.Width = screenWidth / noc;
                 chnl.Dock = DockStyle.Left;
-                chnl.Enabled = chnl.IsConnected();
+                chnl.Enabled = true;
                 channels.Add(chnl);
                 parent.Controls.Add(chnl);
                 chnl.Status = ChannelStatus.Disabled;

@@ -673,4 +673,7 @@
   <data name="cbPauseText" xml:space="preserve">
     <value>Suspend</value>
   </data>
+  <data name="chHighResistance" xml:space="preserve">
+    <value>The resistance is too high</value>
+  </data>
 </root>

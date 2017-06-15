@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime;
+using System.Windows.Forms;
 using dword = System.UInt32;
 using word = System.UInt16;
 
@@ -16,6 +17,9 @@ namespace LANlib
     {
         private const word listenPort = 5000;
         private static IPEndPoint recvEP = new IPEndPoint(IPAddress.Any, listenPort);
+
+        [DefaultValue(false)]
+        public static bool TimedOut { get; private set; }
 
         #region MasterIP
         //private static string masterIP = "127.0.0.1";
@@ -76,6 +80,7 @@ namespace LANlib
         {
             ResponseDG res = GetResponse(cmd);
 
+            if(!TimedOut)
             try
             {
                 using(UdpClient client = new UdpClient())
@@ -83,18 +88,21 @@ namespace LANlib
                     byte[] buf = cmd.Datagram;
                     IPEndPoint ep = new IPEndPoint(IPAddress.Parse(SlaveIP), listenPort);
 
+                    client.Client.ReceiveTimeout = 5000;
+                    client.Client.SendTimeout = 5000;
                     client.Send(buf, buf.Length, ep);
                     res = ResponseDG.FromBytes(client.Receive(ref ep));
                 }
             }
             catch(SocketException e)
             {
-                ModbusInput input = new ModbusInput();
+                    ModbusInput input = new ModbusInput();
 
-                input.Holding.Mode = (word)e.ErrorCode;
-                input.Holding.Waweform = (word)e.NativeErrorCode;
-                input.Holding.T3Max = (word)e.SocketErrorCode;
-                res = GetResponse(cmd, ErrStatus.InvalidResponse, input: input);
+                    TimedOut = e.SocketErrorCode == SocketError.TimedOut;
+                    input.Holding.Mode = (word)e.ErrorCode;
+                    input.Holding.Waweform = (word)e.NativeErrorCode;
+                    input.Holding.T3Max = (word)e.SocketErrorCode;
+                    res = GetResponse(cmd, ErrStatus.InvalidResponse, input: input);
             }
             catch(Exception e)
             {

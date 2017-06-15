@@ -182,6 +182,15 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The resistance is too high.
+        /// </summary>
+        public static string chHighResistance {
+            get {
+                return ResourceManager.GetString("chHighResistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Channel inaccessible.
         /// </summary>
         public static string chInaccessible {

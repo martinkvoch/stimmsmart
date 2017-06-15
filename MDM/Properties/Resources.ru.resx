@@ -540,4 +540,7 @@
   <data name="cbPauseText" xml:space="preserve">
     <value>Приостановить</value>
   </data>
+  <data name="chHighResistance" xml:space="preserve">
+    <value>Сопротивление слишком велико</value>
+  </data>
 </root>

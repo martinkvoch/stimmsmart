@@ -14,7 +14,7 @@ using MDM.Classes;
 
 namespace MDM.Controls
 {
-    public enum ChannelStatus { Disabled, Inactive, Active, Ready, InProgress, SetCurrent, Paused, Restored, Error, Inaccessible }
+    public enum ChannelStatus { Disabled, Inactive, Active, Ready, InProgress, SetCurrent, HighResistance, Paused, Restored, Error, Inaccessible }
 
     #region struct SelectedPatient
     public struct SelectedPatient
@@ -84,7 +84,7 @@ namespace MDM.Controls
         #endregion
 
         #region Status
-        private ChannelStatus status = ChannelStatus.Disabled;
+        private ChannelStatus status = ChannelStatus.Disabled, oldStatus = ChannelStatus.Disabled;
         /// <summary>
         /// Aktuální stav kanálu.
         /// </summary>
@@ -95,15 +95,17 @@ namespace MDM.Controls
             {
                 if(status != value)
                 {
+                    oldStatus = status;
                     status = value;
                     switch(status)
                     {
                         case ChannelStatus.Disabled: reset(); break;
                         case ChannelStatus.Inactive: deactivate(); break;
                         case ChannelStatus.Active: activate(); break;
-                        case ChannelStatus.SetCurrent: setCurrent(); break;
                         case ChannelStatus.Ready: ready(); break;
                         case ChannelStatus.InProgress: inProgress(); break;
+                        case ChannelStatus.SetCurrent: setCurrent(); break;
+                        case ChannelStatus.HighResistance: highResistance(); break;
                         case ChannelStatus.Paused: paused(); break;
                         case ChannelStatus.Restored: restored(); break;
                         case ChannelStatus.Error: error(); break;
@@ -329,35 +331,6 @@ namespace MDM.Controls
             }
         }
 
-        ///// <summary>
-        ///// Do fronty dotazů/požadavků na LAN vloží novou položku
-        ///// </summary>
-        ///// <param name="query">datová struktura dotazu (UDP paket)</param>
-        //private byte sendLANCmd(QueryDG query)
-        //{
-        //    if(query.Command == QueryCmd.CmdWr && query.HoldingR == null)
-        //    {
-        //        ResponseDG resp;
-        //        QueryDG q = new QueryDG(addr: Number, cmd: QueryCmd.CmdRd);
-
-        //        resp = waitFor((byte)pck);
-        //        if(resp != null && resp.InputR != null && resp.InputR.Holding != null) query.HoldingR = resp.InputR.Holding;
-        //    }
-        //    query.PacketNum = (byte)pck++;
-        //    query.Address = Number;
-        //    Channels.SendLANCmd(query);
-        //    return query.PacketNum;
-        //}
-
-        //private ResponseDG waitFor(byte pckNum)
-        //{
-        //    ResponseDG res;
-
-        //    while(Response == null || Response.PacketNum != pckNum) Application.DoEvents();
-        //    res = respQueue.Pull();
-        //    return res;
-        //}
-
         private void processResponse(ResponseDG resp)
         {
             if(resp != null)
@@ -369,44 +342,52 @@ namespace MDM.Controls
                     Current = Math.Round(resp.InputR.Verified.AttenCoef * (maxmA / tbCurrent.Maximum), 2);
                 }
                 processMBStatus(resp);
-                if(Status == ChannelStatus.Ready)
+                if(Status == ChannelStatus.Ready) // elektrody nejsou nasazeny ve stavu "připraven"
                 {
                     ResponseDG res;
 
                     res = LANFunc.ChRd(Number);
                     if((resp.InputR.AIN2 - resp.InputR.AIN1) >= 48) Status = ChannelStatus.Active;
                 }
+                if((Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) && resp.InputR.Status[1])
+                    Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
             }
-        }
-
-        public bool IsConnected() // test konektivity
-        {
-            bool res = true;
-
-            //Thread.Sleep(500);
-            return res;
         }
 
         // kontroluje připojení pacienta na elektrody pomocí odporu < 10,5 kOhm
         // proud = 0,5 mA
-        // (AIN2 - AIN1) < 52
+        // (AIN2 - AIN1) < 52 (5,2 V)
         private void electrodesReady()
         {
             ResponseDG resp;
 
             resp = LANFunc.ChDAC(Number);
             resp = LANFunc.ChDOUT(Number, 2);
-            //DialogBox.ShowInfo(string.Format("DAC = {0}, DOUT = {1}", resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT), "DAC, DOUT");
-            //LANFunc.ChAcf(Number, 32);
-            //Thread.Sleep(100);
             Current = .5;
             resp = LANFunc.ChRd(Number);
             //DialogBox.ShowInfo(string.Format("Current = {0} mA, AtfC = {1}", Current, resp.InputR.Verified.AttenCoef), "Current");
             do
             {
-                resp = LANFunc.ChRd(Number);
                 Application.DoEvents();
+                resp = LANFunc.ChRd(Number);
             } while(Status == ChannelStatus.Active && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52);
+        }
+
+        // čeká na úpravu elektrod tak, aby odpor nebyl příliš vysoký
+        // proud = 0,5 mA
+        // Status(D1) = 1
+        private void moistenElectrodes()
+        {
+            ResponseDG resp;
+
+            Current = .5;
+            resp = LANFunc.ChRd(Number);
+            do
+            {
+                Application.DoEvents();
+                resp = LANFunc.ChRd(Number);
+                Thread.Sleep(100);
+            } while(Status == ChannelStatus.HighResistance && resp.InputR.Status[1]);
         }
         #endregion
 
@@ -454,24 +435,6 @@ namespace MDM.Controls
             lbStatus.BackColor = SystemColors.Window;
             cbPatSelect.Enabled = true;
             cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Regular);
-            //if(!chWorker.IsBusy) chWorker.RunWorkerAsync();
-            //timer.Stop();
-            //pbProgress.Value = 0;
-            //Elapsed = 0;
-            //Current = current = 0D;
-            //lbPatName.Text = lbDiagnosis.Text = lbProcNum.Text = string.Empty;
-            //if(IsConnected())
-            //{
-            //    cbPatSelect.Enabled = true;
-            //    cbSetCurrent.Enabled = cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = false;
-            //    lbStatus.Text = Resources.chInactive;
-            //    lbStatus.ForeColor = SystemColors.ActiveCaptionText;
-            //    lbStatus.BackColor = SystemColors.Window;
-            //}
-
-            //ResponseDG resp = LANFunc.ChRst(Number);
-
-            //LEDBits = new Bits(resp.DioRD);
         }
         #endregion
 
@@ -512,26 +475,28 @@ namespace MDM.Controls
 
         #region inProgress()
         /// <summary>
-        /// Uvede kanál do stavu "procedura probíhá". Z tohoto stavu může kanál přejít do stavu "nastavení proudu", "pozastaven", "chyba" nebo "neaktivní".
+        /// Uvede kanál do stavu "procedura probíhá". Z tohoto stavu může kanál přejít do stavu "nastavení proudu", "příliš vysoký odpor", "pozastaven", "chyba" nebo "neaktivní".
         /// </summary>
         private void inProgress()
         {
             cbPatSelect.Enabled = cbStart.Enabled = false;
             cbPause.Enabled = cbStop.Enabled = cbSetCurrent.Enabled = true;
             cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Regular);
+            cbPause.Text = Resources.cbPauseText;
+            cbPause.Image = Resources.pause;
             lbPatName.ForeColor = lbDiagnosis.ForeColor = lbProcNum.ForeColor = lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.Text = Resources.chInProgress;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
             ledGreen();
-            timer.Start();
             tbCurrent.Enabled = false;
+            timer.Start();
         }
         #endregion
 
         #region setCurrent()
         /// <summary>
-        /// Uvede kanál do stavu "nastav proud". V tomto stavu je třeba nastavit hodnotu proudu. Poté kanál přechází do stavu "připraven".
+        /// Uvede kanál do stavu "nastav proud". V tomto stavu je třeba nastavit hodnotu proudu. Poté kanál přechází do stavu "procedura probíhá".
         /// </summary>
         private void setCurrent()
         {
@@ -539,9 +504,30 @@ namespace MDM.Controls
             tbCurrent.Enabled = true;
             tbCurrent.Focus();
             lbCurrent.ForeColor = SystemColors.ActiveCaptionText;
-            //lbStatus.Text = Resources.chSetCurrent;
-            //lbStatus.ForeColor = Color.White;
-            //lbStatus.BackColor = Color.OrangeRed;
+            lbStatus.Text = Resources.chSetCurrent;
+            lbStatus.ForeColor = Color.White;
+            lbStatus.BackColor = Color.OrangeRed;
+        }
+        #endregion
+
+        #region highResistance()
+        /// <summary>
+        /// Uvede kanál do stavu "příliš vysoký odpor". V tomto stavu je třeba navlhčit elektrody na hlavě pacienta, aby se odpor snížil.
+        /// Poté kanál přechází do stavu "procedura probíhá".
+        /// </summary>
+        private void highResistance()
+        {
+            ChannelStatus status = oldStatus;
+
+            paused();
+            cbPause.Enabled = false;
+            lbStatus.Text = Resources.chHighResistance;
+            lbStatus.ForeColor = Color.White;
+            lbStatus.BackColor = Color.OrangeRed;
+            current = Current;
+            moistenElectrodes();
+            Current = current;
+            Status = status;
         }
         #endregion
 
@@ -569,15 +555,15 @@ namespace MDM.Controls
         /// </summary>
         private void restored()
         {
-            //cbPatSelect.Enabled = cbStart.Enabled = false;
             //cbPause.Enabled = cbStop.Enabled = cbSetCurrent.Enabled = true;
+            //cbPatSelect.Enabled = cbStart.Enabled = false;
             inProgress();
             cbPause.Text = Resources.cbPauseText;
             cbPause.Image = Resources.pause;
             lbStatus.Text = Resources.chRestored;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
-            ledGreen();
+            //ledGreen();
         }
         #endregion
 
@@ -633,11 +619,7 @@ namespace MDM.Controls
         private void timerTick(object sender, EventArgs e)
         {
             if(Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent || Status == ChannelStatus.Restored) Elapsed++;
-            if(elapsed > procDuration)
-            {
-                Elapsed = 0;
-                Status = ChannelStatus.Inactive;
-            }
+            if(elapsed > procDuration) Status = ChannelStatus.Inactive;
         }
 
         /// <summary>
@@ -717,6 +699,17 @@ namespace MDM.Controls
             }
         }
 
+        private void cbStop_Click(object sender, EventArgs e)
+        {
+            if(InOrder || Status == ChannelStatus.HighResistance)
+            {
+                timer.Stop();
+                if(elapsed < procDuration && DialogBox.ShowYN(Resources.procAbortQ, Resources.procAbortH) == DialogResult.Yes) Status = ChannelStatus.Inactive;
+                else timer.Start();
+            }
+            else Status = ChannelStatus.Inactive;
+        }
+
         private void Channel_FontChanged(object sender, EventArgs e)
         {
             foreach(Control c in Controls) c.Font = Font;
@@ -731,18 +724,6 @@ namespace MDM.Controls
         private void Channel_Leave(object sender, EventArgs e)
         {
             //groupBox1.ForeColor = SystemColors.ControlText;
-        }
-
-        //TODO: na tlačítko STOP dát ukončení procedury i v přípravné fázi
-        private void cbStop_Click(object sender, EventArgs e)
-        {
-            if(InOrder)
-            {
-                timer.Stop();
-                if(elapsed < procDuration && DialogBox.ShowYN(Resources.procAbortQ, Resources.procAbortH) == DialogResult.Yes) Status = ChannelStatus.Inactive;
-                else timer.Start();
-            }
-            else Status = ChannelStatus.Inactive;
         }
 
         private void tbCurrent_ValueChanged(object sender, EventArgs e)
