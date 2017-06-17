@@ -18,6 +18,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Channel));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chMon = new MDM.Controls.ChannelMonitor();
             this.Led = new Bulb.LedBulb();
             this.lbElapsed = new System.Windows.Forms.Label();
             this.lbRemain = new System.Windows.Forms.Label();
@@ -56,6 +57,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.chMon);
             this.groupBox4.Controls.Add(this.Led);
             this.groupBox4.Controls.Add(this.lbElapsed);
             this.groupBox4.Controls.Add(this.lbRemain);
@@ -63,6 +65,12 @@
             resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
+            // 
+            // chMon
+            // 
+            resources.ApplyResources(this.chMon, "chMon");
+            this.chMon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.chMon.Name = "chMon";
             // 
             // Led
             // 
@@ -196,9 +204,9 @@
             // 
             // lbProcNum
             // 
+            resources.ApplyResources(this.lbProcNum, "lbProcNum");
             this.lbProcNum.BackColor = System.Drawing.SystemColors.Window;
             this.lbProcNum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            resources.ApplyResources(this.lbProcNum, "lbProcNum");
             this.lbProcNum.Name = "lbProcNum";
             // 
             // lbDiagnosis
@@ -260,5 +268,6 @@
         private System.Windows.Forms.ProgressBar pbProgress;
         private System.Windows.Forms.Label lbElapsed;
         private Bulb.LedBulb Led;
+        private ChannelMonitor chMon;
     }
 }

@@ -6,6 +6,7 @@ namespace MDM.DlgBox
     public partial class wDialogBoxYN : Form
     {
         public DialogResult Result = DialogResult.No;
+
         public string Message
         {
             get { return lbMessage.Text; }

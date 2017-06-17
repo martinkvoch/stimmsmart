@@ -543,4 +543,7 @@
   <data name="chHighResistance" xml:space="preserve">
     <value>Сопротивление слишком велико</value>
   </data>
+  <data name="testChError0" xml:space="preserve">
+    <value>Связь между компьютером и устройством прерывается, самотестирование не произошло.</value>
+  </data>
 </root>

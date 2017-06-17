@@ -26,9 +26,9 @@ namespace MDM.Classes
         private static dword pck = 0U;
 
         private List<Channel> channels = new List<Channel>();
-        private LANQueue<QueryDG> queue = new LANQueue<QueryDG>();
-        private BackgroundWorker qWorker = new BackgroundWorker();
-        private BackgroundWorker rWorker = new BackgroundWorker();
+        //private LANQueue<QueryDG> queue = new LANQueue<QueryDG>();
+        //private BackgroundWorker qWorker = new BackgroundWorker();
+        private static BackgroundWorker rWorker = new BackgroundWorker();
 
         #region bool Enabled
         private bool enabled = true;
@@ -77,11 +77,11 @@ namespace MDM.Classes
             int screenWidth = (int)SystemParameters.PrimaryScreenWidth;
 
             LAN.SlaveIP = new Settings().LanIP;
-            qWorker.WorkerSupportsCancellation = true;
+            //qWorker.WorkerSupportsCancellation = true;
             rWorker.WorkerSupportsCancellation = true;
-            qWorker.DoWork += QWorker_DoWork;
-            rWorker.DoWork += RWorker_DoWork;
-            rWorker.RunWorkerAsync();
+            //qWorker.DoWork += QWorker_DoWork;
+            rWorker.DoWork += rWorker_DoWork;
+            rWorker.RunWorkerAsync(this);
             for(byte ch = noc; ch > 0; ch--)
             {
                 Channel chnl = new Channel(ch, this);
@@ -96,43 +96,70 @@ namespace MDM.Classes
             Enabled = false;
         }
 
-        private void RWorker_DoWork(object sender, DoWorkEventArgs e)
+        private static void rWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             while(!rWorker.CancellationPending)
             {
                 LANFunc.LanRd();
-                Thread.Sleep(1000);
+                if(LAN.TimedOut) processTimedOut(e.Argument);
+                else Thread.Sleep(1000);
             }
             e.Cancel = true;
         }
 
-        /// <summary>
-        /// Obsluhuje frontu požadavků na LAN
-        /// </summary>
-        /// <param name="sender">odesílatel události</param>
-        /// <param name="e">parametry události</param>
-        private void QWorker_DoWork(object sender, DoWorkEventArgs e)
+        private static void processTimedOut(object argument)
         {
-            while(true)
+            wTimeoutDlgBox dlg = new wTimeoutDlgBox();
+
+            dlg.Show();
+            do
             {
-                if(queue.Count > 0)
-                {
-                    QueryDG cmd = queue.Pull();
+                System.Windows.Forms.Application.DoEvents();
+            } while(LAN.TimedOut && dlg.DialogResult != DialogResult.Cancel);
+            if(!dlg.IsDisposed) dlg.Dispose();
+            if(!rWorker.IsBusy) rWorker.RunWorkerAsync();
+            if(!LAN.TimedOut)
+            {
+                bool[] chErrors = new bool[noc];
+                Channels channels = argument as Channels;
+                wWaitBox box = wWaitBox.Show(Resources.testChannel);
 
-                    if(cmd != null)
-                    {
-                        ResponseDG resp = LAN.MasterCmd(cmd);
-
-                        if(resp != null)
-                        {
-                            if(cmd.Address > 0) channels.First(ch => ch.Number == cmd.Address).Response = resp;
-                            else LANFunc.Lan(resp.DioRD);
-                        }
-                    }
-                }
-                Thread.Sleep(1);
+                chErrors = Autotest();
+                box.Dispose();
+                for(byte b = 1; b <= noc; b++) channels.channels.ForEach(ch =>
+                    ch.Invoke(new MethodInvoker(delegate { ch.Status = ChannelStatus.Inactive; }))
+                    );
+                channels.On(chErrors);
             }
         }
+
+        ///// <summary>
+        ///// Obsluhuje frontu požadavků na LAN
+        ///// </summary>
+        ///// <param name="sender">odesílatel události</param>
+        ///// <param name="e">parametry události</param>
+        //private void QWorker_DoWork(object sender, DoWorkEventArgs e)
+        //{
+        //    while(true)
+        //    {
+        //        if(queue.Count > 0)
+        //        {
+        //            QueryDG cmd = queue.Pull();
+
+        //            if(cmd != null)
+        //            {
+        //                ResponseDG resp = LAN.MasterCmd(cmd);
+
+        //                if(resp != null)
+        //                {
+        //                    if(cmd.Address > 0) channels.First(ch => ch.Number == cmd.Address).Response = resp;
+        //                    else LANFunc.Lan(resp.DioRD);
+        //                }
+        //            }
+        //        }
+        //        Thread.Sleep(1);
+        //    }
+        //}
         #endregion
 
         #region Autotest()
@@ -154,6 +181,16 @@ namespace MDM.Classes
                     Thread.Sleep(1000);
                 }
             });
+
+            LANFunc.LanRd();
+            if(LAN.TimedOut)
+            {
+                protocol = Resources.testChError0;
+                Log.ErrorToLog(methodName, Resources.testChErrors + ":" + Environment.NewLine + protocol);
+                DialogBox.ShowError(protocol, Resources.testChErrors);
+                for(byte b = 0; b < noc; b++) chErrors[b] = true;
+                return chErrors;
+            }
 
             lanr.IsBackground = true;
             lanr.SetApartmentState(ApartmentState.MTA);
@@ -488,8 +525,9 @@ namespace MDM.Classes
             {
                 Bits led = new Bits();
 
-                qWorker.RunWorkerAsync();
-                SendLANCmd(new QueryDG((byte)(pck++)));
+                //qWorker.RunWorkerAsync();
+                //SendLANCmd(new QueryDG((byte)(pck++)));
+                LANFunc.Lan(0); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
                 Thread.Sleep(100);
                 channels.ForEach(ch => {
                     led[ch.Number - 1] = true;
@@ -499,8 +537,12 @@ namespace MDM.Classes
                         led[ch.Number - 1] = false;
                     }
                     else LANFunc.Lan(led.ByteValue);
-                    SendLANCmd(new QueryDG((byte)(pck++), ch.Number)); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
-                    Thread.Sleep(100);
+                    //SendLANCmd(new QueryDG((byte)(pck++), ch.Number)); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
+                    if(!chErrors[ch.Number - 1])
+                    {
+                        LANFunc.ChRst(ch.Number); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
+                        ch.Status = ChannelStatus.Disabled;
+                    }
                 });
                 Enabled = true;
             }
@@ -516,14 +558,14 @@ namespace MDM.Classes
             return channels.Any(ch => ch.Patient.ID == patId);
         }
 
-        /// <summary>
-        /// Do fronty dotazů/požadavků na LAN vloží novou položku
-        /// </summary>
-        /// <param name="query">datová struktura dotazu (UDP paket)</param>
-        public void SendLANCmd(QueryDG query)
-        {
-            queue.Push(query);
-        }
+        ///// <summary>
+        ///// Do fronty dotazů/požadavků na LAN vloží novou položku
+        ///// </summary>
+        ///// <param name="query">datová struktura dotazu (UDP paket)</param>
+        //public void SendLANCmd(QueryDG query)
+        //{
+        //    queue.Push(query);
+        //}
         #endregion
     }
 }

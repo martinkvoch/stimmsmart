@@ -131,3 +131,11 @@ C:\Martin\Projekty\ZAT\MDM\StimSmart\MDM.pdb
 C:\Martin\Projekty\ZAT\MDM\StimSmart\cs\MDM.resources.dll
 C:\Martin\Projekty\ZAT\MDM\StimSmart\ru\MDM.resources.dll
 C:\Martin\Projekty\ZAT\MDM\StimSmart\en\MDM.resources.dll
+C:\Martin\Projekty\ZAT\MDM\MDM\obj\Debug\MDM.Controls.ChannelMonitor.resources
+C:\Martin\Projekty\ZAT\MDM\MDM\obj\Debug\MDM.DlgBox.wTimeoutDlgBox.resources
+C:\Martin\Projekty\ZAT\MDM\MDM\obj\Debug\MDM.DlgBox.wTimeoutDlgBox.cs.resources
+C:\Martin\Projekty\ZAT\MDM\MDM\obj\Debug\MDM.DlgBox.wTimeoutDlgBox.ru.resources
+C:\Martin\Projekty\ZAT\MDM\StimSmart\cs-CZ\MDM.resources.dll
+C:\Martin\Projekty\ZAT\MDM\MDM\obj\Debug\MDM.DlgBox.wTimeoutDlgBox.cs-CZ.resources
+C:\Martin\Projekty\ZAT\MDM\MDM\obj\Debug\cs-CZ\MDM.resources.dll
+C:\Martin\Projekty\ZAT\MDM\MDM\obj\Debug\MDM.DlgBox.wWaitBox.resources

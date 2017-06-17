@@ -4,13 +4,12 @@ using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using word = System.UInt16;
-using dword = System.UInt32;
 
 using LANlib;
+using MDM.Classes;
 using MDM.DlgBox;
 using MDM.Properties;
 using MDM.Windows;
-using MDM.Classes;
 
 namespace MDM.Controls
 {
@@ -39,8 +38,8 @@ namespace MDM.Controls
     /// </summary>
     public partial class Channel : UserControl
     {
+        private string[] aStatus = new string[] { "DI", "IN", "AC", "RD", "IP", "SC", "HR", "PA", "RE", "ER", "IA" };
         public const int NoSelPat = -1;
-        private dword pck = 0U;
         private word procDuration = (word)new Settings().ProcDur;
         private word elapsed = word.MaxValue;
         private string chNumTxt, remainTxt;
@@ -62,25 +61,25 @@ namespace MDM.Controls
         #endregion
 
         #region Response
-        private LANQueue<ResponseDG> respQueue = new LANQueue<ResponseDG>();
+        //private LANQueue<ResponseDG> respQueue = new LANQueue<ResponseDG>();
 
-        /// <summary>
-        /// Začátek/konec response fronty daného kanálu
-        /// </summary>
-        public ResponseDG Response
-        {
-            get
-            {
-                ResponseDG res = null;
+        ///// <summary>
+        ///// Začátek/konec response fronty daného kanálu
+        ///// </summary>
+        //public ResponseDG Response
+        //{
+        //    get
+        //    {
+        //        ResponseDG res = null;
 
-                if(respQueue.Count > 0) res = respQueue.Top();
-                return res;
-            }
-            set
-            {
-                respQueue.Push(value);
-            }
-        }
+        //        if(respQueue.Count > 0) res = respQueue.Top();
+        //        return res;
+        //    }
+        //    set
+        //    {
+        //        respQueue.Push(value);
+        //    }
+        //}
         #endregion
 
         #region Status
@@ -139,6 +138,7 @@ namespace MDM.Controls
 
         #region Current
         const double maxmA = 4.0;
+        double _current = 0D;
         /// <summary>
         /// Aktuálně nastavená hodnota proudu.
         /// Nastavení probíhá po krocích ATCF = 32.
@@ -149,29 +149,46 @@ namespace MDM.Controls
             get { return Math.Round(tbCurrent.Value * (maxmA / tbCurrent.Maximum), 2); }
             set
             {
-                int actCur = tbCurrent.Value, toBeSet = (int)(Math.Round(value / (maxmA / tbCurrent.Maximum), 0));
+                tbCurrent.Value = (int)(Math.Round(value / (maxmA / tbCurrent.Maximum), 0));
+                if(_current != value)
+                {
+                    ResponseDG resp = LANFunc.ChRd(Number);
+                    int actCur = resp.InputR.Verified.AttenCoef, toBeSet = tbCurrent.Value;// (int)(Math.Round(value / (maxmA / tbCurrent.Maximum), 0));
+                    //int actCur = tbCurrent.Value, toBeSet = (int)(Math.Round(value / (maxmA / tbCurrent.Maximum), 0));
 
-                if(toBeSet > byte.MaxValue) toBeSet = byte.MaxValue;
-                if(actCur < toBeSet)
-                    for(int i = actCur; i <= toBeSet; i += 32)
-                    {
-                        int c = i;
+                    _current = value;
+                    if(toBeSet > byte.MaxValue) toBeSet = byte.MaxValue;
+                    if(toBeSet < 0) toBeSet = 0;
+                    if(actCur < toBeSet)
+                        for(int i = actCur; i < toBeSet+32; i += 32)
+                        {
+                            int c = i;
 
-                        if(c > toBeSet) c = toBeSet;
-                        if(c != actCur) LANFunc.ChAtCf(Number, (byte)c);
-                        //DialogBox.ShowInfo(string.Format("LANFunc.ChAtCf({0}, {1}), actCur = {2}, toBeSet = {3}", Number, c, actCur, toBeSet), "AttenCoef");
-                        Thread.Sleep(100);
-                    }
-                else if(actCur > toBeSet)
-                    for(int i = actCur; i < toBeSet; i -= 32)
-                    {
-                        int c = i;
+                            if(c > toBeSet) c = toBeSet;
+                            if(c != actCur)
+                            {
+                                LANFunc.ChAtCf(Number, (byte)c);
+                                //DialogBox.ShowInfo(string.Format("^ LANFunc.ChAtCf({0}, {1})", Number, c), string.Format("Set Current to Channel {0}", Number));
+                                //Thread.Sleep(200);
+                            }
+                        }
+                    else if(actCur > toBeSet)
+                        for(int i = actCur; i > toBeSet-32; i -= 32)
+                        {
+                            int c = i;
 
-                        if(c < 0) c = 0;
-                        if(c != actCur) LANFunc.ChAtCf(Number, (byte)c);
-                        Thread.Sleep(100);
-                    }
-                tbCurrent.Value = toBeSet;
+                            if(c < toBeSet) c = toBeSet;
+                            if(c != actCur)
+                            {
+                                LANFunc.ChAtCf(Number, (byte)c);
+                                //DialogBox.ShowInfo(string.Format("v LANFunc.ChAtCf({0}, {1})", Number, c), string.Format("Set Current to Channel {0}", Number));
+                                //Thread.Sleep(200);
+                            }
+                        }
+                    tbCurrent.Value = toBeSet;
+                    //if(Status == ChannelStatus.SetCurrent)
+                    //    DialogBox.ShowInfo(string.Format("actCur = {0}, toBeSet = {1} ({2})", actCur, toBeSet, tbCurrent.Value), string.Format("Set Current to Channel {0}", Number));
+                }
             }
         }
         #endregion
@@ -317,7 +334,7 @@ namespace MDM.Controls
 
         private void processMBStatus(ResponseDG resp)
         {
-            if(Status != ChannelStatus.Disabled && Status != ChannelStatus.Inaccessible)
+            if(Status != ChannelStatus.Disabled && Status != ChannelStatus.Inactive && Status != ChannelStatus.Error && Status != ChannelStatus.Inaccessible)
             {
                 string msg = string.Empty;
 
@@ -325,8 +342,18 @@ namespace MDM.Controls
                 //if(Status != ChannelStatus.Inactive && Status != ChannelStatus.Active && Status != ChannelStatus.Ready && !InOrder && resp.InputR.Status[1]) msg += "Příliš vysoká impedance zátěže." + Environment.NewLine;
                 if(resp.InputR.Status[2]) msg += "DataFlash neobsahuje platná data." + Environment.NewLine;
                 if(resp.InputR.Status[13]) msg += "Zápis do Holding registrů neobsahuje platná data." + Environment.NewLine;
-                if(resp.InputR.Status[14]) msg += "Vyvolán systémový watchdog." + Environment.NewLine;
-                if(resp.InputR.Status[15]) msg += "Došlo k restartu desky.";
+                if(resp.InputR.Status[14])
+                {
+                    msg += "Vyvolán systémový watchdog." + Environment.NewLine;
+                    LANFunc.ChRst(Number);
+                    Status = ChannelStatus.Inactive;
+                }
+                if(resp.InputR.Status[15])
+                {
+                    msg += "Došlo k restartu desky.";
+                    LANFunc.ChRst(Number);
+                    Status = ChannelStatus.Inactive;
+                }
                 if(!string.IsNullOrEmpty(msg)) DialogBox.ShowError(msg, string.Format("Chybný stav kanálu {0}", Number));
             }
         }
@@ -335,11 +362,11 @@ namespace MDM.Controls
         {
             if(resp != null)
             {
+                chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
                 if(resp.Command == QueryCmd.CmdRd)
                 {
                     LEDBits = new Bits(resp.DioRD);
-                    //tbCurrent.Value = (int)(Math.Round(resp.InputR.Verified.AttenCoef * (maxmA / tbCurrent.Maximum), 0));
-                    Current = Math.Round(resp.InputR.Verified.AttenCoef * (maxmA / tbCurrent.Maximum), 2);
+                    //Current = Math.Round(resp.InputR.Verified.AttenCoef * (maxmA / tbCurrent.Maximum), 2);
                 }
                 processMBStatus(resp);
                 if(Status == ChannelStatus.Ready) // elektrody nejsou nasazeny ve stavu "připraven"
@@ -399,7 +426,10 @@ namespace MDM.Controls
         /// </summary>
         private void reset()
         {
+            ResponseDG resp = LANFunc.ChRd(Number);
+
             //chWorker.CancelAsync();
+            chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
             if(!chWorker.IsBusy) chWorker.RunWorkerAsync();
             cbSetCurrent.Enabled = cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = tbCurrent.Enabled = false;
             timer.Stop();
@@ -416,10 +446,9 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chDisconected;
             lbStatus.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
-
-            ResponseDG resp = LANFunc.ChRst(Number);
-
-            LEDBits = new Bits(resp.DioRD);
+            Refresh();
+            //resp = LANFunc.ChRst(Number);
+            //LEDBits = new Bits(resp.DioRD);
         }
         #endregion
 
@@ -429,12 +458,22 @@ namespace MDM.Controls
         /// </summary>
         private void deactivate()
         {
+            ResponseDG resp;
+
             reset();
+            ledRed();
+            resp = LANFunc.ChRd(Number);
+            chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
             lbStatus.Text = Resources.chInactive;
             lbStatus.ForeColor = SystemColors.ActiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
             cbPatSelect.Enabled = true;
-            cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Regular);
+            cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Bold);
+            Current = 0D;
+            LANFunc.ChRst(Number);
+            LANFunc.LanChOnOff(Number, false);
+            LANFunc.LanChOnOff(Number);
+            Refresh();
         }
         #endregion
 
@@ -470,6 +509,7 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
             ledGreen(true);
+            Refresh();
         }
         #endregion
 
@@ -488,9 +528,10 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chInProgress;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
-            ledGreen();
             tbCurrent.Enabled = false;
             timer.Start();
+            ledGreen();
+            Refresh();
         }
         #endregion
 
@@ -501,6 +542,7 @@ namespace MDM.Controls
         private void setCurrent()
         {
             cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Bold);
+            cbPause.Enabled = false;
             tbCurrent.Enabled = true;
             tbCurrent.Focus();
             lbCurrent.ForeColor = SystemColors.ActiveCaptionText;
@@ -517,8 +559,6 @@ namespace MDM.Controls
         /// </summary>
         private void highResistance()
         {
-            ChannelStatus status = oldStatus;
-
             paused();
             cbPause.Enabled = false;
             lbStatus.Text = Resources.chHighResistance;
@@ -527,7 +567,7 @@ namespace MDM.Controls
             current = Current;
             moistenElectrodes();
             Current = current;
-            Status = status;
+            Status = oldStatus;
         }
         #endregion
 
@@ -587,17 +627,16 @@ namespace MDM.Controls
         /// </summary>
         private void inaccessible()
         {
+            ResponseDG resp = LANFunc.ChRd(Number);
+
             chWorker.CancelAsync();
+            chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
             cbSetCurrent.Enabled = cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = false;
             timer.Stop();
             Patient = new SelectedPatient();
             lbPatName.Text = lbDiagnosis.Text = lbProcNum.Text = lbStatus.Text = string.Empty;
             lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
             Current = 0D;
-            //tbCurrent.Value = 0;
-            //tbCurrent.Maximum = maxCurrent;
-            //tbCurrent.TickFrequency = maxCurrent / 10;
-            //tbCurrent_ValueChanged(null, null);
             pbProgress.Value = 0;
             Elapsed = 0;
             ChannelEnabled = false;
@@ -634,11 +673,13 @@ namespace MDM.Controls
                 ResponseDG resp;
 
                 resp = LANFunc.ChRd(Number);
-                resp = LAN.MasterCmd(new QueryDG((byte)pck++, Number, QueryCmd.CmdWr, resp.DioRD, resp.InputR.Verified));
-                Thread.Sleep(100);
-                if(IsHandleCreated) Invoke(new MethodInvoker(delegate { processResponse(resp); }));
-                Application.DoEvents();
-                //processResponse(resp);
+                if(IsHandleCreated)
+                {
+                    Invoke(new MethodInvoker(delegate {
+                        processResponse(resp);
+                        //chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
+                    }));
+                }
                 Thread.Sleep(300);
             }
             e.Cancel = true;
@@ -674,7 +715,12 @@ namespace MDM.Controls
         private void cbSetCurrent_Click(object sender, EventArgs e)
         {
             if(Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) Status = ChannelStatus.SetCurrent;
-            else if(Status == ChannelStatus.SetCurrent) Status = ChannelStatus.InProgress;
+            else if(Status == ChannelStatus.SetCurrent)
+            {
+                Current = Math.Round(tbCurrent.Value * (maxmA / tbCurrent.Maximum), 2);
+                Status = oldStatus;
+            }
+            //else if(Status == ChannelStatus.SetCurrent) Status = ChannelStatus.InProgress;
         }
 
         private void cbStart_Click(object sender, EventArgs e)
@@ -704,7 +750,8 @@ namespace MDM.Controls
             if(InOrder || Status == ChannelStatus.HighResistance)
             {
                 timer.Stop();
-                if(elapsed < procDuration && DialogBox.ShowYN(Resources.procAbortQ, Resources.procAbortH) == DialogResult.Yes) Status = ChannelStatus.Inactive;
+                if(Status == ChannelStatus.HighResistance) Status = ChannelStatus.Inactive;
+                else if(elapsed < procDuration && DialogBox.ShowYN(Resources.procAbortQ, Resources.procAbortH) == DialogResult.Yes) Status = ChannelStatus.Inactive;
                 else timer.Start();
             }
             else Status = ChannelStatus.Inactive;
@@ -728,8 +775,9 @@ namespace MDM.Controls
 
         private void tbCurrent_ValueChanged(object sender, EventArgs e)
         {
-            //lbCurrent.Text = ((float)tbCurrent.Value * (maxmA / tbCurrent.Maximum)).ToString("F2");// + " mA";
-            lbCurrent.Text = Current.ToString("F2");// + " mA";
+            //if(Status == ChannelStatus.SetCurrent) Current = Math.Round(tbCurrent.Value * (maxmA / tbCurrent.Maximum), 2);
+            //lbCurrent.Text = Current.ToString("F2");// + " mA";
+            lbCurrent.Text = Math.Round(tbCurrent.Value * (maxmA / tbCurrent.Maximum), 2).ToString("F2");// + " mA";
         }
         #endregion
     }

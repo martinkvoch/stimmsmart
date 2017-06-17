@@ -80,7 +80,6 @@ namespace LANlib
         {
             ResponseDG res = GetResponse(cmd);
 
-            if(!TimedOut)
             try
             {
                 using(UdpClient client = new UdpClient())
@@ -92,17 +91,18 @@ namespace LANlib
                     client.Client.SendTimeout = 5000;
                     client.Send(buf, buf.Length, ep);
                     res = ResponseDG.FromBytes(client.Receive(ref ep));
+                    TimedOut = false;
                 }
             }
             catch(SocketException e)
             {
-                    ModbusInput input = new ModbusInput();
+                ModbusInput input = new ModbusInput();
 
-                    TimedOut = e.SocketErrorCode == SocketError.TimedOut;
-                    input.Holding.Mode = (word)e.ErrorCode;
-                    input.Holding.Waweform = (word)e.NativeErrorCode;
-                    input.Holding.T3Max = (word)e.SocketErrorCode;
-                    res = GetResponse(cmd, ErrStatus.InvalidResponse, input: input);
+                TimedOut = e.SocketErrorCode == SocketError.TimedOut;
+                input.Holding.Mode = (word)e.ErrorCode;
+                input.Holding.Waweform = (word)e.NativeErrorCode;
+                input.Holding.T3Max = (word)e.SocketErrorCode;
+                res = GetResponse(cmd, ErrStatus.InvalidResponse, input: input);
             }
             catch(Exception e)
             {

@@ -10,8 +10,8 @@ namespace MDM.DlgBox
 
         public string Message
         {
-            get { return lbMessage.Text; }
-            set { lbMessage.Text = value; }
+            get { return txtMessage.Text; }
+            set { txtMessage.Text = value; }
         }
 
         public void SetIcon(MessageBoxIcon icon)
@@ -29,15 +29,9 @@ namespace MDM.DlgBox
             InitializeComponent();
         }
 
-        private void btnYes_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
-            Result = DialogResult.Yes;
-            Close();
-        }
-
-        private void btnNo_Click(object sender, EventArgs e)
-        {
-            Result = DialogResult.No;
+            Result = DialogResult.OK;
             Close();
         }
     }

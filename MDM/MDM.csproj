@@ -56,12 +56,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Channels.cs" />
-    <Compile Include="Classes\LANQueue.cs" />
     <Compile Include="Controls\Channel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\Channel.Designer.cs">
       <DependentUpon>Channel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChannelMonitor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ChannelMonitor.Designer.cs">
+      <DependentUpon>ChannelMonitor.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\dbRestorePanel.cs">
       <SubType>UserControl</SubType>
@@ -90,6 +95,12 @@
     <Compile Include="Data\Procedure.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="DlgBox\DialogBox.cs" />
+    <Compile Include="DlgBox\wTimeoutDlgBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgBox\wTimeoutDlgBox.Designer.cs">
+      <DependentUpon>wTimeoutDlgBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="DlgBox\wDialogBoxOK.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +122,12 @@
     <Compile Include="Controls\MDMPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="DlgBox\wWaitBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgBox\wWaitBox.Designer.cs">
+      <DependentUpon>wWaitBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.cs.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -131,7 +148,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.ru.resx</DependentUpon>
     </Compile>
-    <Compile Include="Classes\ThreadHelper.cs" />
     <Compile Include="Windows\wDiagnosis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +207,9 @@
     <EmbeddedResource Include="Controls\Channel.ru.resx">
       <DependentUpon>Channel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ChannelMonitor.resx">
+      <DependentUpon>ChannelMonitor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\DBPanel.cs.resx">
       <DependentUpon>DBPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +227,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\dbRestorePanel.ru.resx">
       <DependentUpon>dbRestorePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgBox\wTimeoutDlgBox.cs-CZ.resx">
+      <DependentUpon>wTimeoutDlgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgBox\wTimeoutDlgBox.cs.resx">
+      <DependentUpon>wTimeoutDlgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgBox\wTimeoutDlgBox.resx">
+      <DependentUpon>wTimeoutDlgBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgBox\wTimeoutDlgBox.ru.resx">
+      <DependentUpon>wTimeoutDlgBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DlgBox\wDialogBoxOK.cs.resx">
       <DependentUpon>wDialogBoxOK.cs</DependentUpon>
@@ -229,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\mainPanel.resx">
       <DependentUpon>mainPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgBox\wWaitBox.resx">
+      <DependentUpon>wWaitBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\wDiagnosis.cs.resx">
       <DependentUpon>wDiagnosis.cs</DependentUpon>

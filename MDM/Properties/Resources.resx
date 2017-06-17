@@ -676,4 +676,7 @@
   <data name="chHighResistance" xml:space="preserve">
     <value>The resistance is too high</value>
   </data>
+  <data name="testChError0" xml:space="preserve">
+    <value>Communication between computer and device is interrupted, self-test has not occurred.</value>
+  </data>
 </root>

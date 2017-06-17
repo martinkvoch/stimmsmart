@@ -4,6 +4,7 @@ using System.Linq;
 
 using MDM.Controls;
 using MDM.Properties;
+using System.Windows.Forms;
 
 namespace MDM.Data
 {
@@ -43,7 +44,7 @@ namespace MDM.Data
                 {
                     DBPanel pan = MainFrm.Controls[panControl] as DBPanel;
 
-                    MainFrm.ShowInStatus(typ, string.IsNullOrEmpty(msg) ? string.Empty : msg.Replace("\r\n", ", "));
+                    if(MainFrm.IsHandleCreated) MainFrm.Invoke(new MethodInvoker(delegate { MainFrm.ShowInStatus(typ, string.IsNullOrEmpty(msg) ? string.Empty : msg.Replace("\r\n", ", ")); }));
                     if(pan != null) pan.Fill();
                 }
             }

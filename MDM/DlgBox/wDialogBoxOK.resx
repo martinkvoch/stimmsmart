@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>208, 104</value>
+    <value>219, 104</value>
   </data>
   <data name="btnOK.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 0, 0, 0</value>
@@ -156,56 +156,32 @@
   <data name="&gt;&gt;btnOK.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="vScrollBar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>526, 0</value>
+  <data name="txtMessage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>62, 0</value>
   </data>
-  <data name="vScrollBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 88</value>
+  <data name="txtMessage.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="vScrollBar1.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="txtMessage.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
   </data>
-  <data name="&gt;&gt;vScrollBar1.Name" xml:space="preserve">
-    <value>vScrollBar1</value>
+  <data name="txtMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>482, 88</value>
   </data>
-  <data name="&gt;&gt;vScrollBar1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.VScrollBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;vScrollBar1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;vScrollBar1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lbMessage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="lbMessage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbMessage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>64, 0</value>
-  </data>
-  <data name="lbMessage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>480, 88</value>
-  </data>
-  <data name="lbMessage.TabIndex" type="System.Int32, mscorlib">
+  <data name="txtMessage.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="lbMessage.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;txtMessage.Name" xml:space="preserve">
+    <value>txtMessage</value>
   </data>
-  <data name="&gt;&gt;lbMessage.Name" xml:space="preserve">
-    <value>lbMessage</value>
+  <data name="&gt;&gt;txtMessage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbMessage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbMessage.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtMessage.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="&gt;&gt;lbMessage.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;txtMessage.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="imgClass.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -229,7 +205,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;imgClass.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>

@@ -31,9 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wDialogBoxOK));
             this.btnOK = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbMessage = new System.Windows.Forms.Label();
+            this.txtMessage = new System.Windows.Forms.TextBox();
             this.imgClass = new System.Windows.Forms.PictureBox();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClass)).BeginInit();
             this.SuspendLayout();
@@ -45,21 +44,22 @@
             this.btnOK.Image = global::MDM.Properties.Resources.yes;
             this.btnOK.Name = "btnOK";
             this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnYes_Click);
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Controls.Add(this.vScrollBar1);
-            this.panel1.Controls.Add(this.lbMessage);
+            this.panel1.Controls.Add(this.txtMessage);
             this.panel1.Controls.Add(this.imgClass);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
-            // lbMessage
+            // txtMessage
             // 
-            resources.ApplyResources(this.lbMessage, "lbMessage");
-            this.lbMessage.Name = "lbMessage";
+            this.txtMessage.BackColor = System.Drawing.SystemColors.ControlLight;
+            resources.ApplyResources(this.txtMessage, "txtMessage");
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.ReadOnly = true;
             // 
             // imgClass
             // 
@@ -67,11 +67,6 @@
             resources.ApplyResources(this.imgClass, "imgClass");
             this.imgClass.Name = "imgClass";
             this.imgClass.TabStop = false;
-            // 
-            // vScrollBar1
-            // 
-            resources.ApplyResources(this.vScrollBar1, "vScrollBar1");
-            this.vScrollBar1.Name = "vScrollBar1";
             // 
             // wDialogBoxOK
             // 
@@ -88,17 +83,16 @@
             this.ShowInTaskbar = false;
             this.TopMost = true;
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgClass)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbMessage;
         private System.Windows.Forms.PictureBox imgClass;
-        private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.TextBox txtMessage;
+        internal System.Windows.Forms.Button btnOK;
     }
 }

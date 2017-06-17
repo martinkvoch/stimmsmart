@@ -25,7 +25,7 @@ namespace LANlib
             ResponseDG res = LAN.MasterCmd(q);
 
             Thread.Sleep(100);
-            res = ChRd(0);
+            res = LanRd();
             return res;
         }
 
@@ -33,7 +33,7 @@ namespace LANlib
         {
             byte dio;
             Bits chDio;
-            ResponseDG res = ChRd(chnum);
+            ResponseDG res = LanRd();
 
             dio = res.DioRD;
             chDio = new Bits(dio);
@@ -80,23 +80,23 @@ namespace LANlib
         public static ResponseDG ChRst(byte chnum)
         {
             ResponseDG res;
-            QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), chnum);
+            QueryDG q = new QueryDG((byte)pck++, chnum);
             Bits diowr = new Bits();
 
             diowr[DioReg.LedR] = true;
             diowr[DioReg.LedNBlink] = true;
             q.DioWR = diowr.ByteValue;
             res = LAN.MasterCmd(q);
+            Thread.Sleep(100);
             return res;
         }
 
         public static ResponseDG ChDio(byte chnum, byte dio)
         {
-            QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), chnum, led: dio);
+            QueryDG q = new QueryDG((byte)pck++, chnum, led: dio);
             ResponseDG res = ChRd(chnum);
             Bits diowr = new Bits(dio);
 
-            //q.DioWR = res.DioRD;
             q.HoldingR = res.InputR.Verified;
             q.DioWR = diowr.ByteValue;
             res = LAN.MasterCmd(q);
@@ -144,7 +144,7 @@ namespace LANlib
             q.HoldingR = res.InputR.Verified;
             q.HoldingR.AttenCoef = acf;
             res = LAN.MasterCmd(q);
-            Thread.Sleep(100);
+            Thread.Sleep(200);
             res = ChRd(chnum);
             return res;
         }

@@ -7,44 +7,42 @@ namespace MDM.DlgBox
         public static DialogResult ShowYN(string msg, string hdr)
         {
             DialogResult res = DialogResult.No;
-            wDialogBoxYN box = new wDialogBoxYN();
 
-            box.Text = hdr;
-            box.Message = msg;
-            box.ShowDialog();
-            res = box.Result;
+            using(wDialogBoxYN box = new wDialogBoxYN())
+            {
+                box.Text = hdr;
+                box.Message = msg;
+                box.ShowDialog();
+                res = box.Result;
+            }
             return res;
         }
 
-        public static void ShowInfo(string msg, string hdr, MessageBoxIcon icon = MessageBoxIcon.Information)
+        private static wDialogBoxOK show(string msg, string hdr, MessageBoxIcon icon)
         {
-            wDialogBoxOK box = new wDialogBoxOK();
+            wDialogBoxOK res = new wDialogBoxOK();
 
-            box.Text = hdr;
-            box.Message = msg;
-            box.SetIcon(icon);
-            box.Show();
-            //box.ShowDialog();
+            res.Text = hdr;
+            res.Message = msg;
+            res.SetIcon(icon);
+            res.Show();
+            res.Refresh();
+            return res;
         }
 
-        public static void ShowWarn(string msg, string hdr, MessageBoxIcon icon = MessageBoxIcon.Warning)
+        public static wDialogBoxOK ShowInfo(string msg, string hdr)
         {
-            wDialogBoxOK box = new wDialogBoxOK();
-
-            box.Text = hdr;
-            box.Message = msg;
-            box.SetIcon(icon);
-            box.Show();
+            return show(msg, hdr, MessageBoxIcon.Information);
         }
 
-        public static void ShowError(string msg, string hdr, MessageBoxIcon icon = MessageBoxIcon.Error)
+        public static wDialogBoxOK ShowWarn(string msg, string hdr)
         {
-            wDialogBoxOK box = new wDialogBoxOK();
+            return show(msg, hdr, MessageBoxIcon.Warning);
+        }
 
-            box.Text = hdr;
-            box.Message = msg;
-            box.SetIcon(icon);
-            box.Show();
+        public static wDialogBoxOK ShowError(string msg, string hdr)
+        {
+            return show(msg, hdr, MessageBoxIcon.Error);
         }
     }
 }

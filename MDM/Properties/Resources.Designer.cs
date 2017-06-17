@@ -1483,6 +1483,15 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Communication between computer and device is interrupted, self-test has not occurred..
+        /// </summary>
+        public static string testChError0 {
+            get {
+                return ResourceManager.GetString("testChError0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not all channels started: {0}.
         /// </summary>
         public static string testChError11 {

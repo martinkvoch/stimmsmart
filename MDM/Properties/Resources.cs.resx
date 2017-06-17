@@ -540,4 +540,7 @@
   <data name="chHighResistance" xml:space="preserve">
     <value>Odpor je příliš vysoký</value>
   </data>
+  <data name="testChError0" xml:space="preserve">
+    <value>Komunikace mezi počítačem a přístrojem je přerušena, autotest neproběhl.</value>
+  </data>
 </root>
