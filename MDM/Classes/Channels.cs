@@ -31,23 +31,23 @@ namespace MDM.Classes
         private static BackgroundWorker rWorker = new BackgroundWorker();
 
         #region bool Enabled
-        private bool enabled = true;
+        //private bool enabled = true;
         /// <summary>
         /// Určuje, zda jsou kanály připojené/povolené
         /// </summary>
-        public bool Enabled
-        {
-            get { return enabled; }
-            set
-            {
-                if(enabled != value)
-                {
-                    enabled = value;
-                    channels.ForEach(ch => { if(ch.Status != ChannelStatus.Inaccessible && ch.Status != ChannelStatus.Error) ch.ChannelEnabled = enabled; });
-                    //foreach(Channel ch in channels) ch.ChannelEnabled = enabled;
-                }
-            }
-        }
+        //public bool Enabled { get; set; }
+        //{
+        //    get { return enabled; }
+        //    set
+        //    {
+        //        if(enabled != value)
+        //        {
+        //            enabled = value;
+        //            channels.ForEach(ch => { if(ch.Status != ChannelStatus.Inaccessible && ch.Status != ChannelStatus.Error) ch.ChannelEnabled = enabled; });
+        //            //foreach(Channel ch in channels) ch.ChannelEnabled = enabled;
+        //        }
+        //    }
+        //}
         #endregion
 
         #region ConnectedChannels
@@ -88,12 +88,12 @@ namespace MDM.Classes
 
                 chnl.Width = screenWidth / noc;
                 chnl.Dock = DockStyle.Left;
-                chnl.Enabled = true;
+                //chnl.Enabled = true;
                 channels.Add(chnl);
                 parent.Controls.Add(chnl);
-                chnl.Status = ChannelStatus.Disabled;
+                //chnl.Status = ChannelStatus.Disabled;
             }
-            Enabled = false;
+            //Enabled = false;
         }
 
         private static void rWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -345,7 +345,7 @@ namespace MDM.Classes
                 resp = LANFunc.ChRd(b);
                 if(Math.Abs(resp.InputR.AIN2 - resp.InputR.AIN1) > 2)
                 {
-                    protocol += string.Format(Resources.testChError4 + Environment.NewLine, b, resp.InputR.AIN2 - resp.InputR.AIN1, resp.InputR.Holding.AttenCoef);
+                    protocol += string.Format(Resources.testChError4 + Environment.NewLine, b, resp.InputR.AIN2 - resp.InputR.AIN1, resp.InputR.Verified.AttenCoef);
                     chErrors[b - 1] = true;
                     led = new Bits();
                     led[DioReg.LedR] = true;
@@ -353,7 +353,8 @@ namespace MDM.Classes
                     LANFunc.ChDio(b, led.ByteValue);
                 }
             }
-            byte uk = 32, dif = 25;
+            byte uk = 32, dif = 25, i = 0;
+            byte[] aTolerance = { 2, 2, 3, 4, 5, 6, 7, 8 };
             do
             {
                 for(byte b = 1; b <= noc; b++) LANFunc.ChAtCf(b, uk);
@@ -364,9 +365,9 @@ namespace MDM.Classes
 
                     resp = LANFunc.ChRd(b);
                     res = resp.InputR.AIN2 - resp.InputR.AIN1 - dif;
-                    if(Math.Abs(res) > 2)
+                    if(Math.Abs(res) > aTolerance[i++])
                     {
-                        protocol += string.Format(Resources.testChError4 + Environment.NewLine, b, res, resp.InputR.Holding.AttenCoef);
+                        protocol += string.Format(Resources.testChError4 + Environment.NewLine, b, res, resp.InputR.Verified.AttenCoef);
                         chErrors[b - 1] = true;
                         led = new Bits();
                         led[DioReg.LedR] = true;
@@ -530,21 +531,31 @@ namespace MDM.Classes
                 LANFunc.Lan(0); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
                 Thread.Sleep(100);
                 channels.ForEach(ch => {
-                    led[ch.Number - 1] = true;
-                    if(chErrors[ch.Number - 1])
+                    wWaitBox msg = wWaitBox.Show(string.Format("Zapínání kanálu {0}", ch.Number));
+
+                    try
                     {
-                        ch.Status = ChannelStatus.Inaccessible;
-                        led[ch.Number - 1] = false;
+                        msg.Show();
+                        led[ch.Number - 1] = true;
+                        if(chErrors[ch.Number - 1])
+                        {
+                            ch.Status = ChannelStatus.Inaccessible;
+                            led[ch.Number - 1] = false;
+                        }
+                        else LANFunc.Lan(led.ByteValue);
+                        //SendLANCmd(new QueryDG((byte)(pck++), ch.Number)); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
+                        if(!chErrors[ch.Number - 1])
+                        {
+                            LANFunc.ChRst(ch.Number); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
+                            ch.Status = ChannelStatus.Inactive;
+                        }
                     }
-                    else LANFunc.Lan(led.ByteValue);
-                    //SendLANCmd(new QueryDG((byte)(pck++), ch.Number)); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
-                    if(!chErrors[ch.Number - 1])
+                    finally
                     {
-                        LANFunc.ChRst(ch.Number); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
-                        ch.Status = ChannelStatus.Disabled;
+                        msg.Dispose();
                     }
                 });
-                Enabled = true;
+                //Enabled = true;
             }
         }
 

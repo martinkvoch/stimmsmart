@@ -228,9 +228,6 @@
     <EmbeddedResource Include="Controls\dbRestorePanel.ru.resx">
       <DependentUpon>dbRestorePanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DlgBox\wTimeoutDlgBox.cs-CZ.resx">
-      <DependentUpon>wTimeoutDlgBox.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DlgBox\wTimeoutDlgBox.cs.resx">
       <DependentUpon>wTimeoutDlgBox.cs</DependentUpon>
     </EmbeddedResource>

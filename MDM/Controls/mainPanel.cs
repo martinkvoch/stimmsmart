@@ -13,13 +13,17 @@ namespace MDM.Controls
 {
     public partial class mainPanel : MDMPanel
     {
+        private static int callCount = 0;
         public Channels Channels;
 
         public mainPanel()
         {
-            InitializeComponent();
-            Channels = new Channels(this);
-            Channels.On(Program.ChErrors);
+            if(callCount++ < 1)
+            {
+                InitializeComponent();
+                Channels = new Channels(this);
+                Channels.On(Program.ChErrors);
+            }
         }
     }
 }

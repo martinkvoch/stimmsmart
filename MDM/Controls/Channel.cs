@@ -221,21 +221,21 @@ namespace MDM.Controls
         #endregion
 
         #region ChannelEnabled
-        private bool enabled = true;
-        public bool ChannelEnabled
-        {
-            get { return enabled; }
-            set
-            {
-                if(enabled != value)
-                {
-                    enabled = value;
-                    cbPatSelect.Enabled = cbSetCurrent.Enabled = tbCurrent.Enabled =
-                    cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = enabled;
-                    if(enabled) Status = ChannelStatus.Inactive; else Status = ChannelStatus.Disabled;
-                }
-            }
-        }
+        //private bool enabled = true;
+        //public bool ChannelEnabled { get; set; }
+        //{
+        //    get { return enabled; }
+        //    set
+        //    {
+        //        if(enabled != value)
+        //        {
+        //            enabled = value;
+        //            cbPatSelect.Enabled = cbSetCurrent.Enabled = tbCurrent.Enabled =
+        //            cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = enabled;
+        //            if(enabled) Status = ChannelStatus.Inactive; else Status = ChannelStatus.Disabled;
+        //        }
+        //    }
+        //}
         #endregion
 
         #region LEDBits
@@ -271,7 +271,7 @@ namespace MDM.Controls
         #endregion
         #endregion
 
-        #region Konstruktor
+        #region Konstruktor a destruktor
         /// <summary>
         /// Konstruktor kanálu s konkrétním číslem
         /// </summary>
@@ -309,7 +309,6 @@ namespace MDM.Controls
                 LANFunc.ChRst(Number);
                 LANFunc.LanChOnOff(Number, false);
                 components.Dispose();
-                timer.Stop();
                 timer.Dispose();
                 if(chWorker.IsBusy) chWorker.CancelAsync();
                 Thread.Sleep(1000);
@@ -442,13 +441,14 @@ namespace MDM.Controls
             Current = current = 0D;
             pbProgress.Value = Elapsed = 0;
             Elapsed = 0;
-            ChannelEnabled = false;
+            //ChannelEnabled = false;
             lbStatus.Text = Resources.chDisconected;
             lbStatus.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
             Refresh();
-            //resp = LANFunc.ChRst(Number);
-            //LEDBits = new Bits(resp.DioRD);
+            LANFunc.ChRst(Number);
+            LEDBits = new Bits();
+            LANFunc.LanChOnOff(Number, false);
         }
         #endregion
 
@@ -631,7 +631,7 @@ namespace MDM.Controls
 
             chWorker.CancelAsync();
             chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
-            cbSetCurrent.Enabled = cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = false;
+            cbSetCurrent.Enabled = cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = tbCurrent.Enabled = false;
             timer.Stop();
             Patient = new SelectedPatient();
             lbPatName.Text = lbDiagnosis.Text = lbProcNum.Text = lbStatus.Text = string.Empty;
@@ -639,7 +639,7 @@ namespace MDM.Controls
             Current = 0D;
             pbProgress.Value = 0;
             Elapsed = 0;
-            ChannelEnabled = false;
+            //ChannelEnabled = false;
             lbStatus.Text = Resources.chInaccessible;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Red;

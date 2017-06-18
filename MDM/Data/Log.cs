@@ -44,8 +44,10 @@ namespace MDM.Data
                 {
                     DBPanel pan = MainFrm.Controls[panControl] as DBPanel;
 
-                    if(MainFrm.IsHandleCreated) MainFrm.Invoke(new MethodInvoker(delegate { MainFrm.ShowInStatus(typ, string.IsNullOrEmpty(msg) ? string.Empty : msg.Replace("\r\n", ", ")); }));
-                    if(pan != null) pan.Fill();
+                    if(MainFrm.IsHandleCreated) MainFrm.Invoke(new MethodInvoker(delegate {
+                        MainFrm.ShowInStatus(typ, string.IsNullOrEmpty(msg) ? string.Empty : msg.Replace("\r\n", ", "));
+                        if(pan != null) pan.Fill();
+                    }));
                 }
             }
         }
