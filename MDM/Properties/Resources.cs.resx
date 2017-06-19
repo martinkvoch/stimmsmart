@@ -543,4 +543,7 @@
   <data name="testChError0" xml:space="preserve">
     <value>Komunikace mezi počítačem a přístrojem je přerušena, autotest neproběhl.</value>
   </data>
+  <data name="chOn" xml:space="preserve">
+    <value>Zapínání kanálu {0}</value>
+  </data>
 </root>

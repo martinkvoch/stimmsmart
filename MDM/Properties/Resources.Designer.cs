@@ -218,6 +218,15 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Turning on channel {0}.
+        /// </summary>
+        public static string chOn {
+            get {
+                return ResourceManager.GetString("chOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The procedure is suspended.
         /// </summary>
         public static string chPaused {

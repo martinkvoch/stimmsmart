@@ -531,7 +531,7 @@ namespace MDM.Classes
                 LANFunc.Lan(0); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
                 Thread.Sleep(100);
                 channels.ForEach(ch => {
-                    wWaitBox msg = wWaitBox.Show(string.Format("Zapínání kanálu {0}", ch.Number));
+                    wWaitBox msg = wWaitBox.Show(string.Format(Resources.chOn, ch.Number));
 
                     try
                     {
