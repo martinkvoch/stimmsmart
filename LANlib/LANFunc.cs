@@ -86,6 +86,7 @@ namespace LANlib
             diowr[DioReg.LedR] = true;
             diowr[DioReg.LedNBlink] = true;
             q.DioWR = diowr.ByteValue;
+            //q.DioWR = 0;
             res = LAN.MasterCmd(q);
             Thread.Sleep(100);
             return res;

@@ -319,7 +319,7 @@ namespace MDM.Controls
         #endregion
 
         #region Utility kanálu
-        private void led(DioReg clr, bool blink = false)
+        private void led(DioReg clr, bool blink)
         {
             Bits lb = new Bits();
 
@@ -362,59 +362,77 @@ namespace MDM.Controls
             if(resp != null)
             {
                 chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
-                if(resp.Command == QueryCmd.CmdRd)
-                {
-                    LEDBits = new Bits(resp.DioRD);
-                    //Current = Math.Round(resp.InputR.Verified.AttenCoef * (maxmA / tbCurrent.Maximum), 2);
-                }
+                if(resp.Command == QueryCmd.CmdRd) LEDBits = new Bits(resp.DioRD);
                 processMBStatus(resp);
-                if(Status == ChannelStatus.Ready) // elektrody nejsou nasazeny ve stavu "připraven"
+                if(Status == ChannelStatus.Active)
+                {
+                    ResponseDG res;
+
+                    res = LANFunc.ChRd(Number);
+                    if((resp.InputR.AIN2 - resp.InputR.AIN1) < 52) Status = ChannelStatus.Ready;
+                }
+                else if(Status == ChannelStatus.Ready) // elektrody nejsou nasazeny ve stavu "připraven"
                 {
                     ResponseDG res;
 
                     res = LANFunc.ChRd(Number);
                     if((resp.InputR.AIN2 - resp.InputR.AIN1) >= 48) Status = ChannelStatus.Active;
                 }
-                if((Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) && resp.InputR.Status[1])
+                else if((Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) && resp.InputR.Status[1])
+                {
+                    current = Current;
+                    Current = .5;
                     Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
+                }
+                else if(Status == ChannelStatus.HighResistance)
+                {
+                    ResponseDG res;
+
+                    res = LANFunc.ChRd(Number);
+                    if(!resp.InputR.Status[1])
+                    {
+                        Current = current;
+                        Status = oldStatus;
+                    }
+                }
             }
         }
 
-        // kontroluje připojení pacienta na elektrody pomocí odporu < 10,5 kOhm
-        // proud = 0,5 mA
-        // (AIN2 - AIN1) < 52 (5,2 V)
-        private void electrodesReady()
-        {
-            ResponseDG resp;
+        //// kontroluje připojení pacienta na elektrody pomocí odporu < 10,5 kOhm
+        //// proud = 0,5 mA
+        //// (AIN2 - AIN1) < 52 (5,2 V)
+        //private void electrodesReady()
+        //{
+        //    ResponseDG resp;
 
-            resp = LANFunc.ChDAC(Number);
-            resp = LANFunc.ChDOUT(Number, 2);
-            Current = .5;
-            resp = LANFunc.ChRd(Number);
-            //DialogBox.ShowInfo(string.Format("Current = {0} mA, AtfC = {1}", Current, resp.InputR.Verified.AttenCoef), "Current");
-            do
-            {
-                Application.DoEvents();
-                resp = LANFunc.ChRd(Number);
-            } while(Status == ChannelStatus.Active && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52);
-        }
+        //    resp = LANFunc.ChDAC(Number);
+        //    resp = LANFunc.ChDOUT(Number, 2);
+        //    Current = .5;
+        //    resp = LANFunc.ChRd(Number);
+        //    //DialogBox.ShowInfo(string.Format("Current = {0} mA, AtfC = {1}", Current, resp.InputR.Verified.AttenCoef), "Current");
+        //    do
+        //    {
+        //        Application.DoEvents();
+        //        resp = LANFunc.ChRd(Number);
+        //    } while(Status == ChannelStatus.Active && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52);
+        //}
 
-        // čeká na úpravu elektrod tak, aby odpor nebyl příliš vysoký
-        // proud = 0,5 mA
-        // Status(D1) = 1
-        private void moistenElectrodes()
-        {
-            ResponseDG resp;
+        //// čeká na úpravu elektrod tak, aby odpor nebyl příliš vysoký
+        //// proud = 0,5 mA
+        //// Status(D1) = 1
+        //private void moistenElectrodes()
+        //{
+        //    ResponseDG resp;
 
-            Current = .5;
-            resp = LANFunc.ChRd(Number);
-            do
-            {
-                Application.DoEvents();
-                resp = LANFunc.ChRd(Number);
-                Thread.Sleep(100);
-            } while(Status == ChannelStatus.HighResistance && resp.InputR.Status[1]);
-        }
+        //    Current = .5;
+        //    resp = LANFunc.ChRd(Number);
+        //    do
+        //    {
+        //        Application.DoEvents();
+        //        resp = LANFunc.ChRd(Number);
+        //        Thread.Sleep(100);
+        //    } while(Status == ChannelStatus.HighResistance && resp.InputR.Status[1]);
+        //}
         #endregion
 
         #region Stavy kanálu
@@ -445,10 +463,10 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chDisconected;
             lbStatus.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
-            Refresh();
             LANFunc.ChRst(Number);
             LEDBits = new Bits();
             LANFunc.LanChOnOff(Number, false);
+            Refresh();
         }
         #endregion
 
@@ -461,7 +479,6 @@ namespace MDM.Controls
             ResponseDG resp;
 
             reset();
-            ledRed();
             resp = LANFunc.ChRd(Number);
             chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
             lbStatus.Text = Resources.chInactive;
@@ -473,6 +490,7 @@ namespace MDM.Controls
             LANFunc.ChRst(Number);
             LANFunc.LanChOnOff(Number, false);
             LANFunc.LanChOnOff(Number);
+            ledRed();
             Refresh();
         }
         #endregion
@@ -491,8 +509,11 @@ namespace MDM.Controls
             lbStatus.BackColor = Color.OrangeRed;
             Refresh();
             ledRed();
-            electrodesReady();
-            if(Status == ChannelStatus.Active) Status = ChannelStatus.Ready;
+            LANFunc.ChDAC(Number);
+            LANFunc.ChDOUT(Number, 2);
+            Current = .5;
+            //electrodesReady();
+            //if(Status == ChannelStatus.Active) Status = ChannelStatus.Ready;
         }
         #endregion
 
@@ -564,10 +585,10 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chHighResistance;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
-            current = Current;
-            moistenElectrodes();
-            Current = current;
-            Status = oldStatus;
+            //current = Current;
+            //moistenElectrodes();
+            //Current = current;
+            //Status = oldStatus;
         }
         #endregion
 
@@ -644,6 +665,7 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Red;
             LEDBits = new Bits();
+            LANFunc.ChRst(Number);
             LANFunc.LanChOnOff(Number, false);
         }
         #endregion

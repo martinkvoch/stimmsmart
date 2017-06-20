@@ -126,9 +126,9 @@ namespace MDM.Classes
 
                 chErrors = Autotest();
                 box.Dispose();
-                for(byte b = 1; b <= noc; b++) channels.channels.ForEach(ch =>
-                    ch.Invoke(new MethodInvoker(delegate { ch.Status = ChannelStatus.Inactive; }))
-                    );
+                channels.channels.ForEach(ch =>
+                    ch.Invoke(new MethodInvoker(delegate { if(chErrors[ch.Number - 1]) ch.Status = ChannelStatus.Inaccessible; else ch.Status = ChannelStatus.Inactive; }))
+                );
                 channels.On(chErrors);
             }
         }
