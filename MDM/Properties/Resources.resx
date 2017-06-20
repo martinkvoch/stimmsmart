@@ -680,6 +680,6 @@
     <value>Communication between computer and device is interrupted, self-test has not occurred.</value>
   </data>
   <data name="chOn" xml:space="preserve">
-    <value>Turning on channel {0}</value>
+    <value>Turning channel {0} on</value>
   </data>
 </root>

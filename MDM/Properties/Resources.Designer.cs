@@ -218,7 +218,7 @@ namespace MDM.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turning on channel {0}.
+        ///   Looks up a localized string similar to Turning channel {0} on.
         /// </summary>
         public static string chOn {
             get {
