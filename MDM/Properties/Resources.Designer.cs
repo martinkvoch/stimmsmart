@@ -263,6 +263,60 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Output current is limited for safety reasons..
+        /// </summary>
+        public static string chStatusErr1 {
+            get {
+                return ResourceManager.GetString("chStatusErr1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DataFlash memory does not contain valid data..
+        /// </summary>
+        public static string chStatusErr2 {
+            get {
+                return ResourceManager.GetString("chStatusErr2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entry into Holding registers does not contain valid data..
+        /// </summary>
+        public static string chStatusErr3 {
+            get {
+                return ResourceManager.GetString("chStatusErr3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A system watchdog was called up..
+        /// </summary>
+        public static string chStatusErr4 {
+            get {
+                return ResourceManager.GetString("chStatusErr4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The board was restarted..
+        /// </summary>
+        public static string chStatusErr5 {
+            get {
+                return ResourceManager.GetString("chStatusErr5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bad status of channel {0}.
+        /// </summary>
+        public static string chStatusErrHdr {
+            get {
+                return ResourceManager.GetString("chStatusErrHdr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap clear {

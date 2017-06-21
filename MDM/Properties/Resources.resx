@@ -682,4 +682,22 @@
   <data name="chOn" xml:space="preserve">
     <value>Turning channel {0} on</value>
   </data>
+  <data name="chStatusErr1" xml:space="preserve">
+    <value>Output current is limited for safety reasons.</value>
+  </data>
+  <data name="chStatusErr2" xml:space="preserve">
+    <value>DataFlash memory does not contain valid data.</value>
+  </data>
+  <data name="chStatusErr3" xml:space="preserve">
+    <value>Entry into Holding registers does not contain valid data.</value>
+  </data>
+  <data name="chStatusErr4" xml:space="preserve">
+    <value>A system watchdog was called up.</value>
+  </data>
+  <data name="chStatusErr5" xml:space="preserve">
+    <value>The board was restarted.</value>
+  </data>
+  <data name="chStatusErrHdr" xml:space="preserve">
+    <value>Bad status of channel {0}</value>
+  </data>
 </root>

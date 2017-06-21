@@ -97,5 +97,10 @@ namespace MDM.Windows
         {
             bindingSource.Filter = string.IsNullOrEmpty(txtFindName.Text) ? string.Empty : string.Format("[{0}] like '{1}%'", Resources.patSelName, txtFindName.Text);
         }
+
+        private void dataGrid_DoubleClick(object sender, EventArgs e)
+        {
+            cbSelect.PerformClick();
+        }
     }
 }

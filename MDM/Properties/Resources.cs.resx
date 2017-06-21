@@ -546,4 +546,22 @@
   <data name="chOn" xml:space="preserve">
     <value>Zapínání kanálu {0}</value>
   </data>
+  <data name="chStatusErr1" xml:space="preserve">
+    <value>Výstupní proud je z bezpečnostních důvodů omezen.</value>
+  </data>
+  <data name="chStatusErr2" xml:space="preserve">
+    <value>Paměť DataFlash neobsahuje platná data.</value>
+  </data>
+  <data name="chStatusErr3" xml:space="preserve">
+    <value>Zápis do Holding registrů neobsahuje platná data.</value>
+  </data>
+  <data name="chStatusErr4" xml:space="preserve">
+    <value>Byl vyvolán systémový watchdog.</value>
+  </data>
+  <data name="chStatusErr5" xml:space="preserve">
+    <value>Došlo k restartu desky.</value>
+  </data>
+  <data name="chStatusErrHdr" xml:space="preserve">
+    <value>Chybný stav kanálu {0}</value>
+  </data>
 </root>

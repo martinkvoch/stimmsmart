@@ -348,12 +348,16 @@ namespace MDM.Data
             try
             {
                 Status = DbStatus.Open;
-                if(!File.Exists(Path.ChangeExtension(dbFileName, EncExt)))
+                //if(File.Exists(dbFileName)) File.Delete(Path.ChangeExtension(dbFileName, EncExt));
+                if(!File.Exists(dbFileName))
                 {
-                    Init(true);
-                    zip();
+                    if(!File.Exists(Path.ChangeExtension(dbFileName, EncExt)))
+                    {
+                        Init(true);
+                        zip();
+                    }
+                    unzip();
                 }
-                unzip();
                 Log.InfoToLog(methodName, Resources.dbIsOpen);
             }
             catch(Exception e)

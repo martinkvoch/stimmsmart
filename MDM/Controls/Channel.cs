@@ -337,23 +337,23 @@ namespace MDM.Controls
             {
                 string msg = string.Empty;
 
-                if(resp.InputR.Status[0]) msg = "Výstupní proud je z bezpečnostních důvodů omezen." + Environment.NewLine;
+                if(resp.InputR.Status[0]) msg = Resources.chStatusErr1 + Environment.NewLine;
                 //if(Status != ChannelStatus.Inactive && Status != ChannelStatus.Active && Status != ChannelStatus.Ready && !InOrder && resp.InputR.Status[1]) msg += "Příliš vysoká impedance zátěže." + Environment.NewLine;
-                if(resp.InputR.Status[2]) msg += "DataFlash neobsahuje platná data." + Environment.NewLine;
-                if(resp.InputR.Status[13]) msg += "Zápis do Holding registrů neobsahuje platná data." + Environment.NewLine;
+                if(resp.InputR.Status[2]) msg += Resources.chStatusErr2 + Environment.NewLine;
+                if(resp.InputR.Status[13]) msg += Resources.chStatusErr3 + Environment.NewLine;
                 if(resp.InputR.Status[14])
                 {
-                    msg += "Vyvolán systémový watchdog." + Environment.NewLine;
+                    msg += Resources.chStatusErr4 + Environment.NewLine;
                     LANFunc.ChRst(Number);
                     Status = ChannelStatus.Inactive;
                 }
                 if(resp.InputR.Status[15])
                 {
-                    msg += "Došlo k restartu desky.";
+                    msg += Resources.chStatusErr5;
                     LANFunc.ChRst(Number);
                     Status = ChannelStatus.Inactive;
                 }
-                if(!string.IsNullOrEmpty(msg)) DialogBox.ShowError(msg, string.Format("Chybný stav kanálu {0}", Number));
+                if(!string.IsNullOrEmpty(msg)) DialogBox.ShowError(msg, string.Format(Resources.chStatusErrHdr, Number));
             }
         }
 
@@ -369,14 +369,14 @@ namespace MDM.Controls
                     ResponseDG res;
 
                     res = LANFunc.ChRd(Number);
-                    if((resp.InputR.AIN2 - resp.InputR.AIN1) < 52) Status = ChannelStatus.Ready;
+                    if((resp.InputR.AIN2 - resp.InputR.AIN1) <= 48) Status = ChannelStatus.Ready;
                 }
                 else if(Status == ChannelStatus.Ready) // elektrody nejsou nasazeny ve stavu "připraven"
                 {
                     ResponseDG res;
 
                     res = LANFunc.ChRd(Number);
-                    if((resp.InputR.AIN2 - resp.InputR.AIN1) >= 48) Status = ChannelStatus.Active;
+                    if((resp.InputR.AIN2 - resp.InputR.AIN1) >= 52) Status = ChannelStatus.Active;
                 }
                 else if((Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) && resp.InputR.Status[1])
                 {
@@ -386,10 +386,10 @@ namespace MDM.Controls
                 }
                 else if(Status == ChannelStatus.HighResistance)
                 {
-                    ResponseDG res;
+                    ResponseDG res = LANFunc.ChRd(Number);
 
-                    res = LANFunc.ChRd(Number);
-                    if(!resp.InputR.Status[1])
+                    //if(!resp.InputR.Status[1])
+                    if ((res.InputR.AIN2 - res.InputR.AIN1) <= 48)
                     {
                         Current = current;
                         Status = oldStatus;
