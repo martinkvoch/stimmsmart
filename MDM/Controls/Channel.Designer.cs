@@ -18,10 +18,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Channel));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.chMon = new MDM.Controls.ChannelMonitor();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbRemain = new System.Windows.Forms.Label();
             this.Led = new Bulb.LedBulb();
             this.lbElapsed = new System.Windows.Forms.Label();
-            this.lbRemain = new System.Windows.Forms.Label();
             this.pbProgress = new System.Windows.Forms.ProgressBar();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbCurrent = new System.Windows.Forms.Label();
@@ -39,8 +39,10 @@
             this.lbProcNum = new System.Windows.Forms.Label();
             this.lbDiagnosis = new System.Windows.Forms.Label();
             this.lbPatName = new System.Windows.Forms.Label();
+            this.chMon = new MDM.Controls.ChannelMonitor();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbCurrent)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -48,6 +50,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chMon);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -57,39 +60,38 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.chMon);
+            this.groupBox4.Controls.Add(this.panel1);
             this.groupBox4.Controls.Add(this.Led);
             this.groupBox4.Controls.Add(this.lbElapsed);
-            this.groupBox4.Controls.Add(this.lbRemain);
             this.groupBox4.Controls.Add(this.pbProgress);
             resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
             // 
-            // chMon
+            // panel1
             // 
-            resources.ApplyResources(this.chMon, "chMon");
-            this.chMon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.chMon.Name = "chMon";
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.lbRemain);
+            this.panel1.Name = "panel1";
+            // 
+            // lbRemain
+            // 
+            this.lbRemain.BackColor = System.Drawing.Color.Olive;
+            this.lbRemain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            resources.ApplyResources(this.lbRemain, "lbRemain");
+            this.lbRemain.Name = "lbRemain";
             // 
             // Led
             // 
             resources.ApplyResources(this.Led, "Led");
-            this.Led.Color = System.Drawing.Color.WhiteSmoke;
+            this.Led.Color = System.Drawing.Color.Black;
             this.Led.Name = "Led";
             this.Led.On = true;
             // 
             // lbElapsed
             // 
             resources.ApplyResources(this.lbElapsed, "lbElapsed");
-            this.lbElapsed.BackColor = System.Drawing.Color.Olive;
-            this.lbElapsed.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbElapsed.Name = "lbElapsed";
-            // 
-            // lbRemain
-            // 
-            resources.ApplyResources(this.lbRemain, "lbRemain");
-            this.lbRemain.Name = "lbRemain";
             // 
             // pbProgress
             // 
@@ -223,6 +225,12 @@
             this.lbPatName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbPatName.Name = "lbPatName";
             // 
+            // chMon
+            // 
+            resources.ApplyResources(this.chMon, "chMon");
+            this.chMon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.chMon.Name = "chMon";
+            // 
             // Channel
             // 
             resources.ApplyResources(this, "$this");
@@ -230,11 +238,10 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Channel";
             this.FontChanged += new System.EventHandler(this.Channel_FontChanged);
-            this.Enter += new System.EventHandler(this.Channel_Enter);
-            this.Leave += new System.EventHandler(this.Channel_Leave);
             this.groupBox1.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbCurrent)).EndInit();
@@ -247,7 +254,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button cbPatSelect;
@@ -264,10 +270,12 @@
         private System.Windows.Forms.Button cbPause;
         private System.Windows.Forms.Label lbCurrent;
         private System.Windows.Forms.TrackBar tbCurrent;
-        private System.Windows.Forms.Label lbRemain;
-        private System.Windows.Forms.ProgressBar pbProgress;
+        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label lbElapsed;
+        private System.Windows.Forms.ProgressBar pbProgress;
         private Bulb.LedBulb Led;
         private ChannelMonitor chMon;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbRemain;
     }
 }

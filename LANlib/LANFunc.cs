@@ -81,12 +81,12 @@ namespace LANlib
         {
             ResponseDG res;
             QueryDG q = new QueryDG((byte)pck++, chnum);
-            Bits diowr = new Bits();
+            //Bits diowr = new Bits();
 
-            diowr[DioReg.LedR] = true;
-            diowr[DioReg.LedNBlink] = true;
-            q.DioWR = diowr.ByteValue;
-            //q.DioWR = 0;
+            //diowr[DioReg.LedR] = true;
+            //diowr[DioReg.LedNBlink] = true;
+            //q.DioWR = diowr.ByteValue;
+            q.DioWR = 0;
             res = LAN.MasterCmd(q);
             Thread.Sleep(100);
             return res;

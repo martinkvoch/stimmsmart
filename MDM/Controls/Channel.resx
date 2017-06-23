@@ -119,48 +119,105 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="chMon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+    <value>Bottom, Left, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chMon.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 130</value>
+    <value>3, 730</value>
   </data>
   <data name="chMon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>21, 9, 21, 9</value>
   </data>
   <data name="chMon.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 60</value>
+    <value>274, 50</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="chMon.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>13</value>
   </data>
   <data name="&gt;&gt;chMon.Name" xml:space="preserve">
     <value>chMon</value>
   </data>
   <data name="&gt;&gt;chMon.Type" xml:space="preserve">
-    <value>MDM.Controls.ChannelMonitor, MDM, Version=1.0.6377.13913, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.ChannelMonitor, MDM, Version=1.0.6383.39213, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;chMon.Parent" xml:space="preserve">
-    <value>groupBox4</value>
+    <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;chMon.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="lbRemain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="lbRemain.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
+  </data>
+  <data name="lbRemain.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lbRemain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="lbRemain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 45</value>
+  </data>
+  <data name="lbRemain.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lbRemain.Text" xml:space="preserve">
+    <value>0:00</value>
+  </data>
+  <data name="lbRemain.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;lbRemain.Name" xml:space="preserve">
+    <value>lbRemain</value>
+  </data>
+  <data name="&gt;&gt;lbRemain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbRemain.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;lbRemain.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 74</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 45</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="Led.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="Led.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 87</value>
+    <value>242, 84</value>
   </data>
   <data name="Led.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 23</value>
+    <value>23, 23</value>
   </data>
   <data name="Led.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="Led.Text" xml:space="preserve">
-    <value>ledBulb1</value>
+    <value>10</value>
   </data>
   <data name="&gt;&gt;Led.Name" xml:space="preserve">
     <value>Led</value>
@@ -174,29 +231,23 @@
   <data name="&gt;&gt;Led.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="lbElapsed.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="lbElapsed.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 27.75pt, style=Bold</value>
+  <data name="lbElapsed.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lbElapsed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="lbElapsed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 74</value>
+    <value>9, 18</value>
   </data>
   <data name="lbElapsed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 48</value>
+    <value>183, 16</value>
   </data>
   <data name="lbElapsed.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+    <value>8</value>
   </data>
   <data name="lbElapsed.Text" xml:space="preserve">
-    <value>0:00</value>
-  </data>
-  <data name="lbElapsed.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+    <value>Elapsed: {0} min. {1} sec.</value>
   </data>
   <data name="&gt;&gt;lbElapsed.Name" xml:space="preserve">
     <value>lbElapsed</value>
@@ -210,36 +261,6 @@
   <data name="&gt;&gt;lbElapsed.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="lbRemain.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lbRemain.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lbRemain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 19</value>
-  </data>
-  <data name="lbRemain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 16</value>
-  </data>
-  <data name="lbRemain.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="lbRemain.Text" xml:space="preserve">
-    <value>Remains: {0} min. {1} sec.</value>
-  </data>
-  <data name="&gt;&gt;lbRemain.Name" xml:space="preserve">
-    <value>lbRemain</value>
-  </data>
-  <data name="&gt;&gt;lbRemain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbRemain.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;lbRemain.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="pbProgress.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
@@ -247,16 +268,16 @@
     <value>NoControl</value>
   </data>
   <data name="pbProgress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 42</value>
+    <value>9, 41</value>
   </data>
   <data name="pbProgress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
   </data>
   <data name="pbProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 23</value>
+    <value>256, 22</value>
   </data>
   <data name="pbProgress.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;pbProgress.Name" xml:space="preserve">
     <value>pbProgress</value>
@@ -268,13 +289,13 @@
     <value>groupBox4</value>
   </data>
   <data name="&gt;&gt;pbProgress.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="groupBox4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+    <value>Top</value>
   </data>
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 582</value>
+    <value>3, 574</value>
   </data>
   <data name="groupBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -283,7 +304,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="groupBox4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 198</value>
+    <value>274, 128</value>
   </data>
   <data name="groupBox4.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -301,7 +322,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="lbCurrent.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -310,7 +331,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbCurrent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>185, 71</value>
+    <value>185, 59</value>
   </data>
   <data name="lbCurrent.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 32</value>
@@ -343,7 +364,7 @@
     <value>NoControl</value>
   </data>
   <data name="tbCurrent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>206, 110</value>
+    <value>206, 98</value>
   </data>
   <data name="tbCurrent.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -352,7 +373,7 @@
     <value>Vertical</value>
   </data>
   <data name="tbCurrent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 270</value>
+    <value>45, 278</value>
   </data>
   <data name="tbCurrent.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -379,7 +400,7 @@
     <value>NoControl</value>
   </data>
   <data name="cbStop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 311</value>
+    <value>9, 282</value>
   </data>
   <data name="cbStop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -418,7 +439,7 @@
     <value>NoControl</value>
   </data>
   <data name="cbPause.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 231</value>
+    <value>9, 210</value>
   </data>
   <data name="cbPause.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -457,7 +478,7 @@
     <value>NoControl</value>
   </data>
   <data name="cbStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 151</value>
+    <value>9, 138</value>
   </data>
   <data name="cbStart.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -496,7 +517,7 @@
     <value>NoControl</value>
   </data>
   <data name="cbSetCurrent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 71</value>
+    <value>8, 58</value>
   </data>
   <data name="cbSetCurrent.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -532,7 +553,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 25</value>
+    <value>8, 21</value>
   </data>
   <data name="lbStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>256, 30</value>
@@ -568,7 +589,7 @@
     <value>3, 2, 3, 2</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 384</value>
+    <value>274, 376</value>
   </data>
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -586,7 +607,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="cbPatSelect.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -841,7 +862,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="groupBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>

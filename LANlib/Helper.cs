@@ -12,7 +12,7 @@ using dword = System.UInt32;
 
 namespace LANlib
 {
-    public enum DioReg : byte { LedR, LedG, LedB, LedNBlink }
+    public enum DioReg : byte { LedR, LedG, LedB, LedNBlink, LedOff }
     //public enum LANReg : byte { G1 = 0x01, G2 = 0x02, G3 = 0x04, G4 = 0x08, G5 = 0x10, G6 = 0x20 }
 
     #region Bits

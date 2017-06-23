@@ -42,7 +42,7 @@ namespace MDM.Controls
         public const int NoSelPat = -1;
         private word procDuration = (word)new Settings().ProcDur;
         private word elapsed = word.MaxValue;
-        private string chNumTxt, remainTxt;
+        private string chNumTxt, elapsedTxt;
         private double current = 0D;
         private BackgroundWorker chWorker = new BackgroundWorker();
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
@@ -193,7 +193,7 @@ namespace MDM.Controls
         }
         #endregion
 
-        #region Elapsed, Remained
+        #region Elapsed
         /// <summary>
         /// Čas strávený procedurou nad vybraným pacientem.
         /// </summary>
@@ -207,17 +207,17 @@ namespace MDM.Controls
                     word remain = (word)(procDuration - value);
 
                     elapsed = value;
-                    lbElapsed.Text = string.Format("{0}:{1:D2}", elapsed / 60, elapsed % 60);
-                    lbRemain.Text = string.Format(remainTxt, remain / 60, remain % 60);
+                    lbRemain.Text = string.Format("{0}:{1:D2}", remain / 60, remain % 60);
+                    lbElapsed.Text = string.Format(elapsedTxt, elapsed / 60, elapsed % 60);
                     if(elapsed != 0U) pbProgress.PerformStep();
                 }
             }
         }
 
-        /// <summary>
-        /// Čas, který zbývá vykonat do ukončení procedury.
-        /// </summary>
-        public word Remained { get { return Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored ? (word)(procDuration - elapsed) : procDuration; } }
+        ///// <summary>
+        ///// Čas, který zbývá vykonat do ukončení procedury.
+        ///// </summary>
+        //public word Remained { get { return Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored ? (word)(procDuration - elapsed) : procDuration; } }
         #endregion
 
         #region ChannelEnabled
@@ -283,7 +283,7 @@ namespace MDM.Controls
             chNum = chnum;
             Channels = parent;
             chNumTxt = groupBox1.Text;
-            remainTxt = lbRemain.Text;
+            elapsedTxt = lbElapsed.Text;
             FontHeight = Width < 240 ? 8 : 10;
             Channel_FontChanged(null, null);
             pbProgress.Maximum = procDuration;
@@ -323,13 +323,17 @@ namespace MDM.Controls
         {
             Bits lb = new Bits();
 
-            lb[clr] = true;
-            lb[DioReg.LedNBlink] = !blink;
+            if(clr != DioReg.LedOff)
+            {
+                lb[clr] = true;
+                lb[DioReg.LedNBlink] = !blink;
+            }
             LEDBits = lb;
         }
         private void ledRed(bool blink = false) { led(DioReg.LedR, blink); }
         private void ledGreen(bool blink = false) { led(DioReg.LedG, blink); }
         private void ledBlue(bool blink = false) { led(DioReg.LedB, blink); }
+        private void ledOff() { led(DioReg.LedOff, false); }
 
         private void processMBStatus(ResponseDG resp)
         {
@@ -362,7 +366,7 @@ namespace MDM.Controls
             if(resp != null)
             {
                 chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
-                if(resp.Command == QueryCmd.CmdRd) LEDBits = new Bits(resp.DioRD);
+                //if(resp.Command == QueryCmd.CmdRd) LEDBits = new Bits(resp.DioRD);
                 processMBStatus(resp);
                 if(Status == ChannelStatus.Active)
                 {
@@ -397,42 +401,6 @@ namespace MDM.Controls
                 }
             }
         }
-
-        //// kontroluje připojení pacienta na elektrody pomocí odporu < 10,5 kOhm
-        //// proud = 0,5 mA
-        //// (AIN2 - AIN1) < 52 (5,2 V)
-        //private void electrodesReady()
-        //{
-        //    ResponseDG resp;
-
-        //    resp = LANFunc.ChDAC(Number);
-        //    resp = LANFunc.ChDOUT(Number, 2);
-        //    Current = .5;
-        //    resp = LANFunc.ChRd(Number);
-        //    //DialogBox.ShowInfo(string.Format("Current = {0} mA, AtfC = {1}", Current, resp.InputR.Verified.AttenCoef), "Current");
-        //    do
-        //    {
-        //        Application.DoEvents();
-        //        resp = LANFunc.ChRd(Number);
-        //    } while(Status == ChannelStatus.Active && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52);
-        //}
-
-        //// čeká na úpravu elektrod tak, aby odpor nebyl příliš vysoký
-        //// proud = 0,5 mA
-        //// Status(D1) = 1
-        //private void moistenElectrodes()
-        //{
-        //    ResponseDG resp;
-
-        //    Current = .5;
-        //    resp = LANFunc.ChRd(Number);
-        //    do
-        //    {
-        //        Application.DoEvents();
-        //        resp = LANFunc.ChRd(Number);
-        //        Thread.Sleep(100);
-        //    } while(Status == ChannelStatus.HighResistance && resp.InputR.Status[1]);
-        //}
         #endregion
 
         #region Stavy kanálu
@@ -464,9 +432,8 @@ namespace MDM.Controls
             lbStatus.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
             LANFunc.ChRst(Number);
-            LEDBits = new Bits();
+            ledOff();
             LANFunc.LanChOnOff(Number, false);
-            Refresh();
         }
         #endregion
 
@@ -488,10 +455,9 @@ namespace MDM.Controls
             cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Bold);
             Current = 0D;
             LANFunc.ChRst(Number);
+            ledOff();
             LANFunc.LanChOnOff(Number, false);
-            LANFunc.LanChOnOff(Number);
-            ledRed();
-            Refresh();
+            //LANFunc.LanChOnOff(Number);
         }
         #endregion
 
@@ -530,7 +496,6 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
             ledGreen(true);
-            Refresh();
         }
         #endregion
 
@@ -552,13 +517,12 @@ namespace MDM.Controls
             tbCurrent.Enabled = false;
             timer.Start();
             ledGreen();
-            Refresh();
         }
         #endregion
 
         #region setCurrent()
         /// <summary>
-        /// Uvede kanál do stavu "nastav proud". V tomto stavu je třeba nastavit hodnotu proudu. Poté kanál přechází do stavu "procedura probíhá".
+        /// Uvede kanál do stavu "nastav proud". V tomto stavu je třeba nastavit hodnotu proudu. Poté kanál přechází do stavu "procedura probíhá" nebo "obnoven".
         /// </summary>
         private void setCurrent()
         {
@@ -695,13 +659,7 @@ namespace MDM.Controls
                 ResponseDG resp;
 
                 resp = LANFunc.ChRd(Number);
-                if(IsHandleCreated)
-                {
-                    Invoke(new MethodInvoker(delegate {
-                        processResponse(resp);
-                        //chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
-                    }));
-                }
+                if(IsHandleCreated) Invoke(new MethodInvoker(delegate { processResponse(resp); }));
                 Thread.Sleep(300);
             }
             e.Cancel = true;
@@ -782,17 +740,6 @@ namespace MDM.Controls
         private void Channel_FontChanged(object sender, EventArgs e)
         {
             foreach(Control c in Controls) c.Font = Font;
-        }
-
-        //TODO: vyřešit označení vybraného kanálu
-        private void Channel_Enter(object sender, EventArgs e)
-        {
-            //groupBox1.ForeColor = Color.Green;
-        }
-
-        private void Channel_Leave(object sender, EventArgs e)
-        {
-            //groupBox1.ForeColor = SystemColors.ControlText;
         }
 
         private void tbCurrent_ValueChanged(object sender, EventArgs e)
