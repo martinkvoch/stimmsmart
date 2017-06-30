@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
-using word = System.UInt16;
-using dword = System.UInt32;
+using qword = System.UInt64;
 
 using MDM.Controls;
 using MDM.Properties;
@@ -20,42 +19,14 @@ namespace MDM.Classes
     /// <summary>
     /// Třída pro manipulaci se všemi kanály
     /// </summary>
-    public class Channels
+    public class Channels : IDisposable
     {
         private static readonly byte noc = new Settings().NOC;
-        private static dword pck = 0U;
-
         private List<Channel> channels = new List<Channel>();
-        //private LANQueue<QueryDG> queue = new LANQueue<QueryDG>();
-        //private BackgroundWorker qWorker = new BackgroundWorker();
+#if LAN
+        private static qword pck = 0U;
         private static BackgroundWorker rWorker = new BackgroundWorker();
-
-        #region bool Enabled
-        //private bool enabled = true;
-        /// <summary>
-        /// Určuje, zda jsou kanály připojené/povolené
-        /// </summary>
-        //public bool Enabled { get; set; }
-        //{
-        //    get { return enabled; }
-        //    set
-        //    {
-        //        if(enabled != value)
-        //        {
-        //            enabled = value;
-        //            channels.ForEach(ch => { if(ch.Status != ChannelStatus.Inaccessible && ch.Status != ChannelStatus.Error) ch.ChannelEnabled = enabled; });
-        //            //foreach(Channel ch in channels) ch.ChannelEnabled = enabled;
-        //        }
-        //    }
-        //}
-        #endregion
-
-        #region ConnectedChannels
-        /// <summary>
-        /// Pole všech připojených kanálů
-        /// </summary>
-        public Channel[] ConnectedChannels { get { return channels.ToArray(); } }
-        #endregion
+#endif
 
         #region ChannelsOutOfOrder
         /// <summary>
@@ -64,114 +35,107 @@ namespace MDM.Classes
         public bool ChannelsOutOfOrder { get { return channels.All(ch => !ch.Enabled || !ch.InOrder); } }
         #endregion
 
-        #region ChannelsInOrder
-        /// <summary>
-        /// Indikuje, zda je některý kanál v provozu
-        /// </summary>
-        public bool ChannelsInOrder { get { return channels.Any(ch => ch.InOrder); } }
-        #endregion
-
-        #region Konstruktor a obsluha kanálů
+        #region Konstruktor, destruktor a obsluha kanálů
         public Channels(MDMPanel parent)
         {
             int screenWidth = (int)SystemParameters.PrimaryScreenWidth;
 
+#if LAN
             LAN.SlaveIP = new Settings().LanIP;
-            //qWorker.WorkerSupportsCancellation = true;
-            rWorker.WorkerSupportsCancellation = true;
-            //qWorker.DoWork += QWorker_DoWork;
-            rWorker.DoWork += rWorker_DoWork;
-            rWorker.RunWorkerAsync(this);
+#endif
             for(byte ch = noc; ch > 0; ch--)
             {
                 Channel chnl = new Channel(ch, this);
 
                 chnl.Width = screenWidth / noc;
                 chnl.Dock = DockStyle.Left;
-                //chnl.Enabled = true;
                 channels.Add(chnl);
                 parent.Controls.Add(chnl);
-                //chnl.Status = ChannelStatus.Disabled;
             }
-            //Enabled = false;
+            rWorker.WorkerSupportsCancellation = true;
+            rWorker.DoWork += rWorker_DoWork;
+            rWorker.RunWorkerAsync(this);
         }
+
+        public void Dispose()
+        {
+            rWorker.CancelAsync();
+            while(rWorker.IsBusy) System.Windows.Forms.Application.DoEvents();
+            rWorker.Dispose();
+        }
+
+#if LAN
+        private static bool lanTimedOut = false;
+        private static wTimeoutDlgBox dlg;// = new wTimeoutDlgBox();
 
         private static void rWorker_DoWork(object sender, DoWorkEventArgs e)
         {
+            Channels channels = e.Argument as Channels;
+
             while(!rWorker.CancellationPending)
             {
-                LANFunc.LanRd();
-                if(LAN.TimedOut) processTimedOut(e.Argument);
-                else Thread.Sleep(1000);
+                LAN.MasterCmd(new QueryDG(cmd: QueryCmd.CmdRd, modbus: new ModbusHolding()));
+                //LANFunc.LanRd();
+                if(!lanTimedOut)
+                {
+                    if(LAN.TimedOut)
+                    {
+                        dlg = new wTimeoutDlgBox();
+                        dlg.Show();
+                        dlg.Focus();
+                        dlg.Refresh();
+                        lanTimedOut = true;
+                        channels.channels.ForEach(ch => ch.Invoke(new MethodInvoker(delegate { ch.Status = ChannelStatus.Disconnected; })));
+                    }
+                }
+                else
+                {
+                    if(dlg.Result == DialogResult.OK && !dlg.IsDisposed)
+                    {
+                        dlg.Dispose();
+                        lanTimedOut = false;
+                    }
+                    else if(!LAN.TimedOut)
+                    {
+                        wWaitBox box;
+                        bool[] chErrors = new bool[noc];
+
+                        if(!dlg.IsDisposed) dlg.Dispose();
+                        box = wWaitBox.Show(Resources.testChannel);
+                        chErrors = Autotest();
+                        channels.channels.ForEach(ch => ch.Invoke(new MethodInvoker(delegate { ch.Status = ChannelStatus.Inactive; })));
+                        box.Dispose();
+                        lanTimedOut = false;
+                    }
+                    System.Windows.Forms.Application.DoEvents();
+                }
+                Thread.Sleep(200);
             }
+            if(!dlg.IsDisposed) dlg.Dispose();
             e.Cancel = true;
         }
-
-        private static void processTimedOut(object argument)
-        {
-            wTimeoutDlgBox dlg = new wTimeoutDlgBox();
-
-            dlg.Show();
-            do
-            {
-                System.Windows.Forms.Application.DoEvents();
-            } while(LAN.TimedOut && dlg.DialogResult != DialogResult.Cancel);
-            if(!dlg.IsDisposed) dlg.Dispose();
-            if(!rWorker.IsBusy) rWorker.RunWorkerAsync();
-            if(!LAN.TimedOut)
-            {
-                bool[] chErrors = new bool[noc];
-                Channels channels = argument as Channels;
-                wWaitBox box = wWaitBox.Show(Resources.testChannel);
-
-                chErrors = Autotest();
-                box.Dispose();
-                channels.channels.ForEach(ch =>
-                    ch.Invoke(new MethodInvoker(delegate { if(chErrors[ch.Number - 1]) ch.Status = ChannelStatus.Inaccessible; else ch.Status = ChannelStatus.Inactive; }))
-                );
-                channels.On(chErrors);
-            }
-        }
-
-        ///// <summary>
-        ///// Obsluhuje frontu požadavků na LAN
-        ///// </summary>
-        ///// <param name="sender">odesílatel události</param>
-        ///// <param name="e">parametry události</param>
-        //private void QWorker_DoWork(object sender, DoWorkEventArgs e)
-        //{
-        //    while(true)
-        //    {
-        //        if(queue.Count > 0)
-        //        {
-        //            QueryDG cmd = queue.Pull();
-
-        //            if(cmd != null)
-        //            {
-        //                ResponseDG resp = LAN.MasterCmd(cmd);
-
-        //                if(resp != null)
-        //                {
-        //                    if(cmd.Address > 0) channels.First(ch => ch.Number == cmd.Address).Response = resp;
-        //                    else LANFunc.Lan(resp.DioRD);
-        //                }
-        //            }
-        //        }
-        //        Thread.Sleep(1);
-        //    }
-        //}
+#endif
         #endregion
 
         #region Autotest()
+        private static void ledRed(byte chNum)
+        {
+            Bits led = new Bits();
+
+            led[DioReg.LedR] = true;
+            led[DioReg.LedNBlink] = true;
+            LANFunc.ChDio(chNum, led.ByteValue);
+        }
+
         public static bool[] Autotest()
         {
+            bool[] chErrors = new bool[noc];
+#if LAN
             const string methodFmt = "{0}.{1}()";
             ResponseDG resp;
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
             string protocol = string.Empty;
             Bits led = new Bits();
-            byte ledErr;
-            bool[] chErrors = new bool[noc];
             Thread lanr = new Thread(() =>
             {
                 while(true)
@@ -196,9 +160,6 @@ namespace MDM.Classes
             lanr.SetApartmentState(ApartmentState.MTA);
             lanr.Start();
             Thread.Sleep(300);
-            led[DioReg.LedR] = true;
-            led[DioReg.LedNBlink] = true;
-            ledErr = led.ByteValue;
             led = new Bits();
             LANFunc.Lan(0);
             // 0. postupné zapnutí všech kanálů
@@ -206,7 +167,7 @@ namespace MDM.Classes
             {
                 led[b - 1] = true;
                 LANFunc.Lan(led.ByteValue);
-                Thread.Sleep(100);
+                Thread.Sleep(300);
             }
             resp = LANFunc.LanRd();
             if(resp.DioRD != led.ByteValue)
@@ -218,10 +179,11 @@ namespace MDM.Classes
                     if(!ledBits[b - 1])
                     {
                         chErrors[b - 1] = true;
-                        led = new Bits();
-                        led[DioReg.LedR] = true;
-                        led[DioReg.LedNBlink] = true;
-                        LANFunc.ChDio(b, led.ByteValue);
+                        ledRed(b);
+                        //led = new Bits();
+                        //led[DioReg.LedR] = true;
+                        //led[DioReg.LedNBlink] = true;
+                        //LANFunc.ChDio(b, led.ByteValue);
                     }
             }
             // 1. test LED
@@ -274,16 +236,13 @@ namespace MDM.Classes
                 {
                     protocol += string.Format(Resources.testChError2 + Environment.NewLine, b);
                     chErrors[b - 1] = true;
-                    led = new Bits();
-                    led[DioReg.LedR] = true;
-                    led[DioReg.LedNBlink] = true;
-                    LANFunc.ChDio(b, led.ByteValue);
+                    ledRed(b);
                 }
             }
             // 3. ověření, že na výstupu není nic připojeno
             for(byte b = 1; b <= noc; b++)
             {
-                QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
+                QueryDG q = new QueryDG((byte)(pck++), b);
                 ResponseDG res = LANFunc.ChRd(b);
 
                 q.DioWR = res.DioRD;
@@ -295,7 +254,7 @@ namespace MDM.Classes
             Thread.Sleep(300);
             for(byte b = 1; b <= noc; b++)
             {
-                QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
+                QueryDG q = new QueryDG((byte)(pck++), b);
                 ResponseDG res = LANFunc.ChRd(b);
 
                 q.DioWR = res.DioRD;
@@ -311,25 +270,19 @@ namespace MDM.Classes
                 {
                     protocol += string.Format(Resources.testChError31 + Environment.NewLine, b);
                     chErrors[b - 1] = true;
-                    led = new Bits();
-                    led[DioReg.LedR] = true;
-                    led[DioReg.LedNBlink] = true;
-                    LANFunc.ChDio(b, led.ByteValue);
+                    ledRed(b);
                 }
                 if(!resp.InputR.Status[1])
                 {
                     protocol += string.Format(Resources.testChError32 + Environment.NewLine, b);
                     chErrors[b - 1] = true;
-                    led = new Bits();
-                    led[DioReg.LedR] = true;
-                    led[DioReg.LedNBlink] = true;
-                    LANFunc.ChDio(b, led.ByteValue);
+                    ledRed(b);
                 }
             }
             // 4. test zpětné proudové vazby + měření napětí na zátěži
             for(byte b = 1; b <= noc; b++)
             {
-                QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
+                QueryDG q = new QueryDG((byte)(pck++), b);
                 ResponseDG res = LANFunc.ChRd(b);
 
                 q.DioWR = res.DioRD;
@@ -347,10 +300,7 @@ namespace MDM.Classes
                 {
                     protocol += string.Format(Resources.testChError4 + Environment.NewLine, b, resp.InputR.AIN2 - resp.InputR.AIN1, resp.InputR.Verified.AttenCoef);
                     chErrors[b - 1] = true;
-                    led = new Bits();
-                    led[DioReg.LedR] = true;
-                    led[DioReg.LedNBlink] = true;
-                    LANFunc.ChDio(b, led.ByteValue);
+                    ledRed(b);
                 }
             }
             byte uk = 32, dif = 25, i = 0;
@@ -369,10 +319,7 @@ namespace MDM.Classes
                     {
                         protocol += string.Format(Resources.testChError4 + Environment.NewLine, b, res, resp.InputR.Verified.AttenCoef);
                         chErrors[b - 1] = true;
-                        led = new Bits();
-                        led[DioReg.LedR] = true;
-                        led[DioReg.LedNBlink] = true;
-                        LANFunc.ChDio(b, led.ByteValue);
+                        ledRed(b);
                     }
                 }
                 if(uk == byte.MaxValue) uk = 0;
@@ -385,7 +332,7 @@ namespace MDM.Classes
             // 5. test limitace výstupní proudové smyčky
             for(byte b = 1; b <= noc; b++)
             {
-                QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
+                QueryDG q = new QueryDG((byte)(pck++), b);
                 ResponseDG res = LANFunc.ChRd(b);
 
                 q.DioWR = res.DioRD;
@@ -403,15 +350,12 @@ namespace MDM.Classes
                 {
                     protocol += string.Format(Resources.testChError5 + Environment.NewLine, b);
                     chErrors[b - 1] = true;
-                    led = new Bits();
-                    led[DioReg.LedR] = true;
-                    led[DioReg.LedNBlink] = true;
-                    LANFunc.ChDio(b, led.ByteValue);
+                    ledRed(b);
                 }
             }
             for(byte b = 1; b <= noc; b++)
             {
-                QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
+                QueryDG q = new QueryDG((byte)(pck++), b);
                 ResponseDG res = LANFunc.ChRd(b);
 
                 q.DioWR = res.DioRD;
@@ -427,10 +371,7 @@ namespace MDM.Classes
                 {
                     protocol += string.Format(Resources.testChError5 + Environment.NewLine, b);
                     chErrors[b - 1] = true;
-                    led = new Bits();
-                    led[DioReg.LedR] = true;
-                    led[DioReg.LedNBlink] = true;
-                    LANFunc.ChDio(b, led.ByteValue);
+                    ledRed(b);
                 }
             }
             // 6. pokles hodnoty napětí zdroje při zatížení výstupu (do náhradní zátěže)
@@ -441,16 +382,13 @@ namespace MDM.Classes
                 {
                     protocol += string.Format(Resources.testChError6 + Environment.NewLine, b);
                     chErrors[b - 1] = true;
-                    led = new Bits();
-                    led[DioReg.LedR] = true;
-                    led[DioReg.LedNBlink] = true;
-                    LANFunc.ChDio(b, led.ByteValue);
+                    ledRed(b);
                 }
             }
             // 7. vyhodnocení příznaku "Status D1 - příliš vysoká impedance" při proudu 10 mA
             for(byte b = 1; b <= noc; b++)
             {
-                QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
+                QueryDG q = new QueryDG((byte)(pck++), b);
                 ResponseDG res = LANFunc.ChRd(b);
 
                 q.DioWR = res.DioRD;
@@ -466,15 +404,12 @@ namespace MDM.Classes
                 {
                     protocol += string.Format(Resources.testChError7 + Environment.NewLine, b);
                     chErrors[b - 1] = true;
-                    led = new Bits();
-                    led[DioReg.LedR] = true;
-                    led[DioReg.LedNBlink] = true;
-                    LANFunc.ChDio(b, led.ByteValue);
+                    ledRed(b);
                 }
             }
             for(byte b = 1; b <= noc; b++)
             {
-                QueryDG q = new QueryDG((byte)(pck++ & 0x000000FF), b);
+                QueryDG q = new QueryDG((byte)(pck++), b);
                 ResponseDG res = LANFunc.ChRd(b);
 
                 q.DioWR = res.DioRD;
@@ -490,10 +425,7 @@ namespace MDM.Classes
                 {
                     protocol += string.Format(Resources.testChError7 + Environment.NewLine, b);
                     chErrors[b - 1] = true;
-                    led = new Bits();
-                    led[DioReg.LedR] = true;
-                    led[DioReg.LedNBlink] = true;
-                    LANFunc.ChDio(b, led.ByteValue);
+                    ledRed(b);
                 }
             }
             // vypnout kanály
@@ -512,6 +444,7 @@ namespace MDM.Classes
                 DialogBox.ShowError(protocol, Resources.testChErrors);
             }
             lanr.Abort();
+#endif
             return chErrors;
         }
         #endregion
@@ -522,29 +455,19 @@ namespace MDM.Classes
         /// </summary>
         public void On(bool[] chErrors)
         {
+#if LAN
             if(ChannelsOutOfOrder)
             {
-                Bits led = new Bits();
-
-                //qWorker.RunWorkerAsync();
-                //SendLANCmd(new QueryDG((byte)(pck++)));
                 LANFunc.Lan(0); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
-                Thread.Sleep(100);
+                Thread.Sleep(300);
                 channels.ForEach(ch => {
                     wWaitBox msg = wWaitBox.Show(string.Format(Resources.chOn, ch.Number));
 
                     try
                     {
                         msg.Show();
-                        led[ch.Number - 1] = true;
-                        if(chErrors[ch.Number - 1])
-                        {
-                            ch.Status = ChannelStatus.Inaccessible;
-                            led[ch.Number - 1] = false;
-                        }
-                        else LANFunc.Lan(led.ByteValue);
-                        //SendLANCmd(new QueryDG((byte)(pck++), ch.Number)); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
-                        if(!chErrors[ch.Number - 1])
+                        if(chErrors[ch.Number - 1]) ch.Status = ChannelStatus.Inaccessible;
+                        else
                         {
                             LANFunc.ChRst(ch.Number); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
                             ch.Status = ChannelStatus.Inactive;
@@ -557,6 +480,15 @@ namespace MDM.Classes
                 });
                 //Enabled = true;
             }
+#else
+            channels.ForEach(ch => {
+                wWaitBox msg = wWaitBox.Show(string.Format(Resources.chOn, ch.Number));
+
+                if(!chErrors[ch.Number - 1]) ch.Status = ChannelStatus.Inactive;
+                Thread.Sleep(500);
+                msg.Dispose();
+            });
+#endif
         }
 
         /// <summary>
@@ -568,15 +500,6 @@ namespace MDM.Classes
         {
             return channels.Any(ch => ch.Patient.ID == patId);
         }
-
-        ///// <summary>
-        ///// Do fronty dotazů/požadavků na LAN vloží novou položku
-        ///// </summary>
-        ///// <param name="query">datová struktura dotazu (UDP paket)</param>
-        //public void SendLANCmd(QueryDG query)
-        //{
-        //    queue.Push(query);
-        //}
         #endregion
     }
 }

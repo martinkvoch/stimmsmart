@@ -44,41 +44,41 @@ namespace MDM.Data
         public Procedure() : base(tname) { }
 
         #region ProcNum()
-        /// <summary>
-        /// Vrací aktuální hodnoty čísla procedury a čísla cyklu pro daného pacienta.
-        /// Pokud není pacient nalezen, vrací (proc, cycle) = (0, 0).
-        /// </summary>
-        /// <param name="patId">identifikační číslo pacienta</param>
-        /// <param name="cycle">návratová hodnota čísla cyklu</param>
-        /// <returns>Vrací číslo procedury.</returns>
-        public static int ProcNum(int patId, ref int cycle)
-        {
-            int res = 0;
+        ///// <summary>
+        ///// Vrací aktuální hodnoty čísla procedury a čísla cyklu pro daného pacienta.
+        ///// Pokud není pacient nalezen, vrací (proc, cycle) = (0, 0).
+        ///// </summary>
+        ///// <param name="patId">identifikační číslo pacienta</param>
+        ///// <param name="cycle">návratová hodnota čísla cyklu</param>
+        ///// <returns>Vrací číslo procedury.</returns>
+        //public static int ProcNum(int patId, ref int cycle)
+        //{
+        //    int res = 0;
 
-            cycle = 0;
-            if(Patient.Exists(patId))
-            {
-                DataTable dt = Database.Select("select PAT_ID, CYCLE, max(NUMBER) PROC_NUM from PROCEDURE group by PAT_ID, CYCLE having not FINAL limit 1");
+        //    cycle = 0;
+        //    if(Patient.Exists(patId))
+        //    {
+        //        DataTable dt = Database.Select("select PAT_ID, CYCLE, max(NUMBER) PROC_NUM from PROCEDURE group by PAT_ID, CYCLE having not FINAL limit 1");
 
-                if(dt != null && dt.Rows.Count > 0)
-                {
-                    res = Convert.ToInt32(dt.Rows[0]["PROC_NUM"]);
-                    cycle = Convert.ToInt32(dt.Rows[0]["CYCLE"]);
-                }
-                else
-                {
-                    dt.Dispose();
-                    dt = null;
-                    dt = Database.Select("select PAT_ID, max(CYCLE) CYCLE, max(NUMBER) PROC_NUM from PROCEDURE group by PAT_ID having FINAL limit 1");
-                    if(dt != null && dt.Rows.Count > 0)
-                    {
-                        res = Convert.ToInt32(dt.Rows[0]["PROC_NUM"]);
-                        cycle = Convert.ToInt32(dt.Rows[0]["CYCLE"]) + 1;
-                    }
-                }
-            }
-            return res;
-        }
+        //        if(dt != null && dt.Rows.Count > 0)
+        //        {
+        //            res = Convert.ToInt32(dt.Rows[0]["PROC_NUM"]);
+        //            cycle = Convert.ToInt32(dt.Rows[0]["CYCLE"]);
+        //        }
+        //        else
+        //        {
+        //            dt.Dispose();
+        //            dt = null;
+        //            dt = Database.Select("select PAT_ID, max(CYCLE) CYCLE, max(NUMBER) PROC_NUM from PROCEDURE group by PAT_ID having FINAL limit 1");
+        //            if(dt != null && dt.Rows.Count > 0)
+        //            {
+        //                res = Convert.ToInt32(dt.Rows[0]["PROC_NUM"]);
+        //                cycle = Convert.ToInt32(dt.Rows[0]["CYCLE"]) + 1;
+        //            }
+        //        }
+        //    }
+        //    return res;
+        //}
         #endregion
     }
 }

@@ -1132,6 +1132,15 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cycle.
+        /// </summary>
+        public static string patSelCycle {
+            get {
+                return ResourceManager.GetString("patSelCycle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string patSelName {
@@ -1146,6 +1155,15 @@ namespace MDM.Properties {
         public static string patSelNumber {
             get {
                 return ResourceManager.GetString("patSelNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Procedure number.
+        /// </summary>
+        public static string patSelProcNum {
+            get {
+                return ResourceManager.GetString("patSelProcNum", resourceCulture);
             }
         }
         

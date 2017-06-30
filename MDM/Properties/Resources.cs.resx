@@ -564,4 +564,10 @@
   <data name="chStatusErrHdr" xml:space="preserve">
     <value>Chybný stav kanálu {0}</value>
   </data>
+  <data name="patSelCycle" xml:space="preserve">
+    <value>Cyklus</value>
+  </data>
+  <data name="patSelProcNum" xml:space="preserve">
+    <value>Číslo procedury</value>
+  </data>
 </root>

@@ -55,34 +55,45 @@ namespace MDM.Windows
         {
             get
             {
-                int id = PatientID;
                 word res = 0;
 
-                PatientCycleNum = 0;
-                if(id > 0)
-                {
-                    int cycle = 0;
+                if(dataGrid.SelectedRows != null && dataGrid.SelectedRows.Count > 0) res = Convert.ToUInt16(dataGrid.SelectedRows[0].Cells[5].Value);
+                //int id = PatientID;
+                //word res = 0;
 
-                    res = (word)(Procedure.ProcNum(id, ref cycle) + 1);
-                    if(cycle == 0) cycle++;
-                    PatientCycleNum = (word)cycle;
-                }
+                //PatientCycleNum = 0;
+                //if(id > 0)
+                //{
+                //    int cycle = 0;
+
+                //    res = (word)(Procedure.ProcNum(id, ref cycle) + 1);
+                //    if(cycle == 0) cycle++;
+                //    PatientCycleNum = (word)cycle;
+                //}
                 return res;
             }
         }
 
-        public word PatientCycleNum { get; private set; }
+        //public word PatientCycleNum { get; private set; }
+        public word PatientCycleNum
+        {
+            get
+            {
+                word res = 0;
+
+                if(dataGrid.SelectedRows != null && dataGrid.SelectedRows.Count > 0) res = Convert.ToUInt16(dataGrid.SelectedRows[0].Cells[4].Value);
+                return res;
+            }
+        }
         #endregion
 
         public wPatSelect()
         {
-            //string cmd = string.Format("select P.ID [{0}], LAST_NAME || ', ' || FIRST_NAME || ifnull(' '||MIDDLE_NAME, '') [{1}], strftime('%Y', BIRTHDATE) [{2}], D.NAME [{3}] " +
-            //                           "from PATIENT P, DIAGNOSIS D, PROCEDURE R " +
-            //                           "where P.DG_ID = D.ID and R.PAT_ID = P.ID and not P.DELETED",
-            string cmd = string.Format("select P.ID [{0}], LAST_NAME || ', ' || FIRST_NAME || ifnull(' '||MIDDLE_NAME, '') [{1}], strftime('%Y', BIRTHDATE) [{2}], D.NAME [{3}] " +
-                                       "from PATIENT P, DIAGNOSIS D " +
-                                       "where P.DG_ID = D.ID and not P.DELETED",
-                Resources.patSelNumber, Resources.patSelName, Resources.patSelYrOfBirth, Resources.PatHdrDg);
+            string cmd = string.Format("select P.ID [{0}], LAST_NAME || ', ' || FIRST_NAME || ifnull(' '||MIDDLE_NAME, '') [{1}], strftime('%Y', BIRTHDATE) [{2}], D.NAME [{3}], " +
+                                          " ifnull(PR.CYCLE, 1) [{4}], ifnull(PR.NUMBER, 1) [{5}] " +
+                                       "from PATIENT P left outer join PROCEDURE PR on P.ID = PR.PAT_ID, DIAGNOSIS D " +
+                                       "where P.DG_ID = D.ID and not P.DELETED and not ifnull(PR.FINAL, 'FALSE')",
+                Resources.patSelNumber, Resources.patSelName, Resources.patSelYrOfBirth, Resources.PatHdrDg, Resources.patSelCycle, Resources.patSelProcNum);
 
             InitializeComponent();
             using(SQLiteConnection conn = Database.CreateConnection())
@@ -91,6 +102,11 @@ namespace MDM.Windows
                 bindingSource.DataSource = dataSet.Tables[0].DefaultView;
                 dataGrid.DataSource = bindingSource;
             }
+            dataGrid.Columns[0].AutoSizeMode = dataGrid.Columns[2].AutoSizeMode = dataGrid.Columns[4].AutoSizeMode = dataGrid.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGrid.Columns[0].Width = 40;
+            dataGrid.Columns[4].Width = 50;
+            dataGrid.Columns[2].Width = 60;
+            dataGrid.Columns[5].Width = 70;
         }
 
         private void txtFindName_TextChanged(object sender, EventArgs e)

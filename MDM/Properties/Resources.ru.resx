@@ -567,4 +567,10 @@
   <data name="chStatusErrHdr" xml:space="preserve">
     <value>Плохой статус канала {0}</value>
   </data>
+  <data name="patSelCycle" xml:space="preserve">
+    <value>Цикл</value>
+  </data>
+  <data name="patSelProcNum" xml:space="preserve">
+    <value>Номер процедуры</value>
+  </data>
 </root>

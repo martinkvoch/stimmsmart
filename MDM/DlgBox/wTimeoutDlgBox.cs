@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
-using MDM.Properties;
 
 namespace MDM.DlgBox
 {
     public partial class wTimeoutDlgBox : Form
     {
-        public DialogResult Result = DialogResult.OK;
+        public DialogResult Result = DialogResult.Cancel;
 
         public wTimeoutDlgBox()
         {
@@ -15,7 +14,7 @@ namespace MDM.DlgBox
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Result = DialogResult.Cancel;
+            Result = DialogResult.OK;
             Close();
         }
     }

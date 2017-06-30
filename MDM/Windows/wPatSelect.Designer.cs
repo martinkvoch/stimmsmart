@@ -39,17 +39,17 @@
             // 
             // cbSelect
             // 
+            resources.ApplyResources(this.cbSelect, "cbSelect");
             this.cbSelect.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cbSelect.Image = global::MDM.Properties.Resources.yes;
-            resources.ApplyResources(this.cbSelect, "cbSelect");
             this.cbSelect.Name = "cbSelect";
             this.cbSelect.UseVisualStyleBackColor = true;
             // 
             // cbCancel
             // 
+            resources.ApplyResources(this.cbCancel, "cbCancel");
             this.cbCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cbCancel.Image = global::MDM.Properties.Resources.no;
-            resources.ApplyResources(this.cbCancel, "cbCancel");
             this.cbCancel.Name = "cbCancel";
             this.cbCancel.UseVisualStyleBackColor = true;
             // 
