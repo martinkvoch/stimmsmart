@@ -122,6 +122,8 @@ namespace MDM
             Language = settings.lang;
             SetLanguage();
             Database.Open();
+            //Procedure.Init();
+            //Log.Init();
             ShowSplash(true);
             Application.ApplicationExit += AppExit;
             KeepRunning = false;

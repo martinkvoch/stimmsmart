@@ -570,4 +570,10 @@
   <data name="patSelProcNum" xml:space="preserve">
     <value>Číslo procedury</value>
   </data>
+  <data name="noPatient" xml:space="preserve">
+    <value>Žádní pacienti nejsou registrováni.\nNejprve zaregistrujte pacienta a pak jej vyberte na proceduru.</value>
+  </data>
+  <data name="noPatientHdr" xml:space="preserve">
+    <value>Žádní pacienti</value>
+  </data>
 </root>

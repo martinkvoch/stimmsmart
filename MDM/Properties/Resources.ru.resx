@@ -573,4 +573,10 @@
   <data name="patSelProcNum" xml:space="preserve">
     <value>Номер процедуры</value>
   </data>
+  <data name="noPatient" xml:space="preserve">
+    <value>Пациентов не регистрируют.\nПожалуйста, зарегистрируйте пациента и затем выберите его/еë для процедуры.</value>
+  </data>
+  <data name="noPatientHdr" xml:space="preserve">
+    <value>Нет пациентов</value>
+  </data>
 </root>

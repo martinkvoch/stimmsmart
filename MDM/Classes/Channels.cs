@@ -52,16 +52,20 @@ namespace MDM.Classes
                 channels.Add(chnl);
                 parent.Controls.Add(chnl);
             }
+#if LAN
             rWorker.WorkerSupportsCancellation = true;
             rWorker.DoWork += rWorker_DoWork;
             rWorker.RunWorkerAsync(this);
+#endif
         }
 
         public void Dispose()
         {
+#if LAN
             rWorker.CancelAsync();
             while(rWorker.IsBusy) System.Windows.Forms.Application.DoEvents();
             rWorker.Dispose();
+#endif
         }
 
 #if LAN
@@ -447,9 +451,9 @@ namespace MDM.Classes
 #endif
             return chErrors;
         }
-        #endregion
+#endregion
 
-        #region Metody
+#region Metody
         /// <summary>
         /// Postupné zapnutí všech kanálů
         /// </summary>
@@ -500,6 +504,6 @@ namespace MDM.Classes
         {
             return channels.Any(ch => ch.Patient.ID == patId);
         }
-        #endregion
+#endregion
     }
 }

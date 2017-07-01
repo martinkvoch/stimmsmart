@@ -706,4 +706,10 @@
   <data name="patSelProcNum" xml:space="preserve">
     <value>Procedure number</value>
   </data>
+  <data name="noPatient" xml:space="preserve">
+    <value>No patients are registered.\nPlease register the patient and then select him/she for the procedure.</value>
+  </data>
+  <data name="noPatientHdr" xml:space="preserve">
+    <value>No patients</value>
+  </data>
 </root>

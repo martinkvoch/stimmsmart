@@ -18,7 +18,7 @@ namespace MDM.Data
         {
             Database.ExecCmd("drop table if exists " + tname);
             Database.ExecCmd(string.Format("create table " + tname + " (ID integer primary key, " +
-                "DAT datetime not null default CURRENT_TIMESTAMP, " +
+                "DAT datetime not null default (datetime('now', 'localtime')), " +
                 "TYP byte not null check(TYP between {0} and {1}), " +
                 "SENDER varchar(30) not null, " +
                 "MSG text)", (byte)Enum.GetValues(typeof(LogTyp)).Cast<LogTyp>().First(), (byte)Enum.GetValues(typeof(LogTyp)).Cast<LogTyp>().Last()));
@@ -28,7 +28,7 @@ namespace MDM.Data
 
         public override string SelectCmd()
         {
-            return string.Format("select ID, datetime(DAT, 'localtime') [{0}], case TYP when 0 then '{1}' when 1 then '{2}' else '{3}' end [{4}], SENDER [{5}], MSG [{6}] from {7} order by 1", Resources.LogHdrDate, Resources.LogInfo, Resources.LogWarn, Resources.LogError, Resources.LogHdrType, Resources.LogHdrSender, Resources.LogHdrRecord, tname);
+            return string.Format("select ID, DAT [{0}], case TYP when 0 then '{1}' when 1 then '{2}' else '{3}' end [{4}], SENDER [{5}], MSG [{6}] from {7} order by 1", Resources.LogHdrDate, Resources.LogInfo, Resources.LogWarn, Resources.LogError, Resources.LogHdrType, Resources.LogHdrSender, Resources.LogHdrRecord, tname);
         }
 
         #region Zápis do deníku

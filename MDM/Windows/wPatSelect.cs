@@ -11,6 +11,7 @@ namespace MDM.Windows
 {
     using word = UInt16;
     using dword = UInt32;
+    using DlgBox;
 
     public partial class wPatSelect : Form
     {
@@ -89,24 +90,49 @@ namespace MDM.Windows
 
         public wPatSelect()
         {
-            string cmd = string.Format("select P.ID [{0}], LAST_NAME || ', ' || FIRST_NAME || ifnull(' '||MIDDLE_NAME, '') [{1}], strftime('%Y', BIRTHDATE) [{2}], D.NAME [{3}], " +
-                                          " ifnull(PR.CYCLE, 1) [{4}], ifnull(PR.NUMBER, 1) [{5}] " +
-                                       "from PATIENT P left outer join PROCEDURE PR on P.ID = PR.PAT_ID, DIAGNOSIS D " +
-                                       "where P.DG_ID = D.ID and not P.DELETED and not ifnull(PR.FINAL, 'FALSE')",
-                Resources.patSelNumber, Resources.patSelName, Resources.patSelYrOfBirth, Resources.PatHdrDg, Resources.patSelCycle, Resources.patSelProcNum);
+            string cmd = string.Format("select P.ID [{0}], P.LAST_NAME || ', ' || P.FIRST_NAME || ifnull(' '||P.MIDDLE_NAME, '') [{1}], strftime('%Y', P.BIRTHDATE) [{2}], D.NAME [{3}], R.CYCLE [{4}], R.PROC [{5}] " +
+                                       "from PATIENT P, DIAGNOSIS D, " +
+                                          "(select P.ID, (count(PR.PAT_ID) / 4) + 1 Cycle, (count(PR.PAT_ID) % 4) + case when count(PR.PAT_ID) < 2 then 1 else 2 end Proc " +
+                                          " from PATIENT P left outer join PROCEDURE PR on P.ID = PR.PAT_ID " +
+                                          " group by P.ID) R " +
+                                       "where P.DG_ID = D.ID and P.ID = R.ID and not P.DELETED " +
+                                         "and not exists(select 1 from PROCEDURE where PAT_ID = P.ID and DATE = CURRENT_DATE)",
+                                       Resources.patSelNumber, Resources.patSelName, Resources.patSelYrOfBirth, Resources.PatHdrDg, Resources.patSelCycle, Resources.patSelProcNum, new Settings().NOP);
+            //string cmd = string.Format("select P.ID [{0}], LAST_NAME || ', ' || FIRST_NAME || ifnull(' '||MIDDLE_NAME, '') [{1}], strftime('%Y', BIRTHDATE) [{2}], D.NAME [{3}], " +
+            //                              " ifnull(PR.CYCLE, 1) [{4}], ifnull(PR.NUMBER, 1) [{5}] " +
+            //                           "from PATIENT P left outer join PROCEDURE PR on P.ID = PR.PAT_ID, DIAGNOSIS D " +
+            //                           "where P.DG_ID = D.ID and not P.DELETED and not ifnull(PR.FINAL, 'FALSE')",
+            //    Resources.patSelNumber, Resources.patSelName, Resources.patSelYrOfBirth, Resources.PatHdrDg, Resources.patSelCycle, Resources.patSelProcNum);
 
             InitializeComponent();
-            using(SQLiteConnection conn = Database.CreateConnection())
+            if(Patient.Count() > 0)
             {
-                using(SQLiteDataAdapter da = new SQLiteDataAdapter(cmd, conn)) da.Fill(dataSet);
-                bindingSource.DataSource = dataSet.Tables[0].DefaultView;
-                dataGrid.DataSource = bindingSource;
+                using(SQLiteConnection conn = Database.CreateConnection())
+                {
+                    using(SQLiteDataAdapter da = new SQLiteDataAdapter(cmd, conn)) da.Fill(dataSet);
+                    if(dataSet.Tables.Count > 0 && dataSet.Tables[0].DefaultView.Count > 0)
+                    {
+                        bindingSource.DataSource = dataSet.Tables[0].DefaultView;
+                        dataGrid.DataSource = bindingSource;
+                        dataGrid.Columns[0].AutoSizeMode = dataGrid.Columns[2].AutoSizeMode = dataGrid.Columns[4].AutoSizeMode = dataGrid.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                        dataGrid.Columns[0].Width = 40;
+                        dataGrid.Columns[4].Width = 50;
+                        dataGrid.Columns[2].Width = 60;
+                        dataGrid.Columns[5].Width = 70;
+                    }
+                    else
+                    {
+                        dataGrid.DataSource = bindingSource;
+                        cbSelect.Enabled = false;
+                    }
+                }
             }
-            dataGrid.Columns[0].AutoSizeMode = dataGrid.Columns[2].AutoSizeMode = dataGrid.Columns[4].AutoSizeMode = dataGrid.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGrid.Columns[0].Width = 40;
-            dataGrid.Columns[4].Width = 50;
-            dataGrid.Columns[2].Width = 60;
-            dataGrid.Columns[5].Width = 70;
+            else
+            {
+                dataGrid.DataSource = bindingSource;
+                DialogBox.ShowWarn(Resources.noPatient, Resources.noPatientHdr);
+                Close();
+            }
         }
 
         private void txtFindName_TextChanged(object sender, EventArgs e)

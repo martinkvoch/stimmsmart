@@ -907,6 +907,24 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No patients are registered.\nPlease register the patient and then select him/she for the procedure..
+        /// </summary>
+        public static string noPatient {
+            get {
+                return ResourceManager.GetString("noPatient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No patients.
+        /// </summary>
+        public static string noPatientHdr {
+            get {
+                return ResourceManager.GetString("noPatientHdr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of channels: {0}.
         /// </summary>
         public static string numberOfChannels {
