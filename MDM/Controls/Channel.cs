@@ -304,7 +304,7 @@ namespace MDM.Controls
 #if LAN
         private void processMBStatus(ResponseDG resp)
         {
-            if(Status != ChannelStatus.Disabled && Status != ChannelStatus.Inactive && Status != ChannelStatus.Error && Status != ChannelStatus.Inaccessible)
+            if(Status != ChannelStatus.Disabled && Status != ChannelStatus.Inactive/* && Status != ChannelStatus.Error*/ && Status != ChannelStatus.Inaccessible)
             {
                 string msg = string.Empty;
 
