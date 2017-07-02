@@ -144,7 +144,7 @@ namespace LANlib
                 q.HoldingR = res.InputR.Verified;
                 q.HoldingR.AttenCoef = acf;
                 res = LAN.MasterCmd(q);
-                Thread.Sleep(200);
+                Thread.Sleep(100);
                 res = ChRd(chnum);
             }
             return res;

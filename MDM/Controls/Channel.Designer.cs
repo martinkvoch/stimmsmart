@@ -17,6 +17,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Channel));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chMon = new MDM.Controls.ChannelMonitor();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbRemain = new System.Windows.Forms.Label();
@@ -39,7 +40,6 @@
             this.lbProcNum = new System.Windows.Forms.Label();
             this.lbDiagnosis = new System.Windows.Forms.Label();
             this.lbPatName = new System.Windows.Forms.Label();
-            this.chMon = new MDM.Controls.ChannelMonitor();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -57,6 +57,12 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // chMon
+            // 
+            resources.ApplyResources(this.chMon, "chMon");
+            this.chMon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.chMon.Name = "chMon";
             // 
             // groupBox4
             // 
@@ -123,12 +129,13 @@
             // tbCurrent
             // 
             resources.ApplyResources(this.tbCurrent, "tbCurrent");
-            this.tbCurrent.LargeChange = 10;
+            this.tbCurrent.LargeChange = 1;
             this.tbCurrent.Maximum = 255;
             this.tbCurrent.Name = "tbCurrent";
             this.tbCurrent.TickFrequency = 16;
             this.tbCurrent.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.tbCurrent.ValueChanged += new System.EventHandler(this.tbCurrent_ValueChanged);
+            this.tbCurrent.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbCurrent_MouseDown);
             // 
             // cbStop
             // 
@@ -225,12 +232,6 @@
             this.lbPatName.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbPatName.Name = "lbPatName";
             // 
-            // chMon
-            // 
-            resources.ApplyResources(this.chMon, "chMon");
-            this.chMon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.chMon.Name = "chMon";
-            // 
             // Channel
             // 
             resources.ApplyResources(this, "$this");
@@ -239,6 +240,7 @@
             this.Name = "Channel";
             this.FontChanged += new System.EventHandler(this.Channel_FontChanged);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.panel1.ResumeLayout(false);

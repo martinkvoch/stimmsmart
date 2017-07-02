@@ -110,7 +110,7 @@ namespace MDM.Controls
                     patient = value;
                     lbPatName.Text = patient.Name;
                     lbDiagnosis.Text = patient.Diagnosis;
-                    lbProcNum.Text = patient.ProcNum.ToString();
+                    lbProcNum.Text = patient.ProcNum == 0 ? string.Empty : patient.ProcNum.ToString();
                 }
             }
         }
@@ -123,57 +123,41 @@ namespace MDM.Controls
         #endregion
 
         #region Current
-        const double maxmA = 4.0;
-        double _current = 0D;
+        const double maxmA = 4D;
+        double _current = 0D, curstep = maxmA / 256D; // 0,015625 mA
         /// <summary>
         /// Aktuálně nastavená hodnota proudu.
-        /// Nastavení probíhá po krocích ATCF = 32.
+        /// Nastavení probíhá po krocích ATCF = 1.
         /// </summary>
         public double Current
         {
-            //get { return tbCurrent.Value * .015625; }
-            get { return Math.Round(tbCurrent.Value * (maxmA / tbCurrent.Maximum), 2); }
+            get { return _current; }
             set
             {
-#if !LAN
-                int _ac = tbCurrent.Value;
-#endif
-                tbCurrent.Value = (int)(Math.Round(value / (maxmA / tbCurrent.Maximum), 0));
                 if(_current != value)
                 {
 #if LAN
                     ResponseDG resp = LANFunc.ChRd(Number);
-                    int actCur = resp.InputR.Verified.AttenCoef, toBeSet = tbCurrent.Value;
-#else
-                    int actCur = _ac, toBeSet = tbCurrent.Value;
-#endif
+                    byte actCur = (byte)resp.InputR.Verified.AttenCoef, toBeSet = (byte)(Math.Round(value / curstep, 0));
 
+                    if(toBeSet > actCur) for(int c = actCur; c <= toBeSet; c++)
+                        {
+                            LANFunc.ChAtCf(Number, (byte)c);
+                            Application.DoEvents();
+                            if(Status != ChannelStatus.SetCurrent) tbCurrent.Value = c;
+                            else Thread.Sleep(100);
+                            Application.DoEvents();
+                        }
+                    else if(toBeSet < actCur) for(int c = actCur; c >= toBeSet; c--)
+                        {
+                            LANFunc.ChAtCf(Number, (byte)c);
+                            Application.DoEvents();
+                            if(Status != ChannelStatus.SetCurrent) tbCurrent.Value = c;
+                            //else Thread.Sleep(50);
+                            Application.DoEvents();
+                        }
+#endif
                     _current = value;
-                    if(toBeSet > byte.MaxValue) toBeSet = byte.MaxValue;
-                    if(toBeSet < 0) toBeSet = 0;
-                    if(actCur < toBeSet)
-                        for(int i = actCur; i < toBeSet + 32; i += 32)
-                        {
-                            int c = i;
-
-                            if(c > toBeSet) c = toBeSet;
-#if LAN
-                            if(c != actCur) LANFunc.ChAtCf(Number, (byte)c);
-#endif
-                        }
-                    else if(actCur > toBeSet)
-                        for(int i = actCur; i > toBeSet - 32; i -= 32)
-                        {
-                            int c = i;
-
-                            if(c < toBeSet) c = toBeSet;
-#if LAN
-                            if(c != actCur) LANFunc.ChAtCf(Number, (byte)c);
-#endif
-                        }
-                    tbCurrent.Value = toBeSet;
-                    //if(Status == ChannelStatus.SetCurrent)
-                    //    DialogBox.ShowInfo(string.Format("actCur = {0}, toBeSet = {1} ({2})", actCur, toBeSet, tbCurrent.Value), string.Format("Set Current to Channel {0}", Number));
                 }
             }
         }
@@ -502,6 +486,7 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
             tbCurrent.Enabled = false;
+            elapsed = 0;
             timer.Start();
             LedGreen();
             if(oldStatus == ChannelStatus.Ready) procID = Data.Procedure.AddProcedure(Patient.ID, Program.LoggedUser.ID, Number);
@@ -573,7 +558,7 @@ namespace MDM.Controls
         }
         #endregion
 
-        #region error()
+        #region error() - odstraněno
         ///// <summary>
         ///// Uvede kanál do stavu "chyba". Z tohoto stavu může kanál přejít do stavu "obnoven" nebo "neaktivní".
         ///// </summary>
@@ -660,13 +645,13 @@ namespace MDM.Controls
         /// <param name="e">parametry události</param>
         private void chWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            while(!chWorker.CancellationPending)
+            while(!chWorker.CancellationPending && !IsDisposed)
             {
 #if LAN
                 ResponseDG resp;
 
                 resp = LANFunc.ChRd(Number);
-                if(IsHandleCreated) Invoke(new MethodInvoker(delegate { processResponse(resp); }));
+                if(IsHandleCreated && !IsDisposed) Invoke(new MethodInvoker(delegate { processResponse(resp); }));
 #else
                 if(IsHandleCreated) Invoke(new MethodInvoker(delegate { processResponse(); }));
 #endif
@@ -684,11 +669,7 @@ namespace MDM.Controls
                 {
                     if(!Channels.PatientAttached(frm.PatientID))
                     {
-                        word ppn = (ushort)(frm.PatientProcNum + 1U), nocl = frm.PatientCycleNum;
-                        byte nop = new Settings().NOP;
-
-                        if(ppn > nop) nocl++;
-                        Patient = new SelectedPatient(frm.PatientID, NoSelection, frm.PatientName, frm.PatientDiagnosis, ppn, nocl);
+                        Patient = new SelectedPatient(frm.PatientID, NoSelection, frm.PatientName, frm.PatientDiagnosis, frm.PatientProcNum, frm.PatientCycleNum);
                         Status = ChannelStatus.Active;
                     }
                     else DialogBox.ShowWarn(Resources.patDuplMsg, Resources.patDuplMsgH);
@@ -760,11 +741,17 @@ namespace MDM.Controls
             foreach(Control c in Controls) c.Font = Font;
         }
 
+        private void tbCurrent_MouseDown(object sender, MouseEventArgs e)
+        {
+            cbSetCurrent.PerformClick();
+        }
+
         private void tbCurrent_ValueChanged(object sender, EventArgs e)
         {
-            //if(Status == ChannelStatus.SetCurrent) Current = Math.Round(tbCurrent.Value * (maxmA / tbCurrent.Maximum), 2);
-            //lbCurrent.Text = Current.ToString("F2");// + " mA";
-            lbCurrent.Text = Math.Round(tbCurrent.Value * (maxmA / tbCurrent.Maximum), 2).ToString("F2");// + " mA";
+            double current = Math.Round(tbCurrent.Value * curstep, 2);
+
+            lbCurrent.Text = current.ToString("F2");// + " mA";
+            if(Status == ChannelStatus.SetCurrent) Current = current;
         }
 #endregion
     }

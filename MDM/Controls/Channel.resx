@@ -121,6 +121,10 @@
   <data name="chMon.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left, Right</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chMon.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chMon.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 730</value>
@@ -131,7 +135,6 @@
   <data name="chMon.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 50</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="chMon.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
@@ -139,7 +142,7 @@
     <value>chMon</value>
   </data>
   <data name="&gt;&gt;chMon.Type" xml:space="preserve">
-    <value>MDM.Controls.ChannelMonitor, MDM, Version=1.0.6383.39213, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.ChannelMonitor, MDM, Version=1.0.6392.31594, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;chMon.Parent" xml:space="preserve">
     <value>groupBox1</value>
@@ -360,11 +363,14 @@
   <data name="tbCurrent.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="tbCurrent.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="tbCurrent.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="tbCurrent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>206, 98</value>
+    <value>206, 95</value>
   </data>
   <data name="tbCurrent.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -373,7 +379,7 @@
     <value>Vertical</value>
   </data>
   <data name="tbCurrent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 278</value>
+    <value>45, 274</value>
   </data>
   <data name="tbCurrent.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
