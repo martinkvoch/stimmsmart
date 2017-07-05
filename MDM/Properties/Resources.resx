@@ -127,6 +127,9 @@
     <value>Stimsmart</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="program stimsmart ready" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program stimsmart ready.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="savedatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\savedatabase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,6 +154,9 @@
   <data name="cs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LogHdrRecord" xml:space="preserve">
+    <value>Record</value>
+  </data>
   <data name="exitMsg" xml:space="preserve">
     <value>Application exits.</value>
   </data>
@@ -163,32 +169,53 @@
   <data name="finish" xml:space="preserve">
     <value>Completion of initialization.</value>
   </data>
-  <data name="LogInfo" xml:space="preserve">
-    <value>Information</value>
+  <data name="noBacksAvail" xml:space="preserve">
+    <value>No backup available.</value>
   </data>
   <data name="LogHdrSender" xml:space="preserve">
     <value>Sender</value>
   </data>
+  <data name="chRestored" xml:space="preserve">
+    <value>The procedure is restored...</value>
+  </data>
+  <data name="patDuplMsg" xml:space="preserve">
+    <value>This patient is already attached to another channel.</value>
+  </data>
   <data name="restoreKO" xml:space="preserve">
     <value>Restore the database was not successful.</value>
-  </data>
-  <data name="userlist" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\userlist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pswempty" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pswempty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="userlist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\userlist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="testChError12" xml:space="preserve">
+    <value>Diode of channel {0} does not light red</value>
+  </data>
+  <data name="patSelProcNum" xml:space="preserve">
+    <value>Procedure number</value>
+  </data>
+  <data name="chReady" xml:space="preserve">
+    <value>Channel ready</value>
+  </data>
+  <data name="pswempty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pswempty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="testChErrors" xml:space="preserve">
+    <value>Errors during self-test</value>
+  </data>
+  <data name="UserHdrLogin" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="PatNewMsg" xml:space="preserve">
+    <value>New patient "{0}" was created.</value>
+  </data>
   <data name="signedOutUser" xml:space="preserve">
     <value>User {0} has signed out</value>
   </data>
-  <data name="startup" xml:space="preserve">
-    <value>Inicialization of startup...</value>
-  </data>
-  <data name="startMsg1" xml:space="preserve">
-    <value>{0} is running.</value>
+  <data name="chStatusErrHdr" xml:space="preserve">
+    <value>Bad status of channel {0}</value>
   </data>
   <data name="UserHdrName" xml:space="preserve">
     <value>Name</value>
@@ -196,23 +223,44 @@
   <data name="dbrestore" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dbrestore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dgEDis" xml:space="preserve">
-    <value>Erectile disorders</value>
+  <data name="testChError6" xml:space="preserve">
+    <value>HV voltage drop at maximum of load of channel {0}</value>
+  </data>
+  <data name="startMsg1" xml:space="preserve">
+    <value>{0} is running.</value>
   </data>
   <data name="errExecCmd" xml:space="preserve">
     <value>Error {0} while executing {1}</value>
   </data>
-  <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chInProgress" xml:space="preserve">
+    <value>The procedure is performed...</value>
   </data>
   <data name="HICHdrName" xml:space="preserve">
     <value>Name of the health insurance company</value>
   </data>
+  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Logo_ZAT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo_ZAT.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="startup" xml:space="preserve">
+    <value>Inicialization of startup...</value>
+  </data>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UserRoleUser" xml:space="preserve">
+    <value>User</value>
+  </data>
   <data name="about" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="signedOutMsg" xml:space="preserve">
+    <value>Signed out</value>
   </data>
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,8 +277,8 @@
   <data name="PatHdrLName" xml:space="preserve">
     <value>Last Name</value>
   </data>
-  <data name="dgDPNP" xml:space="preserve">
-    <value>Diabetic polyneuropathy</value>
+  <data name="exitNo" xml:space="preserve">
+    <value>At this point, you can not quit.</value>
   </data>
   <data name="start" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,11 +289,14 @@
   <data name="testChannel" xml:space="preserve">
     <value>Self-test in progress...</value>
   </data>
-  <data name="LogHdrRecord" xml:space="preserve">
-    <value>Record</value>
+  <data name="noPatient" xml:space="preserve">
+    <value>No patients are registered.\nPlease register the patient and then select him/she for the procedure.</value>
   </data>
   <data name="dgCLesions" xml:space="preserve">
     <value>Chronic lesions</value>
+  </data>
+  <data name="testChError11" xml:space="preserve">
+    <value>Not all channels started: {0}</value>
   </data>
   <data name="delAllMsg" xml:space="preserve">
     <value>Table "{0}" was truncated.</value>
@@ -271,20 +322,38 @@
   <data name="dbIsClosed" xml:space="preserve">
     <value>The database is closed.</value>
   </data>
+  <data name="stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PatHdrMName" xml:space="preserve">
     <value>Middle Name</value>
+  </data>
+  <data name="testChError7" xml:space="preserve">
+    <value>Evaluation of too high current impedance at 10 mA on channel {0}</value>
   </data>
   <data name="dgEndocrinology" xml:space="preserve">
     <value>Endocrinology</value>
   </data>
+  <data name="testChError14" xml:space="preserve">
+    <value>Diode of channel {0} does not light blue</value>
+  </data>
   <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="startInitMsg" xml:space="preserve">
-    <value>{0} inicialization started.</value>
+  <data name="chStatusErr5" xml:space="preserve">
+    <value>The board was restarted.</value>
+  </data>
+  <data name="cbPauseResumeText" xml:space="preserve">
+    <value>Resume</value>
+  </data>
+  <data name="patAddErrLName" xml:space="preserve">
+    <value>Patient surname must be entered!</value>
   </data>
   <data name="PatHdrAddr" xml:space="preserve">
     <value>Address</value>
+  </data>
+  <data name="testChError0" xml:space="preserve">
+    <value>Communication between computer and device is interrupted, self-test has not occurred.</value>
   </data>
   <data name="useredit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\useredit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,8 +364,14 @@
   <data name="dbbackup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dbbackup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UserHdrLogin" xml:space="preserve">
-    <value>User name</value>
+  <data name="testChError5" xml:space="preserve">
+    <value>Evaluation of current limitation at 10 mA on channel {0}</value>
+  </data>
+  <data name="chPaused" xml:space="preserve">
+    <value>The procedure is suspended</value>
+  </data>
+  <data name="pswNotMatchMsg" xml:space="preserve">
+    <value>* Passwords do not match *</value>
   </data>
   <data name="userdelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\userdelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -313,8 +388,11 @@
   <data name="shutdownQH" xml:space="preserve">
     <value>Device shutdown</value>
   </data>
-  <data name="clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chHighResistance" xml:space="preserve">
+    <value>The resistance is too high</value>
+  </data>
+  <data name="patAddErrFName" xml:space="preserve">
+    <value>Patient first name must be entered!</value>
   </data>
   <data name="UserEditMsg" xml:space="preserve">
     <value>User "{0}" was updated.</value>
@@ -325,6 +403,12 @@
   <data name="no" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\no.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="chInactive" xml:space="preserve">
+    <value>Channel inactive</value>
+  </data>
+  <data name="dgDPNP" xml:space="preserve">
+    <value>Diabetic polyneuropathy</value>
+  </data>
   <data name="bckDataH" xml:space="preserve">
     <value>Backup copy of database</value>
   </data>
@@ -333,6 +417,9 @@
   </data>
   <data name="HICEditMsg" xml:space="preserve">
     <value>HIC "{0}" was updated.</value>
+  </data>
+  <data name="patAddErrHdr" xml:space="preserve">
+    <value>Input error</value>
   </data>
   <data name="LogError" xml:space="preserve">
     <value>Error</value>
@@ -343,20 +430,41 @@
   <data name="signedUnsuccessful" xml:space="preserve">
     <value>User login {0} failed</value>
   </data>
+  <data name="shutdownNo" xml:space="preserve">
+    <value>At this point, you can not switch off the device.</value>
+  </data>
   <data name="restoreOK" xml:space="preserve">
     <value>The database was restored from backup at {0}</value>
   </data>
-  <data name="UserHdrLang" xml:space="preserve">
-    <value>Language</value>
+  <data name="procAbortH" xml:space="preserve">
+    <value>Premature procedure termination</value>
+  </data>
+  <data name="noPatientHdr" xml:space="preserve">
+    <value>No patients</value>
+  </data>
+  <data name="PatSexFemale" xml:space="preserve">
+    <value>Female</value>
   </data>
   <data name="en" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\en.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="testChError4" xml:space="preserve">
+    <value>The stress at channel load {0} does not match the tolerance ({1}). Attenuation coefficient = {2}</value>
+  </data>
+  <data name="HICNewHdr" xml:space="preserve">
+    <value>New Health Insurance Company</value>
   </data>
   <data name="restoreQH" xml:space="preserve">
     <value>Restoring the database</value>
   </data>
   <data name="erase" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\erase1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="testChError31" xml:space="preserve">
+    <value>Disconnect the headset from the channel {0}</value>
+  </data>
+  <data name="chStatusErr4" xml:space="preserve">
+    <value>A system watchdog was called up.</value>
   </data>
   <data name="PatEditMsg" xml:space="preserve">
     <value>Patient "{0}" was updated.</value>
@@ -388,20 +496,26 @@
   <data name="backuprestore" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backuprestore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="dgNotSelected" xml:space="preserve">
+    <value>The diagnosis has not been selected</value>
+  </data>
   <data name="dgMicrocirculation" xml:space="preserve">
     <value>Microcirculation</value>
+  </data>
+  <data name="patSelCycle" xml:space="preserve">
+    <value>Cycle</value>
   </data>
   <data name="UserEditHdr" xml:space="preserve">
     <value>Edit user</value>
   </data>
+  <data name="chSetCurrent" xml:space="preserve">
+    <value>Set the current...</value>
+  </data>
   <data name="restartQ" xml:space="preserve">
     <value>Do you really want to restart device?</value>
   </data>
-  <data name="shutdownMsg" xml:space="preserve">
-    <value>Application and device are switched off.</value>
-  </data>
-  <data name="PatHdrFName" xml:space="preserve">
-    <value>First Name</value>
+  <data name="chStatusErr2" xml:space="preserve">
+    <value>DataFlash memory does not contain valid data.</value>
   </data>
   <data name="pressEscButton" xml:space="preserve">
     <value>Press ESC key or button "X" on the end of this bar</value>
@@ -409,14 +523,17 @@
   <data name="LogWarn" xml:space="preserve">
     <value>Warning</value>
   </data>
+  <data name="curLang1" xml:space="preserve">
+    <value>Current</value>
+  </data>
   <data name="restoreQ" xml:space="preserve">
     <value>Do you really want to restore database from previous backup?</value>
   </data>
-  <data name="delAllQ" xml:space="preserve">
-    <value>You are about to delete the entire content of table "{0}" to all data will be lost from the table. Do you really want to do?</value>
-  </data>
   <data name="PatNewHdr" xml:space="preserve">
     <value>New Patient</value>
+  </data>
+  <data name="PatHdrPhone" xml:space="preserve">
+    <value>Phone</value>
   </data>
   <data name="signedNotMsg" xml:space="preserve">
     <value>Not logged in</value>
@@ -424,14 +541,14 @@
   <data name="newDataOK" xml:space="preserve">
     <value>New database was created.</value>
   </data>
-  <data name="PatHdrPhone" xml:space="preserve">
-    <value>Phone</value>
+  <data name="testChError2" xml:space="preserve">
+    <value>Insufficient HV voltage on channel {0}</value>
   </data>
   <data name="exitQH" xml:space="preserve">
     <value>Application exit</value>
   </data>
-  <data name="pswMatchMsg" xml:space="preserve">
-    <value>Passwords match</value>
+  <data name="UserHdrLang" xml:space="preserve">
+    <value>Language</value>
   </data>
   <data name="backupmakenew" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backupmakenew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -445,11 +562,17 @@
   <data name="HICNewMsg" xml:space="preserve">
     <value>New HIC "{0}" was created.</value>
   </data>
+  <data name="chError" xml:space="preserve">
+    <value>An error occurred</value>
+  </data>
+  <data name="chActive" xml:space="preserve">
+    <value>Connect the electrodes</value>
+  </data>
   <data name="switchoff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\switchoff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LogInfo" xml:space="preserve">
+    <value>Information</value>
   </data>
   <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -457,26 +580,26 @@
   <data name="PatHdrSex" xml:space="preserve">
     <value>Sex</value>
   </data>
+  <data name="patSelYrOfBirth" xml:space="preserve">
+    <value>Birth year</value>
+  </data>
   <data name="clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="HICNewHdr" xml:space="preserve">
-    <value>New Health Insurance Company</value>
+  <data name="chStatusErr3" xml:space="preserve">
+    <value>Entry into Holding registers does not contain valid data.</value>
   </data>
-  <data name="noBacksAvail" xml:space="preserve">
-    <value>No backup available.</value>
+  <data name="dgEDis" xml:space="preserve">
+    <value>Erectile disorders</value>
   </data>
-  <data name="PatSexFemale" xml:space="preserve">
-    <value>Female</value>
+  <data name="clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="newDataQ" xml:space="preserve">
     <value>You are going to create a new database, the old one will be removed. Do you really want to do this?</value>
   </data>
   <data name="newDataQH" xml:space="preserve">
     <value>New database</value>
-  </data>
-  <data name="curLang1" xml:space="preserve">
-    <value>Current</value>
   </data>
   <data name="langChanged" xml:space="preserve">
     <value>The language has been changed to {0}</value>
@@ -490,32 +613,53 @@
   <data name="signedInUser" xml:space="preserve">
     <value>User {0} has signed in</value>
   </data>
-  <data name="testDongle" xml:space="preserve">
-    <value>Authentication dongle...</value>
+  <data name="chInaccessible" xml:space="preserve">
+    <value>Channel inaccessible</value>
   </data>
-  <data name="exitQ" xml:space="preserve">
-    <value>Do you really want to exit the application?</value>
+  <data name="startInitMsg" xml:space="preserve">
+    <value>{0} inicialization started.</value>
   </data>
-  <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="patDuplMsgH" xml:space="preserve">
+    <value>Patient already attached</value>
   </data>
-  <data name="pswNotMatchMsg" xml:space="preserve">
-    <value>* Passwords do not match *</value>
+  <data name="UserHdrRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="pswMatchMsg" xml:space="preserve">
+    <value>Passwords match</value>
+  </data>
+  <data name="testChError32" xml:space="preserve">
+    <value>Too high impedance on channel {0}</value>
   </data>
   <data name="PatEditHdr" xml:space="preserve">
     <value>Edit Patient</value>
   </data>
-  <data name="dgNotSelected" xml:space="preserve">
-    <value>The diagnosis has not been selected</value>
+  <data name="chStatusErr1" xml:space="preserve">
+    <value>Output current is limited for safety reasons.</value>
+  </data>
+  <data name="exitQ" xml:space="preserve">
+    <value>Do you really want to exit the application?</value>
+  </data>
+  <data name="procAbortQ" xml:space="preserve">
+    <value>Do you really want to terminate the procedure prematurely?</value>
+  </data>
+  <data name="delAllQ" xml:space="preserve">
+    <value>You are about to delete the entire content of table "{0}" to all data will be lost from the table. Do you really want to do?</value>
   </data>
   <data name="useradd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\useradd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delAllQH" xml:space="preserve">
     <value>Truncating the table</value>
+  </data>
+  <data name="chOn" xml:space="preserve">
+    <value>Turning channel {0} on</value>
+  </data>
+  <data name="shutdownMsg" xml:space="preserve">
+    <value>Application and device are switched off.</value>
   </data>
   <data name="dgCPain" xml:space="preserve">
     <value>Chronic pain (non-oncogenic)</value>
@@ -523,11 +667,11 @@
   <data name="yes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\yes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="signedOutMsg" xml:space="preserve">
-    <value>Signed out</value>
+  <data name="restartNo" xml:space="preserve">
+    <value>At this point, you can not restart the device.</value>
   </data>
-  <data name="UserRoleUser" xml:space="preserve">
-    <value>User</value>
+  <data name="chDisconected" xml:space="preserve">
+    <value>Channel disconnected</value>
   </data>
   <data name="curLang" xml:space="preserve">
     <value>Current language: {0}</value>
@@ -535,23 +679,32 @@
   <data name="delNRows" xml:space="preserve">
     <value>{0} rows was deleted from table {1}.</value>
   </data>
+  <data name="testChError13" xml:space="preserve">
+    <value>Diode of channel {0} does not light green</value>
+  </data>
   <data name="UserNewMsg" xml:space="preserve">
     <value>New user "{0}" was created.</value>
   </data>
-  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PatHdrFName" xml:space="preserve">
+    <value>First Name</value>
   </data>
   <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="patSelNumber" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="cbPauseText" xml:space="preserve">
+    <value>Suspend</value>
+  </data>
   <data name="dbcompact" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dbcompact.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UserHdrRole" xml:space="preserve">
-    <value>Role</value>
+  <data name="testDongle" xml:space="preserve">
+    <value>Authentication dongle...</value>
   </data>
-  <data name="PatNewMsg" xml:space="preserve">
-    <value>New patient "{0}" was created.</value>
+  <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatHdrSomTyp" xml:space="preserve">
     <value>Somatotype</value>
@@ -559,157 +712,22 @@
   <data name="UserNewHdr" xml:space="preserve">
     <value>New user</value>
   </data>
-  <data name="stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="chActive" xml:space="preserve">
-    <value>Connect the electrodes</value>
-  </data>
-  <data name="chDisconected" xml:space="preserve">
-    <value>Channel disconnected</value>
-  </data>
-  <data name="chError" xml:space="preserve">
-    <value>An error occurred</value>
-  </data>
-  <data name="chInactive" xml:space="preserve">
-    <value>Channel inactive</value>
-  </data>
-  <data name="chInProgress" xml:space="preserve">
-    <value>The procedure is performed...</value>
-  </data>
-  <data name="chPaused" xml:space="preserve">
-    <value>The procedure is suspended</value>
-  </data>
-  <data name="chReady" xml:space="preserve">
-    <value>Channel ready</value>
-  </data>
-  <data name="chRestored" xml:space="preserve">
-    <value>The procedure is restored...</value>
-  </data>
   <data name="patSelName" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="patSelNumber" xml:space="preserve">
-    <value>Number</value>
+  <data name="program stimsmart error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program stimsmart error.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="patSelYrOfBirth" xml:space="preserve">
-    <value>Birth year</value>
+  <data name="program stimsmart kanal pripraven " type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program stimsmart kanal pripraven .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="chSetCurrent" xml:space="preserve">
-    <value>Set the current...</value>
+  <data name="program stimsmart nastavte proud" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program stimsmart nastavte proud.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="procAbortH" xml:space="preserve">
-    <value>Premature procedure termination</value>
+  <data name="program stimsmart probiha procedura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program stimsmart probiha procedura.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="procAbortQ" xml:space="preserve">
-    <value>Do you really want to terminate the procedure prematurely?</value>
-  </data>
-  <data name="exitNo" xml:space="preserve">
-    <value>At this point, you can not quit.</value>
-  </data>
-  <data name="restartNo" xml:space="preserve">
-    <value>At this point, you can not restart the device.</value>
-  </data>
-  <data name="shutdownNo" xml:space="preserve">
-    <value>At this point, you can not switch off the device.</value>
-  </data>
-  <data name="patDuplMsg" xml:space="preserve">
-    <value>This patient is already attached to another channel.</value>
-  </data>
-  <data name="patDuplMsgH" xml:space="preserve">
-    <value>Patient already attached</value>
-  </data>
-  <data name="testChError11" xml:space="preserve">
-    <value>Not all channels started: {0}</value>
-  </data>
-  <data name="testChError12" xml:space="preserve">
-    <value>Diode of channel {0} does not light red</value>
-  </data>
-  <data name="testChError13" xml:space="preserve">
-    <value>Diode of channel {0} does not light green</value>
-  </data>
-  <data name="testChError14" xml:space="preserve">
-    <value>Diode of channel {0} does not light blue</value>
-  </data>
-  <data name="testChError2" xml:space="preserve">
-    <value>Insufficient HV voltage on channel {0}</value>
-  </data>
-  <data name="testChError31" xml:space="preserve">
-    <value>Disconnect the headset from the channel {0}</value>
-  </data>
-  <data name="testChError32" xml:space="preserve">
-    <value>Too high impedance on channel {0}</value>
-  </data>
-  <data name="testChError4" xml:space="preserve">
-    <value>The stress at channel load {0} does not match the tolerance ({1}). Attenuation coefficient = {2}</value>
-  </data>
-  <data name="testChError5" xml:space="preserve">
-    <value>Evaluation of current limitation at 10 mA on channel {0}</value>
-  </data>
-  <data name="testChError6" xml:space="preserve">
-    <value>HV voltage drop at maximum of load of channel {0}</value>
-  </data>
-  <data name="testChError7" xml:space="preserve">
-    <value>Evaluation of too high current impedance at 10 mA on channel {0}</value>
-  </data>
-  <data name="testChErrors" xml:space="preserve">
-    <value>Errors during self-test</value>
-  </data>
-  <data name="chInaccessible" xml:space="preserve">
-    <value>Channel inaccessible</value>
-  </data>
-  <data name="patAddErrFName" xml:space="preserve">
-    <value>Patient first name must be entered!</value>
-  </data>
-  <data name="patAddErrHdr" xml:space="preserve">
-    <value>Input error</value>
-  </data>
-  <data name="patAddErrLName" xml:space="preserve">
-    <value>Patient surname must be entered!</value>
-  </data>
-  <data name="cbPauseResumeText" xml:space="preserve">
-    <value>Resume</value>
-  </data>
-  <data name="cbPauseText" xml:space="preserve">
-    <value>Suspend</value>
-  </data>
-  <data name="chHighResistance" xml:space="preserve">
-    <value>The resistance is too high</value>
-  </data>
-  <data name="testChError0" xml:space="preserve">
-    <value>Communication between computer and device is interrupted, self-test has not occurred.</value>
-  </data>
-  <data name="chOn" xml:space="preserve">
-    <value>Turning channel {0} on</value>
-  </data>
-  <data name="chStatusErr1" xml:space="preserve">
-    <value>Output current is limited for safety reasons.</value>
-  </data>
-  <data name="chStatusErr2" xml:space="preserve">
-    <value>DataFlash memory does not contain valid data.</value>
-  </data>
-  <data name="chStatusErr3" xml:space="preserve">
-    <value>Entry into Holding registers does not contain valid data.</value>
-  </data>
-  <data name="chStatusErr4" xml:space="preserve">
-    <value>A system watchdog was called up.</value>
-  </data>
-  <data name="chStatusErr5" xml:space="preserve">
-    <value>The board was restarted.</value>
-  </data>
-  <data name="chStatusErrHdr" xml:space="preserve">
-    <value>Bad status of channel {0}</value>
-  </data>
-  <data name="patSelCycle" xml:space="preserve">
-    <value>Cycle</value>
-  </data>
-  <data name="patSelProcNum" xml:space="preserve">
-    <value>Procedure number</value>
-  </data>
-  <data name="noPatient" xml:space="preserve">
-    <value>No patients are registered.\nPlease register the patient and then select him/she for the procedure.</value>
-  </data>
-  <data name="noPatientHdr" xml:space="preserve">
-    <value>No patients</value>
+  <data name="program stimsmart vysoky odpor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program stimsmart vysoky odpor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

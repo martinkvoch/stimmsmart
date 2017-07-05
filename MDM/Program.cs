@@ -17,6 +17,7 @@ namespace MDM
         const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}";
         public static string Language = "xx";
         public static TUser LoggedUser = new TUser();
+        private static int kbDelay = SystemInformation.KeyboardSpeed;
 
         private static bool[] chErrors = new bool[0];
         public static bool[] ChErrors

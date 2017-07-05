@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\StimSmart\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;LAN</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;xLAN</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -468,6 +468,12 @@
     <Content Include="Libs\Ionic.Zip.Reduced.dll" />
     <Content Include="Libs\System.Data.SQLite.dll" />
     <Content Include="Resources\deluser.png" />
+    <None Include="Resources\program stimsmart vysoky odpor.jpg" />
+    <None Include="Resources\program stimsmart probiha procedura.jpg" />
+    <None Include="Resources\program stimsmart nastavte proud.jpg" />
+    <None Include="Resources\program stimsmart kanal pripraven .jpg" />
+    <None Include="Resources\program stimsmart error.jpg" />
+    <None Include="Resources\program stimsmart ready.jpg" />
     <None Include="Resources\stop.png" />
     <None Include="Resources\pause.png" />
     <None Include="Resources\start.png" />
@@ -495,6 +501,10 @@
     <ProjectReference Include="..\LANlib\LANlib.csproj">
       <Project>{6d439893-be96-446b-99f8-0bb002a0b5ab}</Project>
       <Name>LANlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MACTrackBarLib\MACTrackBarLib.csproj">
+      <Project>{77a112b1-5440-440b-a0f6-2edcc5b093cb}</Project>
+      <Name>MACTrackBarLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

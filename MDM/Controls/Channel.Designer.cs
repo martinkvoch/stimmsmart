@@ -17,7 +17,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Channel));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chMon = new MDM.Controls.ChannelMonitor();
+            this.pbStatus = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbRemain = new System.Windows.Forms.Label();
@@ -25,8 +25,8 @@
             this.lbElapsed = new System.Windows.Forms.Label();
             this.pbProgress = new System.Windows.Forms.ProgressBar();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbCurrent = new EConTech.Windows.MACUI.MACTrackBar();
             this.lbCurrent = new System.Windows.Forms.Label();
-            this.tbCurrent = new System.Windows.Forms.TrackBar();
             this.cbStop = new System.Windows.Forms.Button();
             this.cbPause = new System.Windows.Forms.Button();
             this.cbStart = new System.Windows.Forms.Button();
@@ -41,16 +41,16 @@
             this.lbDiagnosis = new System.Windows.Forms.Label();
             this.lbPatName = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbCurrent)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.chMon);
+            this.groupBox1.Controls.Add(this.pbStatus);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -58,11 +58,12 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
-            // chMon
+            // pbStatus
             // 
-            resources.ApplyResources(this.chMon, "chMon");
-            this.chMon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.chMon.Name = "chMon";
+            resources.ApplyResources(this.pbStatus, "pbStatus");
+            this.pbStatus.Image = global::MDM.Properties.Resources.program_stimsmart_ready;
+            this.pbStatus.Name = "pbStatus";
+            this.pbStatus.TabStop = false;
             // 
             // groupBox4
             // 
@@ -82,7 +83,7 @@
             // 
             // lbRemain
             // 
-            this.lbRemain.BackColor = System.Drawing.Color.Olive;
+            this.lbRemain.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.lbRemain.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             resources.ApplyResources(this.lbRemain, "lbRemain");
             this.lbRemain.Name = "lbRemain";
@@ -107,8 +108,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.lbCurrent);
             this.groupBox3.Controls.Add(this.tbCurrent);
+            this.groupBox3.Controls.Add(this.lbCurrent);
             this.groupBox3.Controls.Add(this.cbStop);
             this.groupBox3.Controls.Add(this.cbPause);
             this.groupBox3.Controls.Add(this.cbStart);
@@ -118,6 +119,31 @@
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
+            // tbCurrent
+            // 
+            resources.ApplyResources(this.tbCurrent, "tbCurrent");
+            this.tbCurrent.BackColor = System.Drawing.Color.Transparent;
+            this.tbCurrent.BorderColor = System.Drawing.SystemColors.ActiveBorder;
+            this.tbCurrent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(125)))), ((int)(((byte)(123)))));
+            this.tbCurrent.IndentHeight = 6;
+            this.tbCurrent.LargeChange = 1;
+            this.tbCurrent.Maximum = 255;
+            this.tbCurrent.Minimum = 0;
+            this.tbCurrent.Name = "tbCurrent";
+            this.tbCurrent.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tbCurrent.TextTickStyle = System.Windows.Forms.TickStyle.None;
+            this.tbCurrent.TickColor = System.Drawing.Color.Indigo;
+            this.tbCurrent.TickFrequency = 16;
+            this.tbCurrent.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.tbCurrent.TrackerColor = System.Drawing.Color.Indigo;
+            this.tbCurrent.TrackerSize = new System.Drawing.Size(16, 16);
+            this.tbCurrent.TrackLineColor = System.Drawing.Color.Indigo;
+            this.tbCurrent.TrackLineHeight = 6;
+            this.tbCurrent.Value = 0;
+            this.tbCurrent.ValueChanged += new EConTech.Windows.MACUI.ValueChangedHandler(this.tbCurrent_ValueChanged);
+            this.tbCurrent.EnabledChanged += new System.EventHandler(this.tbCurrent_EnabledChanged);
+            this.tbCurrent.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbCurrent_MouseDown);
+            // 
             // lbCurrent
             // 
             resources.ApplyResources(this.lbCurrent, "lbCurrent");
@@ -125,17 +151,6 @@
             this.lbCurrent.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbCurrent.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.lbCurrent.Name = "lbCurrent";
-            // 
-            // tbCurrent
-            // 
-            resources.ApplyResources(this.tbCurrent, "tbCurrent");
-            this.tbCurrent.LargeChange = 1;
-            this.tbCurrent.Maximum = 255;
-            this.tbCurrent.Name = "tbCurrent";
-            this.tbCurrent.TickFrequency = 16;
-            this.tbCurrent.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.tbCurrent.ValueChanged += new System.EventHandler(this.tbCurrent_ValueChanged);
-            this.tbCurrent.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbCurrent_MouseDown);
             // 
             // cbStop
             // 
@@ -240,13 +255,11 @@
             this.Name = "Channel";
             this.FontChanged += new System.EventHandler(this.Channel_FontChanged);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbStatus)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbCurrent)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -271,13 +284,13 @@
         private System.Windows.Forms.Button cbStop;
         private System.Windows.Forms.Button cbPause;
         private System.Windows.Forms.Label lbCurrent;
-        private System.Windows.Forms.TrackBar tbCurrent;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label lbElapsed;
         private System.Windows.Forms.ProgressBar pbProgress;
         private Bulb.LedBulb Led;
-        private ChannelMonitor chMon;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbRemain;
+        private System.Windows.Forms.PictureBox pbStatus;
+        private EConTech.Windows.MACUI.MACTrackBar tbCurrent;
     }
 }

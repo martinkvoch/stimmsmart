@@ -28,14 +28,14 @@ namespace MDM.Classes
         private static BackgroundWorker rWorker = new BackgroundWorker();
 #endif
 
-        #region ChannelsOutOfOrder
+#region ChannelsOutOfOrder
         /// <summary>
         /// Indikuje, zda jsou všechny kanály mimo provoz
         /// </summary>
         public bool ChannelsOutOfOrder { get { return channels.All(ch => !ch.Enabled || !ch.InOrder); } }
-        #endregion
+#endregion
 
-        #region Konstruktor, destruktor a obsluha kanálů
+#region Konstruktor, destruktor a obsluha kanálů
         public Channels(MDMPanel parent)
         {
             int screenWidth = (int)SystemParameters.PrimaryScreenWidth;
@@ -119,9 +119,9 @@ namespace MDM.Classes
             e.Cancel = true;
         }
 #endif
-        #endregion
+#endregion
 
-        #region Autotest()
+#region Autotest()
         private static void ledRed(byte chNum)
         {
             Bits led = new Bits();
