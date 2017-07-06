@@ -8,6 +8,7 @@ using MDM.Controls;
 using MDM.Data;
 using MDM.DlgBox;
 using MDM.Properties;
+using System.Globalization;
 
 namespace MDM.Windows
 {
@@ -52,6 +53,25 @@ namespace MDM.Windows
         #endregion
 
         #region Konstruktor
+        private void constructMiLang()
+        {
+            string[] langs = Program.GetLangs();
+
+            if(langs.Length > 0) miLang.DropDownItems.Clear();
+            foreach(string l in langs)
+            {
+                ToolStripMenuItem tsi = new ToolStripMenuItem() {
+                    Name = "miLang" + l.ToUpper(),
+                    Image = (Bitmap)Resources.ResourceManager.GetObject(l),
+                    ImageScaling = ToolStripItemImageScaling.None,
+                    Text = new CultureInfo(l).NativeName,
+                    Tag = l,
+                };
+                tsi.Click += miLangXX_Click;
+                miLang.DropDownItems.Add(tsi);
+            }
+        }
+
         /// <summary>
         /// Konstruktor hlavního okna. Zde se provádějí úvodní nastavení.
         /// </summary>
@@ -63,12 +83,13 @@ namespace MDM.Windows
             Program.SetLanguage();
             MDMTable.MainFrm = this;
             InitializeComponent();
+            constructMiLang();
             Language = lang ?? settings.lang;
-            setMILang();
-            Text = Resources.AppName;// Language.Equals("ru", StringComparison.OrdinalIgnoreCase) ? settings.AppNameRU : settings.AppName;
-            currentPanel = panMain;
+            //setMILang();
+            Text = Resources.AppName;
+            //currentPanel = panMain;
             using(Log log = new Log()) panLog.DBObject = log;
-            updAllButtons();
+            //updAllButtons();
             SwitchToPanel();
             lbKbdLang.Text = InputLanguage.CurrentInputLanguage.Culture.TwoLetterISOLanguageName.ToUpper();
             if(!Program.KeepRunning)
@@ -99,7 +120,7 @@ namespace MDM.Windows
         /// <param name="pan">panel, který bude zobrazen</param>
         internal void SwitchToPanel(MDMPanel pan = null)
         {
-            if(currentPanel != panMain)
+            if(currentPanel != null && currentPanel != panMain)
             { // nejdřív musíme zavřít naposledy otevřený panel...
                 currentPanel.Dock = DockStyle.None;
                 currentPanel.Visible = false;
@@ -173,10 +194,9 @@ namespace MDM.Windows
         #endregion
 
         #region menu File
-        //TODO: nepovolit vypnutí, pokud je některý kanál aktivní
         private void miExit_Click(object sender, EventArgs e)
         {
-            if(panMain.Channels.ChannelsOutOfOrder)
+            if(panMain != null && panMain.Channels != null && panMain.Channels.ChannelsOutOfOrder)
             {
                 Program.KeepRunning = false;
                 Close();
@@ -186,7 +206,7 @@ namespace MDM.Windows
 
         private void miRestart_Click(object sender, EventArgs e)
         {
-            if(panMain.Channels.ChannelsOutOfOrder)
+            if(panMain != null && panMain.Channels != null && panMain.Channels.ChannelsOutOfOrder)
             {
                 if(DialogBox.ShowYN(Resources.restartQ, Resources.restartQH) == DialogResult.Yes)
                 {
@@ -199,7 +219,7 @@ namespace MDM.Windows
 
         private void miSwitchOff_Click(object sender, EventArgs e)
         {
-            if(panMain.Channels.ChannelsOutOfOrder)
+            if(panMain != null && panMain.Channels != null && panMain.Channels.ChannelsOutOfOrder)
             {
                 if(DialogBox.ShowYN(Resources.shutdownQ, Resources.shutdownQH) == DialogResult.Yes)
                 {

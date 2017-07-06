@@ -34,5 +34,8 @@
     <Setting Name="LanIP" Type="System.String" Scope="User">
       <Value Profile="(Default)">10.10.18.3</Value>
     </Setting>
+    <Setting Name="langs" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cs|en|ru</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

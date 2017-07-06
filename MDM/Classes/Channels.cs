@@ -25,7 +25,7 @@ namespace MDM.Classes
         private List<Channel> channels = new List<Channel>();
 #if LAN
         private static qword pck = 0U;
-        private static BackgroundWorker rWorker = new BackgroundWorker();
+        private static BackgroundWorker rWorker;
 #endif
 
 #region ChannelsOutOfOrder
@@ -40,6 +40,7 @@ namespace MDM.Classes
         {
             int screenWidth = (int)SystemParameters.PrimaryScreenWidth;
 
+            rWorker = new BackgroundWorker();
 #if LAN
             LAN.SlaveIP = new Settings().LanIP;
 #endif
@@ -66,6 +67,7 @@ namespace MDM.Classes
             while(rWorker.IsBusy) System.Windows.Forms.Application.DoEvents();
             rWorker.Dispose();
 #endif
+            foreach(Channel ch in channels) ch.Dispose();
         }
 
 #if LAN
@@ -489,7 +491,7 @@ namespace MDM.Classes
                 wWaitBox msg = wWaitBox.Show(string.Format(Resources.chOn, ch.Number));
 
                 if(!chErrors[ch.Number - 1]) ch.Status = ChannelStatus.Inactive;
-                Thread.Sleep(500);
+                Thread.Sleep(200);
                 msg.Dispose();
             });
 #endif

@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\StimSmart\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;xLAN</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;LAN</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -468,6 +468,8 @@
     <Content Include="Libs\Ionic.Zip.Reduced.dll" />
     <Content Include="Libs\System.Data.SQLite.dll" />
     <Content Include="Resources\deluser.png" />
+    <None Include="Resources\gr.png" />
+    <None Include="Resources\el.png" />
     <None Include="Resources\program stimsmart vysoky odpor.jpg" />
     <None Include="Resources\program stimsmart probiha procedura.jpg" />
     <None Include="Resources\program stimsmart nastavte proud.jpg" />

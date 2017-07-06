@@ -26,7 +26,7 @@ namespace LANlib
 
             if(!LAN.TimedOut)
             {
-                Thread.Sleep(200);
+                //Thread.Sleep(200);
                 res = LanRd();
             }
             return res;
@@ -75,7 +75,7 @@ namespace LANlib
                 q.DioWR = 0;
                 q.HoldingR = new ModbusHolding();
                 res = LAN.MasterCmd(q);
-                Thread.Sleep(200);
+                Thread.Sleep(100);
             }
             else res = new ResponseDG();
             return res;
@@ -108,7 +108,7 @@ namespace LANlib
                 q.HoldingR = res.InputR.Verified;
                 q.HoldingR.DAC = dac;
                 LAN.MasterCmd(q);
-                Thread.Sleep(200);
+                Thread.Sleep(100);
                 res = ChRd(chnum);
             }
             return res;
@@ -127,7 +127,7 @@ namespace LANlib
                 if(dout > 0) q.HoldingR.DAC = 32768;
                 q.HoldingR.DOUT = new Bits(dout);
                 res = LAN.MasterCmd(q);
-                Thread.Sleep(200);
+                Thread.Sleep(100);
                 res = ChRd(chnum);
             }
             return res;
@@ -144,7 +144,7 @@ namespace LANlib
                 q.HoldingR = res.InputR.Verified;
                 q.HoldingR.AttenCoef = acf;
                 res = LAN.MasterCmd(q);
-                Thread.Sleep(100);
+                Thread.Sleep(20);
                 res = ChRd(chnum);
             }
             return res;

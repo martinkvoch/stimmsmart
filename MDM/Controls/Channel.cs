@@ -318,6 +318,22 @@ namespace MDM.Controls
             }
         }
 
+        private void currDecr(int dc)
+        {
+            int ac = actCur;
+
+            while((ac - dc) < 0) dc--;
+            actCur = (byte)(ac - dc);
+        }
+
+        private void currIncr(int ic)
+        {
+            int ac = actCur;
+
+            while((ac + ic) > toBeSet) ic--;
+            actCur = (byte)(ac + ic);
+        }
+
         private void processResponse(ResponseDG resp)
         {
             if(resp != null)
@@ -340,9 +356,9 @@ namespace MDM.Controls
                 }
                 else if((Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) && resp.InputR.Status[1])
                 {
+                    Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
                     current = Current;
                     Current = .5;
-                    Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
                 }
                 else if(Status == ChannelStatus.HighResistance)
                 {
@@ -360,7 +376,17 @@ namespace MDM.Controls
                 }
                 if(actCur != toBeSet)
                 {
-                    if(actCur < toBeSet) actCur++; else actCur--;
+                    if(actCur < toBeSet)
+                    {
+                        if(oldStatus == ChannelStatus.HighResistance || oldStatus == ChannelStatus.Paused) currIncr(6);
+                        else currIncr(2);
+                    }
+                    else
+                    {
+                        if(Status == ChannelStatus.Inactive || Status == ChannelStatus.Disabled || Status == ChannelStatus.Disconnected || Status == ChannelStatus.Inaccessible) currDecr(32);
+                        else if(Status == ChannelStatus.Paused || Status == ChannelStatus.HighResistance) currDecr(12);
+                        else currDecr(4);
+                    }
 #if LAN
                     LANFunc.ChAtCf(Number, actCur);
 #endif
@@ -682,7 +708,7 @@ namespace MDM.Controls
 
                 if(IsHandleCreated && !IsDisposed) Invoke(new MethodInvoker(delegate { processResponse(resp); }));
 #else
-                if(IsHandleCreated) Invoke(new MethodInvoker(delegate { processResponse(); }));
+                if(IsHandleCreated && !IsDisposed && IsAccessible) Invoke(new MethodInvoker(delegate { processResponse(); }));
 #endif
                 Thread.Sleep(100);
             }

@@ -121,5 +121,17 @@ namespace MDM.Properties {
                 this["LanIP"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("cs|en|ru")]
+        public string langs {
+            get {
+                return ((string)(this["langs"]));
+            }
+            set {
+                this["langs"] = value;
+            }
+        }
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
+
 using MDM.Data;
 using MDM.DlgBox;
 using MDM.Properties;
@@ -17,8 +19,9 @@ namespace MDM
         const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}";
         public static string Language = "xx";
         public static TUser LoggedUser = new TUser();
-        private static int kbDelay = SystemInformation.KeyboardSpeed;
+        //private static int kbDelay = SystemInformation.KeyboardSpeed;
 
+        #region chErrors
         private static bool[] chErrors = new bool[0];
         public static bool[] ChErrors
         {
@@ -32,16 +35,22 @@ namespace MDM
                 chErrors = value;
             }
         }
+        #endregion
 
         public static bool KeepRunning { get; set; }
 
-        #region SetLanguage()
+        #region SetLanguage(), GetLangs()
         public static void SetLanguage()
         {
             CultureInfo culture = new CultureInfo(Language, true);
 
             CultureInfo.DefaultThreadCurrentCulture = CultureInfo.DefaultThreadCurrentUICulture = culture;
             Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture = culture;
+        }
+
+        public static string[] GetLangs()
+        {
+            return new Settings().langs.Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
         }
         #endregion
 

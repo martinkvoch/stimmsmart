@@ -48,27 +48,27 @@ namespace MDM.Data
              selFmt = "select ID, NAME [{0}], LANG [{1}] from {2} where {3} DELETED order by 2";
 
         #region Init()
-        private static string[] getLangs() 
-        {
-            //bool haveDisposed = false;
-            //wMain frm = null;
-            //string[] res = new string[0];
+        //private static string[] getLangs() 
+        //{
+        //    //bool haveDisposed = false;
+        //    //wMain frm = null;
+        //    //string[] res = new string[0];
 
-            //if(Application.OpenForms != null && Application.OpenForms.Count > 0 && (Application.OpenForms[0] is wMain)) frm = (Application.OpenForms[0] as wMain);
-            //else
-            //{
-            //    frm = new wMain(Program.Language);
-            //    haveDisposed = true;
-            //}
-            //res = frm.miLang.DropDownItems.OfType<ToolStripMenuItem>().Select(i => i.Tag.ToString()).ToArray();
-            //if(haveDisposed && frm != null) frm.Dispose();
-            string[] res = new string[] { "cs", "en", "ru" };
-            return res; 
-        }
+        //    //if(Application.OpenForms != null && Application.OpenForms.Count > 0 && (Application.OpenForms[0] is wMain)) frm = (Application.OpenForms[0] as wMain);
+        //    //else
+        //    //{
+        //    //    frm = new wMain(Program.Language);
+        //    //    haveDisposed = true;
+        //    //}
+        //    //res = frm.miLang.DropDownItems.OfType<ToolStripMenuItem>().Select(i => i.Tag.ToString()).ToArray();
+        //    //if(haveDisposed && frm != null) frm.Dispose();
+        //    string[] res = new string[] { "cs", "en", "ru" };
+        //    return res; 
+        //}
 
         public static void Init()
         {
-            string[] langs = getLangs();
+            string[] langs = Program.GetLangs().Select(l => l.Split('|')[0]).ToArray();
 
             Database.ExecCmd("drop table if exists " + tname);
             Database.ExecCmd("create table " + tname + " ("+

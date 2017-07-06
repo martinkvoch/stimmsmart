@@ -554,6 +554,16 @@ namespace MDM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap el {
+            get {
+                object obj = ResourceManager.GetObject("el", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap en {
             get {
                 object obj = ResourceManager.GetObject("en", resourceCulture);
@@ -642,6 +652,16 @@ namespace MDM.Properties {
         public static string finish {
             get {
                 return ResourceManager.GetString("finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap gr {
+            get {
+                object obj = ResourceManager.GetObject("gr", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
