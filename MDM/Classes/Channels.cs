@@ -40,7 +40,6 @@ namespace MDM.Classes
         {
             int screenWidth = (int)SystemParameters.PrimaryScreenWidth;
 
-            rWorker = new BackgroundWorker();
 #if LAN
             LAN.SlaveIP = new Settings().LanIP;
 #endif
@@ -54,6 +53,7 @@ namespace MDM.Classes
                 parent.Controls.Add(chnl);
             }
 #if LAN
+            rWorker = new BackgroundWorker();
             rWorker.WorkerSupportsCancellation = true;
             rWorker.DoWork += rWorker_DoWork;
             rWorker.RunWorkerAsync(this);
@@ -66,6 +66,7 @@ namespace MDM.Classes
             rWorker.CancelAsync();
             while(rWorker.IsBusy) System.Windows.Forms.Application.DoEvents();
             rWorker.Dispose();
+            rWorker = null;
 #endif
             foreach(Channel ch in channels) ch.Dispose();
         }
@@ -461,31 +462,33 @@ namespace MDM.Classes
         /// </summary>
         public void On(bool[] chErrors)
         {
-#if LAN
-            if(ChannelsOutOfOrder)
+            if(!Program.IsDesignMode)
             {
-                LANFunc.Lan(0); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
-                Thread.Sleep(300);
-                channels.ForEach(ch => {
-                    wWaitBox msg = wWaitBox.Show(string.Format(Resources.chOn, ch.Number));
+#if LAN
+                if(ChannelsOutOfOrder)
+                {
+                    LANFunc.Lan(0); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
+                    Thread.Sleep(300);
+                    channels.ForEach(ch => {
+                        wWaitBox msg = wWaitBox.Show(string.Format(Resources.chOn, ch.Number));
 
-                    try
-                    {
-                        msg.Show();
-                        if(chErrors[ch.Number - 1]) ch.Status = ChannelStatus.Inaccessible;
-                        else
+                        try
                         {
-                            LANFunc.ChRst(ch.Number); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
-                            ch.Status = ChannelStatus.Inactive;
+                            msg.Show();
+                            if(chErrors[ch.Number - 1]) ch.Status = ChannelStatus.Inaccessible;
+                            else
+                            {
+                                LANFunc.ChRst(ch.Number); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
+                                ch.Status = ChannelStatus.Inactive;
+                            }
                         }
-                    }
-                    finally
-                    {
-                        msg.Dispose();
-                    }
-                });
-                //Enabled = true;
-            }
+                        finally
+                        {
+                            msg.Dispose();
+                        }
+                    });
+                    //Enabled = true;
+                }
 #else
             channels.ForEach(ch => {
                 wWaitBox msg = wWaitBox.Show(string.Format(Resources.chOn, ch.Number));
@@ -495,6 +498,7 @@ namespace MDM.Classes
                 msg.Dispose();
             });
 #endif
+            }
         }
 
         /// <summary>

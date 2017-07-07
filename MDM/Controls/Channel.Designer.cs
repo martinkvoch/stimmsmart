@@ -134,6 +134,7 @@
             this.tbCurrent.TextTickStyle = System.Windows.Forms.TickStyle.None;
             this.tbCurrent.TickColor = System.Drawing.Color.Indigo;
             this.tbCurrent.TickFrequency = 16;
+            this.tbCurrent.TickHeight = 4;
             this.tbCurrent.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.tbCurrent.TrackerColor = System.Drawing.Color.Indigo;
             this.tbCurrent.TrackerSize = new System.Drawing.Size(16, 16);

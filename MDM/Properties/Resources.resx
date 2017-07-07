@@ -123,10 +123,13 @@
   <data name="UserRoleAdmin" xml:space="preserve">
     <value>Administrator</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="hic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AppName" xml:space="preserve">
     <value>Stimsmart</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="program stimsmart ready" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\program stimsmart ready.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,8 +145,14 @@
   <data name="log" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\log.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="stop_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stop_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="deluser" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\deluser.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UserNewHdr" xml:space="preserve">
+    <value>New user</value>
   </data>
   <data name="PatHdrDg" xml:space="preserve">
     <value>Diagnosis</value>
@@ -153,9 +162,6 @@
   </data>
   <data name="cs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LogHdrRecord" xml:space="preserve">
-    <value>Record</value>
   </data>
   <data name="exitMsg" xml:space="preserve">
     <value>Application exits.</value>
@@ -169,11 +175,14 @@
   <data name="finish" xml:space="preserve">
     <value>Completion of initialization.</value>
   </data>
-  <data name="noBacksAvail" xml:space="preserve">
-    <value>No backup available.</value>
+  <data name="testDongle" xml:space="preserve">
+    <value>Authentication dongle...</value>
   </data>
   <data name="LogHdrSender" xml:space="preserve">
     <value>Sender</value>
+  </data>
+  <data name="program stimsmart kanal pripraven " type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program stimsmart kanal pripraven .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chRestored" xml:space="preserve">
     <value>The procedure is restored...</value>
@@ -202,14 +211,23 @@
   <data name="pswempty" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pswempty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="program stimsmart error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program stimsmart error.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="testChErrors" xml:space="preserve">
     <value>Errors during self-test</value>
+  </data>
+  <data name="program stimsmart nastavte proud" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program stimsmart nastavte proud.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UserHdrLogin" xml:space="preserve">
     <value>User name</value>
   </data>
-  <data name="PatNewMsg" xml:space="preserve">
-    <value>New patient "{0}" was created.</value>
+  <data name="bckDataKO" xml:space="preserve">
+    <value>Creating a backup copy of database failed.</value>
+  </data>
+  <data name="program stimsmart vysoky odpor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program stimsmart vysoky odpor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="signedOutUser" xml:space="preserve">
     <value>User {0} has signed out</value>
@@ -238,29 +256,17 @@
   <data name="HICHdrName" xml:space="preserve">
     <value>Name of the health insurance company</value>
   </data>
-  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Logo_ZAT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo_ZAT.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="startup" xml:space="preserve">
     <value>Inicialization of startup...</value>
   </data>
-  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="UserRoleUser" xml:space="preserve">
-    <value>User</value>
+  <data name="PatHdrAddr" xml:space="preserve">
+    <value>Address</value>
   </data>
   <data name="about" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="signedOutMsg" xml:space="preserve">
-    <value>Signed out</value>
   </data>
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -307,14 +313,17 @@
   <data name="dbIsOpen" xml:space="preserve">
     <value>The database is open.</value>
   </data>
+  <data name="restartNo" xml:space="preserve">
+    <value>At this point, you can not restart the device.</value>
+  </data>
   <data name="serNum" xml:space="preserve">
     <value>1050000446</value>
   </data>
   <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bckDataKO" xml:space="preserve">
-    <value>Creating a backup copy of database failed.</value>
+  <data name="signedUnsuccessful" xml:space="preserve">
+    <value>User login {0} failed</value>
   </data>
   <data name="restartMsg" xml:space="preserve">
     <value>Application and device are restarted.</value>
@@ -340,6 +349,9 @@
   <data name="warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\warning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="testChError2" xml:space="preserve">
+    <value>Insufficient HV voltage on channel {0}</value>
+  </data>
   <data name="chStatusErr5" xml:space="preserve">
     <value>The board was restarted.</value>
   </data>
@@ -349,8 +361,8 @@
   <data name="patAddErrLName" xml:space="preserve">
     <value>Patient surname must be entered!</value>
   </data>
-  <data name="PatHdrAddr" xml:space="preserve">
-    <value>Address</value>
+  <data name="LogHdrRecord" xml:space="preserve">
+    <value>Record</value>
   </data>
   <data name="testChError0" xml:space="preserve">
     <value>Communication between computer and device is interrupted, self-test has not occurred.</value>
@@ -370,9 +382,6 @@
   <data name="chPaused" xml:space="preserve">
     <value>The procedure is suspended</value>
   </data>
-  <data name="pswNotMatchMsg" xml:space="preserve">
-    <value>* Passwords do not match *</value>
-  </data>
   <data name="userdelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\userdelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -387,6 +396,9 @@
   </data>
   <data name="shutdownQH" xml:space="preserve">
     <value>Device shutdown</value>
+  </data>
+  <data name="clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chHighResistance" xml:space="preserve">
     <value>The resistance is too high</value>
@@ -415,6 +427,9 @@
   <data name="PatHdrZip" xml:space="preserve">
     <value>Zipcode</value>
   </data>
+  <data name="PatHdrSex" xml:space="preserve">
+    <value>Sex</value>
+  </data>
   <data name="HICEditMsg" xml:space="preserve">
     <value>HIC "{0}" was updated.</value>
   </data>
@@ -427,8 +442,8 @@
   <data name="PatSexMale" xml:space="preserve">
     <value>Male</value>
   </data>
-  <data name="signedUnsuccessful" xml:space="preserve">
-    <value>User login {0} failed</value>
+  <data name="curLang1" xml:space="preserve">
+    <value>Current</value>
   </data>
   <data name="shutdownNo" xml:space="preserve">
     <value>At this point, you can not switch off the device.</value>
@@ -439,20 +454,20 @@
   <data name="procAbortH" xml:space="preserve">
     <value>Premature procedure termination</value>
   </data>
+  <data name="program stimsmart probiha procedura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\program stimsmart probiha procedura.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="noPatientHdr" xml:space="preserve">
     <value>No patients</value>
   </data>
-  <data name="PatSexFemale" xml:space="preserve">
-    <value>Female</value>
+  <data name="dgEDis" xml:space="preserve">
+    <value>Erectile disorders</value>
   </data>
   <data name="en" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\en.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="testChError4" xml:space="preserve">
     <value>The stress at channel load {0} does not match the tolerance ({1}). Attenuation coefficient = {2}</value>
-  </data>
-  <data name="HICNewHdr" xml:space="preserve">
-    <value>New Health Insurance Company</value>
   </data>
   <data name="restoreQH" xml:space="preserve">
     <value>Restoring the database</value>
@@ -462,6 +477,9 @@
   </data>
   <data name="testChError31" xml:space="preserve">
     <value>Disconnect the headset from the channel {0}</value>
+  </data>
+  <data name="chStatusErr3" xml:space="preserve">
+    <value>Entry into Holding registers does not contain valid data.</value>
   </data>
   <data name="chStatusErr4" xml:space="preserve">
     <value>A system watchdog was called up.</value>
@@ -496,9 +514,6 @@
   <data name="backuprestore" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backuprestore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dgNotSelected" xml:space="preserve">
-    <value>The diagnosis has not been selected</value>
-  </data>
   <data name="dgMicrocirculation" xml:space="preserve">
     <value>Microcirculation</value>
   </data>
@@ -517,23 +532,26 @@
   <data name="chStatusErr2" xml:space="preserve">
     <value>DataFlash memory does not contain valid data.</value>
   </data>
+  <data name="PatHdrFName" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="gr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="pressEscButton" xml:space="preserve">
     <value>Press ESC key or button "X" on the end of this bar</value>
   </data>
   <data name="LogWarn" xml:space="preserve">
     <value>Warning</value>
   </data>
-  <data name="curLang1" xml:space="preserve">
-    <value>Current</value>
-  </data>
   <data name="restoreQ" xml:space="preserve">
     <value>Do you really want to restore database from previous backup?</value>
   </data>
+  <data name="delAllQ" xml:space="preserve">
+    <value>You are about to delete the entire content of table "{0}" to all data will be lost from the table. Do you really want to do?</value>
+  </data>
   <data name="PatNewHdr" xml:space="preserve">
     <value>New Patient</value>
-  </data>
-  <data name="PatHdrPhone" xml:space="preserve">
-    <value>Phone</value>
   </data>
   <data name="signedNotMsg" xml:space="preserve">
     <value>Not logged in</value>
@@ -541,8 +559,8 @@
   <data name="newDataOK" xml:space="preserve">
     <value>New database was created.</value>
   </data>
-  <data name="testChError2" xml:space="preserve">
-    <value>Insufficient HV voltage on channel {0}</value>
+  <data name="PatHdrPhone" xml:space="preserve">
+    <value>Phone</value>
   </data>
   <data name="exitQH" xml:space="preserve">
     <value>Application exit</value>
@@ -555,6 +573,9 @@
   </data>
   <data name="PatHdrCity" xml:space="preserve">
     <value>City</value>
+  </data>
+  <data name="chDisconected" xml:space="preserve">
+    <value>Channel disconnected</value>
   </data>
   <data name="pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -577,8 +598,8 @@
   <data name="info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PatHdrSex" xml:space="preserve">
-    <value>Sex</value>
+  <data name="PatNewMsg" xml:space="preserve">
+    <value>New patient "{0}" was created.</value>
   </data>
   <data name="patSelYrOfBirth" xml:space="preserve">
     <value>Birth year</value>
@@ -586,14 +607,17 @@
   <data name="clock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="chStatusErr3" xml:space="preserve">
-    <value>Entry into Holding registers does not contain valid data.</value>
+  <data name="HICNewHdr" xml:space="preserve">
+    <value>New Health Insurance Company</value>
   </data>
-  <data name="dgEDis" xml:space="preserve">
-    <value>Erectile disorders</value>
+  <data name="noBacksAvail" xml:space="preserve">
+    <value>No backup available.</value>
   </data>
-  <data name="clear" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="patDuplMsgH" xml:space="preserve">
+    <value>Patient already attached</value>
+  </data>
+  <data name="PatSexFemale" xml:space="preserve">
+    <value>Female</value>
   </data>
   <data name="newDataQ" xml:space="preserve">
     <value>You are going to create a new database, the old one will be removed. Do you really want to do this?</value>
@@ -619,14 +643,11 @@
   <data name="startInitMsg" xml:space="preserve">
     <value>{0} inicialization started.</value>
   </data>
-  <data name="patDuplMsgH" xml:space="preserve">
-    <value>Patient already attached</value>
+  <data name="information" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\information.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UserHdrRole" xml:space="preserve">
-    <value>Role</value>
-  </data>
-  <data name="pswMatchMsg" xml:space="preserve">
-    <value>Passwords match</value>
+  <data name="pswNotMatchMsg" xml:space="preserve">
+    <value>* Passwords do not match *</value>
   </data>
   <data name="testChError32" xml:space="preserve">
     <value>Too high impedance on channel {0}</value>
@@ -643,14 +664,14 @@
   <data name="procAbortQ" xml:space="preserve">
     <value>Do you really want to terminate the procedure prematurely?</value>
   </data>
-  <data name="delAllQ" xml:space="preserve">
-    <value>You are about to delete the entire content of table "{0}" to all data will be lost from the table. Do you really want to do?</value>
+  <data name="dgNotSelected" xml:space="preserve">
+    <value>The diagnosis has not been selected</value>
   </data>
   <data name="useradd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\useradd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delAllQH" xml:space="preserve">
     <value>Truncating the table</value>
@@ -667,11 +688,11 @@
   <data name="yes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\yes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="restartNo" xml:space="preserve">
-    <value>At this point, you can not restart the device.</value>
+  <data name="signedOutMsg" xml:space="preserve">
+    <value>Signed out</value>
   </data>
-  <data name="chDisconected" xml:space="preserve">
-    <value>Channel disconnected</value>
+  <data name="UserRoleUser" xml:space="preserve">
+    <value>User</value>
   </data>
   <data name="curLang" xml:space="preserve">
     <value>Current language: {0}</value>
@@ -685,8 +706,8 @@
   <data name="UserNewMsg" xml:space="preserve">
     <value>New user "{0}" was created.</value>
   </data>
-  <data name="PatHdrFName" xml:space="preserve">
-    <value>First Name</value>
+  <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -700,8 +721,11 @@
   <data name="dbcompact" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dbcompact.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="testDongle" xml:space="preserve">
-    <value>Authentication dongle...</value>
+  <data name="UserHdrRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="el" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\el.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -709,31 +733,13 @@
   <data name="PatHdrSomTyp" xml:space="preserve">
     <value>Somatotype</value>
   </data>
-  <data name="UserNewHdr" xml:space="preserve">
-    <value>New user</value>
+  <data name="pswMatchMsg" xml:space="preserve">
+    <value>Passwords match</value>
   </data>
   <data name="patSelName" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="program stimsmart error" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\program stimsmart error.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="program stimsmart kanal pripraven " type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\program stimsmart kanal pripraven .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="program stimsmart nastavte proud" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\program stimsmart nastavte proud.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="program stimsmart probiha procedura" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\program stimsmart probiha procedura.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="program stimsmart vysoky odpor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\program stimsmart vysoky odpor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="el" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\el.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gr" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stop_red1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stop_red1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

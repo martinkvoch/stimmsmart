@@ -108,6 +108,7 @@ namespace MDM.Windows
             this.deleteBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoBox = new System.Windows.Forms.PictureBox();
             this.panPatient = new MDM.Controls.DBPanel();
             this.panHIC = new MDM.Controls.DBPanel();
             this.panUser = new MDM.Controls.DBPanel();
@@ -117,6 +118,7 @@ namespace MDM.Windows
             this.ssMain.SuspendLayout();
             this.tsMain.SuspendLayout();
             this.msMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ssMain
@@ -709,6 +711,13 @@ namespace MDM.Windows
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.miCloseBackup_Click);
             // 
+            // logoBox
+            // 
+            this.logoBox.Image = global::MDM.Properties.Resources.logo;
+            resources.ApplyResources(this.logoBox, "logoBox");
+            this.logoBox.Name = "logoBox";
+            this.logoBox.TabStop = false;
+            // 
             // panPatient
             // 
             this.panPatient.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -750,6 +759,7 @@ namespace MDM.Windows
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             resources.ApplyResources(this, "$this");
             this.ControlBox = false;
+            this.Controls.Add(this.logoBox);
             this.Controls.Add(this.panPatient);
             this.Controls.Add(this.panHIC);
             this.Controls.Add(this.panUser);
@@ -776,6 +786,7 @@ namespace MDM.Windows
             this.tsMain.PerformLayout();
             this.msMain.ResumeLayout(false);
             this.msMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -866,6 +877,7 @@ namespace MDM.Windows
         private System.Windows.Forms.ToolStripMenuItem miTruncatePatient;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem13;
         private DBPanel panPatient;
+        private System.Windows.Forms.PictureBox logoBox;
     }
 }
 

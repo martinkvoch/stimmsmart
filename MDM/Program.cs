@@ -11,6 +11,7 @@ using MDM.Data;
 using MDM.DlgBox;
 using MDM.Properties;
 using MDM.Windows;
+using System.Diagnostics;
 
 namespace MDM
 {
@@ -20,6 +21,18 @@ namespace MDM
         public static string Language = "xx";
         public static TUser LoggedUser = new TUser();
         //private static int kbDelay = SystemInformation.KeyboardSpeed;
+
+        #region IsDesignMode
+        private static bool? isDesignMode;
+        internal static bool IsDesignMode
+        {
+            get
+            {
+                if(!isDesignMode.HasValue) isDesignMode = (Process.GetCurrentProcess().ProcessName.ToLower().Contains("devenv"));
+                return isDesignMode.Value;
+            }
+        }
+        #endregion
 
         #region chErrors
         private static bool[] chErrors = new bool[0];

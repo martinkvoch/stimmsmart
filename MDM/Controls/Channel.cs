@@ -345,14 +345,14 @@ namespace MDM.Controls
                     ResponseDG res;
 
                     res = LANFunc.ChRd(Number);
-                    if(resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) <= 48) Status = ChannelStatus.Ready;
+                    if(actCur == toBeSet && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) <= 48) Status = ChannelStatus.Ready;
                 }
                 else if(Status == ChannelStatus.Ready) // elektrody nejsou nasazeny ve stavu "připraven"
                 {
                     ResponseDG res;
 
                     res = LANFunc.ChRd(Number);
-                    if((resp.InputR.AIN2 - resp.InputR.AIN1) >= 52) Status = ChannelStatus.Active;
+                    if(actCur == toBeSet && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52) Status = ChannelStatus.Active;
                 }
                 else if((Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) && resp.InputR.Status[1])
                 {
@@ -364,7 +364,7 @@ namespace MDM.Controls
                 {
                     ResponseDG res = LANFunc.ChRd(Number);
 
-                    if (resp.InputR.AIN2 > 0 && (res.InputR.AIN2 - res.InputR.AIN1) <= 48)
+                    if (actCur == toBeSet && resp.InputR.AIN2 > 0 && (res.InputR.AIN2 - res.InputR.AIN1) <= 48)
                     {
                         Current = current;
                         Status = oldStatus;
@@ -387,9 +387,7 @@ namespace MDM.Controls
                         else if(Status == ChannelStatus.Paused || Status == ChannelStatus.HighResistance) currDecr(12);
                         else currDecr(4);
                     }
-#if LAN
                     LANFunc.ChAtCf(Number, actCur);
-#endif
                     if(Status != ChannelStatus.SetCurrent) tbCurrent.Value = actCur;
                     else _current = Math.Round(actCur * curstep, 2);
                 }
@@ -402,9 +400,6 @@ namespace MDM.Controls
             if(actCur != toBeSet)
             {
                 if(actCur < toBeSet) actCur++; else actCur--;
-#if LAN
-                LANFunc.ChAtCf(Number, actCur);
-#endif
                 if(Status != ChannelStatus.SetCurrent) tbCurrent.Value = actCur;
                 else _current = Math.Round(actCur * curstep, 2);
             }
@@ -701,16 +696,20 @@ namespace MDM.Controls
         /// <param name="e">parametry události</param>
         private void chWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            while(!chWorker.CancellationPending && !IsDisposed)
+            while(chWorker.IsBusy && !chWorker.CancellationPending)
             {
+                Application.DoEvents();
+                if(IsHandleCreated && !IsDisposed)
+                {
 #if LAN
-                ResponseDG resp = LANFunc.ChRd(Number);
+                    ResponseDG resp = LANFunc.ChRd(Number);
 
-                if(IsHandleCreated && !IsDisposed) Invoke(new MethodInvoker(delegate { processResponse(resp); }));
+                    if(IsHandleCreated && !IsDisposed) Invoke(new MethodInvoker(delegate { processResponse(resp); }));
 #else
-                if(IsHandleCreated && !IsDisposed && IsAccessible) Invoke(new MethodInvoker(delegate { processResponse(); }));
+                    if(IsHandleCreated && !IsDisposed) Invoke(new MethodInvoker(delegate { processResponse(); }));
 #endif
-                Thread.Sleep(100);
+                    Thread.Sleep(10);
+                }
             }
             e.Cancel = true;
         }
@@ -776,7 +775,7 @@ namespace MDM.Controls
             if(InOrder || Status == ChannelStatus.HighResistance)
             {
                 timer.Stop();
-                if(Status == ChannelStatus.HighResistance)
+                if(Status == ChannelStatus.HighResistance && DialogBox.ShowYN(Resources.procAbortQ, Resources.procAbortH) == DialogResult.Yes)
                 {
                     if(procID > NoSelection) Data.Procedure.FinishProcedure(procID, Elapsed, Data.ProcResult.Failed);
                     Status = ChannelStatus.Inactive;

@@ -279,40 +279,40 @@ namespace EConTech.Windows.MACUI
 			}
 		}
 
-		/// <summary>
-		/// Gets or sets a value indicating whether the height or width of the track bar is being automatically sized.
-		/// </summary>
-		/// <remarks>You can set the AutoSize property to true to cause the track bar to adjust either its height or width, depending on orientation, to ensure that the control uses only the required amount of space.</remarks>
-		/// <value>true if the track bar is being automatically sized; otherwise, false. The default is true.</value>
-		[Category("Behavior")]
-		[Description("Gets or sets the height of track line.")]
-		[DefaultValue(4)]
-		public bool AutoSize
-		{
-			get { return _autoSize; }
+        ///// <summary>
+        ///// Gets or sets a value indicating whether the height or width of the track bar is being automatically sized.
+        ///// </summary>
+        ///// <remarks>You can set the AutoSize property to true to cause the track bar to adjust either its height or width, depending on orientation, to ensure that the control uses only the required amount of space.</remarks>
+        ///// <value>true if the track bar is being automatically sized; otherwise, false. The default is true.</value>
+        //[Category("Behavior")]
+        //[Description("Gets or sets the height of track line.")]
+        //[DefaultValue(4)]
+        //public new bool AutoSize
+        //{
+        //    get { return _autoSize; }
 
-			set
-			{
-				if(_autoSize != value)
-				{
-					_autoSize = value;
-					if(_autoSize == true)
-						this.Size = FitSize;
-				}
-			}
-		}	
+        //    set
+        //    {
+        //        if(_autoSize != value)
+        //        {
+        //            _autoSize = value;
+        //            if(_autoSize == true)
+        //                this.Size = FitSize;
+        //        }
+        //    }
+        //}
 
-		/// <summary>
-		/// Gets or sets a value to be added to or subtracted from the <see cref="Value"/> property when the slider is moved a large distance.
-		/// </summary>
-		/// <remarks>
-		/// When the user presses the PAGE UP or PAGE DOWN key or clicks the track bar on either side of the slider, the <see cref="Value"/> 
-		/// property changes according to the value set in the <see cref="LargeChange"/> property. 
-		/// You might consider setting the <see cref="LargeChange"/> value to a percentage of the <see cref="Control.Height"/> (for a vertically oriented track bar) or 
-		/// <see cref="Control.Width"/> (for a horizontally oriented track bar) values. This keeps the distance your track bar moves proportionate to its size.
-		/// </remarks>
-		/// <value>A numeric value. The default value is 2.</value>
-		[Category("Behavior")]
+        /// <summary>
+        /// Gets or sets a value to be added to or subtracted from the <see cref="Value"/> property when the slider is moved a large distance.
+        /// </summary>
+        /// <remarks>
+        /// When the user presses the PAGE UP or PAGE DOWN key or clicks the track bar on either side of the slider, the <see cref="Value"/> 
+        /// property changes according to the value set in the <see cref="LargeChange"/> property. 
+        /// You might consider setting the <see cref="LargeChange"/> value to a percentage of the <see cref="Control.Height"/> (for a vertically oriented track bar) or 
+        /// <see cref="Control.Width"/> (for a horizontally oriented track bar) values. This keeps the distance your track bar moves proportionate to its size.
+        /// </remarks>
+        /// <value>A numeric value. The default value is 2.</value>
+        [Category("Behavior")]
 		[Description("Gets or sets a value to be added to or subtracted from the Value property when the slider is moved a large distance.")]
 		[DefaultValue(2)]
 		public int LargeChange

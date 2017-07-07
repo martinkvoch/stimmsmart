@@ -85,11 +85,8 @@ namespace MDM.Windows
             InitializeComponent();
             constructMiLang();
             Language = lang ?? settings.lang;
-            //setMILang();
             Text = Resources.AppName;
-            //currentPanel = panMain;
             using(Log log = new Log()) panLog.DBObject = log;
-            //updAllButtons();
             SwitchToPanel();
             lbKbdLang.Text = InputLanguage.CurrentInputLanguage.Culture.TwoLetterISOLanguageName.ToUpper();
             if(!Program.KeepRunning)
@@ -139,6 +136,7 @@ namespace MDM.Windows
         #region Události hlavního okna
         private void Main_Load(object sender, EventArgs e)
         {
+            logoBox.Location = new Point((Width - logoBox.Width) / 2, logoBox.Location.Y);
             if(timer == null)
             {
                 timer = new Timer();
