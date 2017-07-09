@@ -155,7 +155,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="miAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="miAbout.Text" xml:space="preserve">
     <value>O aplikaci</value>
@@ -164,10 +164,10 @@
     <value>Zobrazí informace o aplikaci</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 6</value>
+    <value>146, 6</value>
   </data>
   <data name="miExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="miExit.Text" xml:space="preserve">
     <value>Konec</value>
@@ -176,7 +176,7 @@
     <value>Ukončí aplikaci</value>
   </data>
   <data name="miRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="miRestart.Text" xml:space="preserve">
     <value>Nové spuštění</value>
@@ -185,7 +185,7 @@
     <value>Ukončí a znovu spustí aplikaci i zařízení</value>
   </data>
   <data name="miSwitchOff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="miSwitchOff.Text" xml:space="preserve">
     <value>Vypnutí</value>
@@ -194,13 +194,13 @@
     <value>Ukončí aplikaci a vypne přístroj</value>
   </data>
   <data name="miFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+    <value>57, 20</value>
   </data>
   <data name="miFile.Text" xml:space="preserve">
     <value>Soubor</value>
   </data>
   <data name="miUserList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 30</value>
   </data>
   <data name="miUserList.Text" xml:space="preserve">
     <value>Seznam...</value>
@@ -209,10 +209,10 @@
     <value>Otevře panel se seznamem uživatelů</value>
   </data>
   <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>136, 6</value>
   </data>
   <data name="miLogIn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 30</value>
   </data>
   <data name="miLogIn.Text" xml:space="preserve">
     <value>Přihlášení</value>
@@ -221,7 +221,7 @@
     <value>Provede přihlášení uživatele k aplikaci</value>
   </data>
   <data name="miLogOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 30</value>
   </data>
   <data name="miLogOut.Text" xml:space="preserve">
     <value>Odhlášení</value>
@@ -230,10 +230,10 @@
     <value>Provede odhlášení uživatele od aplikace</value>
   </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>136, 6</value>
   </data>
   <data name="miNewUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 30</value>
   </data>
   <data name="miNewUser.Text" xml:space="preserve">
     <value>Nový</value>
@@ -242,7 +242,7 @@
     <value>Přidá nového uživatele</value>
   </data>
   <data name="miEditUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 30</value>
   </data>
   <data name="miEditUser.Text" xml:space="preserve">
     <value>Upravit</value>
@@ -251,10 +251,10 @@
     <value>Upraví údaje o uživateli</value>
   </data>
   <data name="toolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>136, 6</value>
   </data>
   <data name="miDeleteUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 30</value>
   </data>
   <data name="miDeleteUser.Text" xml:space="preserve">
     <value>Smazat</value>
@@ -263,7 +263,7 @@
     <value>Označí uživatele ke smazání</value>
   </data>
   <data name="miUndeleteUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 30</value>
   </data>
   <data name="miUndeleteUser.Text" xml:space="preserve">
     <value>Odmazat...</value>
@@ -272,7 +272,7 @@
     <value>Zruší příznak smazání uživatelů</value>
   </data>
   <data name="miWipeUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 30</value>
   </data>
   <data name="miWipeUser.Text" xml:space="preserve">
     <value>Odstranit</value>
@@ -281,10 +281,10 @@
     <value>Fyzicky vymaže uživatele z tabulky uživatelů</value>
   </data>
   <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>136, 6</value>
   </data>
   <data name="miPurgeUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 30</value>
   </data>
   <data name="miPurgeUser.Text" xml:space="preserve">
     <value>Vyčistit</value>
@@ -293,7 +293,7 @@
     <value>Vyčistí tabulku uživatelů od záznamů označených ke smazání</value>
   </data>
   <data name="miTruncateUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>139, 30</value>
   </data>
   <data name="miTruncateUser.Text" xml:space="preserve">
     <value>Vyprázdnit</value>
@@ -302,16 +302,16 @@
     <value>Kompletně vyprázdní tabulku uživatelů</value>
   </data>
   <data name="miUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 20</value>
+    <value>60, 20</value>
   </data>
   <data name="miUser.Text" xml:space="preserve">
     <value>Uživatel</value>
   </data>
   <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 6</value>
+    <value>189, 6</value>
   </data>
   <data name="miPatientList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>192, 30</value>
   </data>
   <data name="miPatientList.Text" xml:space="preserve">
     <value>Seznam...</value>
@@ -320,10 +320,16 @@
     <value>Otevře panel se seznamem pacientů</value>
   </data>
   <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 6</value>
+    <value>189, 6</value>
+  </data>
+  <data name="toolStripMenuItem15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 30</value>
+  </data>
+  <data name="toolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 30</value>
   </data>
   <data name="miNewPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>192, 30</value>
   </data>
   <data name="miNewPatient.Text" xml:space="preserve">
     <value>Nový</value>
@@ -332,7 +338,7 @@
     <value>Přidá nového pacienta</value>
   </data>
   <data name="miEditPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>192, 30</value>
   </data>
   <data name="miEditPatient.Text" xml:space="preserve">
     <value>Upravit</value>
@@ -341,10 +347,10 @@
     <value>Upraví údaje o pacientovi</value>
   </data>
   <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 6</value>
+    <value>189, 6</value>
   </data>
   <data name="miDeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>192, 30</value>
   </data>
   <data name="miDeletePatient.Text" xml:space="preserve">
     <value>Smazat</value>
@@ -353,7 +359,7 @@
     <value>Označí záznam pacienta ke smazání</value>
   </data>
   <data name="miUndeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>192, 30</value>
   </data>
   <data name="miUndeletePatient.Text" xml:space="preserve">
     <value>Odmazat...</value>
@@ -362,7 +368,7 @@
     <value>Zruší označení záznamu pacienta ke zrušení</value>
   </data>
   <data name="miWipePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>192, 30</value>
   </data>
   <data name="miWipePatient.Text" xml:space="preserve">
     <value>Odstranit</value>
@@ -371,10 +377,10 @@
     <value>Fyzicky vymaže záznam pacienta</value>
   </data>
   <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 6</value>
+    <value>189, 6</value>
   </data>
   <data name="miPurgePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>192, 30</value>
   </data>
   <data name="miPurgePatient.Text" xml:space="preserve">
     <value>Vyčistit</value>
@@ -383,7 +389,7 @@
     <value>Vyčistí tabulku pacientů od záznamů označených ke zrušení</value>
   </data>
   <data name="miTruncatePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>192, 30</value>
   </data>
   <data name="miTruncatePatient.Text" xml:space="preserve">
     <value>Vyprázdnit</value>
@@ -392,10 +398,16 @@
     <value>Kompletně vyprázdní tabulku pacientů</value>
   </data>
   <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 6</value>
+    <value>189, 6</value>
+  </data>
+  <data name="miPatientProc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 30</value>
+  </data>
+  <data name="miPatientProc.Text" xml:space="preserve">
+    <value>Procedury pacienta</value>
   </data>
   <data name="miHIC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 22</value>
+    <value>192, 30</value>
   </data>
   <data name="miHIC.Text" xml:space="preserve">
     <value>Zdravotní pojišťovny</value>
@@ -404,13 +416,13 @@
     <value>Otevře seznam zdravotních pojišťoven a umožní provádět v něm změny</value>
   </data>
   <data name="miPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 20</value>
+    <value>58, 20</value>
   </data>
   <data name="miPatient.Text" xml:space="preserve">
     <value>Pacient</value>
   </data>
   <data name="miBackupDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>185, 22</value>
   </data>
   <data name="miBackupDatabase.Text" xml:space="preserve">
     <value>Záloha databáze</value>
@@ -419,7 +431,7 @@
     <value>Vytvoří zálohu databáze k tomuto okamžiku</value>
   </data>
   <data name="miRestoreDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>185, 22</value>
   </data>
   <data name="miRestoreDatabase.Text" xml:space="preserve">
     <value>Obnovení databáze...</value>
@@ -452,7 +464,7 @@
 </value>
   </data>
   <data name="miLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
+    <value>177, 22</value>
   </data>
   <data name="miLog.Text" xml:space="preserve">
     <value>Deník</value>
@@ -461,7 +473,7 @@
     <value>Funkce pro správu deníku</value>
   </data>
   <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 6</value>
+    <value>174, 6</value>
   </data>
   <data name="miNewDatabase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -480,7 +492,7 @@
 </value>
   </data>
   <data name="miNewDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
+    <value>177, 22</value>
   </data>
   <data name="miNewDatabase.Text" xml:space="preserve">
     <value>Nová databáze</value>
@@ -489,19 +501,19 @@
     <value>Vytvoří novou databázi místo staré</value>
   </data>
   <data name="miCompactDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 22</value>
+    <value>177, 22</value>
   </data>
   <data name="miCompactDatabase.Text" xml:space="preserve">
     <value>Komprese databáze</value>
   </data>
   <data name="miAdministration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 20</value>
+    <value>54, 20</value>
   </data>
   <data name="miAdministration.Text" xml:space="preserve">
     <value>Správa</value>
   </data>
   <data name="miClearLogInformation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 22</value>
+    <value>128, 22</value>
   </data>
   <data name="miClearLogInformation.Text" xml:space="preserve">
     <value>Informace</value>
@@ -513,7 +525,7 @@
     <value>Z deníku vymaže všechny informační záznamy</value>
   </data>
   <data name="miClearLogWarning.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 22</value>
+    <value>128, 22</value>
   </data>
   <data name="miClearLogWarning.Text" xml:space="preserve">
     <value>Varování</value>
@@ -522,7 +534,7 @@
     <value>Z deníku vymaže všechna varování</value>
   </data>
   <data name="miClearLogError.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 22</value>
+    <value>128, 22</value>
   </data>
   <data name="miClearLogError.Text" xml:space="preserve">
     <value>Chyby</value>
@@ -531,7 +543,7 @@
     <value>Z deníku vymaže všechny chybové záznamy</value>
   </data>
   <data name="miClearLogSelection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 22</value>
+    <value>128, 22</value>
   </data>
   <data name="miClearLogSelection.Text" xml:space="preserve">
     <value>Výběr</value>
@@ -540,7 +552,7 @@
     <value>Z deníku vymaže všechny označené záznamy</value>
   </data>
   <data name="miClearLogAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 22</value>
+    <value>128, 22</value>
   </data>
   <data name="miClearLogAll.Text" xml:space="preserve">
     <value>Vše</value>
@@ -549,16 +561,16 @@
     <value>Z deníku vymaže všechny záznamy</value>
   </data>
   <data name="miClear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 22</value>
+    <value>119, 22</value>
   </data>
   <data name="miClear.Text" xml:space="preserve">
     <value>Vymazat</value>
   </data>
   <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 6</value>
+    <value>116, 6</value>
   </data>
   <data name="miClosePanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 22</value>
+    <value>119, 22</value>
   </data>
   <data name="miClosePanel.Text" xml:space="preserve">
     <value>Zavřít</value>
@@ -567,7 +579,7 @@
     <value>Uzavře otevřený panel</value>
   </data>
   <data name="miTheLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 20</value>
+    <value>49, 20</value>
   </data>
   <data name="miTheLog.Text" xml:space="preserve">
     <value>Deník</value>
@@ -576,7 +588,7 @@
     <value>Česky</value>
   </data>
   <data name="restoreFromThisBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>190, 22</value>
   </data>
   <data name="restoreFromThisBackupToolStripMenuItem.Text" xml:space="preserve">
     <value>Obnovit z této zálohy</value>
@@ -585,7 +597,7 @@
     <value>Obnoví databázi z aktuální zálohy</value>
   </data>
   <data name="makeNewBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>190, 22</value>
   </data>
   <data name="makeNewBackupToolStripMenuItem.Text" xml:space="preserve">
     <value>Vytvořit novou zálohu</value>
@@ -594,7 +606,7 @@
     <value>Vytvoří novou zálohu</value>
   </data>
   <data name="deleteBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>190, 22</value>
   </data>
   <data name="deleteBackupToolStripMenuItem.Text" xml:space="preserve">
     <value>Smazat zálohu</value>
@@ -603,10 +615,10 @@
     <value>Smaže aktuální zálohu</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 6</value>
+    <value>187, 6</value>
   </data>
   <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 22</value>
+    <value>190, 22</value>
   </data>
   <data name="closeToolStripMenuItem.Text" xml:space="preserve">
     <value>Zavřít</value>
@@ -614,7 +626,13 @@
   <data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
     <value>Zavře panel obnovy</value>
   </data>
+  <data name="miDBRestore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
+  </data>
   <data name="miDBRestore.Text" xml:space="preserve">
     <value>Obnova</value>
+  </data>
+  <data name="miProcedure.Text" xml:space="preserve">
+    <value>Procedura</value>
   </data>
 </root>

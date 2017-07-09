@@ -19,7 +19,10 @@ namespace MDM.Data
         const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}", tname = "PROCEDURE", panControl = "panProcedure",
              insFmt = "(PAT_ID, USR_ID, CHANNEL) values ({0}, {1}, {2})",
              updFmt = "DURATION={0}, RESULT={1}", updWhereFmt = "ID = {0}",
-             selFmt = "select ID, NAME [{0}], LANG [{1}] from {2} where {3} DELETED order by 2";
+             selFmt = "select p.LAST_NAME || ', ' || p.FIRST_NAME || ifnull(' '||p.MIDDLE_NAME, '') [{0}], strftime('%d.%m.%Y', r.DATE) || strftime(' %H:%M:%S', r.TIME) [{1}], " +
+                         "u.NAME [{2}], substr(time(r.DURATION, 'unixepoch'), 4) [{3}], r.CHANNEL [{4}], " +
+                         "case r.RESULT when 1 then '{5}' when 2 then '{6}' when 3 then '{7}' else '{8}' end [{9}] " +
+                       "from PROCEDURE r, PATIENT p, USER u where r.PAT_ID = p.id and r.USR_ID = u.ID order by 1,2";
         private byte nop = new Settings().NOP;
 
         #region Init()
@@ -53,6 +56,19 @@ namespace MDM.Data
         #endregion
 
         public Procedure() : base(tname) { }
+
+        #region SelectCmd(), Count()
+        public override string SelectCmd()
+        {
+            return string.Format(selFmt, Resources.ProcHdrPatient, Resources.ProcHdrDatum, Resources.ProcHdrOperator, Resources.ProcHdrDuration, Resources.ProcHdrChannel,
+                Resources.ProcResultFinished, Resources.ProcResultPrematurely, Resources.ProcResultFailed, Resources.ProcResultInitiated, Resources.ProcHdrResult);
+        }
+
+        public static long Count(int? id = null)
+        {
+            return Convert.ToInt64(Database.ExecScalar(string.Format("select count(*) from {0}{2}", tname, id.HasValue ? " where ID = " + id.Value.ToString() : string.Empty)));
+        }
+        #endregion
 
         public static int AddProcedure(int patID, int usrID, byte channel)
         {

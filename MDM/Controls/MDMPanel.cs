@@ -5,8 +5,8 @@ using MDM.Windows;
 
 namespace MDM.Controls
 {
-    public enum PanelButton : byte { Navigator = 1, Insert = 2, Delete = 4, Edit = 8, Wipe = 16, Undelete = 32 }
-    public enum PanelLayout { ReadOnly, DeleteOnly, WODelete, Edit, Undelete }
+    public enum PanelButton : byte { Navigator = 1, Insert = 2, Delete = 4, Edit = 8, Wipe = 16, Undelete = 32, Filter = 64 }
+    public enum PanelLayout { ReadOnly, DeleteOnly, WODelete, Edit, Undelete, WFilter }
 
     /// <summary>
     /// Bázová třída pro panely umístěné na hlavním oknu.
@@ -17,13 +17,13 @@ namespace MDM.Controls
         public MDMTable DBObject = null;
         public ToolStripMenuItem PanelMenu;
         private PanelLayout panelLayout = PanelLayout.ReadOnly;
-        private string cmd;
+        //private string cmd;
 
-        protected string Cmd
-        {
-            get { return cmd; }
-            private set { cmd = value; }
-        }
+        protected string Cmd { get; set; }
+        //{
+        //    get { return cmd; }
+        //    private set { cmd = value; }
+        //}
 
         protected void switchToPanel(MDMPanel pan = null)
         {
@@ -61,6 +61,9 @@ namespace MDM.Controls
                         res += (byte)PanelButton.Undelete;
                         res += (byte)PanelButton.Wipe;
                         break;
+                    case PanelLayout.WFilter:
+                        res += (byte)PanelButton.Filter;
+                        break;
                 }
                 return res;
             }
@@ -77,7 +80,7 @@ namespace MDM.Controls
 
         public virtual void Open(MDMTable dbObject, ToolStripMenuItem panMenu = null, PanelLayout layout = PanelLayout.ReadOnly, string cmd = null) 
         {
-            this.DBObject = dbObject;
+            DBObject = dbObject;
             PanelMenu = panMenu;
             panelLayout = layout;
             Cmd = cmd;

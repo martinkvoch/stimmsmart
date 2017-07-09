@@ -701,13 +701,17 @@ namespace MDM.Controls
                 Application.DoEvents();
                 if(IsHandleCreated && !IsDisposed)
                 {
+                    try
+                    {
 #if LAN
-                    ResponseDG resp = LANFunc.ChRd(Number);
+                        ResponseDG resp = LANFunc.ChRd(Number);
 
-                    if(IsHandleCreated && !IsDisposed) Invoke(new MethodInvoker(delegate { processResponse(resp); }));
+                        if(IsHandleCreated && !IsDisposed) Invoke(new MethodInvoker(delegate { processResponse(resp); }));
 #else
-                    if(IsHandleCreated && !IsDisposed) Invoke(new MethodInvoker(delegate { processResponse(); }));
+                        if(IsHandleCreated && !IsDisposed) this.Invoke(new MethodInvoker(delegate { processResponse(); }));
 #endif
+                    }
+                    catch { }
                     Thread.Sleep(10);
                 }
             }

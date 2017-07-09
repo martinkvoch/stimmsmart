@@ -47,6 +47,7 @@
             this.nbEdit = new System.Windows.Forms.ToolStripButton();
             this.nbWipe = new System.Windows.Forms.ToolStripButton();
             this.nbUndelete = new System.Windows.Forms.ToolStripButton();
+            this.nbFilter = new System.Windows.Forms.ToolStripDropDownButton();
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.dbpDataSet = new MDM.Data.DBDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.dbpNavigator)).BeginInit();
@@ -58,7 +59,6 @@
             // 
             // dbpNavigator
             // 
-            resources.ApplyResources(this.dbpNavigator, "dbpNavigator");
             this.dbpNavigator.AddNewItem = this.nbAddNew;
             this.dbpNavigator.BindingSource = this.bindingSource;
             this.dbpNavigator.CountItem = this.nbCount;
@@ -76,7 +76,9 @@
             this.nbClose,
             this.nbEdit,
             this.nbWipe,
-            this.nbUndelete});
+            this.nbUndelete,
+            this.nbFilter});
+            resources.ApplyResources(this.dbpNavigator, "dbpNavigator");
             this.dbpNavigator.MoveFirstItem = this.nbMoveFirst;
             this.dbpNavigator.MoveLastItem = this.nbMoveLast;
             this.dbpNavigator.MoveNextItem = this.nbMoveNext;
@@ -86,27 +88,27 @@
             // 
             // nbAddNew
             // 
-            resources.ApplyResources(this.nbAddNew, "nbAddNew");
             this.nbAddNew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.nbAddNew, "nbAddNew");
             this.nbAddNew.Name = "nbAddNew";
             this.nbAddNew.Click += new System.EventHandler(this.nbAddNew_Click);
             // 
             // nbCount
             // 
-            resources.ApplyResources(this.nbCount, "nbCount");
             this.nbCount.Name = "nbCount";
+            resources.ApplyResources(this.nbCount, "nbCount");
             // 
             // nbMoveFirst
             // 
-            resources.ApplyResources(this.nbMoveFirst, "nbMoveFirst");
             this.nbMoveFirst.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.nbMoveFirst, "nbMoveFirst");
             this.nbMoveFirst.Name = "nbMoveFirst";
             this.nbMoveFirst.Click += new System.EventHandler(this.nbMoveFirst_Click);
             // 
             // nbMovePrevious
             // 
-            resources.ApplyResources(this.nbMovePrevious, "nbMovePrevious");
             this.nbMovePrevious.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.nbMovePrevious, "nbMovePrevious");
             this.nbMovePrevious.Name = "nbMovePrevious";
             this.nbMovePrevious.Click += new System.EventHandler(this.nbMovePrevious_Click);
             // 
@@ -117,60 +119,65 @@
             // 
             // nbMoveNext
             // 
-            resources.ApplyResources(this.nbMoveNext, "nbMoveNext");
             this.nbMoveNext.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.nbMoveNext, "nbMoveNext");
             this.nbMoveNext.Name = "nbMoveNext";
             this.nbMoveNext.Click += new System.EventHandler(this.nbMoveNext_Click);
             // 
             // nbMoveLast
             // 
-            resources.ApplyResources(this.nbMoveLast, "nbMoveLast");
             this.nbMoveLast.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.nbMoveLast, "nbMoveLast");
             this.nbMoveLast.Name = "nbMoveLast";
             this.nbMoveLast.Click += new System.EventHandler(this.nbMoveLast_Click);
             // 
             // nbDelete
             // 
-            resources.ApplyResources(this.nbDelete, "nbDelete");
             this.nbDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.nbDelete, "nbDelete");
             this.nbDelete.Name = "nbDelete";
             this.nbDelete.Click += new System.EventHandler(this.nbDelete_Click);
             // 
             // nbClose
             // 
-            resources.ApplyResources(this.nbClose, "nbClose");
             this.nbClose.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.nbClose.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.nbClose.Image = global::MDM.Properties.Resources.close16;
             this.nbClose.Name = "nbClose";
+            resources.ApplyResources(this.nbClose, "nbClose");
             this.nbClose.Click += new System.EventHandler(this.nbClose_Click);
             // 
             // nbEdit
             // 
-            resources.ApplyResources(this.nbEdit, "nbEdit");
             this.nbEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.nbEdit.Image = global::MDM.Properties.Resources.edit;
+            resources.ApplyResources(this.nbEdit, "nbEdit");
             this.nbEdit.Name = "nbEdit";
             this.nbEdit.Click += new System.EventHandler(this.nbEdit_Click);
             // 
             // nbWipe
             // 
-            resources.ApplyResources(this.nbWipe, "nbWipe");
             this.nbWipe.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.nbWipe, "nbWipe");
             this.nbWipe.Name = "nbWipe";
             this.nbWipe.Click += new System.EventHandler(this.nbWipe_Click);
             // 
             // nbUndelete
             // 
-            resources.ApplyResources(this.nbUndelete, "nbUndelete");
             this.nbUndelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.nbUndelete.Image = global::MDM.Properties.Resources.yes;
+            resources.ApplyResources(this.nbUndelete, "nbUndelete");
             this.nbUndelete.Name = "nbUndelete";
             this.nbUndelete.Click += new System.EventHandler(this.nbUndelete_Click);
             // 
+            // nbFilter
+            // 
+            this.nbFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            resources.ApplyResources(this.nbFilter, "nbFilter");
+            this.nbFilter.Name = "nbFilter";
+            // 
             // dataGrid
             // 
-            resources.ApplyResources(this.dataGrid, "dataGrid");
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -191,6 +198,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            resources.ApplyResources(this.dataGrid, "dataGrid");
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
@@ -238,5 +246,6 @@
         private Data.DBDataSet dbpDataSet;
         private System.Windows.Forms.ToolStripButton nbWipe;
         private System.Windows.Forms.ToolStripButton nbUndelete;
+        private System.Windows.Forms.ToolStripDropDownButton nbFilter;
     }
 }

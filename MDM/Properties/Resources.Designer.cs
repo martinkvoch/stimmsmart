@@ -1170,6 +1170,16 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap patProc {
+            get {
+                object obj = ResourceManager.GetObject("patProc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cycle.
         /// </summary>
         public static string patSelCycle {
@@ -1293,6 +1303,96 @@ namespace MDM.Properties {
         public static string procAbortQ {
             get {
                 return ResourceManager.GetString("procAbortQ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Channel number.
+        /// </summary>
+        public static string ProcHdrChannel {
+            get {
+                return ResourceManager.GetString("ProcHdrChannel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Date of procedure.
+        /// </summary>
+        public static string ProcHdrDatum {
+            get {
+                return ResourceManager.GetString("ProcHdrDatum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duration of the procedure.
+        /// </summary>
+        public static string ProcHdrDuration {
+            get {
+                return ResourceManager.GetString("ProcHdrDuration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Operator.
+        /// </summary>
+        public static string ProcHdrOperator {
+            get {
+                return ResourceManager.GetString("ProcHdrOperator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patient.
+        /// </summary>
+        public static string ProcHdrPatient {
+            get {
+                return ResourceManager.GetString("ProcHdrPatient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Result of completation.
+        /// </summary>
+        public static string ProcHdrResult {
+            get {
+                return ResourceManager.GetString("ProcHdrResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Erroneously.
+        /// </summary>
+        public static string ProcResultFailed {
+            get {
+                return ResourceManager.GetString("ProcResultFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal.
+        /// </summary>
+        public static string ProcResultFinished {
+            get {
+                return ResourceManager.GetString("ProcResultFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Only launched.
+        /// </summary>
+        public static string ProcResultInitiated {
+            get {
+                return ResourceManager.GetString("ProcResultInitiated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prematurely.
+        /// </summary>
+        public static string ProcResultPrematurely {
+            get {
+                return ResourceManager.GetString("ProcResultPrematurely", resourceCulture);
             }
         }
         

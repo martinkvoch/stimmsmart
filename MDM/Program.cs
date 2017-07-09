@@ -100,7 +100,7 @@ namespace MDM
         #endregion
 
         #region Utility pro Exit/Restart: AppExit(), Restart(), Shutdown()
-        static void AppExit(object sender, EventArgs e)
+        public static void AppExit(object sender, EventArgs e)
         {
             if(!KeepRunning)
             {

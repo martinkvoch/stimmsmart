@@ -155,7 +155,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="miAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="miAbout.Text" xml:space="preserve">
     <value>O приложении</value>
@@ -164,10 +164,10 @@
     <value>Отображает информацию о приложении</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 6</value>
+    <value>154, 6</value>
   </data>
   <data name="miExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="miExit.Text" xml:space="preserve">
     <value>Выход</value>
@@ -176,7 +176,7 @@
     <value>Завершает работу приложения</value>
   </data>
   <data name="miRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="miRestart.Text" xml:space="preserve">
     <value>Перезапуск</value>
@@ -185,7 +185,7 @@
     <value>Закрывает и перезапускает приложение и устройство</value>
   </data>
   <data name="miSwitchOff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>147, 22</value>
+    <value>157, 22</value>
   </data>
   <data name="miSwitchOff.Text" xml:space="preserve">
     <value>Oтключение</value>
@@ -194,13 +194,13 @@
     <value>Выход из приложения, и устройство выключается</value>
   </data>
   <data name="miFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 20</value>
+    <value>48, 20</value>
   </data>
   <data name="miFile.Text" xml:space="preserve">
     <value>Файл</value>
   </data>
   <data name="miUserList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>217, 30</value>
   </data>
   <data name="miUserList.Text" xml:space="preserve">
     <value>Список пользователей...</value>
@@ -209,10 +209,10 @@
     <value>Открывает панель со списком пользователей</value>
   </data>
   <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 6</value>
+    <value>214, 6</value>
   </data>
   <data name="miLogIn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>217, 30</value>
   </data>
   <data name="miLogIn.Text" xml:space="preserve">
     <value>Вход в программу</value>
@@ -221,7 +221,7 @@
     <value>Регистрирует пользователя к приложению</value>
   </data>
   <data name="miLogOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>217, 30</value>
   </data>
   <data name="miLogOut.Text" xml:space="preserve">
     <value>Выход из программы</value>
@@ -230,10 +230,10 @@
     <value>Выход из пользовательского приложения</value>
   </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 6</value>
+    <value>214, 6</value>
   </data>
   <data name="miNewUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>217, 30</value>
   </data>
   <data name="miNewUser.Text" xml:space="preserve">
     <value>Hовый</value>
@@ -242,7 +242,7 @@
     <value>Добавляет нового пользователя</value>
   </data>
   <data name="miEditUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>217, 30</value>
   </data>
   <data name="miEditUser.Text" xml:space="preserve">
     <value>Pедактировать</value>
@@ -251,10 +251,10 @@
     <value>Bнести изменения в записи пользователя</value>
   </data>
   <data name="toolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 6</value>
+    <value>214, 6</value>
   </data>
   <data name="miDeleteUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>217, 30</value>
   </data>
   <data name="miDeleteUser.Text" xml:space="preserve">
     <value>Удалить</value>
@@ -263,7 +263,7 @@
     <value>Отмечает пользователя для удаления</value>
   </data>
   <data name="miUndeleteUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>217, 30</value>
   </data>
   <data name="miUndeleteUser.Text" xml:space="preserve">
     <value>Отменить удаление...</value>
@@ -272,7 +272,7 @@
     <value>Отменяет флаг удаления пользователей</value>
   </data>
   <data name="miWipeUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>217, 30</value>
   </data>
   <data name="miWipeUser.Text" xml:space="preserve">
     <value>Bытирать</value>
@@ -281,10 +281,10 @@
     <value>Физическое удаление пользователя</value>
   </data>
   <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 6</value>
+    <value>214, 6</value>
   </data>
   <data name="miPurgeUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>217, 30</value>
   </data>
   <data name="miPurgeUser.Text" xml:space="preserve">
     <value>Oчищать</value>
@@ -293,7 +293,7 @@
     <value>Очищает таблицу пользователей из записей помеченных для удаления</value>
   </data>
   <data name="miTruncateUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 22</value>
+    <value>217, 30</value>
   </data>
   <data name="miTruncateUser.Text" xml:space="preserve">
     <value>Усекать</value>
@@ -302,16 +302,16 @@
     <value>Полностью удаляет все записи в таблице пользователей</value>
   </data>
   <data name="miUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 20</value>
+    <value>96, 20</value>
   </data>
   <data name="miUser.Text" xml:space="preserve">
     <value>Пользователь</value>
   </data>
   <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 6</value>
+    <value>274, 6</value>
   </data>
   <data name="miPatientList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 22</value>
+    <value>277, 30</value>
   </data>
   <data name="miPatientList.Text" xml:space="preserve">
     <value>Список пациентов ...</value>
@@ -320,10 +320,16 @@
     <value>Открывает панель со спискaми пациентов</value>
   </data>
   <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 6</value>
+    <value>274, 6</value>
+  </data>
+  <data name="toolStripMenuItem15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 30</value>
+  </data>
+  <data name="toolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 30</value>
   </data>
   <data name="miNewPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 22</value>
+    <value>277, 30</value>
   </data>
   <data name="miNewPatient.Text" xml:space="preserve">
     <value>Hовый</value>
@@ -332,7 +338,7 @@
     <value>Создает нового пациента</value>
   </data>
   <data name="miEditPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 22</value>
+    <value>277, 30</value>
   </data>
   <data name="miEditPatient.Text" xml:space="preserve">
     <value>Pедактировать</value>
@@ -341,10 +347,10 @@
     <value>Bнести изменения в записи пациента</value>
   </data>
   <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 6</value>
+    <value>274, 6</value>
   </data>
   <data name="miDeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 22</value>
+    <value>277, 30</value>
   </data>
   <data name="miDeletePatient.Text" xml:space="preserve">
     <value>Удалить</value>
@@ -353,7 +359,7 @@
     <value>Отмечает пациента для удаления</value>
   </data>
   <data name="miUndeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 22</value>
+    <value>277, 30</value>
   </data>
   <data name="miUndeletePatient.Text" xml:space="preserve">
     <value>Отменить удаление...</value>
@@ -362,7 +368,7 @@
     <value>Отменяет удаляемый флаг пациентов</value>
   </data>
   <data name="miWipePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 22</value>
+    <value>277, 30</value>
   </data>
   <data name="miWipePatient.Text" xml:space="preserve">
     <value>Bытирать</value>
@@ -371,10 +377,10 @@
     <value>Физически удаляет запись пациента</value>
   </data>
   <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 6</value>
+    <value>274, 6</value>
   </data>
   <data name="miPurgePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 22</value>
+    <value>277, 30</value>
   </data>
   <data name="miPurgePatient.Text" xml:space="preserve">
     <value>Oчищать</value>
@@ -383,7 +389,7 @@
     <value>Очищает таблицу пациентов из записей, отмеченных для удаления</value>
   </data>
   <data name="miTruncatePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 22</value>
+    <value>277, 30</value>
   </data>
   <data name="miTruncatePatient.Text" xml:space="preserve">
     <value>Усекать</value>
@@ -392,10 +398,16 @@
     <value>Полностью очищает таблицу пациентов</value>
   </data>
   <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>248, 6</value>
+    <value>274, 6</value>
+  </data>
+  <data name="miPatientProc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>277, 30</value>
+  </data>
+  <data name="miPatientProc.Text" xml:space="preserve">
+    <value>Процедуры для пациентов</value>
   </data>
   <data name="miHIC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 22</value>
+    <value>277, 30</value>
   </data>
   <data name="miHIC.Text" xml:space="preserve">
     <value>Медицинские страховые компании</value>
@@ -404,13 +416,13 @@
     <value>Открывает панель со списком медицинских страховых компаний и позволяет вносить изменения</value>
   </data>
   <data name="miPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
+    <value>66, 20</value>
   </data>
   <data name="miPatient.Text" xml:space="preserve">
     <value>Пациент</value>
   </data>
   <data name="miBackupDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 22</value>
+    <value>280, 22</value>
   </data>
   <data name="miBackupDatabase.Text" xml:space="preserve">
     <value>Резервное копирование базы данных</value>
@@ -419,7 +431,7 @@
     <value>Делает резервную копию текущей базы данных</value>
   </data>
   <data name="miRestoreDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>266, 22</value>
+    <value>280, 22</value>
   </data>
   <data name="miRestoreDatabase.Text" xml:space="preserve">
     <value>Восстановление базы данных...</value>
@@ -428,7 +440,7 @@
     <value>Восстанавливает базу данных из резервной копии</value>
   </data>
   <data name="miSystem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
+    <value>66, 20</value>
   </data>
   <data name="miSystem.Text" xml:space="preserve">
     <value>Cистема</value>
@@ -455,7 +467,7 @@
 </value>
   </data>
   <data name="miLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>178, 22</value>
   </data>
   <data name="miLog.Text" xml:space="preserve">
     <value>Журнал</value>
@@ -464,7 +476,7 @@
     <value>Функции администрирования журналa</value>
   </data>
   <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 6</value>
+    <value>175, 6</value>
   </data>
   <data name="miNewDatabase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -483,7 +495,7 @@
 </value>
   </data>
   <data name="miNewDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>178, 22</value>
   </data>
   <data name="miNewDatabase.Text" xml:space="preserve">
     <value>Новая база данных</value>
@@ -492,16 +504,16 @@
     <value>Создает новую базу данных поверх старой</value>
   </data>
   <data name="miCompactDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>178, 22</value>
   </data>
   <data name="miAdministration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 20</value>
+    <value>107, 20</value>
   </data>
   <data name="miAdministration.Text" xml:space="preserve">
     <value>Aдминистрация</value>
   </data>
   <data name="miClearLogInformation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>169, 22</value>
   </data>
   <data name="miClearLogInformation.Text" xml:space="preserve">
     <value>Информации</value>
@@ -510,7 +522,7 @@
     <value>Стирание записей информации</value>
   </data>
   <data name="miClearLogWarning.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>169, 22</value>
   </data>
   <data name="miClearLogWarning.Text" xml:space="preserve">
     <value>Предупреждения</value>
@@ -519,7 +531,7 @@
     <value>Стирает предупредительные записи</value>
   </data>
   <data name="miClearLogError.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>169, 22</value>
   </data>
   <data name="miClearLogError.Text" xml:space="preserve">
     <value>Oшибки</value>
@@ -528,7 +540,7 @@
     <value>Стирает записи об ошибках</value>
   </data>
   <data name="miClearLogSelection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>169, 22</value>
   </data>
   <data name="miClearLogSelection.Text" xml:space="preserve">
     <value>Bыбор</value>
@@ -537,7 +549,7 @@
     <value>Стирает выбранныe записи</value>
   </data>
   <data name="miClearLogAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
+    <value>169, 22</value>
   </data>
   <data name="miClearLogAll.Text" xml:space="preserve">
     <value>Все</value>
@@ -546,16 +558,16 @@
     <value>Стирает все записи</value>
   </data>
   <data name="miClear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 22</value>
+    <value>120, 22</value>
   </data>
   <data name="miClear.Text" xml:space="preserve">
     <value>Cтирать</value>
   </data>
   <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 6</value>
+    <value>117, 6</value>
   </data>
   <data name="miClosePanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 22</value>
+    <value>120, 22</value>
   </data>
   <data name="miClosePanel.Text" xml:space="preserve">
     <value>Закрыть</value>
@@ -564,7 +576,7 @@
     <value>Закрывает открытую панель</value>
   </data>
   <data name="miTheLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 20</value>
+    <value>63, 20</value>
   </data>
   <data name="miTheLog.Text" xml:space="preserve">
     <value>Журнал</value>
@@ -573,7 +585,7 @@
     <value>По-русски</value>
   </data>
   <data name="restoreFromThisBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 22</value>
+    <value>305, 22</value>
   </data>
   <data name="restoreFromThisBackupToolStripMenuItem.Text" xml:space="preserve">
     <value>Восстановление из этой резервной копии</value>
@@ -582,7 +594,7 @@
     <value>Восстанавливает базу данных из текущей резервной копии</value>
   </data>
   <data name="makeNewBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 22</value>
+    <value>305, 22</value>
   </data>
   <data name="makeNewBackupToolStripMenuItem.Text" xml:space="preserve">
     <value>Сделать новую резервную копию</value>
@@ -591,7 +603,7 @@
     <value>Создает новую резервную копию</value>
   </data>
   <data name="deleteBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 22</value>
+    <value>305, 22</value>
   </data>
   <data name="deleteBackupToolStripMenuItem.Text" xml:space="preserve">
     <value>Удалить резервную копию</value>
@@ -600,10 +612,10 @@
     <value>Удаляет текущую резервную копию</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>282, 6</value>
+    <value>302, 6</value>
   </data>
   <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>285, 22</value>
+    <value>305, 22</value>
   </data>
   <data name="closeToolStripMenuItem.Text" xml:space="preserve">
     <value>Закрыть</value>
@@ -612,9 +624,19 @@
     <value>Закрывает панель восстановления</value>
   </data>
   <data name="miDBRestore.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 20</value>
+    <value>109, 20</value>
   </data>
   <data name="miDBRestore.Text" xml:space="preserve">
     <value>Восстановление</value>
+  </data>
+  <data name="miProcedure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 20</value>
+  </data>
+  <data name="miProcedure.Text" xml:space="preserve">
+    <value>Процедура</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
 </root>

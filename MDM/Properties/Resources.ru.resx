@@ -579,4 +579,34 @@
   <data name="noPatientHdr" xml:space="preserve">
     <value>Нет пациентов</value>
   </data>
+  <data name="ProcHdrChannel" xml:space="preserve">
+    <value>Номер канала</value>
+  </data>
+  <data name="ProcHdrDatum" xml:space="preserve">
+    <value>Дата процедуры</value>
+  </data>
+  <data name="ProcHdrDuration" xml:space="preserve">
+    <value>Продолжительность процедуры</value>
+  </data>
+  <data name="ProcHdrOperator" xml:space="preserve">
+    <value>Oператор</value>
+  </data>
+  <data name="ProcHdrPatient" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="ProcHdrResult" xml:space="preserve">
+    <value>Результат завершения</value>
+  </data>
+  <data name="ProcResultFailed" xml:space="preserve">
+    <value>Ошибочно</value>
+  </data>
+  <data name="ProcResultFinished" xml:space="preserve">
+    <value>Нормальный</value>
+  </data>
+  <data name="ProcResultInitiated" xml:space="preserve">
+    <value>Только запущено</value>
+  </data>
+  <data name="ProcResultPrematurely" xml:space="preserve">
+    <value>Преждевременное</value>
+  </data>
 </root>

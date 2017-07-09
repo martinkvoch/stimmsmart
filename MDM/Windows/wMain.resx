@@ -214,7 +214,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ssMain.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <metadata name="tsMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>236, 17</value>
@@ -316,7 +316,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tsMain.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="miAbout.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -375,8 +375,11 @@
   <data name="miFile.Text" xml:space="preserve">
     <value>File</value>
   </data>
+  <data name="miUserList.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="miUserList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>153, 30</value>
   </data>
   <data name="miUserList.Text" xml:space="preserve">
     <value>List of users...</value>
@@ -385,10 +388,13 @@
     <value>Opens the panel with list of users</value>
   </data>
   <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 6</value>
+    <value>150, 6</value>
+  </data>
+  <data name="miLogIn.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="miLogIn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>153, 30</value>
   </data>
   <data name="miLogIn.Text" xml:space="preserve">
     <value>Log in</value>
@@ -396,8 +402,11 @@
   <data name="miLogIn.ToolTipText" xml:space="preserve">
     <value>Performs a user logs on to the application</value>
   </data>
+  <data name="miLogOut.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="miLogOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>153, 30</value>
   </data>
   <data name="miLogOut.Text" xml:space="preserve">
     <value>Log out</value>
@@ -406,10 +415,13 @@
     <value>Performs user logout from application</value>
   </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 6</value>
+    <value>150, 6</value>
+  </data>
+  <data name="miNewUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="miNewUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>153, 30</value>
   </data>
   <data name="miNewUser.Text" xml:space="preserve">
     <value>New</value>
@@ -417,8 +429,11 @@
   <data name="miNewUser.ToolTipText" xml:space="preserve">
     <value>Adds a new user</value>
   </data>
+  <data name="miEditUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="miEditUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>153, 30</value>
   </data>
   <data name="miEditUser.Text" xml:space="preserve">
     <value>Edit</value>
@@ -427,10 +442,13 @@
     <value>Modifies the user's parameters</value>
   </data>
   <data name="toolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 6</value>
+    <value>150, 6</value>
+  </data>
+  <data name="miDeleteUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="miDeleteUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>153, 30</value>
   </data>
   <data name="miDeleteUser.Text" xml:space="preserve">
     <value>Delete</value>
@@ -438,8 +456,11 @@
   <data name="miDeleteUser.ToolTipText" xml:space="preserve">
     <value>Marks the user for deletion</value>
   </data>
+  <data name="miUndeleteUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="miUndeleteUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>153, 30</value>
   </data>
   <data name="miUndeleteUser.Text" xml:space="preserve">
     <value>Undelete...</value>
@@ -447,8 +468,11 @@
   <data name="miUndeleteUser.ToolTipText" xml:space="preserve">
     <value>The denomination to delete user</value>
   </data>
+  <data name="miWipeUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="miWipeUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>153, 30</value>
   </data>
   <data name="miWipeUser.Text" xml:space="preserve">
     <value>Wipe</value>
@@ -457,10 +481,13 @@
     <value>Physically deletes the user</value>
   </data>
   <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 6</value>
+    <value>150, 6</value>
+  </data>
+  <data name="miPurgeUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="miPurgeUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>153, 30</value>
   </data>
   <data name="miPurgeUser.Text" xml:space="preserve">
     <value>Purge</value>
@@ -468,8 +495,11 @@
   <data name="miPurgeUser.ToolTipText" xml:space="preserve">
     <value>Cleanses the table of users from the records marked for deletion</value>
   </data>
+  <data name="miTruncateUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="miTruncateUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+    <value>153, 30</value>
   </data>
   <data name="miTruncateUser.Text" xml:space="preserve">
     <value>Truncate</value>
@@ -484,10 +514,13 @@
     <value>User</value>
   </data>
   <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 6</value>
+    <value>231, 6</value>
+  </data>
+  <data name="miPatientList.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="miPatientList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>234, 30</value>
   </data>
   <data name="miPatientList.Text" xml:space="preserve">
     <value>List of Patients...</value>
@@ -496,10 +529,13 @@
     <value>Opens the panel with list of patients</value>
   </data>
   <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 6</value>
+    <value>231, 6</value>
+  </data>
+  <data name="miNewPatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="miNewPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>234, 30</value>
   </data>
   <data name="miNewPatient.Text" xml:space="preserve">
     <value>New</value>
@@ -507,8 +543,11 @@
   <data name="miNewPatient.ToolTipText" xml:space="preserve">
     <value>Adds a new patient</value>
   </data>
+  <data name="miEditPatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="miEditPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>234, 30</value>
   </data>
   <data name="miEditPatient.Text" xml:space="preserve">
     <value>Edit</value>
@@ -517,10 +556,13 @@
     <value>Makes changes on patient's record</value>
   </data>
   <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 6</value>
+    <value>231, 6</value>
+  </data>
+  <data name="miDeletePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="miDeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>234, 30</value>
   </data>
   <data name="miDeletePatient.Text" xml:space="preserve">
     <value>Delete</value>
@@ -528,8 +570,11 @@
   <data name="miDeletePatient.ToolTipText" xml:space="preserve">
     <value>Marks the patient record for deletion</value>
   </data>
+  <data name="miUndeletePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="miUndeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>234, 30</value>
   </data>
   <data name="miUndeletePatient.Text" xml:space="preserve">
     <value>Undelete...</value>
@@ -537,8 +582,11 @@
   <data name="miUndeletePatient.ToolTipText" xml:space="preserve">
     <value>The denomination to delete patient record</value>
   </data>
+  <data name="miWipePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="miWipePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>234, 30</value>
   </data>
   <data name="miWipePatient.Text" xml:space="preserve">
     <value>Wipe</value>
@@ -547,10 +595,13 @@
     <value>Physically deletes the patient record</value>
   </data>
   <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 6</value>
+    <value>231, 6</value>
+  </data>
+  <data name="miPurgePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="miPurgePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>234, 30</value>
   </data>
   <data name="miPurgePatient.Text" xml:space="preserve">
     <value>Purge</value>
@@ -558,8 +609,11 @@
   <data name="miPurgePatient.ToolTipText" xml:space="preserve">
     <value>Cleanses the table of patients from the records marked for deletion</value>
   </data>
+  <data name="miTruncatePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="miTruncatePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>234, 30</value>
   </data>
   <data name="miTruncatePatient.Text" xml:space="preserve">
     <value>Truncate</value>
@@ -568,13 +622,22 @@
     <value>Completely empties table of patients</value>
   </data>
   <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 6</value>
+    <value>231, 6</value>
+  </data>
+  <data name="miPatientProc.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miPatientProc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 30</value>
+  </data>
+  <data name="miPatientProc.Text" xml:space="preserve">
+    <value>Patient Procedures</value>
   </data>
   <data name="miHIC.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="miHIC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>226, 22</value>
+    <value>234, 30</value>
   </data>
   <data name="miHIC.Text" xml:space="preserve">
     <value>Health Insurance Companies</value>
@@ -785,7 +848,7 @@
     <value>None</value>
   </data>
   <data name="miLangCS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="miLangCS.Text" xml:space="preserve">
     <value>Čeština</value>
@@ -794,7 +857,7 @@
     <value>None</value>
   </data>
   <data name="miLangEN.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="miLangEN.Text" xml:space="preserve">
     <value>English</value>
@@ -803,7 +866,7 @@
     <value>None</value>
   </data>
   <data name="miLangRU.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="miLangRU.Text" xml:space="preserve">
     <value>Pусский</value>
@@ -877,6 +940,15 @@
   <data name="miDBRestore.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="miProcedure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
+  </data>
+  <data name="miProcedure.Text" xml:space="preserve">
+    <value>Procedure</value>
+  </data>
+  <data name="miProcedure.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="msMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -899,7 +971,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;msMain.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="logoBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -926,10 +998,31 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logoBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panProcedure.Location" type="System.Drawing.Point, System.Drawing">
+    <value>232, 48</value>
+  </data>
+  <data name="panProcedure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 346</value>
+  </data>
+  <data name="panProcedure.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;panProcedure.Name" xml:space="preserve">
+    <value>panProcedure</value>
+  </data>
+  <data name="&gt;&gt;panProcedure.Type" xml:space="preserve">
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6399.37590, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;panProcedure.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panProcedure.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="panPatient.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 48</value>
+    <value>180, 48</value>
   </data>
   <data name="panPatient.Size" type="System.Drawing.Size, System.Drawing">
     <value>368, 346</value>
@@ -941,13 +1034,13 @@
     <value>panPatient</value>
   </data>
   <data name="&gt;&gt;panPatient.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6397.28303, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6399.37590, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panPatient.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panPatient.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="panHIC.Location" type="System.Drawing.Point, System.Drawing">
     <value>156, 50</value>
@@ -962,13 +1055,13 @@
     <value>panHIC</value>
   </data>
   <data name="&gt;&gt;panHIC.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6397.28303, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6399.37590, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panHIC.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panHIC.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="panUser.Location" type="System.Drawing.Point, System.Drawing">
     <value>120, 48</value>
@@ -983,13 +1076,13 @@
     <value>panUser</value>
   </data>
   <data name="&gt;&gt;panUser.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6397.28303, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6399.37590, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panUser.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panUser.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="panDBRestore.Location" type="System.Drawing.Point, System.Drawing">
     <value>72, 48</value>
@@ -1004,13 +1097,13 @@
     <value>panDBRestore</value>
   </data>
   <data name="&gt;&gt;panDBRestore.Type" xml:space="preserve">
-    <value>MDM.Controls.dbRestorePanel, MDM, Version=1.0.6397.28303, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.dbRestorePanel, MDM, Version=1.0.6399.37590, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panDBRestore.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panDBRestore.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="panLog.Location" type="System.Drawing.Point, System.Drawing">
     <value>32, 48</value>
@@ -1025,13 +1118,13 @@
     <value>panLog</value>
   </data>
   <data name="&gt;&gt;panLog.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6397.28303, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6399.37590, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panLog.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panLog.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="panMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 48</value>
@@ -1046,13 +1139,13 @@
     <value>panMain</value>
   </data>
   <data name="&gt;&gt;panMain.Type" xml:space="preserve">
-    <value>MDM.Controls.mainPanel, MDM, Version=1.0.6397.28303, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.mainPanel, MDM, Version=1.0.6399.37590, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panMain.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panMain.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1348,6 +1441,12 @@
   <data name="&gt;&gt;toolStripMenuItem13.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;miPatientProc.Name" xml:space="preserve">
+    <value>miPatientProc</value>
+  </data>
+  <data name="&gt;&gt;miPatientProc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;miHIC.Name" xml:space="preserve">
     <value>miHIC</value>
   </data>
@@ -1514,6 +1613,12 @@
     <value>closeToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;closeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miProcedure.Name" xml:space="preserve">
+    <value>miProcedure</value>
+  </data>
+  <data name="&gt;&gt;miProcedure.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

@@ -85,6 +85,7 @@ namespace MDM.Windows
             InitializeComponent();
             constructMiLang();
             Language = lang ?? settings.lang;
+            setMILang();
             Text = Resources.AppName;
             using(Log log = new Log()) panLog.DBObject = log;
             SwitchToPanel();
@@ -173,6 +174,7 @@ namespace MDM.Windows
                     timer.Stop();
                     timer.Dispose();
                     timer = null;
+                    Program.AppExit(null, null);
                 }
             }
         }
@@ -251,7 +253,7 @@ namespace MDM.Windows
 
         private void miUserList_Click(object sender, EventArgs e)
         {
-            using(User usr = new User()) panUser.Open(usr, null, PanelLayout.Edit);
+            using(User usr = new User()) panUser.Open(usr, PanelLayout.Edit);
             updUserButtons();
         }
 
@@ -288,7 +290,6 @@ namespace MDM.Windows
             else signOutUser();
         }
 
-        //TODO: nefunguje změna jazyka!
         private void miLogIn_Click(object sender, EventArgs e)
         {
             using(wLogin frm = new wLogin())
@@ -301,7 +302,7 @@ namespace MDM.Windows
                         Program.LoggedUser = frm.User;
                         signInUser();
                         Log.InfoToLog(login, string.Format(Resources.signedInUser, lbUser.Text));
-                        //Language = Program.LoggedUser.Language;
+                        Language = Program.LoggedUser.Language;
                         break;
                     case DialogResult.Cancel:
                         if(userLogged) signedOut(Resources.signedOutMsg);
@@ -355,7 +356,7 @@ namespace MDM.Windows
 
         private void miUndeleteUser_Click(object sender, EventArgs e)
         {
-            using(User usr = new User()) panUser.Open(usr, null, PanelLayout.Undelete, usr.SelectDeleted());
+            using(User usr = new User()) panUser.Open(usr, PanelLayout.Undelete, usr.SelectDeleted());
             updUserButtons(true);
         }
 
@@ -395,7 +396,7 @@ namespace MDM.Windows
 
         private void miPatientList_Click(object sender, EventArgs e)
         {
-            using(Patient pat = new Patient()) panPatient.Open(pat, null, Program.LoggedUser.Role == UserRole.User ? PanelLayout.WODelete : PanelLayout.Edit);
+            using(Patient pat = new Patient()) panPatient.Open(pat, Program.LoggedUser.Role == UserRole.User ? PanelLayout.WODelete : PanelLayout.Edit);
             updPatientButtons();
         }
 
@@ -435,7 +436,7 @@ namespace MDM.Windows
 
         private void miUndeletePatient_Click(object sender, EventArgs e)
         {
-            using(Patient pat = new Patient()) panPatient.Open(pat, null, PanelLayout.Undelete, pat.SelectDeleted());
+            using(Patient pat = new Patient()) panPatient.Open(pat, PanelLayout.Undelete, pat.SelectDeleted());
             updPatientButtons(true);
         }
 
@@ -465,9 +466,15 @@ namespace MDM.Windows
             updPatientButtons();
         }
 
+        private void miPatientProc_Click(object sender, EventArgs e)
+        {
+            using(Procedure proc = new Procedure()) panProcedure.Open(proc, miProcedure, PanelLayout.WFilter);
+            updPatientButtons(true);
+        }
+
         private void miHIC_Click(object sender, EventArgs e)
         {
-            using(HIC hic = new HIC()) panHIC.Open(hic, null, PanelLayout.Edit);
+            using(HIC hic = new HIC()) panHIC.Open(hic, PanelLayout.Edit);
         }
         #endregion
 

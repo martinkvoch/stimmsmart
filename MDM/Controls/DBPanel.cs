@@ -25,16 +25,18 @@ namespace MDM.Controls
             nbEdit.Visible = ((layout & (int)PanelButton.Edit) != 0);
             nbWipe.Visible = ((layout & (int)PanelButton.Undelete) != 0);
             nbUndelete.Visible = ((layout & (int)PanelButton.Undelete) != 0);
+            nbFilter.Visible = ((layout & (int)PanelButton.Filter) != 0);
         }
 
         private void setButtons()
         {
-            bool enabled = (dataGrid.Rows.Count > 0) && !object.ReferenceEquals(dataGrid.Rows[0].Cells[0].Value, null);
+            bool enabled = (dataGrid.Rows.Count > 0) && !ReferenceEquals(dataGrid.Rows[0].Cells[0].Value, null);
 
             if((PanelButtons & (int)PanelButton.Delete) > 0) nbDelete.Enabled = enabled;
             if((PanelButtons & (int)PanelButton.Edit) > 0) nbEdit.Enabled = enabled;
             if((PanelButtons & (int)PanelButton.Wipe) > 0) nbWipe.Enabled = enabled;
             if((PanelButtons & (int)PanelButton.Undelete) > 0) nbUndelete.Enabled = enabled;
+            if((PanelButtons & (int)PanelButton.Filter) > 0) nbFilter.Enabled = enabled;
         }
         #endregion
 
@@ -78,6 +80,16 @@ namespace MDM.Controls
             base.Open(dbt, panMenu, layout, cmd);
             setLayout();
             Fill(Cmd);
+        }
+
+        public void Open(MDMTable dbt, ToolStripMenuItem panMenu, string cmd = null)
+        {
+            Open(dbt, panMenu, PanelLayout.ReadOnly, cmd);
+        }
+
+        public void Open(MDMTable dbt, PanelLayout layout, string cmd = null)
+        {
+            Open(dbt, null, layout, cmd);
         }
 
         /// <summary>

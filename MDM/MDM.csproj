@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\StimSmart\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;LAN</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;xLAN</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -490,6 +490,7 @@
   <ItemGroup>
     <Content Include="Libs\Ionic.Zip.Reduced.dll" />
     <Content Include="Resources\deluser.png" />
+    <None Include="Resources\patProc.png" />
     <None Include="Resources\stop_red1.png" />
     <None Include="Resources\stop_red.png" />
     <None Include="Resources\gr.png" />
