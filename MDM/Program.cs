@@ -100,7 +100,7 @@ namespace MDM
         #endregion
 
         #region Utility pro Exit/Restart: AppExit(), Restart(), Shutdown()
-        public static void AppExit(object sender, EventArgs e)
+        private static void appExit(object sender, EventArgs e)
         {
             if(!KeepRunning)
             {
@@ -116,7 +116,7 @@ namespace MDM
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
             Log.InfoToLog(methodName, Resources.restartMsg);
-            AppExit(null, null);
+            appExit(null, null);
             Environment.Exit(0);
         }
 
@@ -125,7 +125,7 @@ namespace MDM
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
             Log.InfoToLog(methodName, Resources.shutdownMsg);
-            AppExit(null, null);
+            appExit(null, null);
             Environment.Exit(0);
         }
         #endregion
@@ -148,7 +148,7 @@ namespace MDM
             //Procedure.Init();
             //Log.Init();
             ShowSplash(true);
-            Application.ApplicationExit += AppExit;
+            Application.ApplicationExit += appExit;
             KeepRunning = false;
             while(true)
             {

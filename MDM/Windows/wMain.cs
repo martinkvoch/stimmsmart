@@ -174,7 +174,6 @@ namespace MDM.Windows
                     timer.Stop();
                     timer.Dispose();
                     timer = null;
-                    Program.AppExit(null, null);
                 }
             }
         }

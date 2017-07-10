@@ -15,7 +15,7 @@ namespace MDM.Controls
 {
     public enum ChannelStatus { Disabled, Inactive, Active, Ready, InProgress, SetCurrent, HighResistance, Paused, Restored/*, Error*/, Inaccessible, Disconnected }
 
-    #region struct SelectedPatient
+#region struct SelectedPatient
     public struct SelectedPatient
     {
         public int ID, ProcID;
@@ -32,14 +32,14 @@ namespace MDM.Controls
             CycleNum = cycleNum;
         }
     }
-    #endregion
+#endregion
 
     /// <summary>
     /// Vizualizace jednoho kanálu přístroje MDM
     /// </summary>
     public partial class Channel : UserControl
     {
-        private string[] aStatus = new string[] { "DI", "IN", "AC", "RD", "IP", "SC", "HR", "PA", "RE", "ER", "IA", "DC" };
+        //private string[] aStatus = new string[] { "DI", "IN", "AC", "RD", "IP", "SC", "HR", "PA", "RE", "ER", "IA", "DC" };
         internal const int NoSelection = -1;
         private word procDuration = (word)new Settings().ProcDur;
         private word elapsed = word.MaxValue;
@@ -49,19 +49,19 @@ namespace MDM.Controls
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
 
 #region Vlastnosti
-        #region Number
+#region Number
         private byte chNum = 0;
         /// <summary>
         /// Číslo kanálu (1 - 6).
         /// </summary>
         public byte Number { get { return chNum; } }
-        #endregion
+#endregion
 
-        #region Channels
+#region Channels
         public Channels Channels { get; set; }
-        #endregion
+#endregion
 
-        #region Status
+#region Status
         private ChannelStatus status = ChannelStatus.Disabled, oldStatus = ChannelStatus.Disabled;
         /// <summary>
         /// Aktuální stav kanálu.
@@ -93,9 +93,9 @@ namespace MDM.Controls
                 }
             }
         }
-        #endregion
+#endregion
 
-        #region Patient
+#region Patient
         private SelectedPatient patient = new SelectedPatient();
         /// <summary>
         /// Pacient vybraný k proceduře.
@@ -120,9 +120,9 @@ namespace MDM.Controls
             get { return Patient.ProcID; }
             set { patient = new SelectedPatient(Patient.ID, value, Patient.Name, Patient.Diagnosis, Patient.ProcNum, Patient.CycleNum); }
         }
-        #endregion
+#endregion
 
-        #region Current
+#region Current
         private const double maxmA = 4D;
         private double _current = 0D, curstep = maxmA / 256D; // 0,015625 mA
         private volatile byte actCur = 0, toBeSet = 0;
@@ -164,9 +164,9 @@ namespace MDM.Controls
                 }
             }
         }
-        #endregion
+#endregion
 
-        #region Elapsed
+#region Elapsed
         /// <summary>
         /// Čas strávený procedurou nad vybraným pacientem.
         /// </summary>
@@ -191,9 +191,9 @@ namespace MDM.Controls
         ///// Čas, který zbývá vykonat do ukončení procedury.
         ///// </summary>
         //public word Remained { get { return Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored ? (word)(procDuration - elapsed) : procDuration; } }
-        #endregion
+#endregion
 
-        #region LEDBits
+#region LEDBits
         private Bits ledBits = new Bits();
         private Bits LEDBits
         {
@@ -213,14 +213,14 @@ namespace MDM.Controls
                 }
             }
         }
-        #endregion
+#endregion
 
-        #region InOrder
+#region InOrder
         public bool InOrder
         {
             get { return status == ChannelStatus.InProgress || status == ChannelStatus.SetCurrent || status == ChannelStatus.Restored || status == ChannelStatus.Paused; }
         }
-        #endregion
+#endregion
 #endregion
 
 #region Konstruktor a destruktor
@@ -291,6 +291,22 @@ namespace MDM.Controls
         internal void LedBlue(bool blink = false) { led(DioReg.LedB, blink); }
         internal void LedOff() { led(DioReg.LedOff, false); }
 
+        private void currDecr(int dc)
+        {
+            int ac = actCur;
+
+            while((ac - dc) < 0) dc--;
+            actCur = (byte)(ac - dc);
+        }
+
+        private void currIncr(int ic)
+        {
+            int ac = actCur;
+
+            while((ac + ic) > toBeSet) ic--;
+            actCur = (byte)(ac + ic);
+        }
+
 #if LAN
         private void processMBStatus(ResponseDG resp)
         {
@@ -316,22 +332,6 @@ namespace MDM.Controls
                 }
                 if(!string.IsNullOrEmpty(msg)) DialogBox.ShowError(msg, string.Format(Resources.chStatusErrHdr, Number));
             }
-        }
-
-        private void currDecr(int dc)
-        {
-            int ac = actCur;
-
-            while((ac - dc) < 0) dc--;
-            actCur = (byte)(ac - dc);
-        }
-
-        private void currIncr(int ic)
-        {
-            int ac = actCur;
-
-            while((ac + ic) > toBeSet) ic--;
-            actCur = (byte)(ac + ic);
         }
 
         private void processResponse(ResponseDG resp)
@@ -399,7 +399,17 @@ namespace MDM.Controls
             //chMon.Record(0, (byte)0, 0, (byte)0, aStatus[(int)Status]);
             if(actCur != toBeSet)
             {
-                if(actCur < toBeSet) actCur++; else actCur--;
+                if(actCur < toBeSet)
+                {
+                    if(oldStatus == ChannelStatus.HighResistance || oldStatus == ChannelStatus.Paused) currIncr(6);
+                    else currIncr(2);
+                }
+                else
+                {
+                    if(Status == ChannelStatus.Inactive || Status == ChannelStatus.Disabled || Status == ChannelStatus.Disconnected || Status == ChannelStatus.Inaccessible) currDecr(32);
+                    else if(Status == ChannelStatus.Paused || Status == ChannelStatus.HighResistance) currDecr(12);
+                    else currDecr(4);
+                }
                 if(Status != ChannelStatus.SetCurrent) tbCurrent.Value = actCur;
                 else _current = Math.Round(actCur * curstep, 2);
             }
@@ -410,10 +420,10 @@ namespace MDM.Controls
             }
         }
 #endif
-        #endregion
+#endregion
 
 #region Stavy kanálu
-        #region reset()
+#region reset()
         /// <summary>
         /// Uvede kanál do stavu "nepřipojen/nepovolen". Z tohoto stavu do stavu "neaktivní" se kanál dostane fyzickým připojením přístroje MDM k počítači.
         /// </summary>
@@ -448,9 +458,9 @@ namespace MDM.Controls
 #endif
             LedOff();
         }
-        #endregion
+#endregion
 
-        #region deactivate()
+#region deactivate()
         /// <summary>
         /// Uvede kanál do stavu "neaktivní". V tomto stavu je třeba vybrat pacienta, poté kanál přechází do stavu "aktivní".
         /// </summary>
@@ -475,9 +485,9 @@ namespace MDM.Controls
 #endif
             LedOff();
         }
-        #endregion
+#endregion
 
-        #region activate()
+#region activate()
         /// <summary>
         /// Uvede kanál do stavu "aktivní". V tomto stavu je třeba připojit elektrody a vložit je pacientovi na hlavu. Poté kanál přechází do stavu "připraven".
         /// </summary>
@@ -485,7 +495,7 @@ namespace MDM.Controls
         {
             cbPatSelect.Enabled = cbStop.Enabled = true;
             cbStart.Enabled = false;
-            pbStatus.Image = Resources.program_stimsmart_ready;
+            pbStatus.Image = Resources.program_stimsmart_vysoky_odpor;
             lbPatName.ForeColor = lbDiagnosis.ForeColor = lbProcNum.ForeColor = SystemColors.ActiveCaptionText;
             lbStatus.Text = Resources.chActive;
             lbStatus.ForeColor = Color.White;
@@ -499,9 +509,9 @@ namespace MDM.Controls
 #endif
             Current = .5;
         }
-        #endregion
+#endregion
 
-        #region ready()
+#region ready()
         /// <summary>
         /// Uvede kanál do stavu "připraven". V tomto stavu se čeká na stisk tlačítka Začít, poté kanál přechází do stavu "procedura probíhá".
         /// </summary>
@@ -516,9 +526,9 @@ namespace MDM.Controls
             Elapsed = 0;
             LedGreen(true);
         }
-        #endregion
+#endregion
 
-        #region inProgress()
+#region inProgress()
         /// <summary>
         /// Uvede kanál do stavu "procedura probíhá". Z tohoto stavu může kanál přejít do stavu "nastavení proudu", "příliš vysoký odpor", "pozastaven", "chyba" nebo "neaktivní".
         /// </summary>
@@ -539,9 +549,9 @@ namespace MDM.Controls
             LedGreen();
             if(oldStatus == ChannelStatus.Ready) procID = Data.Procedure.AddProcedure(Patient.ID, Program.LoggedUser.ID, Number);
         }
-        #endregion
+#endregion
 
-        #region setCurrent()
+#region setCurrent()
         /// <summary>
         /// Uvede kanál do stavu "nastav proud". V tomto stavu je třeba nastavit hodnotu proudu. Poté kanál přechází do stavu "procedura probíhá" nebo "obnoven".
         /// </summary>
@@ -557,9 +567,9 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
         }
-        #endregion
+#endregion
 
-        #region highResistance()
+#region highResistance()
         /// <summary>
         /// Uvede kanál do stavu "příliš vysoký odpor". V tomto stavu je třeba navlhčit elektrody na hlavě pacienta, aby se odpor snížil.
         /// Poté kanál přechází do stavu "procedura probíhá" nebo "obnoven".
@@ -573,9 +583,9 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
         }
-        #endregion
+#endregion
 
-        #region paused()
+#region paused()
         //TODO: pozastavení a obnovení také na mezerník
         /// <summary>
         /// Uvede kanál do stavu "pozastaven". Z tohoto stavu může kanál přejít do stavu "neaktivní" nebo "obnoven".
@@ -591,9 +601,9 @@ namespace MDM.Controls
             lbStatus.BackColor = Color.OrangeRed;
             LedGreen(true);
         }
-        #endregion
+#endregion
 
-        #region restored()
+#region restored()
         /// <summary>
         /// Uvede kanál do stavu "obnoven". Z tohoto stavu může kanál přejít do stavu "pozastaven", "chyba" nebo "neaktivní".
         /// </summary>
@@ -606,9 +616,9 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
         }
-        #endregion
+#endregion
 
-        #region error() - odstraněno
+#region error() - odstraněno
         ///// <summary>
         ///// Uvede kanál do stavu "chyba". Z tohoto stavu může kanál přejít do stavu "obnoven" nebo "neaktivní".
         ///// </summary>
@@ -620,9 +630,9 @@ namespace MDM.Controls
         //    lbStatus.BackColor = Color.Red;
         //    LedRed(true);
         //}
-        #endregion
+#endregion
 
-        #region inaccessible()
+#region inaccessible()
         /// <summary>
         /// Uvede kanál do stavu "nepřístupný". Z tohoto stavu se kanál nedostane do žádného jiného stavu.
         /// </summary>
@@ -659,9 +669,9 @@ namespace MDM.Controls
             LANFunc.LanChOnOff(Number, false);
 #endif
         }
-        #endregion
+#endregion
 
-        #region Disconnected
+#region Disconnected
         /// <summary>
         /// Uvede kanál do stavu "odpojený". Do tohoto stavu se kanál dostane po přerušení spojení s deskou LAN přístroje MDM.
         /// Po opětovném navázání spojení se kanál vrací do stavu "neaktivní".
@@ -670,7 +680,7 @@ namespace MDM.Controls
         {
             inaccessible();
         }
-        #endregion
+#endregion
 #endregion
 
 #region Obsluhy událostí
@@ -698,7 +708,7 @@ namespace MDM.Controls
         {
             while(chWorker.IsBusy && !chWorker.CancellationPending)
             {
-                Application.DoEvents();
+                //Application.DoEvents();
                 if(IsHandleCreated && !IsDisposed)
                 {
                     try
@@ -712,7 +722,7 @@ namespace MDM.Controls
 #endif
                     }
                     catch { }
-                    Thread.Sleep(10);
+                    Thread.Sleep(300);
                 }
             }
             e.Cancel = true;
