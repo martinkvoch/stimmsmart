@@ -167,7 +167,7 @@ namespace MDM.Windows
         {
             if(!Program.KeepRunning)
             {
-                e.Cancel = (DialogBox.ShowYN(Resources.exitQ, Resources.exitQH) == DialogResult.No);
+                e.Cancel = userLogged && (DialogBox.ShowYN(Resources.exitQ, Resources.exitQH) == DialogResult.No);
                 if(!e.Cancel)
                 {
                     miLogOut.PerformClick();
@@ -467,7 +467,7 @@ namespace MDM.Windows
 
         private void miPatientProc_Click(object sender, EventArgs e)
         {
-            using(Procedure proc = new Procedure()) panProcedure.Open(proc, miProcedure, PanelLayout.WFilter);
+            using(PatProc proc = new PatProc()) panProcedure.Open(proc, miProcedure, PanelLayout.WFilter);
             updPatientButtons(true);
         }
 

@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\StimSmart\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;LAN</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;xLAN</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -67,6 +67,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -84,6 +85,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,6 +94,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Channels.cs" />
@@ -132,6 +137,7 @@
     <Compile Include="Data\MDMTable.cs" />
     <Compile Include="Data\Patient.cs" />
     <Compile Include="Data\Procedure.cs" />
+    <Compile Include="Data\PatProc.cs" />
     <Compile Include="Data\User.cs" />
     <Compile Include="DlgBox\DialogBox.cs" />
     <Compile Include="DlgBox\wTimeoutDlgBox.cs">
@@ -419,6 +425,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Prubehy Kvoch.xlsx" />
     <None Include="WorkSheet.xlsx" />
   </ItemGroup>
   <ItemGroup>
@@ -528,6 +535,10 @@
     <ProjectReference Include="..\LANlib\LANlib.csproj">
       <Project>{6d439893-be96-446b-99f8-0bb002a0b5ab}</Project>
       <Name>LANlib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LCDisplays\LCDisplays.csproj">
+      <Project>{4933479f-e27e-48c7-bfd4-81f6910adbba}</Project>
+      <Name>LCDisplays</Name>
     </ProjectReference>
     <ProjectReference Include="..\MACTrackBarLib\MACTrackBarLib.csproj">
       <Project>{77a112b1-5440-440b-a0f6-2edcc5b093cb}</Project>

@@ -41,17 +41,17 @@ namespace MDM.Data
 
     public class HIC : MDMTable
     {
-        const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}",
-             tname = "HIC", panControl = "panHIC",
+        const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}", panControl = "panHIC",
              insFmt = "(NAME, CODE) values ('{0}', '{1}')", insFmt1 = "(NAME) values ('{0}')",
              updFmt = "NAME = '{0}', CODE = '{1}'", updFmt1 = "NAME = '{0}'", updWhereFmt = "ID = {0}",
              selFmt = "select ID, NAME [{0}], CODE [{1}] from {2} order by 2";
+        internal const string TName = "HIC";
 
         #region Init()
         public static void Init()
         {
-            Database.ExecCmd("drop table if exists " + tname);
-            Database.ExecCmd("create table " + tname + " (ID integer primary key, NAME varchar(255) not null, CODE varchar(10))");
+            Database.ExecCmd("drop table if exists " + TName);
+            Database.ExecCmd("create table " + TName + " (ID integer primary key, NAME varchar(255) not null, CODE varchar(10))");
             using(HIC hic = new HIC())
             {
                 hic.Insert(string.Format(insFmt, "Zaměstnanecká pojišťovna Škoda (ZPŠ)", 209));
@@ -65,7 +65,7 @@ namespace MDM.Data
         }
         #endregion
 
-        public HIC() : base(tname) { }
+        public HIC() : base(TName) { }
 
         public static THIC Get(int id)
         {
@@ -83,12 +83,12 @@ namespace MDM.Data
         #region SelectCmd(), Count()
         public override string SelectCmd()
         {
-            return string.Format(selFmt, Resources.HICHdrName, Resources.HICHdrCode, tname);
+            return string.Format(selFmt, Resources.HICHdrName, Resources.HICHdrCode, TName);
         }
 
         public static int Count()
         {
-            return Convert.ToInt32(Database.ExecScalar(string.Format("select count(*) from {0}", tname)));
+            return Convert.ToInt32(Database.ExecScalar(string.Format("select count(*) from {0}", TName)));
         }
         #endregion
 
@@ -161,7 +161,7 @@ namespace MDM.Data
         #region Truncate()
         public static void Truncate()
         {
-            MDMTable.Truncate(tname);
+            MDMTable.Truncate(TName);
         }
         #endregion
     }

@@ -117,9 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="chMon.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>  Прогресс  </value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>  Cостояние канала  </value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>  Oтбор пациентов  </value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>  Kанал {0}  </value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lbElapsed.Size" type="System.Drawing.Size, System.Drawing">
@@ -128,23 +136,26 @@
   <data name="lbElapsed.Text" xml:space="preserve">
     <value>Истек: {0} мин. {1} сек.</value>
   </data>
-  <data name="groupBox4.Text" xml:space="preserve">
-    <value>  Прогресс  </value>
+  <data name="cbStop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 58</value>
   </data>
   <data name="cbStop.Text" xml:space="preserve">
     <value> &amp;Конец</value>
   </data>
+  <data name="cbPause.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 58</value>
+  </data>
   <data name="cbPause.Text" xml:space="preserve">
     <value> &amp;Oстановить</value>
+  </data>
+  <data name="cbStart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 58</value>
   </data>
   <data name="cbStart.Text" xml:space="preserve">
     <value> &amp;Начало</value>
   </data>
   <data name="cbSetCurrent.Text" xml:space="preserve">
     <value>&amp;Уст.эл.тока</value>
-  </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>  Cостояние канала  </value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 16</value>
@@ -164,13 +175,10 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Имя</value>
   </data>
+  <data name="lbProcNum.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 106</value>
+  </data>
   <data name="lbProcNum.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 29</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>  Oтбор пациентов  </value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>  Kанал {0}  </value>
+    <value>94, 21</value>
   </data>
 </root>

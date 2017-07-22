@@ -12,23 +12,24 @@ namespace MDM.Data
 
     public class Log : MDMTable
     {
-        const string tname = "LOG", panControl = "panLog";
+        const string panControl = "panLog";
+        internal const string TName = "LOG";
 
         public static void Init()
         {
-            Database.ExecCmd("drop table if exists " + tname);
-            Database.ExecCmd(string.Format("create table " + tname + " (ID integer primary key, " +
+            Database.ExecCmd("drop table if exists " + TName);
+            Database.ExecCmd(string.Format("create table " + TName + " (ID integer primary key, " +
                 "DAT datetime not null default (datetime('now', 'localtime')), " +
                 "TYP byte not null check(TYP between {0} and {1}), " +
                 "SENDER varchar(30) not null, " +
                 "MSG text)", (byte)Enum.GetValues(typeof(LogTyp)).Cast<LogTyp>().First(), (byte)Enum.GetValues(typeof(LogTyp)).Cast<LogTyp>().Last()));
         }
 
-        public Log() : base(tname) { }
+        public Log() : base(TName) { }
 
         public override string SelectCmd()
         {
-            return string.Format("select ID, DAT [{0}], case TYP when 0 then '{1}' when 1 then '{2}' else '{3}' end [{4}], SENDER [{5}], MSG [{6}] from {7} order by 1", Resources.LogHdrDate, Resources.LogInfo, Resources.LogWarn, Resources.LogError, Resources.LogHdrType, Resources.LogHdrSender, Resources.LogHdrRecord, tname);
+            return string.Format("select ID, DAT [{0}], case TYP when 0 then '{1}' when 1 then '{2}' else '{3}' end [{4}], SENDER [{5}], MSG [{6}] from {7} order by 1", Resources.LogHdrDate, Resources.LogInfo, Resources.LogWarn, Resources.LogError, Resources.LogHdrType, Resources.LogHdrSender, Resources.LogHdrRecord, TName);
         }
 
         #region Zápis do deníku
@@ -112,14 +113,14 @@ namespace MDM.Data
 
         public static void Truncate()
         {
-            MDMTable.Truncate(tname);
+            MDMTable.Truncate(TName);
         }
         #endregion
 
         public static long Count(LogTyp typ = LogTyp.All)
         {
-            if(typ == LogTyp.All) return Convert.ToInt64(Database.ExecScalar("select count(*) from " + tname));
-            else return Convert.ToInt64(Database.ExecScalar(string.Format("select count(*) from {0} where TYP = {1}", tname, Convert.ToByte(typ))));
+            if(typ == LogTyp.All) return Convert.ToInt64(Database.ExecScalar("select count(*) from " + TName));
+            else return Convert.ToInt64(Database.ExecScalar(string.Format("select count(*) from {0} where TYP = {1}", TName, Convert.ToByte(typ))));
         }
     }
 }

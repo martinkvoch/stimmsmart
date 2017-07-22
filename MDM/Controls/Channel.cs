@@ -10,6 +10,7 @@ using MDM.Classes;
 using MDM.DlgBox;
 using MDM.Properties;
 using MDM.Windows;
+using MDM.Data;
 
 namespace MDM.Controls
 {
@@ -21,8 +22,9 @@ namespace MDM.Controls
         public int ID, ProcID;
         public string Name, Diagnosis;
         public word ProcNum, CycleNum;
+        public TProcSegment[] Segments;
 
-        public SelectedPatient(int id = Channel.NoSelection, int procID = Channel.NoSelection, string name = null, string dg = null, word procNum = 0, word cycleNum = 0)
+        public SelectedPatient(int id = Channel.NoSelection, int procID = Channel.NoSelection, string name = null, string dg = null, word procNum = 0, word cycleNum = 0, TProcSegment[] segments = null)
         {
             ID = id;
             ProcID = procID;
@@ -30,6 +32,7 @@ namespace MDM.Controls
             Diagnosis = dg;
             ProcNum = procNum;
             CycleNum = cycleNum;
+            Segments = id == Channel.NoSelection ? new TProcSegment[0] : Procedure.GetSegments(id, procNum);
         }
     }
 #endregion
@@ -42,7 +45,6 @@ namespace MDM.Controls
         //private string[] aStatus = new string[] { "DI", "IN", "AC", "RD", "IP", "SC", "HR", "PA", "RE", "ER", "IA", "DC" };
         internal const int NoSelection = -1;
         private word procDuration = (word)new Settings().ProcDur;
-        private word elapsed = word.MaxValue;
         private string chNumTxt, elapsedTxt;
         private double current = 0D;
         private BackgroundWorker chWorker = new BackgroundWorker();
@@ -164,9 +166,10 @@ namespace MDM.Controls
                 }
             }
         }
-#endregion
+        #endregion
 
 #region Elapsed
+        private word elapsed = word.MaxValue;
         /// <summary>
         /// Čas strávený procedurou nad vybraným pacientem.
         /// </summary>
@@ -180,8 +183,10 @@ namespace MDM.Controls
                     word remain = (word)(procDuration - value);
 
                     elapsed = value;
-                    lbRemain.Text = string.Format("{0}:{1:D2}", remain / 60, remain % 60);
-                    lbElapsed.Text = string.Format(elapsedTxt, elapsed / 60, elapsed % 60);
+                    ucMonitor.Elapsed = elapsed;
+                    ucMonitor.Remained = remain;
+                    //lbRemain.Text = string.Format("{0}:{1:D2}", remain / 60, remain % 60);
+                    //lbElapsed.Text = string.Format(elapsedTxt, elapsed / 60, elapsed % 60);
                     if(elapsed != 0U) pbProgress.PerformStep();
                 }
             }
@@ -233,7 +238,7 @@ namespace MDM.Controls
         {
             InitializeComponent();
             //tbCurrent.Location = new Point(203, 97);
-            tbCurrent.Size = new Size(42, 274);
+            tbCurrent.Size = new Size(42, 226);
             tbCurrent.Enabled = false;
             chNum = chnum;
             Channels = parent;
@@ -452,6 +457,7 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chDisconected;
             lbStatus.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
+            ucMonitor.On = false;
 #if LAN
             LANFunc.ChRst(Number);
             LANFunc.LanChOnOff(Number, false);
@@ -477,13 +483,13 @@ namespace MDM.Controls
             lbStatus.ForeColor = SystemColors.ActiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
             cbPatSelect.Enabled = true;
-            cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Bold);
-            Current = 0D;
-#if LAN
-            LANFunc.ChRst(Number);
-            LANFunc.LanChOnOff(Number, false);
-#endif
-            LedOff();
+            //cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Bold);
+//            Current = 0D;
+//#if LAN
+//            LANFunc.ChRst(Number);
+//            LANFunc.LanChOnOff(Number, false);
+//#endif
+//            LedOff();
         }
 #endregion
 
@@ -500,7 +506,8 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chActive;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
-            Refresh();
+            ucMonitor.On = true;
+            //Refresh();
             LedRed();
 #if LAN
             LANFunc.LanChOnOff(Number);
@@ -547,7 +554,7 @@ namespace MDM.Controls
             tbCurrent.Enabled = false;
             timer.Start();
             LedGreen();
-            if(oldStatus == ChannelStatus.Ready) procID = Data.Procedure.AddProcedure(Patient.ID, Program.LoggedUser.ID, Number);
+            if(oldStatus == ChannelStatus.Ready) procID = PatProc.AddProcedure(Patient.ID, Program.LoggedUser.ID, Number);
         }
 #endregion
 
@@ -654,6 +661,7 @@ namespace MDM.Controls
             Current = 0D;
             pbProgress.Value = 0;
             Elapsed = 0;
+            ucMonitor.On = false;
             pbStatus.Image = Resources.program_stimsmart_error;
             lbStatus.Text = Resources.chInaccessible;
             lbStatus.ForeColor = Color.White;
@@ -661,7 +669,7 @@ namespace MDM.Controls
             LEDBits = new Bits();
             if(procID > NoSelection)
             {
-                Data.Procedure.FinishProcedure(procID, Elapsed, Data.ProcResult.Failed);
+                Data.PatProc.FinishProcedure(procID, Elapsed, Data.ProcResult.Failed);
                 Patient = new SelectedPatient();
             }
 #if LAN
@@ -692,9 +700,9 @@ namespace MDM.Controls
         private void timerTick(object sender, EventArgs e)
         {
             if(Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent || Status == ChannelStatus.Restored) Elapsed++;
-            if(elapsed >= procDuration)
+            if(Elapsed >= procDuration)
             {
-                if(procID > NoSelection) Data.Procedure.FinishProcedure(procID, elapsed, Data.ProcResult.Finished);
+                if(procID > NoSelection) Data.PatProc.FinishProcedure(procID, Elapsed, Data.ProcResult.Finished);
                 Status = ChannelStatus.Inactive;
             }
         }
@@ -791,12 +799,12 @@ namespace MDM.Controls
                 timer.Stop();
                 if(Status == ChannelStatus.HighResistance && DialogBox.ShowYN(Resources.procAbortQ, Resources.procAbortH) == DialogResult.Yes)
                 {
-                    if(procID > NoSelection) Data.Procedure.FinishProcedure(procID, Elapsed, Data.ProcResult.Failed);
+                    if(procID > NoSelection) Data.PatProc.FinishProcedure(procID, Elapsed, Data.ProcResult.Failed);
                     Status = ChannelStatus.Inactive;
                 }
                 else if(elapsed < procDuration && DialogBox.ShowYN(Resources.procAbortQ, Resources.procAbortH) == DialogResult.Yes)
                 {
-                    if(procID > NoSelection) Data.Procedure.FinishProcedure(procID, Elapsed, Data.ProcResult.Prematurely);
+                    if(procID > NoSelection) Data.PatProc.FinishProcedure(procID, Elapsed, Data.ProcResult.Prematurely);
                     Status = ChannelStatus.Inactive;
                 }
                 else timer.Start();

@@ -42,10 +42,11 @@ namespace MDM.Data
 
     public class Diagnosis : MDMTable
     {
-        const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}", tname = "DIAGNOSIS",
+        const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}",
              insFmt = "(NAME, LANG, PARENT) values ('{0}', '{1}', {2})", insFmt1 = "(NAME, LANG) values ('{0}', '{1}')",
              updFmt = "NAME='{0}', LANG={1}'", updWhereFmt = "ID = {0}",
              selFmt = "select ID, NAME [{0}], LANG [{1}] from {2} where {3} DELETED order by 2";
+        internal const string TName = "DIAGNOSIS";
 
         #region Init()
         //private static string[] getLangs() 
@@ -70,12 +71,12 @@ namespace MDM.Data
         {
             string[] langs = Program.GetLangs().Select(l => l.Split('|')[0]).ToArray();
 
-            Database.ExecCmd("drop table if exists " + tname);
-            Database.ExecCmd("create table " + tname + " ("+
+            Database.ExecCmd("drop table if exists " + TName);
+            Database.ExecCmd("create table " + TName + " ("+
                 "ID integer primary key, "+
                 "NAME varchar(255) not null, "+
                 "LANG char(2) not null, "+
-                "PARENT integer constraint PARENT_ID_FKEY references "+ tname + "(ID), " +
+                "PARENT integer constraint PARENT_ID_FKEY references "+ TName + "(ID), " +
                 "DELETED boolean default FALSE)");
             using(Diagnosis dg = new Diagnosis())
             {
@@ -128,6 +129,6 @@ namespace MDM.Data
             return res;
         }
 
-        public Diagnosis() : base(tname) { }
+        public Diagnosis() : base(TName) { }
     }
 }

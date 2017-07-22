@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="WpfUC.ucDigit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfUC"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="200" Background="Transparent" RenderTransformOrigin="0.5,0.5">
+    <UserControl.Resources>
+        <Storyboard x:Name="FadeIn" x:Key="FadeIn">
+            <DoubleAnimation Duration="0:0:0.4" Storyboard.TargetProperty="(Polygon.Opacity)" Storyboard.TargetName="{x:Null}" To=".6"/>
+        </Storyboard>
+        <Storyboard x:Name="FadeOut" x:Key="FadeOut">
+            <DoubleAnimation Duration="0:0:0.4" Storyboard.TargetProperty="(Polygon.Opacity)" Storyboard.TargetName="{x:Null}" To=".1"/>
+        </Storyboard>
+        <Style TargetType="{x:Type Polygon}" x:Key="SegmentStyle">
+            <Setter Property="Fill" Value="Black"/>
+            <Setter Property="Opacity" Value=".1"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Viewbox Stretch="Fill">
+        <Canvas x:Name="canMain" Height="300" Width="200" x:FieldModifier="private">
+            <Polygon x:Name="Seg1" Canvas.Top="0" Height="50" Points="0,25 50,0 150,0 200,25 150,50 50,50" x:FieldModifier="private" Style="{StaticResource SegmentStyle}"/>
+            <Polygon x:Name="Seg11" Canvas.Top="0" Height="55" Width="50" Points="0,30 50,55 50,0 0,0" x:FieldModifier="private" Visibility="Hidden" Style="{StaticResource SegmentStyle}"/>
+            <Polygon x:Name="Seg12" Canvas.Top="0" Canvas.Left="150" Height="55" Width="50" Points="0,55 50,30 50,0 0,0" x:FieldModifier="private" Visibility="Hidden" Style="{StaticResource SegmentStyle}"/>
+            <Polygon x:Name="Seg2" Canvas.Top="25" Height="150" Width="50" Points="0,5 50,30 50,95 0,120" x:FieldModifier="private" Style="{StaticResource SegmentStyle}"/>
+            <Polygon x:Name="Seg3" Canvas.Top="25" Canvas.Left="150" Height="150" Width="50" Points="0,30 50,5 50,120 0,95" x:FieldModifier="private" Style="{StaticResource SegmentStyle}"/>
+            <Polygon x:Name="Seg4" Canvas.Top="125" Height="50" Points="0,25 50,0 150,0 200,25 150,50 50,50" x:FieldModifier="private" Style="{StaticResource SegmentStyle}"/>
+            <Polygon x:Name="Seg5" Canvas.Top="150" Height="150" Width="50" Points="0,5 50,30 50,95 0,120" x:FieldModifier="private" Style="{StaticResource SegmentStyle}"/>
+            <Polygon x:Name="Seg6" Canvas.Top="150" Canvas.Left="150" Height="150" Width="50" Points="0,30 50,5 50,120 0,95" x:FieldModifier="private" Style="{StaticResource SegmentStyle}"/>
+            <Polygon x:Name="Seg7" Canvas.Top="250" Height="50" Points="0,25 50,0 150,0 200,25 150,50 50,50" x:FieldModifier="private" Style="{StaticResource SegmentStyle}"/>
+            <Polygon x:Name="Seg71" Canvas.Top="245" Height="55" Width="50" Points="0,25 50,0 50,55 0,55" x:FieldModifier="private" Visibility="Hidden"  Style="{StaticResource SegmentStyle}"/>
+            <Polygon x:Name="Seg72" Canvas.Top="245" Canvas.Left="150" Height="55" Width="50" Points="0,0 50,25 50,55 0,55" x:FieldModifier="private" Visibility="Hidden" Style="{StaticResource SegmentStyle}"/>
+        </Canvas>
+    </Viewbox>
+</UserControl>

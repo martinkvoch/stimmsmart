@@ -146,10 +146,12 @@ namespace MDM
             SetLanguage();
             Database.Open();
             //Procedure.Init();
+            //PatProc.Init();
             //Log.Init();
             ShowSplash(true);
             Application.ApplicationExit += appExit;
             KeepRunning = false;
+            //TProcSegment[] psegs = Procedure.GetSegments(3, 10);
             while(true)
             {
                 Application.Run(new wMain(Program.Language));

@@ -33,17 +33,17 @@ namespace MDM.Data
 
     public class User : MDMTable
     {
-        const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}",
-             tname = "USER", panControl = "panUser",
+        const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}", panControl = "panUser",
              insFmt = "(LOGIN, NAME, PSW, ROLE, LANG) values ('{0}', '{1}', '{2}', {3}, '{4}')",
              updFmt = "NAME='{0}', ROLE={1}, LANG='{2}'", updWhereFmt = "ID = {0}",
              selFmt = "select ID, LOGIN [{0}], NAME [{1}], case ROLE when 1 then '{2}' else '{3}' end [{4}], LANG [{5}] from {6} where ROLE <> {7} and {8} DELETED order by 2";
+        internal const string TName = "USER";
 
         #region Init()
         public static void Init()
         {
-            Database.ExecCmd("drop table if exists " + tname);
-            Database.ExecCmd(string.Format("create table " + tname + " (ID integer primary key, " +
+            Database.ExecCmd("drop table if exists " + TName);
+            Database.ExecCmd(string.Format("create table " + TName + " (ID integer primary key, " +
                 "LOGIN varchar(30) not null, " +
                 "NAME varchar(100) not null, " +
                 "PSW varchar(255) not null, " +
@@ -54,22 +54,22 @@ namespace MDM.Data
         }
         #endregion
 
-        public User() : base(tname) { }
+        public User() : base(TName) { }
 
         #region SelectCmd(), SelectDeleted(), Count()
         public override string SelectCmd()
         {
-            return string.Format(selFmt, Resources.UserHdrLogin, Resources.UserHdrName, Resources.UserRoleAdmin, Resources.UserRoleUser, Resources.UserHdrRole, Resources.UserHdrLang, tname, Convert.ToByte(UserRole.SuperAdmin), "not");
+            return string.Format(selFmt, Resources.UserHdrLogin, Resources.UserHdrName, Resources.UserRoleAdmin, Resources.UserRoleUser, Resources.UserHdrRole, Resources.UserHdrLang, TName, Convert.ToByte(UserRole.SuperAdmin), "not");
         }
 
         public string SelectDeleted()
         {
-            return string.Format(selFmt, Resources.UserHdrLogin, Resources.UserHdrName, Resources.UserRoleAdmin, Resources.UserRoleUser, Resources.UserHdrRole, Resources.UserHdrLang, tname, Convert.ToByte(UserRole.SuperAdmin), string.Empty);
+            return string.Format(selFmt, Resources.UserHdrLogin, Resources.UserHdrName, Resources.UserRoleAdmin, Resources.UserRoleUser, Resources.UserHdrRole, Resources.UserHdrLang, TName, Convert.ToByte(UserRole.SuperAdmin), string.Empty);
         }
 
         public static long Count(bool undel = false)
         {
-            return Convert.ToInt64(Database.ExecScalar(string.Format("select count(*) from {0} where ROLE <> {1} and {2} DELETED", tname, Convert.ToByte(UserRole.SuperAdmin), undel ? string.Empty : "not")));
+            return Convert.ToInt64(Database.ExecScalar(string.Format("select count(*) from {0} where ROLE <> {1} and {2} DELETED", TName, Convert.ToByte(UserRole.SuperAdmin), undel ? string.Empty : "not")));
         }
         #endregion
 
@@ -175,7 +175,7 @@ namespace MDM.Data
         #region Purge(), Truncate()
         public static void Purge()
         {
-            MDMTable.Purge(tname);
+            MDMTable.Purge(TName);
         }
 
         public static void Truncate()

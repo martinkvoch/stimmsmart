@@ -54,9 +54,7 @@ namespace MDM.Data
 
     public class Patient : MDMTable
     {
-        const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}",
-             tname = "PATIENT", panControl = "panPatient",
-             updWhereFmt = "ID = {0}",
+        const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}", panControl = "panPatient", updWhereFmt = "ID = {0}",
              selFmt = "select PAT.ID, " +
                      "PAT.FIRST_NAME [{0}], PAT.MIDDLE_NAME [{1}], PAT.LAST_NAME [{2}], " +
                      "PAT.BIRTHDATE [{3}], " +
@@ -65,14 +63,15 @@ namespace MDM.Data
                      "DG.NAME [{14}], " +
                      "HIC.NAME [{15}], " +
                      "case PAT.SOMATOTYPE when 0 then '{16}' when 1 then '{17}' else '{18}' end [{19}] " +
-                 "from PATIENT PAT, DIAGNOSIS DG, HIC " +
-                 "where PAT.DG_ID = DG.ID and PAT.HIC_ID = HIC.ID and {20} PAT.DELETED order by 4";
+                 "from {20} PAT, {21} DG, {22} HIC " +
+                 "where PAT.DG_ID = DG.ID and PAT.HIC_ID = HIC.ID and {23} PAT.DELETED order by 4";
+        internal const string TName = "PATIENT";
 
         #region Init()
         public static void Init()
         {
-            Database.ExecCmd("drop table if exists " + tname);
-            Database.ExecCmd(string.Format("create table " + tname + " (ID integer primary key, " +
+            Database.ExecCmd("drop table if exists " + TName);
+            Database.ExecCmd(string.Format("create table " + TName + " (ID integer primary key, " +
                 "FIRST_NAME varchar(100) not null, " +
                 "MIDDLE_NAME varchar(100), " +
                 "LAST_NAME varchar(100) not null, " +
@@ -84,16 +83,17 @@ namespace MDM.Data
                 "COUNTRY char(2), " +
                 "PHONE varchar(50), " +
                 "MEDICAL_RECORD varchar(50), " +
-                "DG_ID integer constraint PATIENT_DIAGNOSIS_FKEY references DIAGNOSIS(ID), " +
-                "HIC_ID integer constraint PATIENT_HIC_FKEY references HIC(ID), " +
-                "SOMATOTYPE byte not null default 1 check(SOMATOTYPE between {2} and {3}), " +
+                "DG_ID integer constraint PATIENT_DIAGNOSIS_FKEY references {2}(ID), " +
+                "HIC_ID integer constraint PATIENT_HIC_FKEY references {3}(ID), " +
+                "SOMATOTYPE byte not null default 1 check(SOMATOTYPE between {4} and {5}), " +
                 "NOTE text, " +
                 "DELETED boolean default FALSE)",
-                (byte)Enum.GetValues(typeof(Sex)).Cast<Sex>().First(), (byte)Enum.GetValues(typeof(Sex)).Cast<Sex>().Last(), (byte)Enum.GetValues(typeof(Somatotype)).Cast<Somatotype>().First(), (byte)Enum.GetValues(typeof(Somatotype)).Cast<Somatotype>().Last()));
+                (byte)Enum.GetValues(typeof(Sex)).Cast<Sex>().First(), (byte)Enum.GetValues(typeof(Sex)).Cast<Sex>().Last(), Diagnosis.TName, HIC.TName,
+                (byte)Enum.GetValues(typeof(Somatotype)).Cast<Somatotype>().First(), (byte)Enum.GetValues(typeof(Somatotype)).Cast<Somatotype>().Last()));
         }
         #endregion
 
-        public Patient() : base(tname) { }
+        public Patient() : base(TName) { }
 
         #region SelectCmd(), SelectDeleted(), Count()
         public override string SelectCmd()
@@ -102,7 +102,7 @@ namespace MDM.Data
                 Resources.PatHdrBirthDate,
                 Resources.PatSexFemale, Resources.PatSexMale, Resources.PatHdrSex,
                 Resources.PatHdrAddr, Resources.PatHdrCity, Resources.PatHdrZip, Resources.PatHdrCountry, Resources.PatHdrPhone, Resources.PatHdrMedRec, Resources.PatHdrNote,
-                Resources.PatHdrDg, Resources.PatHdrHIC, Resources.PatSomTypHyperergic, Resources.PatSomTypNormotype, Resources.PatSomTypHypotype, Resources.PatHdrSomTyp, "not");
+                Resources.PatHdrDg, Resources.PatHdrHIC, Resources.PatSomTypHyperergic, Resources.PatSomTypNormotype, Resources.PatSomTypHypotype, Resources.PatHdrSomTyp, TName, Diagnosis.TName, HIC.TName, "not");
         }
 
         public string SelectDeleted()
@@ -111,12 +111,12 @@ namespace MDM.Data
                 Resources.PatHdrBirthDate,
                 Resources.PatSexFemale, Resources.PatSexMale, Resources.PatHdrSex,
                 Resources.PatHdrAddr, Resources.PatHdrCity, Resources.PatHdrZip, Resources.PatHdrCountry, Resources.PatHdrPhone, Resources.PatHdrMedRec, Resources.PatHdrNote,
-                Resources.PatHdrDg, Resources.PatHdrHIC, Resources.PatSomTypHyperergic, Resources.PatSomTypNormotype, Resources.PatSomTypHypotype, Resources.PatHdrSomTyp, string.Empty);
+                Resources.PatHdrDg, Resources.PatHdrHIC, Resources.PatSomTypHyperergic, Resources.PatSomTypNormotype, Resources.PatSomTypHypotype, Resources.PatHdrSomTyp, TName, Diagnosis.TName, HIC.TName, string.Empty);
         }
 
         public static long Count(bool undel = false, int? id = null)
         {
-            return Convert.ToInt64(Database.ExecScalar(string.Format("select count(*) from {0} where {1} DELETED {2}", tname, undel ? string.Empty : "not", id.HasValue ? "and ID = "+id.Value.ToString() : string.Empty)));
+            return Convert.ToInt64(Database.ExecScalar(string.Format("select count(*) from {0} where {1} DELETED {2}", TName, undel ? string.Empty : "not", id.HasValue ? "and ID = "+id.Value.ToString() : string.Empty)));
         }
         #endregion
 
@@ -292,26 +292,38 @@ namespace MDM.Data
         #region Purge(), Truncate()
         public static void Purge()
         {
-            MDMTable.Purge(tname);
+            MDMTable.Purge(TName);
         }
 
         public static void Truncate()
         {
-            //using(User user = new User())
-            //{
-            //    DataTable dt = user.Select("ID", string.Format("ROLE <> {0}", Convert.ToByte(UserRole.SuperAdmin)));
-
-            //    user.Wipe(dt.Rows.OfType<DataRow>().Select(r => r[0]).ToArray());
-            //}
-            MDMTable.Truncate(tname);
+            MDMTable.Truncate(TName);
         }
         #endregion
 
+        #region Age()
+        //public static byte Age(int patientID)
+        //{
+        //    byte res = 0;
+
+        //    using(Patient pat = new Patient())
+        //    {
+        //        object obj = Database.ExecScalar(string.Format("select BIRTHDATE from {0} where ID = {1}", TName, patientID));
+        //        //object obj = Database.ExecScalar(string.Format("select CURRENT_DATE - BIRTHDATE from {0} where ID = {1}", TName, patientID));
+        //        DateTime dt = Convert.ToDateTime(obj);
+
+        //        res = Convert.ToByte(53);
+        //    }
+        //    //using(Patient pat = new Patient()) res = Convert.ToByte(Database.ExecScalar(string.Format("select CURRENT_DATE - BIRTHDATE from {0} where ID = {1}", TName, patientID)));
+        //    return res;
+        //}
+        #endregion
+
         #region Exists()
-        public static bool Exists(int id)
-        {
-            return Count(false, id) > 0L;
-        }
+        //public static bool Exists(int id)
+        //{
+        //    return Count(false, id) > 0L;
+        //}
         #endregion
     }
 }

@@ -19,11 +19,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pbStatus = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.ucMonitor = new WpfUC.ucMonitor();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbRemain = new System.Windows.Forms.Label();
             this.Led = new Bulb.LedBulb();
-            this.lbElapsed = new System.Windows.Forms.Label();
             this.pbProgress = new System.Windows.Forms.ProgressBar();
+            this.lbElapsed = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tbCurrent = new EConTech.Windows.MACUI.MACTrackBar();
             this.lbCurrent = new System.Windows.Forms.Label();
@@ -67,13 +69,20 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.elementHost1);
             this.groupBox4.Controls.Add(this.panel1);
             this.groupBox4.Controls.Add(this.Led);
-            this.groupBox4.Controls.Add(this.lbElapsed);
             this.groupBox4.Controls.Add(this.pbProgress);
+            this.groupBox4.Controls.Add(this.lbElapsed);
             resources.ApplyResources(this.groupBox4, "groupBox4");
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
+            // 
+            // elementHost1
+            // 
+            resources.ApplyResources(this.elementHost1, "elementHost1");
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Child = this.ucMonitor;
             // 
             // panel1
             // 
@@ -95,16 +104,16 @@
             this.Led.Name = "Led";
             this.Led.On = true;
             // 
-            // lbElapsed
-            // 
-            resources.ApplyResources(this.lbElapsed, "lbElapsed");
-            this.lbElapsed.Name = "lbElapsed";
-            // 
             // pbProgress
             // 
             resources.ApplyResources(this.pbProgress, "pbProgress");
             this.pbProgress.Name = "pbProgress";
             this.pbProgress.Step = 1;
+            // 
+            // lbElapsed
+            // 
+            resources.ApplyResources(this.lbElapsed, "lbElapsed");
+            this.lbElapsed.Name = "lbElapsed";
             // 
             // groupBox3
             // 
@@ -293,5 +302,7 @@
         private System.Windows.Forms.Label lbRemain;
         private System.Windows.Forms.PictureBox pbStatus;
         private EConTech.Windows.MACUI.MACTrackBar tbCurrent;
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private WpfUC.ucMonitor ucMonitor;
     }
 }

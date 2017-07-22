@@ -133,20 +133,22 @@ namespace MDM.Data
 
             try
             {
-                using(SQLiteConnection conn = CreateConnection())
-                using(SQLiteCommand command = new SQLiteCommand(cmd, conn))
-                {
-                    using(SQLiteDataReader dr = command.ExecuteReader())
-                    {
-                        while(dr.Read())
-                        {
-                            object[] row = new object[dr.FieldCount];
+                DataSet dataSet = new DataSet();
 
-                            for(int i = 0; i < dr.FieldCount; i++) row[i] = dr[i];
-                            res.Rows.Add(row);
-                        }
-                    }
-                }
+                using(SQLiteConnection conn = CreateConnection())
+                using(SQLiteDataAdapter da = new SQLiteDataAdapter(cmd, conn)) da.Fill(dataSet);
+                if(dataSet.Tables.Count > 0) res = dataSet.Tables[0];
+                //using(SQLiteCommand command = new SQLiteCommand(cmd, conn))
+                //using(SQLiteDataReader dr = command.ExecuteReader()) res.Load(dr);
+                ////{
+                ////    while(dr.Read())
+                ////    {
+                ////        object[] row = new object[dr.FieldCount];
+
+                ////        for(int i = 0; i < dr.FieldCount; i++) row[i] = dr[i];
+                ////        res.Rows.Add(row);
+                ////    }
+                ////}
             }
             catch(SQLiteException e)
             {
@@ -268,7 +270,7 @@ namespace MDM.Data
                     Diagnosis.Init();
                     HIC.Init();
                     Patient.Init();
-                    Procedure.Init();
+                    PatProc.Init();
                     Log.InfoToLog(methodName, Resources.newDataOK);
                     DialogBox.ShowInfo(Resources.newDataOK, Resources.newDataQH);
                 }
