@@ -12,13 +12,13 @@ namespace MDM.Data
     {
         public int ProcID;
         public byte Order;
-        public word Duration;
+        public byte Duration;
         public word WaveShape;
         public word TMin;
         public word TMax;
         public word TSweep;
 
-        public TProcSegment(int procID, byte order, word duration, word waveShape, word tMin, word tMax, word tSweep)
+        public TProcSegment(int procID, byte order, byte duration, word waveShape, word tMin, word tMax, word tSweep)
         {
             ProcID = procID;
             Order = order;
@@ -84,7 +84,7 @@ namespace MDM.Data
             TProcSegment[] res = new TProcSegment[0];
 
             if(dt != null && dt.Rows.Count > 0) res = dt.Rows.OfType<DataRow>()
-               .Select(r => new TProcSegment(Convert.ToInt32(r["PROC_ID"]), Convert.ToByte(r["SEG_ORDER"]), Convert.ToUInt16(r["DURATION"]), Convert.ToUInt16(r["WAVE_SHAPE"]), Convert.ToUInt16(r["T_MIN"]), Convert.ToUInt16(r["T_MAX"]), Convert.ToUInt16(r["T_SWEEP"]))).ToArray();
+               .Select(r => new TProcSegment(Convert.ToInt32(r["PROC_ID"]), Convert.ToByte(r["SEG_ORDER"]), Convert.ToByte(r["DURATION"]), Convert.ToUInt16(r["WAVE_SHAPE"]), Convert.ToUInt16(r["T_MIN"]), Convert.ToUInt16(r["T_MAX"]), Convert.ToUInt16(r["T_SWEEP"]))).ToArray();
             return res;
         }
 

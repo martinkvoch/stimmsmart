@@ -147,11 +147,11 @@ namespace MDM
             Database.Open();
             //Procedure.Init();
             //PatProc.Init();
+            //PatProc.Alter();
             //Log.Init();
             ShowSplash(true);
             Application.ApplicationExit += appExit;
             KeepRunning = false;
-            //TProcSegment[] psegs = Procedure.GetSegments(3, 10);
             while(true)
             {
                 Application.Run(new wMain(Program.Language));

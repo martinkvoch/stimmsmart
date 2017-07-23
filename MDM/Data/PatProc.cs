@@ -39,6 +39,11 @@ namespace MDM.Data
         }
         #endregion
 
+        public static void Alter()
+        {
+            Database.ExecCmd(string.Format("drop index {0}_UN", TName));
+        }
+
         public PatProc() : base(TName) { }
 
         #region SelectCmd(), Count()

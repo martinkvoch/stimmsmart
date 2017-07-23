@@ -3,6 +3,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Linq;
 using word = System.UInt16;
 
 using LANlib;
@@ -23,8 +25,9 @@ namespace MDM.Controls
         public string Name, Diagnosis;
         public word ProcNum, CycleNum;
         public TProcSegment[] Segments;
+        public int CurrSegment;
 
-        public SelectedPatient(int id = Channel.NoSelection, int procID = Channel.NoSelection, string name = null, string dg = null, word procNum = 0, word cycleNum = 0, TProcSegment[] segments = null)
+        public SelectedPatient(int id = Channel.NoSelection, int procID = Channel.NoSelection, string name = null, string dg = null, word procNum = 0, word cycleNum = 0, TProcSegment[] segments = null, int currSegment = 0)
         {
             ID = id;
             ProcID = procID;
@@ -33,6 +36,7 @@ namespace MDM.Controls
             ProcNum = procNum;
             CycleNum = cycleNum;
             Segments = id == Channel.NoSelection ? new TProcSegment[0] : Procedure.GetSegments(id, procNum);
+            CurrSegment = currSegment;
         }
     }
 #endregion
@@ -188,6 +192,16 @@ namespace MDM.Controls
                     //lbRemain.Text = string.Format("{0}:{1:D2}", remain / 60, remain % 60);
                     //lbElapsed.Text = string.Format(elapsedTxt, elapsed / 60, elapsed % 60);
                     if(elapsed != 0U) pbProgress.PerformStep();
+                    if(Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent || Status == ChannelStatus.Restored)
+                    {
+                        if(ucMonitor.SegmentLeft == 0 && Patient.CurrSegment < (Patient.Segments.Length - 1))
+                        {
+                            patient.CurrSegment++;
+                            ucMonitor.NextSegment();
+                            ucMonitor.SegmentLeft = (word)(Patient.Segments[Patient.CurrSegment - 1].Duration * 60);
+                        }
+                        ucMonitor.SegmentLeft--;
+                    }
                 }
             }
         }
@@ -458,6 +472,7 @@ namespace MDM.Controls
             lbStatus.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
             ucMonitor.On = false;
+            ucMonitor.Segments = new byte[0];
 #if LAN
             LANFunc.ChRst(Number);
             LANFunc.LanChOnOff(Number, false);
@@ -537,7 +552,7 @@ namespace MDM.Controls
 
 #region inProgress()
         /// <summary>
-        /// Uvede kanál do stavu "procedura probíhá". Z tohoto stavu může kanál přejít do stavu "nastavení proudu", "příliš vysoký odpor", "pozastaven", "chyba" nebo "neaktivní".
+        /// Uvede kanál do stavu "procedura probíhá". Z tohoto stavu může kanál přejít do stavu "nastavení proudu", "příliš vysoký odpor", "pozastaven", "odpojený" nebo "neaktivní".
         /// </summary>
         private void inProgress()
         {
@@ -552,6 +567,14 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
             tbCurrent.Enabled = false;
+            //if(oldStatus != ChannelStatus.SetCurrent && oldStatus != ChannelStatus.Paused)
+            if(oldStatus == ChannelStatus.Ready)
+            {
+                ucMonitor.Segments = Patient.Segments.Select(s => s.Duration).ToArray();
+                patient.CurrSegment = 1;
+                ucMonitor.NextSegment();
+                ucMonitor.SegmentLeft = (word)(Patient.Segments[0].Duration * 60);
+            }
             timer.Start();
             LedGreen();
             if(oldStatus == ChannelStatus.Ready) procID = PatProc.AddProcedure(Patient.ID, Program.LoggedUser.ID, Number);

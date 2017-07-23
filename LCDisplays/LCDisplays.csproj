@@ -61,6 +61,9 @@
     <Compile Include="ucMonitor.xaml.cs">
       <DependentUpon>ucMonitor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ucSegments.xaml.cs">
+      <DependentUpon>ucSegments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ucTimer.xaml.cs">
       <DependentUpon>ucTimer.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ucMonitor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucSegments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

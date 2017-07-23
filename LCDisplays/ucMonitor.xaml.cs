@@ -29,11 +29,19 @@ namespace WpfUC
             {
                 if(on != value)
                 {
+                    //SetValue(OnProperty, value);
                     on = disAIN1.On = disAIN2.On = disATC.On = disDAC.On = disDOUT.On = disStatus.On = timElapsed.On = timLeft.On = timSegmentLeft.On = value;
-                    if(!on) resetMonitor();
+                    if(!on)
+                    {
+                        resetMonitor();
+                        grMain.Background = FindResource("OffBackgroundBrush") as Brush;
+                    }
+                    else grMain.Background = FindResource("OnBackgroundBrush") as Brush;
                 }
             }
         }
+
+        //public static readonly DependencyProperty OnProperty = DependencyProperty.Register("On", typeof(bool), typeof(ucMonitor), new PropertyMetadata(false));
         #endregion
 
         #region Displeje
@@ -90,6 +98,12 @@ namespace WpfUC
             get { return timSegmentLeft.Value; }
             set { timSegmentLeft.Value = value; }
         }
+
+        public byte[] Segments
+        {
+            get { return segProcSegments.Segments; }
+            set { segProcSegments.Segments = value; }
+        }
         #endregion
 
         #region resetMonitor()
@@ -99,6 +113,11 @@ namespace WpfUC
             AIN1 = AIN2 = ATC = DAC = DOUT = Status = Elapsed = Remained = SegmentLeft = 0;
         }
         #endregion
+
+        public void NextSegment()
+        {
+            segProcSegments.NextSegment();
+        }
 
         public ucMonitor()
         {
