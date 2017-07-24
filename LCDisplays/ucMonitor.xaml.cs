@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using word = System.UInt16;
 
 namespace WpfUC
 {
@@ -45,55 +46,55 @@ namespace WpfUC
         #endregion
 
         #region Displeje
-        public int AIN1
+        public word AIN1
         {
-            get { return disAIN1.Value; }
+            get { return (word)disAIN1.Value; }
             set { disAIN1.Value = value; }
         }
 
-        public int AIN2
+        public word AIN2
         {
-            get { return disAIN2.Value; }
+            get { return (word)disAIN2.Value; }
             set { disAIN2.Value = value; }
         }
 
-        public int ATC
+        public byte ATC
         {
-            get { return disATC.Value; }
+            get { return (byte)disATC.Value; }
             set { disATC.Value = value; }
         }
 
-        public int DAC
+        public word DAC
         {
-            get { return disDAC.Value; }
+            get { return (word)disDAC.Value; }
             set { disDAC.Value = value; }
         }
 
-        public int DOUT
+        public byte DOUT
         {
-            get { return disDOUT.Value; }
+            get { return (byte)disDOUT.Value; }
             set { disDOUT.Value = value; }
         }
 
-        public int Status
+        public word Status
         {
-            get { return disStatus.Value; }
+            get { return (word)disStatus.Value; }
             set { disStatus.Value = value; }
         }
 
-        public ushort Elapsed
+        public word Elapsed
         {
             get { return timElapsed.Value; }
             set { timElapsed.Value = value; }
         }
 
-        public ushort Remained
+        public word Remained
         {
             get { return timLeft.Value; }
             set { timLeft.Value = value; }
         }
 
-        public ushort SegmentLeft
+        public word SegmentLeft
         {
             get { return timSegmentLeft.Value; }
             set { timSegmentLeft.Value = value; }
@@ -109,8 +110,8 @@ namespace WpfUC
         #region resetMonitor()
         private void resetMonitor()
         {
-            //disAIN1.Value = disAIN2.Value = disATC.Value = disDAC.Value = disDOUT.Value = disStatus.Value = timElapsed.Value = timLeft.Value = timSegmentLeft.Value = 0;
-            AIN1 = AIN2 = ATC = DAC = DOUT = Status = Elapsed = Remained = SegmentLeft = 0;
+            AIN1 = AIN2 = DAC = Status = Elapsed = Remained = SegmentLeft = 0;
+            ATC = DOUT = 0;
         }
         #endregion
 

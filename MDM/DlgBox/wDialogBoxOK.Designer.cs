@@ -57,13 +57,14 @@
             // txtMessage
             // 
             this.txtMessage.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.txtMessage, "txtMessage");
             this.txtMessage.Name = "txtMessage";
             this.txtMessage.ReadOnly = true;
             // 
             // imgClass
             // 
-            this.imgClass.Image = global::MDM.Properties.Resources.warning;
+            this.imgClass.Image = global::MDM.Properties.Resources.warning1;
             resources.ApplyResources(this.imgClass, "imgClass");
             this.imgClass.Name = "imgClass";
             this.imgClass.TabStop = false;

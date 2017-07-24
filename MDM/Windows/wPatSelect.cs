@@ -97,8 +97,10 @@ namespace MDM.Windows
                                           " from {6} P left outer join {8} PR on P.ID = PR.PAT_ID " +
                                           " group by P.ID) R " +
                                        "where P.DG_ID = D.ID and P.ID = R.ID and not P.DELETED " +
-                                         "and ((R.PROC < 7 and (select count(*) from {8} where PAT_ID = P.ID and DATE = CURRENT_DATE) < 3) or " +
-                                             "not exists(select 1 from {8} where PAT_ID = P.ID and DATE = CURRENT_DATE))",
+                                         "and ((R.PROC < 6 and (select count(*) from {8} where PAT_ID = P.ID and DATE = date('now', 'localtime')) < 2) or " +
+                                             "not exists(select 1 from {8} where PAT_ID = P.ID and DATE = date('now', 'localtime'))) " +
+                                         "and not P.DELETED " +
+                                       "order by P.LAST_NAME",
                                        Resources.patSelNumber, Resources.patSelName, Resources.patSelYrOfBirth, Resources.PatHdrDg, Resources.patSelCycle, Resources.patSelProcNum, Patient.TName, Diagnosis.TName, PatProc.TName, new Settings().NOP);
 
             InitializeComponent();

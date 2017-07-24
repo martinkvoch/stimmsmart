@@ -89,7 +89,7 @@ namespace WpfUC
                     else
                     {
                         if(!on) On = true;
-                        grMain.Children[_curSegment - 1].Opacity = cOpacityOn;
+                        if(_curSegment < grMain.Children.Count) grMain.Children[_curSegment - 1].Opacity = cOpacityOn;
                     }
                 }
             }

@@ -91,8 +91,8 @@ namespace LANlib
             {
                 q.HoldingR = res.InputR.Verified;
                 q.DioWR = diowr.ByteValue;
-                LAN.MasterCmd(q);
-                res = ChRd(chnum);
+                res = LAN.MasterCmd(q);
+                //res = ChRd(chnum);
             }
             return res;
         }
@@ -107,9 +107,9 @@ namespace LANlib
                 q.DioWR = res.DioRD;
                 q.HoldingR = res.InputR.Verified;
                 q.HoldingR.DAC = dac;
-                LAN.MasterCmd(q);
+                res = LAN.MasterCmd(q);
                 //Thread.Sleep(100);
-                res = ChRd(chnum);
+                //res = ChRd(chnum);
             }
             return res;
         }
@@ -128,7 +128,7 @@ namespace LANlib
                 q.HoldingR.DOUT = new Bits(dout);
                 res = LAN.MasterCmd(q);
                 //Thread.Sleep(100);
-                res = ChRd(chnum);
+                //res = ChRd(chnum);
             }
             return res;
         }
@@ -145,7 +145,7 @@ namespace LANlib
                 q.HoldingR.AttenCoef = acf;
                 res = LAN.MasterCmd(q);
                 //Thread.Sleep(20);
-                res = ChRd(chnum);
+                //res = ChRd(chnum);
             }
             return res;
         }
@@ -167,7 +167,7 @@ namespace LANlib
                 if(acf.HasValue) q.HoldingR.AttenCoef = acf.Value;
                 res = LAN.MasterCmd(q);
                 //Thread.Sleep(200);
-                res = ChRd(chnum);
+                //res = ChRd(chnum);
             }
             return res;
         }

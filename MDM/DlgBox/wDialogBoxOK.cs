@@ -18,9 +18,9 @@ namespace MDM.DlgBox
         {
             switch(icon)
             {
-                case MessageBoxIcon.Error: imgClass.Image = Resources.error; break;
-                case MessageBoxIcon.Warning: imgClass.Image = Resources.warning; break;
-                default: imgClass.Image = Resources.info; break;
+                case MessageBoxIcon.Error: imgClass.Image = Resources.error1; break;
+                case MessageBoxIcon.Warning: imgClass.Image = Resources.warning1; break;
+                default: imgClass.Image = Resources.info1; break;
             }
         }
 

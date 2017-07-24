@@ -71,7 +71,7 @@
             // 
             // imgClass
             // 
-            this.imgClass.Image = global::MDM.Properties.Resources.question;
+            this.imgClass.Image = global::MDM.Properties.Resources.question1;
             resources.ApplyResources(this.imgClass, "imgClass");
             this.imgClass.Name = "imgClass";
             this.imgClass.TabStop = false;

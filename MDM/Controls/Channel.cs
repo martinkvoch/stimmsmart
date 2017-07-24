@@ -1,18 +1,17 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
-using System.Collections.Generic;
-using System.Linq;
 using word = System.UInt16;
 
 using LANlib;
 using MDM.Classes;
+using MDM.Data;
 using MDM.DlgBox;
 using MDM.Properties;
 using MDM.Windows;
-using MDM.Data;
 
 namespace MDM.Controls
 {
@@ -35,7 +34,7 @@ namespace MDM.Controls
             Diagnosis = dg;
             ProcNum = procNum;
             CycleNum = cycleNum;
-            Segments = id == Channel.NoSelection ? new TProcSegment[0] : Procedure.GetSegments(id, procNum);
+            Segments = segments ?? (id == Channel.NoSelection ? new TProcSegment[0] : Procedure.GetSegments(id, procNum));
             CurrSegment = currSegment;
         }
     }
@@ -46,7 +45,7 @@ namespace MDM.Controls
     /// </summary>
     public partial class Channel : UserControl
     {
-        //private string[] aStatus = new string[] { "DI", "IN", "AC", "RD", "IP", "SC", "HR", "PA", "RE", "ER", "IA", "DC" };
+        //private string[] aStatus = new string[] { "DI", "IN", "AC", "RD", "IP", "SC", "HR", "PA", "RE",/* "ER",*/ "IA", "DC" };
         internal const int NoSelection = -1;
         private word procDuration = (word)new Settings().ProcDur;
         private string chNumTxt, elapsedTxt;
@@ -124,7 +123,8 @@ namespace MDM.Controls
         private int procID
         {
             get { return Patient.ProcID; }
-            set { patient = new SelectedPatient(Patient.ID, value, Patient.Name, Patient.Diagnosis, Patient.ProcNum, Patient.CycleNum); }
+            set { patient.ProcID = value; }
+            //set { patient = new SelectedPatient(Patient.ID, value, Patient.Name, Patient.Diagnosis, Patient.ProcNum, Patient.CycleNum, Patient.Segments, Patient.CurrSegment); }
         }
 #endregion
 
@@ -182,26 +182,30 @@ namespace MDM.Controls
             get { return elapsed; }
             set
             {
-                //if(elapsed != value)
-                {
-                    word remain = (word)(procDuration - value);
+                word remain = (word)(procDuration - value);
 
-                    elapsed = value;
-                    ucMonitor.Elapsed = elapsed;
-                    ucMonitor.Remained = remain;
-                    //lbRemain.Text = string.Format("{0}:{1:D2}", remain / 60, remain % 60);
-                    //lbElapsed.Text = string.Format(elapsedTxt, elapsed / 60, elapsed % 60);
-                    if(elapsed != 0U) pbProgress.PerformStep();
-                    if(Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent || Status == ChannelStatus.Restored)
+                elapsed = value;
+                ucMonitor.Elapsed = elapsed;
+                ucMonitor.Remained = remain;
+                //lbRemain.Text = string.Format("{0}:{1:D2}", remain / 60, remain % 60);
+                //lbElapsed.Text = string.Format(elapsedTxt, elapsed / 60, elapsed % 60);
+                if(elapsed != 0U) pbProgress.PerformStep();
+                if(Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent || Status == ChannelStatus.Restored)
+                {
+                    if(ucMonitor.SegmentLeft == 0 && Patient.CurrSegment < (Patient.Segments.Length - 1))
                     {
-                        if(ucMonitor.SegmentLeft == 0 && Patient.CurrSegment < (Patient.Segments.Length - 1))
-                        {
-                            patient.CurrSegment++;
-                            ucMonitor.NextSegment();
-                            ucMonitor.SegmentLeft = (word)(Patient.Segments[Patient.CurrSegment - 1].Duration * 60);
-                        }
-                        ucMonitor.SegmentLeft--;
+                        patient.CurrSegment++;
+                        ucMonitor.NextSegment();
+                        ucMonitor.SegmentLeft = (word)(Patient.Segments[Patient.CurrSegment - 1].Duration * 60);
+#if LAN
+                        current = Current;
+                        Current = .5;
+                        while(actCur != toBeSet) Application.DoEvents();
+                        LANFunc.ChMode(Number, 2, Patient.Segments[Patient.CurrSegment - 1].WaveShape, Patient.Segments[Patient.CurrSegment - 1].TMax, Patient.Segments[Patient.CurrSegment - 1].TMin, Patient.Segments[Patient.CurrSegment - 1].TSweep);
+                        Current = current;
+#endif
                     }
+                    ucMonitor.SegmentLeft--;
                 }
             }
         }
@@ -210,7 +214,7 @@ namespace MDM.Controls
         ///// Čas, který zbývá vykonat do ukončení procedury.
         ///// </summary>
         //public word Remained { get { return Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored ? (word)(procDuration - elapsed) : procDuration; } }
-#endregion
+        #endregion
 
 #region LEDBits
         private Bits ledBits = new Bits();
@@ -353,24 +357,29 @@ namespace MDM.Controls
             }
         }
 
+        private void fillMonitor(ResponseDG resp)
+        {
+            ucMonitor.AIN1 = resp.InputR.AIN1;
+            ucMonitor.AIN2 = resp.InputR.AIN2;
+            ucMonitor.ATC = (byte)resp.InputR.Verified.AttenCoef;
+            ucMonitor.DAC = resp.InputR.Verified.DAC;
+            ucMonitor.DOUT = resp.InputR.Verified.DOUT.ByteValue;
+            ucMonitor.Status = resp.InputR.Status.Value;
+        }
+
         private void processResponse(ResponseDG resp)
         {
             if(resp != null)
             {
                 //chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
+                fillMonitor(resp);
                 processMBStatus(resp);
                 if(Status == ChannelStatus.Active)
                 {
-                    ResponseDG res;
-
-                    res = LANFunc.ChRd(Number);
                     if(actCur == toBeSet && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) <= 48) Status = ChannelStatus.Ready;
                 }
                 else if(Status == ChannelStatus.Ready) // elektrody nejsou nasazeny ve stavu "připraven"
                 {
-                    ResponseDG res;
-
-                    res = LANFunc.ChRd(Number);
                     if(actCur == toBeSet && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52) Status = ChannelStatus.Active;
                 }
                 else if((Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) && resp.InputR.Status[1])
@@ -381,9 +390,8 @@ namespace MDM.Controls
                 }
                 else if(Status == ChannelStatus.HighResistance)
                 {
-                    ResponseDG res = LANFunc.ChRd(Number);
-
-                    if (actCur == toBeSet && resp.InputR.AIN2 > 0 && (res.InputR.AIN2 - res.InputR.AIN1) <= 48)
+                    //if (actCur == toBeSet && (res.InputR.AIN2 - res.InputR.AIN1) <= 48)
+                    if(actCur == toBeSet && !resp.InputR.Status[1])
                     {
                         Current = current;
                         Status = oldStatus;
@@ -415,7 +423,6 @@ namespace MDM.Controls
 #else
         private void processResponse()
         {
-            //chMon.Record(0, (byte)0, 0, (byte)0, aStatus[(int)Status]);
             if(actCur != toBeSet)
             {
                 if(actCur < toBeSet)
@@ -574,6 +581,9 @@ namespace MDM.Controls
                 patient.CurrSegment = 1;
                 ucMonitor.NextSegment();
                 ucMonitor.SegmentLeft = (word)(Patient.Segments[0].Duration * 60);
+#if LAN
+                LANFunc.ChMode(Number, 2, Patient.Segments[0].WaveShape, Patient.Segments[0].TMax, Patient.Segments[0].TMin, Patient.Segments[0].TSweep);
+#endif
             }
             timer.Start();
             LedGreen();
@@ -692,7 +702,7 @@ namespace MDM.Controls
             LEDBits = new Bits();
             if(procID > NoSelection)
             {
-                Data.PatProc.FinishProcedure(procID, Elapsed, Data.ProcResult.Failed);
+                PatProc.FinishProcedure(procID, Elapsed, Data.ProcResult.Failed);
                 Patient = new SelectedPatient();
             }
 #if LAN
