@@ -116,6 +116,14 @@ namespace MDM
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
             Log.InfoToLog(methodName, Resources.restartMsg);
+            //try
+            //{
+            //    //appExit(null, null);
+            //    //Application.Restart();
+            //    Process.Start(Application.ExecutablePath);
+            //    Application.Exit();
+            //}
+            //catch { }
             appExit(null, null);
             Environment.Exit(0);
         }

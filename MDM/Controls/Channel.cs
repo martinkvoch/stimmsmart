@@ -192,7 +192,7 @@ namespace MDM.Controls
                 if(elapsed != 0U) pbProgress.PerformStep();
                 if(Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent || Status == ChannelStatus.Restored)
                 {
-                    if(ucMonitor.SegmentLeft == 0 && Patient.CurrSegment < (Patient.Segments.Length - 1))
+                    if(ucMonitor.SegmentLeft == 0 && Patient.CurrSegment < Patient.Segments.Length)
                     {
                         patient.CurrSegment++;
                         ucMonitor.NextSegment();
@@ -359,8 +359,8 @@ namespace MDM.Controls
 
         private void fillMonitor(ResponseDG resp)
         {
-            ucMonitor.AIN1 = resp.InputR.AIN1;
-            ucMonitor.AIN2 = resp.InputR.AIN2;
+            ucMonitor.WS = resp.InputR.Verified.Waweform;
+            ucMonitor.Sweep = resp.InputR.Verified.T3Sweep;
             ucMonitor.ATC = (byte)resp.InputR.Verified.AttenCoef;
             ucMonitor.DAC = resp.InputR.Verified.DAC;
             ucMonitor.DOUT = resp.InputR.Verified.DOUT.ByteValue;
@@ -421,8 +421,19 @@ namespace MDM.Controls
             }
         }
 #else
+        private void fillMonitor()
+        {
+            ucMonitor.WS = Patient.Segments == null ? (word)0 : Patient.CurrSegment == 0 ? (word)0 : Patient.Segments[Patient.CurrSegment - 1].WaveShape;
+            ucMonitor.Sweep = Patient.Segments == null ? (word)0 : Patient.CurrSegment == 0 ? (word)0 : Patient.Segments[Patient.CurrSegment - 1].TSweep;
+            ucMonitor.ATC = actCur;
+            ucMonitor.DAC = (word)(InOrder ? 0x8000 : 0);
+            ucMonitor.DOUT = (byte)(InOrder ? 2 : 0);
+            ucMonitor.Status = 0;
+        }
+
         private void processResponse()
         {
+            fillMonitor();
             if(actCur != toBeSet)
             {
                 if(actCur < toBeSet)

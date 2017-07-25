@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="WpfUC.ucDisp4D"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfUC"
+             mc:Ignorable="d" 
+             d:DesignHeight="150" d:DesignWidth="450">
+    <Viewbox Stretch="Fill">
+        <Grid Margin="70,16,16,16" >
+            <Grid.RenderTransform>
+                <SkewTransform AngleX="-9"/>
+            </Grid.RenderTransform>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <local:ucDigit x:Name="D1000" Margin="0,0,16,0" x:FieldModifier="private"/>
+            <local:ucDigit x:Name="D100" Grid.Column="1" Margin="0,0,16,0" x:FieldModifier="private"/>
+            <local:ucDigit x:Name="D10" Grid.Column="2" Margin="0,0,16,0" x:FieldModifier="private"/>
+            <local:ucDigit x:Name="D1" Grid.Column="3" Margin="0,0,16,0" x:FieldModifier="private"/>
+        </Grid>
+    </Viewbox>
+</UserControl>

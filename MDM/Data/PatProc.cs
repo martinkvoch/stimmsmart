@@ -13,7 +13,8 @@ namespace MDM.Data
         const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}", panControl = "panProcedure",
              insFmt = "(PAT_ID, USR_ID, CHANNEL) values ({0}, {1}, {2})",
              updFmt = "DURATION={0}, RESULT={1}", updWhereFmt = "ID = {0}",
-             selFmt = "select p.LAST_NAME || ', ' || p.FIRST_NAME || ifnull(' '||p.MIDDLE_NAME, '') [{0}], strftime('%d.%m.%Y', r.DATE) || strftime(' %H:%M:%S', r.TIME) [{1}], " +
+             //selFmt = "select p.LAST_NAME || ', ' || p.FIRST_NAME || ifnull(' '||p.MIDDLE_NAME, '') [{0}], strftime('%d.%m.%Y', r.DATE) || strftime(' %H:%M:%S', r.TIME) [{1}], " +
+             selFmt = "select p.LAST_NAME || ', ' || p.FIRST_NAME || ifnull(' '||p.MIDDLE_NAME, '') [{0}], strftime('%d.%m.%Y', r.DATE) || strftime(' %H:%M', r.TIME) [{1}], " +
                          "u.NAME [{2}], substr(time(r.DURATION, 'unixepoch'), 4) [{3}], r.CHANNEL [{4}], " +
                          "case r.RESULT when 1 then '{5}' when 2 then '{6}' when 3 then '{7}' else '{8}' end [{9}] " +
                        "from {10} r, {11} p, {12} u where r.PAT_ID = p.id and r.USR_ID = u.ID order by 1,2";

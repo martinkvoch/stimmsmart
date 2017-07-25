@@ -55,6 +55,9 @@
     <Compile Include="ucDisp3D.xaml.cs">
       <DependentUpon>ucDisp3D.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ucDisp4D.xaml.cs">
+      <DependentUpon>ucDisp4D.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ucDisp4H.xaml.cs">
       <DependentUpon>ucDisp4H.xaml</DependentUpon>
     </Compile>
@@ -76,6 +79,10 @@
     <Page Include="ucDisp3D.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ucDisp4D.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ucDisp4H.xaml">
       <Generator>MSBuild:Compile</Generator>

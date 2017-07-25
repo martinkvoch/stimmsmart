@@ -171,9 +171,12 @@ namespace MDM.Windows
                 if(!e.Cancel)
                 {
                     miLogOut.PerformClick();
-                    timer.Stop();
-                    timer.Dispose();
-                    timer = null;
+                    if(timer != null)
+                    {
+                        timer.Stop();
+                        timer.Dispose();
+                        timer = null;
+                    }
                 }
             }
         }

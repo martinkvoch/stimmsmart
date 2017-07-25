@@ -24,11 +24,11 @@ namespace LANlib
             QueryDG q = new QueryDG((byte)pck++, led: dio);
             ResponseDG res = LAN.TimedOut ? new ResponseDG() : LAN.MasterCmd(q);
 
-            if(!LAN.TimedOut)
-            {
-                //Thread.Sleep(200);
-                res = LanRd();
-            }
+            //if(!LAN.TimedOut)
+            //{
+            //    //Thread.Sleep(200);
+            //    res = LanRd();
+            //}
             return res;
         }
 

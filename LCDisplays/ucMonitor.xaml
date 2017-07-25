@@ -63,8 +63,8 @@
             </Grid.ColumnDefinitions>
             <Border Grid.ColumnSpan="6" BorderBrush="Gray" BorderThickness="30" Opacity=".3"/>
             <Border Grid.Row="1" Grid.RowSpan="8" BorderBrush="Gray" BorderThickness="30" Opacity=".3"/>
-            <Border Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="6" BorderBrush="Khaki" BorderThickness="30" Opacity=".6"/>
-            <Border Grid.Column="5" Grid.Row="1" Grid.RowSpan="7" BorderBrush="Khaki" BorderThickness="30" Opacity=".6"/>
+            <Border Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="6" BorderBrush="White" BorderThickness="30" Opacity=".6"/>
+            <Border Grid.Column="5" Grid.Row="1" Grid.RowSpan="7" BorderBrush="White" BorderThickness="30" Opacity=".6"/>
             <Grid Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -110,10 +110,10 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="500"/>
                     </Grid.ColumnDefinitions>
                     <local:ucDisp4H x:Name="disStatus" Grid.Row="1"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Text="STAT" Foreground="Black" FontSize="100" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="STATUS" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
                 </Grid>
                 <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
@@ -123,7 +123,7 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="500"/>
                     </Grid.ColumnDefinitions>
                     <local:ucDisp3D x:Name="disATC" Grid.Row="1"/>
                     <TextBlock Grid.Row="1" Grid.Column="1" Text="ATC" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
@@ -136,10 +136,10 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="500"/>
                     </Grid.ColumnDefinitions>
                     <local:ucDisp3D x:Name="disDOUT" Grid.Row="1"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Text="DOUT" Foreground="Black" FontSize="100" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="DOUT" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
                 </Grid>
                 <Grid Grid.Row="3">
                     <Grid.RowDefinitions>
@@ -149,10 +149,10 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="500"/>
                     </Grid.ColumnDefinitions>
-                    <local:ucDisp3D x:Name="disAIN1" Grid.Row="1"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Text="AIN1" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
+                    <local:ucDisp3D x:Name="disWS" Grid.Row="1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="WS" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
                 </Grid>
                 <Grid Grid.Row="4">
                     <Grid.RowDefinitions>
@@ -162,10 +162,10 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="500"/>
                     </Grid.ColumnDefinitions>
-                    <local:ucDisp3D x:Name="disAIN2" Grid.Row="1"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Text="AIN2" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
+                    <local:ucDisp4D x:Name="disSweep" Grid.Row="1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="SWEEP" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
                 </Grid>
                 <Grid Grid.Row="5">
                     <Grid.RowDefinitions>
@@ -175,7 +175,7 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="300"/>
+                        <ColumnDefinition Width="500"/>
                     </Grid.ColumnDefinitions>
                     <local:ucDisp4H x:Name="disDAC" Grid.Row="1"/>
                     <TextBlock Grid.Row="1" Grid.Column="1" Text="DAC" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>

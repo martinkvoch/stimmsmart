@@ -31,7 +31,7 @@ namespace WpfUC
                 if(on != value)
                 {
                     //SetValue(OnProperty, value);
-                    on = disAIN1.On = disAIN2.On = disATC.On = disDAC.On = disDOUT.On = disStatus.On = timElapsed.On = timLeft.On = timSegmentLeft.On = value;
+                    on = disWS.On = disSweep.On = disATC.On = disDAC.On = disDOUT.On = disStatus.On = timElapsed.On = timLeft.On = timSegmentLeft.On = value;
                     if(!on)
                     {
                         resetMonitor();
@@ -46,16 +46,16 @@ namespace WpfUC
         #endregion
 
         #region Displeje
-        public word AIN1
+        public word WS
         {
-            get { return (word)disAIN1.Value; }
-            set { disAIN1.Value = value; }
+            get { return (word)disWS.Value; }
+            set { disWS.Value = value; }
         }
 
-        public word AIN2
+        public word Sweep
         {
-            get { return (word)disAIN2.Value; }
-            set { disAIN2.Value = value; }
+            get { return (word)disSweep.Value; }
+            set { disSweep.Value = value; }
         }
 
         public byte ATC
@@ -110,7 +110,7 @@ namespace WpfUC
         #region resetMonitor()
         private void resetMonitor()
         {
-            AIN1 = AIN2 = DAC = Status = Elapsed = Remained = SegmentLeft = 0;
+            WS = Sweep = DAC = Status = Elapsed = Remained = SegmentLeft = 0;
             ATC = DOUT = 0;
         }
         #endregion
