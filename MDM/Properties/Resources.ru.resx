@@ -609,4 +609,7 @@
   <data name="ProcResultPrematurely" xml:space="preserve">
     <value>Преждевременное</value>
   </data>
+  <data name="filterAll" xml:space="preserve">
+    <value>Все</value>
+  </data>
 </root>

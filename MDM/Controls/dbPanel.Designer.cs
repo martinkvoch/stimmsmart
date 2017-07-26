@@ -173,6 +173,7 @@
             // nbFilter
             // 
             this.nbFilter.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.nbFilter.Image = global::MDM.Properties.Resources.filter;
             resources.ApplyResources(this.nbFilter, "nbFilter");
             this.nbFilter.Name = "nbFilter";
             // 

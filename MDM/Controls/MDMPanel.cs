@@ -5,7 +5,7 @@ using MDM.Windows;
 
 namespace MDM.Controls
 {
-    public enum PanelButton : byte { Navigator = 1, Insert = 2, Delete = 4, Edit = 8, Wipe = 16, Undelete = 32, Filter = 64 }
+    public enum PanelButton : byte { Navigator = 0x01, Insert = 0x02, Delete = 0x04, Edit = 0x08, Wipe = 0x10, Undelete = 0x20, Filter = 0x40 }
     public enum PanelLayout { ReadOnly, DeleteOnly, WODelete, Edit, Undelete, WFilter }
 
     /// <summary>

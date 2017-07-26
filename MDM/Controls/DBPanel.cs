@@ -4,6 +4,8 @@ using System.Linq;
 using System.Windows.Forms;
 
 using MDM.Data;
+using System.Data;
+using MDM.Properties;
 
 namespace MDM.Controls
 {
@@ -64,8 +66,25 @@ namespace MDM.Controls
                     dbpNavigator.BindingSource = bindingSource;
                     bindingSource.Position = pos;
                 }
+                if((PanelButtons & (int)PanelButton.Filter) > 0)
+                {
+                    nbFilter.Image = Resources.filter; // !!!!!
+                    nbFilter.DropDownItems.Clear();
+                    nbFilter.DropDownItems.Add(new ToolStripMenuItem(Resources.filterAll, null, ddi_tsmi_click));
+                    nbFilter.DropDownItems.AddRange(dbpDataSet.Tables[0].Rows.OfType<DataRow>().Select(r => r[0].ToString()).Distinct().Select(s => new ToolStripMenuItem(s, null, ddi_tsmi_click)).ToArray());
+                }
                 setButtons();
             }
+        }
+
+        private void ddi_tsmi_click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+
+            tsmi.Checked = !tsmi.Checked;
+            // Buď je zmáčknuto "Všichni" nebo vůbec nic
+            if((nbFilter.DropDownItems[0] as ToolStripMenuItem).Checked || nbFilter.DropDownItems.OfType<ToolStripMenuItem>().Skip(1).All(i => !i.Checked)) bindingSource.Filter = null;
+            else bindingSource.Filter = string.Format("{0} in ({1})", dbpDataSet.Tables[0].Columns[0].Caption, "'" + string.Join("','", nbFilter.DropDownItems.OfType<ToolStripMenuItem>().Skip(1).Where(r => r.Checked).Select(r => r.Text).ToArray()) + "'");
         }
 
         /// <summary>

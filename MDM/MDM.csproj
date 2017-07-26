@@ -497,6 +497,7 @@
   <ItemGroup>
     <Content Include="Libs\Ionic.Zip.Reduced.dll" />
     <Content Include="Resources\deluser.png" />
+    <None Include="Resources\filter.png" />
     <None Include="Resources\info1.png" />
     <None Include="Resources\error1.png" />
     <None Include="Resources\question1.png" />

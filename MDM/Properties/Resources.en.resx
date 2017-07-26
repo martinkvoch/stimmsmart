@@ -606,4 +606,7 @@
   <data name="ProcResultPrematurely" xml:space="preserve">
     <value>Prematurely</value>
   </data>
+  <data name="filterAll" xml:space="preserve">
+    <value>All</value>
+  </data>
 </root>

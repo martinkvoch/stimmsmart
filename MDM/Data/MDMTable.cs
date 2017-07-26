@@ -158,7 +158,6 @@ namespace MDM.Data
         }
         #endregion
 
-        //TODO: dodělat hlášky do Resources
         #region Wipe(), Truncate(), Purge()
         /// <summary>
         /// Fyzicky smaže dané záznamy z dané tabulky.
@@ -198,6 +197,7 @@ namespace MDM.Data
             {
                 string msg = string.Format(Resources.delAllMsg, tname);
 
+                Database.Backup(true);
                 Database.ExecCmd(string.Format(wipeFmt, tname));
                 Database.Compact();
                 Log.WarningToLog(methodName, msg);
@@ -217,6 +217,7 @@ namespace MDM.Data
             {
                 string msg = string.Format(Resources.delAllMsg, tname);
 
+                Database.Backup(true);
                 Database.ExecCmd(string.Format(purgeFmt, tname));
                 Database.Compact();
                 Log.WarningToLog(methodName, msg);

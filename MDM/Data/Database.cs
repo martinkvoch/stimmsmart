@@ -13,12 +13,12 @@ using MDM.Properties;
 
 namespace MDM.Data
 {
-    public enum DbStatus { Closed, Open }
+    public enum DbStatus { Created, Closed, Open, BackedUp, Restored, Compressed }
 
     public static class Database
     {
-        const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}", dateFmt = "yyyyMMddHHmmss",
-            pwd = "DJu9USeZ4zwcRp/cu0WKmA==";//#KsntsZ@
+        const ushort autoBackupLimit = 20; // Po tomto počtu provedených DML příkazů se automaticky udělá Backup
+        const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}", dateFmt = "yyyyMMddHHmmss", pwd = "DJu9USeZ4zwcRp/cu0WKmA==";//#KsntsZ@
 
         private static readonly string connStr = new Settings().MDMConnectionString;
         public static DbStatus Status = DbStatus.Closed;
@@ -50,7 +50,7 @@ namespace MDM.Data
         }
         #endregion
 
-        #region Privátní utility
+        #region Privátní utility (zip, unzip, tableHasColumn, autoBackup)
         private static void zip(string file = null)
         {
             string zipFN = Path.ChangeExtension(file ?? dbFileName, EncExt);
@@ -78,9 +78,35 @@ namespace MDM.Data
                 zip.ExtractAll(@".\");
             }
         }
+
+        private static bool tableHasColumn(string tname, string cname)
+        {
+            bool res = false;
+
+            using(SQLiteConnection conn = Database.CreateConnection())
+            {
+                using(DataTable dt = new DataTable())
+                {
+                    using(SQLiteDataAdapter da = new SQLiteDataAdapter("PRAGMA table_info(" + tname + ")", conn)) da.Fill(dt);
+                    res = dt.Rows.OfType<DataRow>().FirstOrDefault(r => r["name"].ToString().Equals(cname, StringComparison.OrdinalIgnoreCase)) != null;
+                }
+            }
+            return res;
+        }
+
+        private static ushort nCmds = 0;
+        private static void autoBackup()
+        {
+            nCmds++;
+            if(nCmds == autoBackupLimit)
+            {
+                Backup(true);
+                nCmds = 0;
+            }
+        }
         #endregion
 
-        #region Obecné utility
+        #region Obecné utility (Fn2Date, Date2Fn, CreateConnection, Select, ExecCmd, ExecScalar, TableHasDELETED)
         internal static string GetSAP()
         {
             return EncryptionUtilities.CreatePasswordSalt(EncryptionUtilities.DecryptString(pwd));
@@ -125,6 +151,11 @@ namespace MDM.Data
             return res;
         }
 
+        /// <summary>
+        /// Provede zadaný select a vrátí výsledek v objektu DataTable.
+        /// </summary>
+        /// <param name="cmd">příkaz SELECT</param>
+        /// <returns>Vrací instanci třídy DataTable</returns>
         public static DataTable Select(string cmd)
         {
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
@@ -138,17 +169,6 @@ namespace MDM.Data
                 using(SQLiteConnection conn = CreateConnection())
                 using(SQLiteDataAdapter da = new SQLiteDataAdapter(cmd, conn)) da.Fill(dataSet);
                 if(dataSet.Tables.Count > 0) res = dataSet.Tables[0];
-                //using(SQLiteCommand command = new SQLiteCommand(cmd, conn))
-                //using(SQLiteDataReader dr = command.ExecuteReader()) res.Load(dr);
-                ////{
-                ////    while(dr.Read())
-                ////    {
-                ////        object[] row = new object[dr.FieldCount];
-
-                ////        for(int i = 0; i < dr.FieldCount; i++) row[i] = dr[i];
-                ////        res.Rows.Add(row);
-                ////    }
-                ////}
             }
             catch(SQLiteException e)
             {
@@ -179,6 +199,7 @@ namespace MDM.Data
                     tran.Commit();
                 }
                 else using(SQLiteCommand command = new SQLiteCommand(cmd, conn)) res = command.ExecuteNonQuery();
+                autoBackup();
             }
             catch(SQLiteException e)
             {
@@ -213,21 +234,6 @@ namespace MDM.Data
             return res;
         }
 
-        private static bool tableHasColumn(string tname, string cname)
-        {
-            bool res = false;
-
-            using(SQLiteConnection conn = Database.CreateConnection())
-            {
-                using(DataTable dt = new DataTable())
-                {
-                    using(SQLiteDataAdapter da = new SQLiteDataAdapter("PRAGMA table_info(" + tname + ")", conn)) da.Fill(dt);
-                    res = dt.Rows.OfType<DataRow>().FirstOrDefault(r => r["name"].ToString().Equals(cname, StringComparison.OrdinalIgnoreCase)) != null;
-                }
-            }
-            return res;
-        }
-
         /// <summary>
         /// Zjistí, zda tabulka obsahuje sloupec s názvem DELETED
         /// </summary>
@@ -238,24 +244,26 @@ namespace MDM.Data
             return tableHasColumn(tname, "DELETED");
         }
 
-        /// <summary>
-        /// Zjistí, zda tabulka obsahuje sloupec s názvem ID
-        /// </summary>
-        /// <param name="tname">název tabulky</param>
-        /// <returns>Vrací true v případě, že tabulka sloupec obsahuje, jinak vrací false.</returns>
-        public static bool TableHasID(string tname)
-        {
-            return tableHasColumn(tname, "ID");
-        }
+        ///// <summary>
+        ///// Zjistí, zda tabulka obsahuje sloupec s názvem ID
+        ///// </summary>
+        ///// <param name="tname">název tabulky</param>
+        ///// <returns>Vrací true v případě, že tabulka sloupec obsahuje, jinak vrací false.</returns>
+        //public static bool TableHasID(string tname)
+        //{
+        //    return tableHasColumn(tname, "ID");
+        //}
         #endregion
 
         #region Init(), Backup(), Restore(), Compact()
         internal static void Init(bool force = false)
         {
+            DbStatus oldStatus = Status;
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
             try
             {
+                Status = DbStatus.Created;
                 if(!force && !File.Exists(dbFileName)) force = true;
                 if(force)
                 {
@@ -269,6 +277,7 @@ namespace MDM.Data
                     User.Init();
                     Diagnosis.Init();
                     HIC.Init();
+                    Procedure.Init();
                     Patient.Init();
                     PatProc.Init();
                     Log.InfoToLog(methodName, Resources.newDataOK);
@@ -280,14 +289,20 @@ namespace MDM.Data
                 Log.ErrorToLog(methodName, string.Format(errorFmt, e.ErrorCode, e.Message));
                 DialogBox.ShowError(Resources.newDataKO, Resources.newDataQH);
             }
+            finally
+            {
+                Status = oldStatus;
+            }
         }
 
         internal static void Backup(bool silent = false)
         {
+            DbStatus oldStatus = Status;
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
             try
             {
+                Status = DbStatus.BackedUp;
                 if(File.Exists(dbFileName))
                 {
                     string bckFN = Date2Fn(DateTime.Now.ToString("G"));
@@ -306,14 +321,20 @@ namespace MDM.Data
                 Log.ErrorToLog(methodName, string.Format(errorFmt, e.ErrorCode, e.Message));
                 DialogBox.ShowError(Resources.bckDataKO, Resources.bckDataH);
             }
+            finally
+            {
+                Status = oldStatus;
+            }
         }
 
         internal static void Restore(string from)
         {
+            DbStatus oldStatus = Status;
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
             try
             {
+                Status = DbStatus.Restored;
                 if(DialogBox.ShowYN(Resources.restoreQ, Resources.restoreQH) == DialogResult.Yes)
                 {
                     string msg = string.Format(Resources.restoreOK, DateTime.Parse(from).ToString("G")), bckFN = Date2Fn(from);
@@ -331,14 +352,28 @@ namespace MDM.Data
                 Log.ErrorToLog(methodName, string.Format(errorFmt, e.ErrorCode, e.Message));
                 DialogBox.ShowError(Resources.bckDataKO, Resources.bckDataH);
             }
+            finally
+            {
+                Status = oldStatus;
+            }
         }
 
         internal static void Compact()
         {
+            DbStatus oldStatus = Status;
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
-            ExecCmd("vacuum", false);
-            Log.InfoToLog(methodName, Resources.vacuumMsg);
+            try
+            {
+                Status = DbStatus.Compressed;
+                ExecCmd("vacuum", false);
+                autoBackup();
+                Log.InfoToLog(methodName, Resources.vacuumMsg);
+            }
+            finally
+            {
+                Status = oldStatus;
+            }
         }
         #endregion
 
@@ -349,17 +384,17 @@ namespace MDM.Data
 
             try
             {
-                Status = DbStatus.Open;
-                //if(File.Exists(dbFileName)) File.Delete(Path.ChangeExtension(dbFileName, EncExt));
-                if(!File.Exists(dbFileName))
+                //if(!File.Exists(dbFileName))
+                //{
+                File.Delete(dbFileName);
+                if(!File.Exists(Path.ChangeExtension(dbFileName, EncExt)))
                 {
-                    if(!File.Exists(Path.ChangeExtension(dbFileName, EncExt)))
-                    {
-                        Init(true);
-                        zip();
-                    }
-                    unzip();
+                    Init(true);
+                    zip();
                 }
+                unzip();
+                Status = DbStatus.Open;
+                //}
                 Log.InfoToLog(methodName, Resources.dbIsOpen);
             }
             catch(Exception e)
@@ -374,6 +409,7 @@ namespace MDM.Data
         {
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
+            Backup(true);
             Log.InfoToLog(methodName, Resources.dbIsClosed);
             zip();
             File.Delete(dbFileName);
