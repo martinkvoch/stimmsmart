@@ -1,25 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Windows.Forms;
 using qword = System.UInt64;
 
-using MDM.Controls;
-using MDM.Properties;
 using LANlib;
-using System;
+using MDM.Controls;
 using MDM.Data;
 using MDM.DlgBox;
-using System.Reflection;
+using MDM.Properties;
 
 namespace MDM.Classes
 {
     /// <summary>
     /// Třída pro manipulaci se všemi kanály
     /// </summary>
-    public class Channels : IDisposable
+    public class Channels : Component
     {
         private static readonly byte noc = new Settings().NOC;
         private List<Channel> channels = new List<Channel>();
@@ -60,7 +60,7 @@ namespace MDM.Classes
 #endif
         }
 
-        public void Dispose()
+        internal void DisposeMain()
         {
 #if LAN
             rWorker.CancelAsync();
@@ -68,7 +68,7 @@ namespace MDM.Classes
             rWorker.Dispose();
             rWorker = null;
 #endif
-            foreach(Channel ch in channels) ch.Dispose();
+            foreach(Channel ch in channels) ch.DisposeMain();
         }
 
 #if LAN

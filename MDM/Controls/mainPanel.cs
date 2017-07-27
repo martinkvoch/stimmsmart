@@ -4,22 +4,20 @@ namespace MDM.Controls
 {
     public partial class mainPanel : MDMPanel
     {
-        //private static int callCount = 0;
         public Channels Channels;
 
         public mainPanel()
         {
-            //if(callCount++ < 1)
-            //{
             InitializeComponent();
-            if(Channels != null)
-            {
-                Channels.Dispose();
-                Channels = null;
-            }
+            if(Channels != null) DisposeMain();
             Channels = new Channels(this);
             Channels.On(Program.ChErrors);
-            //}
+        }
+
+        internal void DisposeMain()
+        {
+            Channels.DisposeMain();
+            Channels = null;
         }
     }
 }

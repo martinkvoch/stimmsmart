@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
-using System.Linq;
 using System.Reflection;
-using System.Resources;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -11,7 +9,6 @@ using MDM.Data;
 using MDM.DlgBox;
 using MDM.Properties;
 using MDM.Windows;
-using System.Diagnostics;
 
 namespace MDM
 {
@@ -40,7 +37,7 @@ namespace MDM
         {
             get
             {
-                if(chErrors.Count() == 0) chErrors = new bool[6];
+                if(chErrors.Length == 0) chErrors = new bool[new Settings().NOC];
                 return chErrors;
             }
             set
@@ -77,7 +74,6 @@ namespace MDM
         {
             Version ver = typeof(Program).Assembly.GetName().Version;
 
-            //return ver.ToString();
             return string.Format("{0}.{1} (rev. {2})", ver.Major, ver.Minor, ver.Revision);
         }
 
@@ -88,9 +84,7 @@ namespace MDM
 
         internal static string GetCopyright()
         {
-            return ((AssemblyCopyrightAttribute)Attribute.GetCustomAttribute(
-                Assembly.GetExecutingAssembly(), typeof(AssemblyCopyrightAttribute), false))
-               .Copyright;
+            return ((AssemblyCopyrightAttribute)Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof(AssemblyCopyrightAttribute), false)).Copyright;
         }
 
         internal static string GetSerNum()
@@ -153,6 +147,7 @@ namespace MDM
             Language = settings.lang;
             SetLanguage();
             Database.Open();
+            //Database.Init();
             //Procedure.Init();
             //PatProc.Init();
             //PatProc.Alter();
@@ -162,7 +157,10 @@ namespace MDM
             KeepRunning = false;
             while(true)
             {
-                Application.Run(new wMain(Program.Language));
+                wMain main = new wMain(Program.Language);
+
+                Application.Run(main);
+                main.DisposeMain();
                 if(!KeepRunning) break;
             } 
         }

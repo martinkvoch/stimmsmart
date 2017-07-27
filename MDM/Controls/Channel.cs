@@ -255,7 +255,6 @@ namespace MDM.Controls
         public Channel(byte chnum, Channels parent)
         {
             InitializeComponent();
-            //tbCurrent.Location = new Point(203, 97);
             tbCurrent.Size = new Size(42, 226);
             tbCurrent.Enabled = false;
             chNum = chnum;
@@ -275,27 +274,22 @@ namespace MDM.Controls
             pbProgress.Value = 0;
         }
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
+        internal void DisposeMain()
         {
-            if(disposing && (components != null))
-            {
 #if LAN
                 LANFunc.ChRst(Number);
                 LANFunc.LanChOnOff(Number, false);
 #endif
-                if(chWorker.IsBusy) chWorker.CancelAsync();
-                Thread.Sleep(1000);
-                chWorker.Dispose();
-                components.Dispose();
-                timer.Dispose();
-            }
-            base.Dispose(disposing);
+            if(chWorker.IsBusy) chWorker.CancelAsync();
+            //Thread.Sleep(1000);
+            while(chWorker.IsBusy) Application.DoEvents();
+            chWorker.Dispose();
+            chWorker = null;
+            timer.Stop();
+            timer.Dispose();
+            timer = null;
         }
-#endregion
+        #endregion
 
 #region Utility kanálu
         private void led(DioReg clr, bool blink)

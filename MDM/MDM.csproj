@@ -99,7 +99,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Channels.cs" />
+    <Compile Include="Classes\Channels.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\Channel.cs">
       <SubType>UserControl</SubType>
     </Compile>

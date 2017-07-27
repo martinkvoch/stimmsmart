@@ -52,7 +52,7 @@ namespace MDM.Windows
         }
         #endregion
 
-        #region Konstruktor
+        #region Konstruktor a destruktor
         private void constructMiLang()
         {
             string[] langs = Program.GetLangs();
@@ -100,6 +100,12 @@ namespace MDM.Windows
                 signInUser();
                 Log.InfoToLog(methodName, string.Format(Resources.langChanged, miLang.ToolTipText));
             }
+        }
+
+        internal void DisposeMain()
+        {
+            panMain.DisposeMain();
+            panMain = null;
         }
         #endregion
 
