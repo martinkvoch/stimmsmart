@@ -147,7 +147,6 @@
             this.tbCurrent.Value = 0;
             this.tbCurrent.ValueChanged += new EConTech.Windows.MACUI.ValueChangedHandler(this.tbCurrent_ValueChanged);
             this.tbCurrent.EnabledChanged += new System.EventHandler(this.tbCurrent_EnabledChanged);
-            this.tbCurrent.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbCurrent_MouseDown);
             // 
             // lbCurrent
             // 

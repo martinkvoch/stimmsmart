@@ -50,13 +50,17 @@ using EConTech.Windows.MACUI.Designer;
 
 namespace EConTech.Windows.MACUI
 {
+    /*======================================================================================
+     * Pro úèely MDM byly:
+     * - provedeny zmìny v konstruktoru, aby se zakázalo použití myši.
+    ========================================================================================*/
 
-	#region Declaration
+    #region Declaration
 
-	/// <summary>
-	/// Represents the method that will handle a change in value.
-	/// </summary>
-	public delegate void ValueChangedHandler(object sender, decimal value);
+    /// <summary>
+    /// Represents the method that will handle a change in value.
+    /// </summary>
+    public delegate void ValueChangedHandler(object sender, decimal value);
 
 	public enum MACBorderStyle
 	{
@@ -213,9 +217,9 @@ namespace EConTech.Windows.MACUI
 		/// </summary>
 		public MACTrackBar()
 		{
-			base.MouseDown += new MouseEventHandler (OnMouseDownSlider);
-			base.MouseUp += new MouseEventHandler (OnMouseUpSlider);
-			base.MouseMove += new MouseEventHandler (OnMouseMoveSlider);
+			//base.MouseDown += new MouseEventHandler (OnMouseDownSlider);
+			//base.MouseUp += new MouseEventHandler (OnMouseUpSlider);
+			//base.MouseMove += new MouseEventHandler (OnMouseMoveSlider);
 
 			SetStyle(ControlStyles.AllPaintingInWmPaint |
 				ControlStyles.ResizeRedraw |
@@ -1228,30 +1232,28 @@ namespace EConTech.Windows.MACUI
 		/// </summary>
 		protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
 		{
-			Brush brush;
-			RectangleF rectTemp, drawRect;
-			float textAreaSize;
-
-			Rectangle workingRect = Rectangle.Inflate(this.ClientRectangle, - _indentWidth, - _indentHeight);
-			float currentUsedPos = 0;
+            //Brush brush;
+            //RectangleF rectTemp, drawRect;
+            RectangleF drawRect;
+			float textAreaSize, currentUsedPos = 0;
+			Rectangle workingRect = Rectangle.Inflate(ClientRectangle, - _indentWidth, - _indentHeight);
 
 			//==========================================================================
 			// Draw the background of the ProgressBar control.
 			//==========================================================================
-			brush = new SolidBrush(this.BackColor);
-			rectTemp = this.ClientRectangle;
-			e.Graphics.FillRectangle(brush, rectTemp);
-			brush.Dispose();
-			//==========================================================================
+            using(Brush brush = new SolidBrush(BackColor)) e.Graphics.FillRectangle(brush, ClientRectangle);
+            //brush = new SolidBrush(this.BackColor);
+            //rectTemp = this.ClientRectangle;
+            //e.Graphics.FillRectangle(brush, rectTemp);
+            //brush.Dispose();
 
-			//==========================================================================
-			if(_orientation == Orientation.Horizontal)
+            if(_orientation == Orientation.Horizontal)
 			{
 				currentUsedPos = _indentHeight;
 				//==========================================================================
 
 				// Get Height of Text Area
-				textAreaSize = e.Graphics.MeasureString(_maximum.ToString(), this.Font).Height;
+				textAreaSize = e.Graphics.MeasureString(_maximum.ToString(), Font).Height;
 
 				if(_textTickStyle == TickStyle.TopLeft || _textTickStyle == TickStyle.Both)
 				{
@@ -1263,7 +1265,6 @@ namespace EConTech.Windows.MACUI
 					currentUsedPos += textAreaSize;
 
 					DrawTickTextLine(e.Graphics, drawRect, _tickFrequency, _minimum, _maximum, this.ForeColor, this.Font, _orientation);
-					//==========================================================================
 				}
 
 				if(_tickStyle == TickStyle.TopLeft  || _tickStyle == TickStyle.Both)
@@ -1276,7 +1277,6 @@ namespace EConTech.Windows.MACUI
 					currentUsedPos += _tickHeight + 1;
 
 					DrawTickLine(e.Graphics, drawRect, _tickFrequency, _minimum, _maximum, _tickColor, _orientation);
-					//==========================================================================
 				}
 
 				//==========================================================================
@@ -1294,11 +1294,8 @@ namespace EConTech.Windows.MACUI
 				// Draw the Track Line
 				//==========================================================================
 				drawRect = new RectangleF(workingRect.Left , currentUsedPos + _trackerSize.Height/2 - _trackLineHeight/2, workingRect.Width, _trackLineHeight);
-				DrawTrackLine(e.Graphics, drawRect);
+				DrawTrackLine(e.Graphics, drawRect, _trackerRect);
 				currentUsedPos += _trackerSize.Height;
-
-
-				//==========================================================================
 
 				if(_tickStyle == TickStyle.BottomRight || _tickStyle == TickStyle.Both)
 				{
@@ -1311,7 +1308,6 @@ namespace EConTech.Windows.MACUI
 					currentUsedPos += _tickHeight;
 
 					DrawTickLine(e.Graphics, drawRect, _tickFrequency, _minimum, _maximum, _tickColor, _orientation);
-					//==========================================================================
 				}
 
 				if(_textTickStyle == TickStyle.BottomRight || _textTickStyle == TickStyle.Both)
@@ -1325,13 +1321,11 @@ namespace EConTech.Windows.MACUI
 					currentUsedPos += textAreaSize;
 
 					DrawTickTextLine(e.Graphics, drawRect, _tickFrequency, _minimum, _maximum, this.ForeColor, this.Font, _orientation);
-					//==========================================================================
 				}
 			}
 			else //_orientation == Orientation.Vertical
 			{
 				currentUsedPos = _indentWidth;
-				//==========================================================================
 
 				// Get Width of Text Area
 				textAreaSize = e.Graphics.MeasureString(_maximum.ToString(), this.Font).Width;
@@ -1347,7 +1341,6 @@ namespace EConTech.Windows.MACUI
 					currentUsedPos += textAreaSize;
 
 					DrawTickTextLine(e.Graphics, drawRect, _tickFrequency, _minimum, _maximum, this.ForeColor, this.Font, _orientation);
-					//==========================================================================
 				}
 
 				if(_tickStyle == TickStyle.TopLeft || _tickStyle == TickStyle.Both)
@@ -1360,7 +1353,6 @@ namespace EConTech.Windows.MACUI
 					currentUsedPos += _tickHeight + 1;
 
 					DrawTickLine(e.Graphics, drawRect, _tickFrequency, _minimum, _maximum, _tickColor, _orientation);
-					//==========================================================================
 				}
 
 				//==========================================================================
@@ -1375,15 +1367,14 @@ namespace EConTech.Windows.MACUI
 				_trackerRect = new RectangleF(currentUsedPos, workingRect.Bottom - currentTrackerPos - _trackerSize.Width, _trackerSize.Height, _trackerSize.Width);// Remember this for drawing the Tracker later
 				//_trackerRect.Inflate(-1,0);
 
-				rectTemp = _trackerRect;//Testing
+				//rectTemp = _trackerRect;//Testing
 
 				//==========================================================================
 				// Draw the Track Line
 				//==========================================================================
 				drawRect = new RectangleF(currentUsedPos + _trackerSize.Height/2 - _trackLineHeight/2, workingRect.Top, _trackLineHeight, workingRect.Height);
-				DrawTrackLine(e.Graphics, drawRect);
+				DrawTrackLine(e.Graphics, drawRect, _trackerRect);
 				currentUsedPos += _trackerSize.Height;
-				//==========================================================================
 
 				if(_tickStyle == TickStyle.BottomRight || _tickStyle == TickStyle.Both)
 				{
@@ -1396,7 +1387,6 @@ namespace EConTech.Windows.MACUI
 					currentUsedPos += _tickHeight;
 
 					DrawTickLine(e.Graphics, drawRect, _tickFrequency, _minimum, _maximum, _tickColor, _orientation);
-					//==========================================================================
 				}
 
 				if(_textTickStyle == TickStyle.BottomRight || _textTickStyle == TickStyle.Both)
@@ -1409,8 +1399,7 @@ namespace EConTech.Windows.MACUI
 					drawRect.Inflate(0, - _trackerSize.Width/2);
 					currentUsedPos += textAreaSize;
 
-					DrawTickTextLine(e.Graphics, drawRect, _tickFrequency, _minimum, _maximum, this.ForeColor, this.Font, _orientation);
-					//==========================================================================
+					DrawTickTextLine(e.Graphics, drawRect, _tickFrequency, _minimum, _maximum, ForeColor, Font, _orientation);
 				}
 			}
 			
@@ -1422,23 +1411,18 @@ namespace EConTech.Windows.MACUI
 				DrawBorder(e.Graphics);
 				return;
 			}
-			//==========================================================================
 
 			//==========================================================================
 			// Draw the Tracker
 			//==========================================================================
 			DrawTracker(e.Graphics, _trackerRect);
-			//==========================================================================
 
 			// Draw border
 			DrawBorder(e.Graphics);
-			//==========================================================================
 
 			// Draws a focus rectangle
 			//if(this.Focused && this.BackColor != Color.Transparent)
-			if(this.Focused)
-					ControlPaint.DrawFocusRectangle(e.Graphics, Rectangle.Inflate(this.ClientRectangle, -2, -2));
-			//==========================================================================
+			if(Focused) ControlPaint.DrawFocusRectangle(e.Graphics, Rectangle.Inflate(this.ClientRectangle, -2, -2));
 		}
 
 		/// <summary>
@@ -1446,10 +1430,10 @@ namespace EConTech.Windows.MACUI
 		/// </summary>
 		/// <param name="g"></param>
 		/// <param name="drawRect"></param>
-		private void DrawTrackLine(Graphics g, RectangleF drawRect)
+		private void DrawTrackLine(Graphics g, RectangleF drawRect, RectangleF trackerRect)
 		{
-			DrawMACStyleHelper.DrawAquaPillSingleLayer(g, drawRect,_trackLineColor,_orientation);
-		}
+            DrawMACStyleHelper.DrawAquaPillSingleLayer(g, drawRect, trackerRect, _trackLineColor, _orientation);
+        }
 
 		/// <summary>
 		/// 
