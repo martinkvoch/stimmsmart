@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
+
 using MDM.Data;
 using MDM.Properties;
 using MDM.Classes;
@@ -22,8 +23,8 @@ namespace MDM
             InitializeComponent();
             btnEsc.Visible = !onInit;
             Cursor = onInit ? Cursors.AppStarting : Cursors.Arrow;
-            lbAppName.Text = Resources.AppName;// settings.lang.Equals("ru", StringComparison.OrdinalIgnoreCase) ? settings.AppNameRU : settings.AppName;
-            lbVersion.Text = string.Format(lbVersion.Text, Program.GetVersion());
+            lbAppName.Text = Resources.AppName;
+            lbVersion.Text = string.Format(lbVersion.Text, Program.GetVersion(), Environment.Is64BitProcess ? 64 : 32);
             lbManAddr.Text = Program.GetManAddr();
             lbProtBy.Text = settings.lang.Equals("ru", StringComparison.OrdinalIgnoreCase) ? settings.ProtByRU : settings.ProtBy;
             lbCopyright.Text = Program.GetCopyright();
@@ -43,9 +44,9 @@ namespace MDM
             Settings settings = new Settings();
 
             setProgress(Resources.startup);
-            Log.InfoToLog(methodName, string.Format(Resources.startInitMsg, Resources.AppName));
-            Log.InfoToLog(methodName, string.Format(Resources.curLang, settings.lang));
-            Log.InfoToLog(methodName, string.Format(Resources.numberOfChannels, settings.NOC));
+            Log.InfoToLog(methodName, string.Format(Resources.startInitMsg, Resources.AppName) + ", " + string.Format(Resources.curLang, settings.lang) + ", " + string.Format(Resources.numberOfChannels, settings.NOC));
+            //Log.InfoToLog(methodName, string.Format(Resources.curLang, settings.lang));
+            //Log.InfoToLog(methodName, string.Format(Resources.numberOfChannels, settings.NOC));
             Thread.Sleep(DELAY);
         }
 
@@ -62,8 +63,6 @@ namespace MDM
         {
             setProgress(Resources.testChannel);
             Program.ChErrors = Channels.Autotest();
-            ////Log.InfoToLog(string.Format("testChannel({0})", ch));
-            //Thread.Sleep(DELAY);
         }
 
         private void finishInit()

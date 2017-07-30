@@ -117,10 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="lbVersion.Text" xml:space="preserve">
-    <value>Версия {0} PYC</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lbVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 13</value>
+  </data>
+  <data name="lbVersion.Text" xml:space="preserve">
+    <value>Версия {0} PYC {1}-битная</value>
+  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 13</value>
   </data>
@@ -132,9 +135,6 @@
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>Защищено:</value>
-  </data>
-  <data name="lbCopyright.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 13</value>

@@ -609,4 +609,10 @@
   <data name="filterAll" xml:space="preserve">
     <value>Všichni</value>
   </data>
+  <data name="chNum" xml:space="preserve">
+    <value>Kanál {0}</value>
+  </data>
+  <data name="chUserProcCompleted" xml:space="preserve">
+    <value>Pacient '{0}' dokončil proceduru číslo {1} v {2}. cyklu za {4} minut a {5} sekund</value>
+  </data>
 </root>

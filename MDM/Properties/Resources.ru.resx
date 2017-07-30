@@ -151,7 +151,7 @@
     <value>Количество каналов: {0}</value>
   </data>
   <data name="pressEscButton" xml:space="preserve">
-    <value>Нажмите клавишу ESC или кнопку "X" на конце</value>
+    <value>Нажмите клавишу ESC или кнопку «X» на конце</value>
   </data>
   <data name="restartMsg" xml:space="preserve">
     <value>Применение и устройство перезапускается.</value>
@@ -280,16 +280,16 @@
     <value>Сжатие базы данных выполняется.</value>
   </data>
   <data name="delAllMsg" xml:space="preserve">
-    <value>Таблица "{0}" усеченнaя.</value>
+    <value>Таблица «{0}» усеченнaя.</value>
   </data>
   <data name="delAllQ" xml:space="preserve">
-    <value>Вы собираетесь удалить все содержимое таблицы "{0}", чтобы все данные будут потеряны из-за стола. Вы действительно хотите eтo сделать?</value>
+    <value>Вы собираетесь удалить все содержимое таблицы «{0}», чтобы все данные будут потеряны из-за стола. Вы действительно хотите eтo сделать?</value>
   </data>
   <data name="delAllQH" xml:space="preserve">
     <value>Усечение таблицы</value>
   </data>
   <data name="UserEditMsg" xml:space="preserve">
-    <value>Пользователь "{0}" был обновлен.</value>
+    <value>Пользователь «{0}» был обновлен.</value>
   </data>
   <data name="pswMatchMsg" xml:space="preserve">
     <value>Пароли совпадают</value>
@@ -340,7 +340,7 @@
     <value>Редактировать медицинскую страховую компанию</value>
   </data>
   <data name="HICEditMsg" xml:space="preserve">
-    <value>MCK "{0}" былa обновленa.</value>
+    <value>MCK «{0}» былa обновленa.</value>
   </data>
   <data name="HICHdrCode" xml:space="preserve">
     <value>Идентификационный номер MCK</value>
@@ -352,7 +352,7 @@
     <value>Новая медицинская страховая компания</value>
   </data>
   <data name="HICNewMsg" xml:space="preserve">
-    <value>Новая MCK "{0}" былa созданa.</value>
+    <value>Новая MCK «{0}» былa созданa.</value>
   </data>
   <data name="PatHdrAddr" xml:space="preserve">
     <value>Адрес</value>
@@ -412,10 +412,10 @@
     <value>Новый пациент</value>
   </data>
   <data name="PatNewMsg" xml:space="preserve">
-    <value>Новый пациент "{0}" был создан.</value>
+    <value>Новый пациент «{0}» был создан.</value>
   </data>
   <data name="PatEditMsg" xml:space="preserve">
-    <value>Пациент "{0}" был обновлен.</value>
+    <value>Пациент «{0}» был обновлен.</value>
   </data>
   <data name="PatHdrSomTyp" xml:space="preserve">
     <value>Tип телосложения</value>
@@ -611,5 +611,11 @@
   </data>
   <data name="filterAll" xml:space="preserve">
     <value>Все</value>
+  </data>
+  <data name="chNum" xml:space="preserve">
+    <value>Kанал {0}</value>
+  </data>
+  <data name="chUserProcCompleted" xml:space="preserve">
+    <value>Пациент «{0}» выполнил процедуру {1} в {2}. циклe после {4} минут и {5} секунд</value>
   </data>
 </root>

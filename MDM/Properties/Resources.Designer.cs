@@ -218,6 +218,15 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Channel {0}.
+        /// </summary>
+        public static string chNum {
+            get {
+                return ResourceManager.GetString("chNum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Turning channel {0} on.
         /// </summary>
         public static string chOn {
@@ -313,6 +322,15 @@ namespace MDM.Properties {
         public static string chStatusErrHdr {
             get {
                 return ResourceManager.GetString("chStatusErrHdr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Patient &apos;{0}&apos; completed the procedure of {1} in {2}-{3} cycle after {4} minutes and {5} seconds.
+        /// </summary>
+        public static string chUserProcCompleted {
+            get {
+                return ResourceManager.GetString("chUserProcCompleted", resourceCulture);
             }
         }
         

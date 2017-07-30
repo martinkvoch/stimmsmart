@@ -708,6 +708,7 @@ namespace MDM.Controls
             if(procID > NoSelection)
             {
                 PatProc.FinishProcedure(procID, Elapsed, Data.ProcResult.Failed);
+                Log.ErrorToLog(string.Format(Resources.chNum, Number), string.Format(Resources.chUserProcCompleted, Patient.Name, Patient.ProcNum, Patient.CycleNum, Patient.ProcNum == 1 ? "st" : Patient.ProcNum == 2 ? "nd" : Patient.ProcNum == 3 ? "rd" : "th", Elapsed / 60, Elapsed % 60));
                 Patient = new SelectedPatient();
             }
 #if LAN
@@ -740,7 +741,8 @@ namespace MDM.Controls
             if(Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent || Status == ChannelStatus.Restored) Elapsed++;
             if(Elapsed >= procDuration)
             {
-                if(procID > NoSelection) Data.PatProc.FinishProcedure(procID, Elapsed, Data.ProcResult.Finished);
+                if(procID > NoSelection) PatProc.FinishProcedure(procID, Elapsed, ProcResult.Finished);
+                Log.InfoToLog(string.Format(Resources.chNum, Number), string.Format(Resources.chUserProcCompleted, Patient.Name, Patient.ProcNum, Patient.CycleNum, Patient.ProcNum == 1 ? "st" : Patient.ProcNum == 2 ? "nd" : Patient.ProcNum == 3 ? "rd" : "th", Elapsed / 60, Elapsed % 60));
                 Status = ChannelStatus.Inactive;
             }
         }
@@ -835,14 +837,16 @@ namespace MDM.Controls
             if(InOrder || Status == ChannelStatus.HighResistance)
             {
                 timer.Stop();
-                if(Status == ChannelStatus.HighResistance && DialogBox.ShowYN(Resources.procAbortQ, Resources.procAbortH) == DialogResult.Yes)
+                if(Status == ChannelStatus.HighResistance && elapsed < procDuration && DialogBox.ShowYN(Resources.procAbortQ, Resources.procAbortH) == DialogResult.Yes)
                 {
-                    if(procID > NoSelection) Data.PatProc.FinishProcedure(procID, Elapsed, Data.ProcResult.Failed);
+                    if(procID > NoSelection) PatProc.FinishProcedure(procID, Elapsed, ProcResult.Failed);
+                    Log.ErrorToLog(string.Format(Resources.chNum, Number), string.Format(Resources.chUserProcCompleted, Patient.Name, Patient.ProcNum, Patient.CycleNum, Patient.ProcNum == 1 ? "st" : Patient.ProcNum == 2 ? "nd" : Patient.ProcNum == 3 ? "rd" : "th", Elapsed / 60, Elapsed % 60));
                     Status = ChannelStatus.Inactive;
                 }
                 else if(elapsed < procDuration && DialogBox.ShowYN(Resources.procAbortQ, Resources.procAbortH) == DialogResult.Yes)
                 {
-                    if(procID > NoSelection) Data.PatProc.FinishProcedure(procID, Elapsed, Data.ProcResult.Prematurely);
+                    if(procID > NoSelection) PatProc.FinishProcedure(procID, Elapsed, ProcResult.Prematurely);
+                    Log.WarningToLog(string.Format(Resources.chNum, Number), string.Format(Resources.chUserProcCompleted, Patient.Name, Patient.ProcNum, Patient.CycleNum, Patient.ProcNum == 1 ? "st" : Patient.ProcNum == 2 ? "nd" : Patient.ProcNum == 3 ? "rd" : "th", Elapsed / 60, Elapsed % 60));
                     Status = ChannelStatus.Inactive;
                 }
                 else timer.Start();

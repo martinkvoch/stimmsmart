@@ -53,15 +53,15 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::MDM.Properties.Resources.logo;
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.BackgroundImage = global::MDM.Properties.Resources.logo;
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
             // lbAppName
             // 
-            this.lbAppName.BackColor = System.Drawing.SystemColors.ActiveBorder;
             resources.ApplyResources(this.lbAppName, "lbAppName");
+            this.lbAppName.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.lbAppName.Name = "lbAppName";
             // 
             // lbVersion
@@ -76,33 +76,33 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackgroundImage = global::MDM.Properties.Resources.Logo_ZAT;
             resources.ApplyResources(this.pictureBox2, "pictureBox2");
+            this.pictureBox2.BackgroundImage = global::MDM.Properties.Resources.Logo_ZAT;
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.SystemColors.HotTrack;
             resources.ApplyResources(this.label1, "label1");
+            this.label1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.label1.Name = "label1";
             // 
             // label3
             // 
-            this.label3.BackColor = System.Drawing.SystemColors.HotTrack;
             resources.ApplyResources(this.label3, "label3");
+            this.label3.BackColor = System.Drawing.SystemColors.HotTrack;
             this.label3.Name = "label3";
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.SystemColors.HotTrack;
             resources.ApplyResources(this.label4, "label4");
+            this.label4.BackColor = System.Drawing.SystemColors.HotTrack;
             this.label4.Name = "label4";
             // 
             // label5
             // 
-            this.label5.BackColor = System.Drawing.SystemColors.HotTrack;
             resources.ApplyResources(this.label5, "label5");
+            this.label5.BackColor = System.Drawing.SystemColors.HotTrack;
             this.label5.Name = "label5";
             // 
             // lbManAddr
@@ -112,8 +112,8 @@
             // 
             // label6
             // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.label6, "label6");
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Name = "label6";
             // 
             // label7
@@ -143,16 +143,16 @@
             // 
             // lbProgress
             // 
-            this.lbProgress.BackColor = System.Drawing.SystemColors.ActiveBorder;
             resources.ApplyResources(this.lbProgress, "lbProgress");
+            this.lbProgress.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.lbProgress.Name = "lbProgress";
             // 
             // btnEsc
             // 
+            resources.ApplyResources(this.btnEsc, "btnEsc");
             this.btnEsc.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnEsc.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnEsc.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.btnEsc, "btnEsc");
             this.btnEsc.Name = "btnEsc";
             this.btnEsc.UseVisualStyleBackColor = false;
             // 

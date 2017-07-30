@@ -793,4 +793,10 @@
   <data name="filterAll" xml:space="preserve">
     <value>All</value>
   </data>
+  <data name="chNum" xml:space="preserve">
+    <value>Channel {0}</value>
+  </data>
+  <data name="chUserProcCompleted" xml:space="preserve">
+    <value>Patient '{0}' completed the procedure of {1} in {2}-{3} cycle after {4} minutes and {5} seconds</value>
+  </data>
 </root>
