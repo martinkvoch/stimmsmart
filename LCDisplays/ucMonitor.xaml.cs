@@ -28,17 +28,17 @@ namespace WpfUC
             get { return on; }
             set
             {
-                if(on != value)
-                {
+                //if(on != value)
+                //{
                     //SetValue(OnProperty, value);
-                    on = disWS.On = disSweep.On = disATC.On = disDAC.On = disDOUT.On = disStatus.On = timElapsed.On = timLeft.On = timSegmentLeft.On = value;
+                    on = disWS.On = disSweep.On = disATC.On = disDAC.On = disDOUT.On = disStatus.On = timElapsed.On = timLeft.On = timSegmentLeft.On = disMode.On = value;
                     if(!on)
                     {
                         resetMonitor();
                         grMain.Background = FindResource("OffBackgroundBrush") as Brush;
                     }
                     else grMain.Background = FindResource("OnBackgroundBrush") as Brush;
-                }
+                //}
             }
         }
 
@@ -105,13 +105,20 @@ namespace WpfUC
             get { return segProcSegments.Segments; }
             set { segProcSegments.Segments = value; }
         }
+
+        public byte Mode
+        {
+            get { return disMode.Value; }
+            set { disMode.Value = value; }
+        }
         #endregion
 
         #region resetMonitor()
         private void resetMonitor()
         {
             WS = Sweep = DAC = Status = Elapsed = Remained = SegmentLeft = 0;
-            ATC = DOUT = 0;
+            ATC = DOUT = Mode = 0;
+            Segments = new byte[] { 5, 5, 5, 5, 5, 5 };
         }
         #endregion
 

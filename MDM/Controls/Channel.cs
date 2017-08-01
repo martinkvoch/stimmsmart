@@ -359,6 +359,7 @@ namespace MDM.Controls
             ucMonitor.DAC = resp.InputR.Verified.DAC;
             ucMonitor.DOUT = resp.InputR.Verified.DOUT.ByteValue;
             ucMonitor.Status = resp.InputR.Status.Value;
+            ucMonitor.Mode = (byte)resp.InputR.Verified.Mode;
         }
 
         private void processResponse(ResponseDG resp)
@@ -423,6 +424,7 @@ namespace MDM.Controls
             ucMonitor.DAC = (word)(InOrder ? 0x8000 : 0);
             ucMonitor.DOUT = (byte)(InOrder ? 2 : 0);
             ucMonitor.Status = 0;
+            ucMonitor.Mode = (byte)(InOrder || Status == ChannelStatus.Ready ? 2 : 0);
         }
 
         private void processResponse()
@@ -460,18 +462,10 @@ namespace MDM.Controls
         /// </summary>
         private void reset()
         {
-//#if LAN
-//            ResponseDG resp = LANFunc.ChRd(Number);
-
-//            chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
-//#else
-//            chMon.Record(0, (byte)0, 0, (byte)0, aStatus[(int)Status]);
-//#endif
             if(!chWorker.IsBusy) chWorker.RunWorkerAsync();
             cbSetCurrent.Enabled = cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = tbCurrent.Enabled = cbPatSelect.Enabled = false;
             timer.Stop();
             Patient = new SelectedPatient();
-            //lbPatName.Text = lbDiagnosis.Text = lbProcNum.Text = lbStatus.Text = string.Empty;
             lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
             cbPause.Text = Resources.cbPauseText;
             cbPause.Image = Resources.pause;
@@ -484,7 +478,6 @@ namespace MDM.Controls
             lbStatus.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
             ucMonitor.On = false;
-            ucMonitor.Segments = new byte[0];
 #if LAN
             LANFunc.ChRst(Number);
             LANFunc.LanChOnOff(Number, false);
@@ -500,23 +493,10 @@ namespace MDM.Controls
         private void deactivate()
         {
             reset();
-            //#if LAN
-            //            ResponseDG resp = LANFunc.ChRd(Number);
-            //            chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
-            //#else
-            //            chMon.Record(0, (byte)0, 0, (byte)0, aStatus[(int)Status]);
-            //#endif
             lbStatus.Text = Resources.chInactive;
             lbStatus.ForeColor = SystemColors.ActiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
             cbPatSelect.Enabled = true;
-            //cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Bold);
-//            Current = 0D;
-//#if LAN
-//            LANFunc.ChRst(Number);
-//            LANFunc.LanChOnOff(Number, false);
-//#endif
-//            LedOff();
         }
 #endregion
 
@@ -534,7 +514,6 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
             ucMonitor.On = true;
-            //Refresh();
             LedRed();
 #if LAN
             LANFunc.LanChOnOff(Number);
@@ -557,6 +536,11 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chReady;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
+            if(Patient.ID > NoSelection)
+            {
+                patient.CurrSegment = 0;
+                ucMonitor.Segments = Patient.Segments.Select(s => s.Duration).ToArray();
+            }
             Elapsed = 0;
             LedGreen(true);
         }
@@ -579,10 +563,8 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
             tbCurrent.Enabled = false;
-            //if(oldStatus != ChannelStatus.SetCurrent && oldStatus != ChannelStatus.Paused)
             if(oldStatus == ChannelStatus.Ready)
             {
-                ucMonitor.Segments = Patient.Segments.Select(s => s.Duration).ToArray();
                 patient.CurrSegment = 1;
                 ucMonitor.NextSegment();
                 ucMonitor.SegmentLeft = (word)(Patient.Segments[0].Duration * 60);
@@ -683,18 +665,10 @@ namespace MDM.Controls
         /// </summary>
         private void inaccessible()
         {
-//#if LAN
-//            ResponseDG resp = LANFunc.ChRd(Number);
-
-//            chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
-//#else
-//            chMon.Record(0, (byte)0, 0, (byte)0, aStatus[(int)Status]);
-//#endif
             if(chWorker.IsBusy) chWorker.CancelAsync();
             cbSetCurrent.Enabled = cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = tbCurrent.Enabled = cbPatSelect.Enabled = false;
             timer.Stop();
             Patient = new SelectedPatient();
-            //lbPatName.Text = lbDiagnosis.Text = lbProcNum.Text = lbStatus.Text = string.Empty;
             lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
             Current = 0D;
             pbProgress.Value = 0;
@@ -756,7 +730,6 @@ namespace MDM.Controls
         {
             while(chWorker.IsBusy && !chWorker.CancellationPending)
             {
-                //Application.DoEvents();
                 if(IsHandleCreated && !IsDisposed)
                 {
                     try
@@ -872,10 +845,8 @@ namespace MDM.Controls
         private void tbCurrent_ValueChanged(object sender, decimal value)
         {
             _current = Math.Round((double)value * curstep, 2);
-            //_current = Math.Round(tbCurrent.Value * curstep, 2);
             lbCurrent.Text = _current.ToString("F2");// + " mA";
             if(Status == ChannelStatus.SetCurrent) toBeSet = (byte)value;
-            //if(Status == ChannelStatus.SetCurrent) toBeSet = (byte)tbCurrent.Value;
         }
 #endregion
     }
