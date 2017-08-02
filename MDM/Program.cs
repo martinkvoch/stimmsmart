@@ -9,6 +9,7 @@ using MDM.Data;
 using MDM.DlgBox;
 using MDM.Properties;
 using MDM.Windows;
+using System.IO;
 
 namespace MDM
 {
@@ -101,7 +102,11 @@ namespace MDM
                 string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
                 Log.InfoToLog(methodName, Resources.exitMsg);
-                Database.Close();
+                if(Database.Status != DbStatus.Closed)
+                {
+                    Database.Close();
+                    while(Database.Status != DbStatus.Closed) Application.DoEvents();
+                }
             }
         }
 
@@ -110,16 +115,17 @@ namespace MDM
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
             Log.InfoToLog(methodName, Resources.restartMsg);
-            //try
-            //{
-            //    //appExit(null, null);
-            //    //Application.Restart();
-            //    Process.Start(Application.ExecutablePath);
-            //    Application.Exit();
-            //}
-            //catch { }
-            appExit(null, null);
-            Environment.Exit(0);
+            try
+            {
+                //appExit(null, null);
+                //Application.Restart();
+                Application.Exit();
+                Database.Close();
+                while(Database.Status != DbStatus.Closed) Application.DoEvents();
+                Process.Start(Application.ExecutablePath);
+            }
+            catch { }
+            //Environment.Exit(0);
         }
 
         public static void Shutdown()
@@ -127,8 +133,17 @@ namespace MDM
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
             Log.InfoToLog(methodName, Resources.shutdownMsg);
-            appExit(null, null);
-            Environment.Exit(0);
+            try
+            {
+                Application.Exit();
+                Database.Close();
+                while(Database.Status != DbStatus.Closed) Application.DoEvents();
+                //Process.Start("shutdown", "/r /t 0"); // restart
+                Process.Start("shutdown", "/s /t 0"); // shutdown
+            }
+            catch { }
+            //appExit(null, null);
+            //Environment.Exit(0);
         }
         #endregion
 

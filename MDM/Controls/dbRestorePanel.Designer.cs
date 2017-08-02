@@ -33,7 +33,7 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.miClose = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbxBackups = new System.Windows.Forms.ListBox();
+            this.tvBackups = new System.Windows.Forms.TreeView();
             this.label1 = new System.Windows.Forms.Label();
             this.cbRestore = new System.Windows.Forms.Button();
             this.cbMakeNew = new System.Windows.Forms.Button();
@@ -69,16 +69,15 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.lbxBackups);
+            this.panel1.Controls.Add(this.tvBackups);
             this.panel1.Controls.Add(this.label1);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
-            // lbxBackups
+            // tvBackups
             // 
-            resources.ApplyResources(this.lbxBackups, "lbxBackups");
-            this.lbxBackups.FormattingEnabled = true;
-            this.lbxBackups.Name = "lbxBackups";
+            resources.ApplyResources(this.tvBackups, "tvBackups");
+            this.tvBackups.Name = "tvBackups";
             // 
             // label1
             // 
@@ -137,11 +136,10 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton miClose;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListBox lbxBackups;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button cbRestore;
         public System.Windows.Forms.Button cbMakeNew;
         public System.Windows.Forms.Button cbDelete;
-
+        private System.Windows.Forms.TreeView tvBackups;
     }
 }

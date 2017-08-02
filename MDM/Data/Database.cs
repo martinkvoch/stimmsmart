@@ -60,14 +60,14 @@ namespace MDM.Data
             {
                 zip.Password = EncryptionUtilities.DecryptString(pwd);
                 zip.Encryption = EncryptionAlgorithm.WinZipAes256;
-                zip.AddFile(Path.ChangeExtension(zipFN, Path.GetExtension(dbFileName)));
+                zip.AddFile(Path.ChangeExtension(zipFN, Path.GetExtension(dbFileName)), string.Empty);
                 zip.Save();
             }
         }
 
         private static void unzip(string file = null)
         {
-            string fn = Path.ChangeExtension(file ?? dbFileName, Path.GetExtension(dbFileName));
+            string fn = Path.ChangeExtension(file ?? dbFileName, Path.GetExtension(dbFileName)), path = Path.GetDirectoryName(fn);
 
             File.Delete(fn);
             using(ZipFile zip = new ZipFile(Path.ChangeExtension(fn, EncExt), Encoding.UTF8))
@@ -75,7 +75,8 @@ namespace MDM.Data
                 zip.Password = EncryptionUtilities.DecryptString(pwd);
                 zip.Encryption = EncryptionAlgorithm.WinZipAes256;
                 //zip.StatusMessageTextWriter = Console.Out;
-                zip.ExtractAll(@".\");
+                zip.ExtractAll(string.IsNullOrEmpty(path) ? @".\" : path);
+                //zip.ExtractAll(@".\");
             }
         }
 
@@ -132,11 +133,12 @@ namespace MDM.Data
         /// Konvertuje řetězec ve formě datumu a času na jméno souboru se zálohou
         /// </summary>
         /// <param name="date">řetězec s datumem a časem</param>
-        /// <param name="enc">pokud je true, vrátí jméno zaheslovaného souboru</param>
         /// <returns>Vrací řetězec se jménem souboru s odpovídající zálohou (s relativní cestou a příponou).</returns>
-        public static string Date2Fn(string date, bool enc = false)
+        public static string Date2Fn(string date)
         {
-            return Path.Combine(BackupDir, Path.ChangeExtension(DateTime.Parse(date).ToString(dateFmt), enc ? EncExt : Path.GetExtension(dbFileName)));
+            string fn = DateTime.Parse(date).ToString(dateFmt);
+
+            return Path.Combine(BackupDir, fn.Substring(0, 4), fn.Substring(4, 2), Path.ChangeExtension(fn, Path.GetExtension(dbFileName)));
         }
 
         /// <summary>
@@ -255,7 +257,7 @@ namespace MDM.Data
         //}
         #endregion
 
-        #region Init(), Backup(), Restore(), Compact()
+        #region Init()
         internal static void Init(bool force = false)
         {
             DbStatus oldStatus = Status;
@@ -294,7 +296,9 @@ namespace MDM.Data
                 Status = oldStatus;
             }
         }
+        #endregion
 
+        #region Backup(), Restore(), Compact()
         internal static void Backup(bool silent = false)
         {
             DbStatus oldStatus = Status;
@@ -308,7 +312,8 @@ namespace MDM.Data
                     string bckFN = Date2Fn(DateTime.Now.ToString("G"));
                     string msg = string.Format(Resources.bckDataOK, Fn2Date(bckFN));
 
-                    if(!Directory.Exists(BackupDir)) Directory.CreateDirectory(BackupDir);
+                    //if(!Directory.Exists(BackupDir)) Directory.CreateDirectory(BackupDir);
+                    if(!Directory.Exists(Path.GetDirectoryName(bckFN))) Directory.CreateDirectory(Path.GetDirectoryName(bckFN));
                     File.Copy(dbFileName, bckFN, true);
                     zip(bckFN);
                     File.Delete(bckFN);
@@ -337,10 +342,14 @@ namespace MDM.Data
                 Status = DbStatus.Restored;
                 if(DialogBox.ShowYN(Resources.restoreQ, Resources.restoreQH) == DialogResult.Yes)
                 {
-                    string msg = string.Format(Resources.restoreOK, DateTime.Parse(from).ToString("G")), bckFN = Date2Fn(from);
+                    string bckFN = Path.Combine(BackupDir, from.Substring(0, 4), from.Substring(4, 2), from);// Date2Fn(from);
+                    //DialogBox.ShowInfo(string.Format("restore from = '{0}', date = '{1}', bckFN = '{2}'", from, Fn2Date(from), bckFN), "Info");
+                    string msg = string.Format(Resources.restoreOK, Fn2Date(from));
+                    //string msg = string.Format(Resources.restoreOK, DateTime.Parse(from).ToString("G")), bckFN = Date2Fn(from);
 
                     Backup(true);
                     unzip(bckFN);
+                    bckFN = Path.ChangeExtension(bckFN, Path.GetExtension(dbFileName));
                     File.Delete(dbFileName);
                     File.Move(bckFN, dbFileName);
                     Log.InfoToLog(methodName, msg);
@@ -373,6 +382,31 @@ namespace MDM.Data
             finally
             {
                 Status = oldStatus;
+            }
+        }
+
+        internal static void DeleteBackup(string backup)
+        {
+            string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
+
+            try
+            {
+                string yearName = backup.Substring(0, 4), monthName = backup.Substring(4, 2), bckFN = Path.Combine(BackupDir, yearName, monthName, backup), bckDir = Path.GetDirectoryName(bckFN);
+
+                File.Delete(bckFN);
+                if(Directory.GetFiles(bckDir).Length == 0) Directory.Delete(Path.GetDirectoryName(bckFN));
+                //if(DialogBox.ShowYN(Resources.restoreQ, Resources.restoreQH) == DialogResult.Yes)
+                //{
+                    //string msg = string.Format(Resources.restoreOK, DateTime.Parse(backup).ToString("G")), bckFN = Date2Fn(backup);
+
+                    //Log.InfoToLog(methodName, msg);
+                    //DialogBox.ShowInfo(msg, Resources.restoreQH);
+                //}
+            }
+            catch(SQLiteException e)
+            {
+                Log.ErrorToLog(methodName, string.Format(errorFmt, e.ErrorCode, e.Message));
+                DialogBox.ShowError(Resources.bckDataKO, Resources.bckDataH);
             }
         }
         #endregion
@@ -409,11 +443,14 @@ namespace MDM.Data
         {
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
-            Backup(true);
-            Log.InfoToLog(methodName, Resources.dbIsClosed);
-            zip();
-            File.Delete(dbFileName);
-            Status = DbStatus.Closed;
+            if(Status != DbStatus.Closed)
+            {
+                Backup(true);
+                Log.InfoToLog(methodName, Resources.dbIsClosed);
+                zip();
+                File.Delete(dbFileName);
+                Status = DbStatus.Closed;
+            }
         }
         #endregion
     }
