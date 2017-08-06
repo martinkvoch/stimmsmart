@@ -13,6 +13,7 @@ using MDM.Controls;
 using MDM.Data;
 using MDM.DlgBox;
 using MDM.Properties;
+using System.Drawing;
 
 namespace MDM.Classes
 {
@@ -22,6 +23,9 @@ namespace MDM.Classes
     public class Channels : Component
     {
         private static readonly byte noc = new Settings().NOC;
+        internal static readonly Image[]
+            ChannelsReadyImgs = new Image[] { Resources.cervena_ready, Resources.modra_ready, Resources.cerna_ready, Resources.zluta_ready, Resources.bila_ready, Resources.zelena_ready },
+            ChannelsErrorImgs = new Image[] { Resources.cervena_error, Resources.modra_error, Resources.cerna_error, Resources.zluta_error, Resources.bila_error, Resources.zelena_error };
         private List<Channel> channels = new List<Channel>();
 #if LAN
         private static qword pck = 0U;
@@ -279,7 +283,7 @@ namespace MDM.Classes
                     chErrors[b - 1] = true;
                     ledRed(b);
                 }
-                if(!resp.InputR.Status[1])
+                else if(!resp.InputR.Status[1])
                 {
                     protocol += string.Format(Resources.testChError32 + Environment.NewLine, b);
                     chErrors[b - 1] = true;

@@ -133,5 +133,29 @@ namespace MDM.Properties {
                 this["langs"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public byte CountedProcAfter {
+            get {
+                return ((byte)(this["CountedProcAfter"]));
+            }
+            set {
+                this["CountedProcAfter"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        public byte MinProcInterval {
+            get {
+                return ((byte)(this["MinProcInterval"]));
+            }
+            set {
+                this["MinProcInterval"] = value;
+            }
+        }
     }
 }

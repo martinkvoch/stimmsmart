@@ -10,7 +10,8 @@ namespace MDM.Data
 
     public class PatProc : MDMTable
     {
-        const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}", panControl = "panProcedure",
+        internal const string TName = "PAT_PROC";
+        private const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}", panControl = "panProcedure",
              insFmt = "(PAT_ID, USR_ID, CHANNEL) values ({0}, {1}, {2})",
              updFmt = "DURATION={0}, RESULT={1}", updWhereFmt = "ID = {0}",
              //selFmt = "select p.LAST_NAME || ', ' || p.FIRST_NAME || ifnull(' '||p.MIDDLE_NAME, '') [{0}], strftime('%d.%m.%Y', r.DATE) || strftime(' %H:%M:%S', r.TIME) [{1}], " +
@@ -19,7 +20,6 @@ namespace MDM.Data
                          "case r.RESULT when 1 then '{5}' when 2 then '{6}' when 3 then '{7}' else '{8}' end [{9}] " +
                        "from {10} r, {11} p, {12} u where r.PAT_ID = p.id and r.USR_ID = u.ID order by 1,2";
         //private static byte nop = new Settings().NOP;
-        internal const string TName = "PAT_PROC";
 
         #region Init()
         public static void Init()
@@ -40,10 +40,11 @@ namespace MDM.Data
         }
         #endregion
 
-        public static void Alter()
-        {
-            Database.ExecCmd(string.Format("drop index {0}_UN", TName));
-        }
+        //public static void Alter()
+        //{
+        //    //Database.ExecCmd(string.Format("drop index {0}_UN", TName));
+        //    Database.ExecCmd(string.Format("delete from {0} where DURATION < {1}", TName, new Settings().CountedProcAfter * 60));
+        //}
 
         public PatProc() : base(TName) { }
 
@@ -71,7 +72,11 @@ namespace MDM.Data
 
         public static void FinishProcedure(int procID, ushort duration, ProcResult result)
         {
-            using(PatProc proc = new PatProc()) proc.Update(string.Format(updFmt, duration, (int)result), string.Format(updWhereFmt, procID));
+            using(PatProc proc = new PatProc())
+            {
+                if((duration / 60) < new Settings().CountedProcAfter) proc.Delete(procID);
+                else proc.Update(string.Format(updFmt, duration, (int)result), string.Format(updWhereFmt, procID));
+            }
         }
     }
 }

@@ -45,7 +45,6 @@ namespace MDM.Controls
     /// </summary>
     public partial class Channel : UserControl
     {
-        //private string[] aStatus = new string[] { "DI", "IN", "AC", "RD", "IP", "SC", "HR", "PA", "RE",/* "ER",*/ "IA", "DC" };
         internal const int NoSelection = -1;
         private word procDuration = (word)new Settings().ProcDur;
         private string chNumTxt, elapsedTxt;
@@ -145,24 +144,7 @@ namespace MDM.Controls
                 {
 #if LAN
                     ResponseDG resp = LANFunc.ChRd(Number);
-                    //byte actCur = (byte)resp.InputR.Verified.AttenCoef, toBeSet = (byte)(Math.Round(value / curstep, 0));
 
-                    //if(toBeSet > actCur) for(int c = actCur; c <= toBeSet; c++)
-                    //    {
-                    //        LANFunc.ChAtCf(Number, (byte)c);
-                    //        Application.DoEvents();
-                    //        if(Status != ChannelStatus.SetCurrent) tbCurrent.Value = c;
-                    //        else Thread.Sleep(100);
-                    //        Application.DoEvents();
-                    //    }
-                    //else if(toBeSet < actCur) for(int c = actCur; c >= toBeSet; c--)
-                    //    {
-                    //        LANFunc.ChAtCf(Number, (byte)c);
-                    //        Application.DoEvents();
-                    //        if(Status != ChannelStatus.SetCurrent) tbCurrent.Value = c;
-                    //        //else Thread.Sleep(50);
-                    //        Application.DoEvents();
-                    //    }
                     actCur = (byte)resp.InputR.Verified.AttenCoef;
 #endif
                     toBeSet = (byte)(Math.Round(value / curstep, 0));
@@ -198,10 +180,22 @@ namespace MDM.Controls
                         ucMonitor.NextSegment();
                         ucMonitor.SegmentLeft = (word)(Patient.Segments[Patient.CurrSegment - 1].Duration * 60);
 #if LAN
+                        LANFunc.ChMode(Number, 0, 0, 0, 0, 0);
+#else
+                        ucMonitor.Mode = 0;
+                        ucMonitor.Sweep = ucMonitor.WS = ucMonitor.Status = 0;
+#endif
                         current = Current;
                         Current = .5;
                         while(actCur != toBeSet) Application.DoEvents();
-                        LANFunc.ChMode(Number, 2, Patient.Segments[Patient.CurrSegment - 1].WaveShape, Patient.Segments[Patient.CurrSegment - 1].TMax, Patient.Segments[Patient.CurrSegment - 1].TMin, Patient.Segments[Patient.CurrSegment - 1].TSweep);
+#if LAN
+                        if(LANFunc.ChRd(Number).InputR.Status[1]) Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
+                        else
+                        {
+                            LANFunc.ChMode(Number, 2, Patient.Segments[Patient.CurrSegment - 1].WaveShape, Patient.Segments[Patient.CurrSegment - 1].TMax, Patient.Segments[Patient.CurrSegment - 1].TMin, Patient.Segments[Patient.CurrSegment - 1].TSweep);
+                            Current = current;
+                        }
+#else
                         Current = current;
 #endif
                     }
@@ -380,14 +374,14 @@ namespace MDM.Controls
                 else if((Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) && resp.InputR.Status[1])
                 {
                     Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
-                    current = Current;
-                    Current = .5;
                 }
                 else if(Status == ChannelStatus.HighResistance)
                 {
-                    //if (actCur == toBeSet && (res.InputR.AIN2 - res.InputR.AIN1) <= 48)
                     if(actCur == toBeSet && !resp.InputR.Status[1])
                     {
+                        LANFunc.ChDAC(Number);
+                        LANFunc.ChDOUT(Number, 2);
+                        LANFunc.ChMode(Number, 2, Patient.Segments[Patient.CurrSegment - 1].WaveShape, Patient.Segments[Patient.CurrSegment - 1].TMax, Patient.Segments[Patient.CurrSegment - 1].TMin, Patient.Segments[Patient.CurrSegment - 1].TSweep);
                         Current = current;
                         Status = oldStatus;
                     }
@@ -401,6 +395,7 @@ namespace MDM.Controls
                     if(actCur < toBeSet)
                     {
                         if(oldStatus == ChannelStatus.HighResistance || oldStatus == ChannelStatus.Paused) currIncr(6);
+                        else if(Status == ChannelStatus.Ready || Status == ChannelStatus.Active) currIncr(16);
                         else currIncr(2);
                     }
                     else
@@ -424,7 +419,7 @@ namespace MDM.Controls
             ucMonitor.DAC = (word)(InOrder ? 0x8000 : 0);
             ucMonitor.DOUT = (byte)(InOrder ? 2 : 0);
             ucMonitor.Status = 0;
-            ucMonitor.Mode = (byte)(InOrder || Status == ChannelStatus.Ready ? 2 : 0);
+            ucMonitor.Mode = (byte)(InOrder ? 2 : 0);
         }
 
         private void processResponse()
@@ -435,6 +430,7 @@ namespace MDM.Controls
                 if(actCur < toBeSet)
                 {
                     if(oldStatus == ChannelStatus.HighResistance || oldStatus == ChannelStatus.Paused) currIncr(6);
+                    else if(Status == ChannelStatus.Ready || Status == ChannelStatus.Active) currIncr(16);
                     else currIncr(2);
                 }
                 else
@@ -473,7 +469,8 @@ namespace MDM.Controls
             Current = current = 0D;
             pbProgress.Value = Elapsed = 0;
             Elapsed = 0;
-            pbStatus.Image = Resources.program_stimsmart_ready;
+            pbStatus.Image = Channels.ChannelsReadyImgs[Number - 1];
+            //pbStatus.Image = Resources.program_stimsmart_ready;
             lbStatus.Text = Resources.chDisconected;
             lbStatus.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
@@ -513,13 +510,14 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chActive;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
-            ucMonitor.On = true;
-            LedRed();
 #if LAN
             LANFunc.LanChOnOff(Number);
+            LANFunc.ChRst(Number);
             LANFunc.ChDAC(Number);
             LANFunc.ChDOUT(Number, 2);
 #endif
+            ucMonitor.On = true;
+            LedRed();
             Current = .5;
         }
 #endregion
@@ -569,12 +567,14 @@ namespace MDM.Controls
                 ucMonitor.NextSegment();
                 ucMonitor.SegmentLeft = (word)(Patient.Segments[0].Duration * 60);
 #if LAN
+                LANFunc.ChDAC(Number);
+                LANFunc.ChDOUT(Number, 2);
                 LANFunc.ChMode(Number, 2, Patient.Segments[0].WaveShape, Patient.Segments[0].TMax, Patient.Segments[0].TMin, Patient.Segments[0].TSweep);
 #endif
+                procID = PatProc.AddProcedure(Patient.ID, Program.LoggedUser.ID, Number);
             }
             timer.Start();
             LedGreen();
-            if(oldStatus == ChannelStatus.Ready) procID = PatProc.AddProcedure(Patient.ID, Program.LoggedUser.ID, Number);
         }
 #endregion
 
@@ -609,8 +609,16 @@ namespace MDM.Controls
             lbStatus.Text = Resources.chHighResistance;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
+            current = Current;
+#if LAN
+            LANFunc.ChDAC(Number);
+            LANFunc.ChDOUT(Number, 2);
+            LANFunc.ChMode(Number, 0, 0, 0, 0, 0);
+#endif
+            Current = .5;
+            Sound.BeepSOS();
         }
-#endregion
+        #endregion
 
 #region paused()
         //TODO: pozastavení a obnovení také na mezerník
@@ -674,7 +682,8 @@ namespace MDM.Controls
             pbProgress.Value = 0;
             Elapsed = 0;
             ucMonitor.On = false;
-            pbStatus.Image = Resources.program_stimsmart_error;
+            pbStatus.Image = Channels.ChannelsErrorImgs[Number - 1];
+            //pbStatus.Image = Resources.program_stimsmart_error;
             lbStatus.Text = Resources.chInaccessible;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Red;
@@ -718,6 +727,7 @@ namespace MDM.Controls
                 if(procID > NoSelection) PatProc.FinishProcedure(procID, Elapsed, ProcResult.Finished);
                 Log.InfoToLog(string.Format(Resources.chNum, Number), string.Format(Resources.chUserProcCompleted, Patient.Name, Patient.ProcNum, Patient.CycleNum, Patient.ProcNum == 1 ? "st" : Patient.ProcNum == 2 ? "nd" : Patient.ProcNum == 3 ? "rd" : "th", Elapsed / 60, Elapsed % 60));
                 Status = ChannelStatus.Inactive;
+                Sound.BeepEND();
             }
         }
 

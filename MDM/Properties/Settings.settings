@@ -37,5 +37,11 @@
     <Setting Name="langs" Type="System.String" Scope="User">
       <Value Profile="(Default)">cs|en|ru</Value>
     </Setting>
+    <Setting Name="CountedProcAfter" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="MinProcInterval" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -137,6 +137,26 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap bila_error {
+            get {
+                object obj = ResourceManager.GetObject("bila_error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap bila_ready {
+            get {
+                object obj = ResourceManager.GetObject("bila_ready", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Resume.
         /// </summary>
         public static string cbPauseResumeText {
@@ -151,6 +171,46 @@ namespace MDM.Properties {
         public static string cbPauseText {
             get {
                 return ResourceManager.GetString("cbPauseText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap cerna_error {
+            get {
+                object obj = ResourceManager.GetObject("cerna_error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap cerna_ready {
+            get {
+                object obj = ResourceManager.GetObject("cerna_ready", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap cervena_error {
+            get {
+                object obj = ResourceManager.GetObject("cervena_error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap cervena_ready {
+            get {
+                object obj = ResourceManager.GetObject("cervena_ready", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -925,6 +985,26 @@ namespace MDM.Properties {
         public static string LogWarn {
             get {
                 return ResourceManager.GetString("LogWarn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap modra_error {
+            get {
+                object obj = ResourceManager.GetObject("modra_error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap modra_ready {
+            get {
+                object obj = ResourceManager.GetObject("modra_ready", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -2159,6 +2239,46 @@ namespace MDM.Properties {
         public static System.Drawing.Bitmap yes {
             get {
                 object obj = ResourceManager.GetObject("yes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap zelena_error {
+            get {
+                object obj = ResourceManager.GetObject("zelena_error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap zelena_ready {
+            get {
+                object obj = ResourceManager.GetObject("zelena_ready", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap zluta_error {
+            get {
+                object obj = ResourceManager.GetObject("zluta_error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap zluta_ready {
+            get {
+                object obj = ResourceManager.GetObject("zluta_ready", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

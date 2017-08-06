@@ -9,6 +9,7 @@ using System.Drawing;
 using Bulb;
 using word = System.UInt16;
 using dword = System.UInt32;
+using System.Threading;
 
 namespace LANlib
 {
@@ -151,6 +152,39 @@ namespace LANlib
         //    //led.On = !value[DioReg.OnOff];
         //    led.Refresh();
         //}
+    }
+    #endregion
+
+    #region Sound
+    public static class Sound
+    {
+        private const word F2 = 698, cCharGapID = 0x8000, cDash = 500, cDot = 200, cCharGap = cCharGapID + 80, cSignalGap = 40;
+        private static readonly word[]
+            cSOS = new word[] { cDot, cDot, cDot, cCharGap, cDash, cDash, cDash, cCharGap, cDot, cDot, cDot },
+            cEND = new word[] { cDot, cCharGap, cDash, cDot, cCharGap, cDash, cDot, cDot };
+
+        private static void beep(word[] what)
+        {
+            foreach(word w in what)
+            {
+                if(w > cCharGapID) Thread.Sleep(w - cCharGapID);
+                else
+                {
+                    Console.Beep(F2, w);
+                    Thread.Sleep(cSignalGap);
+                }
+            }
+        }
+
+        public static void BeepSOS()
+        {
+            beep(cSOS);
+        }
+
+        public static void BeepEND()
+        {
+            beep(cEND);
+        }
     }
     #endregion
 }
