@@ -101,19 +101,12 @@ namespace MDM.Windows
                                        "where P.DG_ID = D.ID and P.ID = R.ID and P.ID = PP.PAT_ID " +
                                          "and cast((julianday('now', 'localtime') - julianday(strftime('%Y-%m-%d %H:%M:%S', PP.DATE, PP.TIME))) * 24 as int) >= {10} " +
                                          "and not P.DELETED " +
-                                       "order by P.LAST_NAME",
+                                       "union "+
+                                           "select distinct P.ID, P.LAST_NAME || ', ' || P.FIRST_NAME || ifnull(' ' || P.MIDDLE_NAME, ''), strftime('%Y', P.BIRTHDATE), D.NAME, 1, 1 " +
+                                           "from {6} P, {7} D " +
+                                           "where P.DG_ID = D.ID and P.ID not in (select distinct PAT_ID from {8}) and not P.DELETED " +
+                                       "order by 2",
                                        Resources.patSelNumber, Resources.patSelName, Resources.patSelYrOfBirth, Resources.PatHdrDg, Resources.patSelCycle, Resources.patSelProcNum, Patient.TName, Diagnosis.TName, PatProc.TName, settings.NOP, settings.MinProcInterval);
-            //string cmd = string.Format("select P.ID [{0}], P.LAST_NAME || ', ' || P.FIRST_NAME || ifnull(' '||P.MIDDLE_NAME, '') [{1}], strftime('%Y', P.BIRTHDATE) [{2}], D.NAME [{3}], R.CYCLE [{4}], R.PROC [{5}] " +
-            //                           "from {6} P, {7} D, " +
-            //                              "(select P.ID, (count(PR.PAT_ID) / {9}) + 1 Cycle, (count(PR.PAT_ID) % {9}) + 1 Proc " +
-            //                              " from {6} P left outer join {8} PR on P.ID = PR.PAT_ID " +
-            //                              " group by P.ID) R " +
-            //                           "where P.DG_ID = D.ID and P.ID = R.ID " +
-            //                             "and ((R.PROC < 6 and (select count(*) from {8} where PAT_ID = P.ID and DATE = date('now', 'localtime')) < 2) or " +
-            //                                 "not exists(select 1 from {8} where PAT_ID = P.ID and DATE = date('now', 'localtime'))) " +
-            //                             "and not P.DELETED " +
-            //                           "order by P.LAST_NAME",
-            //                           Resources.patSelNumber, Resources.patSelName, Resources.patSelYrOfBirth, Resources.PatHdrDg, Resources.patSelCycle, Resources.patSelProcNum, Patient.TName, Diagnosis.TName, PatProc.TName, settings.NOP);
 
             InitializeComponent();
             if(Patient.Count() > 0)
