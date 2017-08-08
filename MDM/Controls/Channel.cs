@@ -84,7 +84,7 @@ namespace MDM.Controls
                         case ChannelStatus.Disabled: reset(); break;
                         case ChannelStatus.Inactive: deactivate(); break;
                         case ChannelStatus.Active: activate(); break;
-                        case ChannelStatus.Ready: ready(); break;
+                        case ChannelStatus.Ready: preparedness(); break;
                         case ChannelStatus.InProgress: inProgress(); break;
                         case ChannelStatus.SetCurrent: setCurrent(); break;
                         case ChannelStatus.HighResistance: highResistance(); break;
@@ -511,42 +511,45 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
 #if LAN
-            LANFunc.LanChOnOff(Number);
-            LANFunc.ChRst(Number);
-            LANFunc.ChDAC(Number);
-            LANFunc.ChDOUT(Number, 2);
+            if(oldStatus == ChannelStatus.Inactive)
+            {
+                LANFunc.LanChOnOff(Number);
+                LANFunc.ChRst(Number);
+                LANFunc.ChDAC(Number);
+                LANFunc.ChDOUT(Number, 2);
+            }
 #endif
             ucMonitor.On = true;
             LedRed();
             Current = .5;
         }
-#endregion
+        #endregion
 
-#region ready()
+#region preparedness()
         /// <summary>
-        /// Uvede kanál do stavu "připraven". V tomto stavu se čeká na stisk tlačítka Začít, poté kanál přechází do stavu "procedura probíhá".
+        /// Uvede kanál do stavu "připraven". V tomto stavu se čeká na stisk tlačítka Začít, poté kanál přechází do stavu "léčení".
+        /// V průběhu setrvání v tomto stavu se provádí měření odporu, pokud je odpor vysoký, přechází se do stavu "aktivní".
         /// </summary>
-        private void ready()
+        private void preparedness()
         {
-            cbPatSelect.Enabled = true;
-            cbStart.Enabled = true;
-            pbStatus.Image = Resources.program_stimsmart_kanal_pripraven_;
-            lbStatus.Text = Resources.chReady;
-            lbStatus.ForeColor = Color.White;
-            lbStatus.BackColor = Color.Green;
             if(Patient.ID > NoSelection)
             {
-                patient.CurrSegment = 0;
-                ucMonitor.Segments = Patient.Segments.Select(s => s.Duration).ToArray();
+                cbPatSelect.Enabled = true;
+                cbStart.Enabled = true;
+                pbStatus.Image = Resources.program_stimsmart_kanal_pripraven_;
+                lbStatus.Text = Resources.chReady;
+                lbStatus.ForeColor = Color.White;
+                lbStatus.BackColor = Color.Green;
+                Elapsed = 0;
+                LedGreen(true);
             }
-            Elapsed = 0;
-            LedGreen(true);
+            else Status = ChannelStatus.Inactive;
         }
 #endregion
 
 #region inProgress()
         /// <summary>
-        /// Uvede kanál do stavu "procedura probíhá". Z tohoto stavu může kanál přejít do stavu "nastavení proudu", "příliš vysoký odpor", "pozastaven", "odpojený" nebo "neaktivní".
+        /// Uvede kanál do stavu "léčení". Z tohoto stavu může kanál přejít do stavu "nastavení proudu", "příliš vysoký odpor", "pozastaven", "odpojený" nebo "neaktivní".
         /// </summary>
         private void inProgress()
         {
@@ -769,6 +772,8 @@ namespace MDM.Controls
                     if(!Channels.PatientAttached(frm.PatientID))
                     {
                         Patient = new SelectedPatient(frm.PatientID, NoSelection, frm.PatientName, frm.PatientDiagnosis, frm.PatientProcNum, frm.PatientCycleNum);
+                        //patient.CurrSegment = 0;
+                        ucMonitor.Segments = Patient.Segments.Select(s => s.Duration).ToArray();
                         Status = ChannelStatus.Active;
                     }
                     else DialogBox.ShowWarn(Resources.patDuplMsg, Resources.patDuplMsgH);

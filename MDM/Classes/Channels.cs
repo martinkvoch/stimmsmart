@@ -122,7 +122,7 @@ namespace MDM.Classes
                 }
                 Thread.Sleep(200);
             }
-            if(!dlg.IsDisposed) dlg.Dispose();
+            if(dlg != null && !dlg.IsDisposed) dlg.Dispose();
             e.Cancel = true;
         }
 #endif
