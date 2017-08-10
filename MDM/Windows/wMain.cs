@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
+//using System.Windows;
 using System.Windows.Forms;
 
 using MDM.Controls;
 using MDM.Data;
 using MDM.DlgBox;
 using MDM.Properties;
-using System.Globalization;
 
 namespace MDM.Windows
 {
@@ -22,6 +23,7 @@ namespace MDM.Windows
         private MDMPanel currentPanel;
         private Timer timer;
         private bool forceExit = false;
+        private Size winSize;
         //private System.Threading.Timer timer;
 
         #region Language, setMILang()
@@ -144,7 +146,7 @@ namespace MDM.Windows
         #region Události hlavního okna
         private void Main_Load(object sender, EventArgs e)
         {
-            logoBox.Location = new Point((Width - logoBox.Width) / 2, logoBox.Location.Y);
+            logoBox.Location = new System.Drawing.Point((Width - logoBox.Width) / 2, logoBox.Location.Y);
             if(timer == null)
             {
                 timer = new Timer();
@@ -152,7 +154,10 @@ namespace MDM.Windows
                 timer.Interval = 500;
             }
             timer.Start();
+            MinimumSize = MaximumSize = winSize = Size;
             if(!Program.KeepRunning) miLogIn.PerformClick();
+            //MinimumSize = MaximumSize = new System.Drawing.Size((int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight);
+            //DialogBox.ShowInfo(string.Format("FormSize = {0}", MaximumSize), "Info");
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -196,7 +201,7 @@ namespace MDM.Windows
             {
                 case LogTyp.Warning: lbStatus.ForeColor = Color.DarkGoldenrod; lbStatus.Image = Resources.warning; break;
                 case LogTyp.Error: lbStatus.ForeColor = Color.DarkRed; lbStatus.Image = Resources.error; break;
-                default: lbStatus.ForeColor = SystemColors.ControlText; lbStatus.Image = Resources.information; break;
+                default: lbStatus.ForeColor = System.Drawing.SystemColors.ControlText; lbStatus.Image = Resources.information; break;
             }
             lbStatus.Text = msg;
         }
@@ -275,7 +280,7 @@ namespace MDM.Windows
             lbUser.Enabled = false;
             lbUser.Text = msg ?? Resources.signedNotMsg;
             miLogIn.Enabled = tbLogin.Enabled = true;
-            miLogOut.Enabled = tbLogout.Enabled = false;
+            miLogOut.Enabled = tbLogout.Enabled = tbProcedures.Enabled = tbPatList.Enabled = false;
         }
 
         private void signedOut(string msg = null)
@@ -294,7 +299,7 @@ namespace MDM.Windows
                 lbUser.Enabled = true;
                 lbUser.Text = Program.LoggedUser.Login;
                 miLogIn.Enabled = tbLogin.Enabled = false;
-                miLogOut.Enabled = tbLogout.Enabled = true;
+                miLogOut.Enabled = tbLogout.Enabled = tbProcedures.Enabled = tbPatList.Enabled = true;
                 panMain.Enabled = true;
                 applyRole(Program.LoggedUser.Role);
             }
@@ -594,6 +599,17 @@ namespace MDM.Windows
                 Database.Init(true);
                 panDBRestore.Fill();
             }
+        }
+
+        private void tbProcedures_Click(object sender, EventArgs e)
+        {
+            SwitchToPanel();
+        }
+
+        private void wMain_SizeChanged(object sender, EventArgs e)
+        {
+            //if(Size != winSize) Size = winSize;
+            WindowState = FormWindowState.Maximized;
         }
         #endregion
 

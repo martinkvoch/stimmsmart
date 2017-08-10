@@ -44,6 +44,9 @@ namespace MDM.Windows
             this.tbExit = new System.Windows.Forms.ToolStripButton();
             this.tbLogin = new System.Windows.Forms.ToolStripButton();
             this.tbLogout = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tbProcedures = new System.Windows.Forms.ToolStripButton();
+            this.tbPatList = new System.Windows.Forms.ToolStripButton();
             this.miFile = new System.Windows.Forms.ToolStripMenuItem();
             this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -177,7 +180,10 @@ namespace MDM.Windows
             this.tbRestart,
             this.tbExit,
             this.tbLogin,
-            this.tbLogout});
+            this.tbLogout,
+            this.toolStripSeparator1,
+            this.tbProcedures,
+            this.tbPatList});
             resources.ApplyResources(this.tsMain, "tsMain");
             this.tsMain.Name = "tsMain";
             // 
@@ -236,6 +242,25 @@ namespace MDM.Windows
             resources.ApplyResources(this.tbLogout, "tbLogout");
             this.tbLogout.Name = "tbLogout";
             this.tbLogout.Click += new System.EventHandler(this.miLogOut_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            // 
+            // tbProcedures
+            // 
+            this.tbProcedures.Image = global::MDM.Properties.Resources.patProc;
+            resources.ApplyResources(this.tbProcedures, "tbProcedures");
+            this.tbProcedures.Name = "tbProcedures";
+            this.tbProcedures.Click += new System.EventHandler(this.tbProcedures_Click);
+            // 
+            // tbPatList
+            // 
+            this.tbPatList.Image = global::MDM.Properties.Resources.userlist;
+            resources.ApplyResources(this.tbPatList, "tbPatList");
+            this.tbPatList.Name = "tbPatList";
+            this.tbPatList.Click += new System.EventHandler(this.miPatientList_Click);
             // 
             // miFile
             // 
@@ -793,7 +818,7 @@ namespace MDM.Windows
             this.Controls.Add(this.ssMain);
             this.Controls.Add(this.msMain);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.msMain;
             this.MinimizeBox = false;
             this.Name = "wMain";
@@ -803,6 +828,7 @@ namespace MDM.Windows
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.wMain_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
             this.Shown += new System.EventHandler(this.wMain_Shown);
+            this.SizeChanged += new System.EventHandler(this.wMain_SizeChanged);
             this.ssMain.ResumeLayout(false);
             this.ssMain.PerformLayout();
             this.tsMain.ResumeLayout(false);
@@ -904,6 +930,9 @@ namespace MDM.Windows
         private System.Windows.Forms.ToolStripMenuItem miPatientProc;
         private DBPanel panProcedure;
         private System.Windows.Forms.ToolStripMenuItem miProcedure;
+        private System.Windows.Forms.ToolStripButton tbProcedures;
+        private System.Windows.Forms.ToolStripButton tbPatList;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

@@ -191,13 +191,13 @@ namespace MDM.Windows
             {
                 if(string.IsNullOrEmpty(FirstName))
                 {
-                    DialogBox.ShowError(Resources.patAddErrFName, Resources.patAddErrHdr);
                     txtFName.Focus();
+                    DialogBox.ShowError(Resources.patAddErrFName, Resources.patAddErrHdr);
                 }
                 if(string.IsNullOrEmpty(LastName))
                 {
-                    DialogBox.ShowError(Resources.patAddErrLName, Resources.patAddErrHdr);
                     txtLName.Focus();
+                    DialogBox.ShowError(Resources.patAddErrLName, Resources.patAddErrHdr);
                 }
                 e.Cancel = string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(LastName);
             }

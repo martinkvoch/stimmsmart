@@ -377,10 +377,9 @@ namespace MDM.Controls
                 }
                 else if(Status == ChannelStatus.HighResistance)
                 {
-                    if(actCur == toBeSet && !resp.InputR.Status[1])
+                    //if(actCur == toBeSet && !resp.InputR.Status[1])
+                    if(actCur == toBeSet && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) <= 48)
                     {
-                        LANFunc.ChDAC(Number);
-                        LANFunc.ChDOUT(Number, 2);
                         LANFunc.ChMode(Number, 2, Patient.Segments[Patient.CurrSegment - 1].WaveShape, Patient.Segments[Patient.CurrSegment - 1].TMax, Patient.Segments[Patient.CurrSegment - 1].TMin, Patient.Segments[Patient.CurrSegment - 1].TSweep);
                         Current = current;
                         Status = oldStatus;
@@ -614,8 +613,6 @@ namespace MDM.Controls
             lbStatus.BackColor = Color.OrangeRed;
             current = Current;
 #if LAN
-            LANFunc.ChDAC(Number);
-            LANFunc.ChDOUT(Number, 2);
             LANFunc.ChMode(Number, 0, 0, 0, 0, 0);
 #endif
             Current = .5;

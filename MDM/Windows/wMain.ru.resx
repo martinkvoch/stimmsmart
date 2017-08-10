@@ -154,6 +154,18 @@
     <value>Из программы</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tbProcedures.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 22</value>
+  </data>
+  <data name="tbProcedures.Text" xml:space="preserve">
+    <value>Процедуры</value>
+  </data>
+  <data name="tbPatList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 22</value>
+  </data>
+  <data name="tbPatList.Text" xml:space="preserve">
+    <value>Список пациентов</value>
+  </data>
   <data name="miAbout.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 22</value>
   </data>
@@ -321,12 +333,6 @@
   </data>
   <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 6</value>
-  </data>
-  <data name="toolStripMenuItem15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
-  </data>
-  <data name="toolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
   </data>
   <data name="miNewPatient.Size" type="System.Drawing.Size, System.Drawing">
     <value>277, 30</value>
@@ -634,9 +640,5 @@
   </data>
   <data name="miProcedure.Text" xml:space="preserve">
     <value>Процедура</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>Inherit</value>
   </data>
 </root>
