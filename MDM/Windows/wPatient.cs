@@ -161,6 +161,8 @@ namespace MDM.Windows
             else
             {
                 Text = Resources.PatEditHdr;
+                txtFName.Enabled = txtMName.Enabled = txtLName.Enabled = gbSex.Enabled = txtDiagnosis.Enabled =
+                    cbDiagnosis.Enabled = gbSomatotype.Enabled = dtpBirthDate.Enabled = false;
             }
         }
 

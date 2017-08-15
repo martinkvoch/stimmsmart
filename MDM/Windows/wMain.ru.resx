@@ -175,6 +175,15 @@
   <data name="miAbout.ToolTipText" xml:space="preserve">
     <value>Отображает информацию о приложении</value>
   </data>
+  <data name="miHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 22</value>
+  </data>
+  <data name="miHelp.Text" xml:space="preserve">
+    <value>Помощь...</value>
+  </data>
+  <data name="miHelp.ToolTipText" xml:space="preserve">
+    <value>Отображает руководство на правильном языке</value>
+  </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 6</value>
   </data>

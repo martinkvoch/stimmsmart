@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 //using System.Windows;
@@ -23,7 +25,7 @@ namespace MDM.Windows
         private MDMPanel currentPanel;
         private Timer timer;
         private bool forceExit = false;
-        private Size winSize;
+        //private Size winSize;
         //private System.Threading.Timer timer;
 
         #region Language, setMILang()
@@ -154,7 +156,7 @@ namespace MDM.Windows
                 timer.Interval = 500;
             }
             timer.Start();
-            MinimumSize = MaximumSize = winSize = Size;
+            MinimumSize = MaximumSize = Size;
             if(!Program.KeepRunning) miLogIn.PerformClick();
             //MinimumSize = MaximumSize = new System.Drawing.Size((int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight);
             //DialogBox.ShowInfo(string.Format("FormSize = {0}", MaximumSize), "Info");
@@ -208,6 +210,13 @@ namespace MDM.Windows
         #endregion
 
         #region menu File
+        private void miHelp_Click(object sender, EventArgs e)
+        {
+            const string cManual = "Manual";
+
+            Process.Start(Path.Combine(cManual, Path.ChangeExtension(cManual + "_" + Program.Language.ToUpper(), "pdf")));
+        }
+
         private void miExit_Click(object sender, EventArgs e)
         {
             if(panMain != null && panMain.Channels != null && panMain.Channels.ChannelsOutOfOrder)
@@ -408,6 +417,7 @@ namespace MDM.Windows
         {
             miEditPatient.Enabled = miDeletePatient.Enabled = miWipePatient.Enabled = (!undel && currentPanel == panPatient && Patient.Count() > 0);
             miUndeletePatient.Enabled = Patient.Count(true) > 0;
+            panPatient.Fill();
         }
 
         private void miPatientList_Click(object sender, EventArgs e)

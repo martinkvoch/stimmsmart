@@ -377,7 +377,7 @@ namespace MDM.Controls
                 }
                 else if(Status == ChannelStatus.HighResistance)
                 {
-                    //if(actCur == toBeSet && !resp.InputR.Status[1])
+                    if(actCur == (byte)(Math.Round(.5 / curstep, 0))) LANFunc.ChMode(Number, 0, 0, 0, 0, 0);
                     if(actCur == toBeSet && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) <= 48)
                     {
                         LANFunc.ChMode(Number, 2, Patient.Segments[Patient.CurrSegment - 1].WaveShape, Patient.Segments[Patient.CurrSegment - 1].TMax, Patient.Segments[Patient.CurrSegment - 1].TMin, Patient.Segments[Patient.CurrSegment - 1].TSweep);
@@ -395,17 +395,17 @@ namespace MDM.Controls
                     {
                         if(oldStatus == ChannelStatus.HighResistance || oldStatus == ChannelStatus.Paused) currIncr(6);
                         else if(Status == ChannelStatus.Ready || Status == ChannelStatus.Active) currIncr(16);
-                        else currIncr(2);
+                        else currIncr(4);
                     }
                     else
                     {
                         if(Status == ChannelStatus.Inactive || Status == ChannelStatus.Disabled || Status == ChannelStatus.Disconnected || Status == ChannelStatus.Inaccessible) currDecr(32);
                         else if(Status == ChannelStatus.Paused || Status == ChannelStatus.HighResistance) currDecr(12);
-                        else currDecr(4);
+                        else currDecr(6);
                     }
                     LANFunc.ChAtCf(Number, actCur);
                     if(Status != ChannelStatus.SetCurrent) tbCurrent.Value = actCur;
-                    else _current = Math.Round(actCur * curstep, 2);
+                    //else _current = Math.Round(actCur * curstep, 2);
                 }
             }
         }
@@ -612,9 +612,6 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
             current = Current;
-#if LAN
-            LANFunc.ChMode(Number, 0, 0, 0, 0, 0);
-#endif
             Current = .5;
             Sound.BeepSOS();
         }
@@ -753,7 +750,7 @@ namespace MDM.Controls
 #endif
                     }
                     catch { }
-                    Thread.Sleep(300);
+                    Thread.Sleep(200);
                 }
             }
             e.Cancel = true;
@@ -790,7 +787,8 @@ namespace MDM.Controls
             if(Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) Status = ChannelStatus.SetCurrent;
             else if(Status == ChannelStatus.SetCurrent)
             {
-                Current = Math.Round(tbCurrent.Value * (maxmA / tbCurrent.Maximum), 2);
+                //Current = Math.Round(tbCurrent.Value * (maxmA / tbCurrent.Maximum), 2);
+                Current = Math.Round((double)tbCurrent.Value * curstep, 2);
                 Status = oldStatus;
             }
         }
@@ -856,8 +854,11 @@ namespace MDM.Controls
 
         private void tbCurrent_ValueChanged(object sender, decimal value)
         {
-            _current = Math.Round((double)value * curstep, 2);
-            lbCurrent.Text = _current.ToString("F2");// + " mA";
+            if(value > byte.MaxValue) value = byte.MaxValue;
+            if(value < byte.MinValue) value = byte.MinValue;
+            //_current = Math.Round((double)value * curstep, 2);
+            //lbCurrent.Text = _current.ToString("F2");// + " mA";
+            lbCurrent.Text = Math.Round((double)value * curstep, 2).ToString("F2");// + " mA";
             if(Status == ChannelStatus.SetCurrent) toBeSet = (byte)value;
         }
 #endregion

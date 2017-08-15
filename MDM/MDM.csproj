@@ -419,6 +419,15 @@
     <None Include="Data\DBDataSet.xss">
       <DependentUpon>DBDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Manual\Manual_CS.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Manual\Manual_EN.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Manual\Manual_RU.pdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -500,6 +509,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libs\Ionic.Zip.Reduced.dll" />
+    <None Include="Resources\help16.png" />
+    <None Include="Resources\help.png" />
     <None Include="Resources\zluta_ready.jpg" />
     <None Include="Resources\zluta_error.jpg" />
     <None Include="Resources\zelena_ready.jpg" />
@@ -566,6 +577,7 @@
       <Name>MACTrackBarLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.105.2\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.105.2\build\net451\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

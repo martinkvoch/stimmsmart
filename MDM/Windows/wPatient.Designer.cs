@@ -41,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbSex = new System.Windows.Forms.GroupBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,15 +62,15 @@
             this.cbDiagnosis = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbSomatotype = new System.Windows.Forms.GroupBox();
             this.rbHypotype = new System.Windows.Forms.RadioButton();
             this.rbNormotype = new System.Windows.Forms.RadioButton();
             this.rbHyperergic = new System.Windows.Forms.RadioButton();
             this.txtNote = new System.Windows.Forms.RichTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.cbxHIC = new System.Windows.Forms.ComboBox();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gbSex.SuspendLayout();
+            this.gbSomatotype.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbCancel
@@ -137,13 +137,13 @@
             resources.ApplyResources(this.dtpBirthDate, "dtpBirthDate");
             this.dtpBirthDate.Name = "dtpBirthDate";
             // 
-            // groupBox1
+            // gbSex
             // 
-            this.groupBox1.Controls.Add(this.rbFemale);
-            this.groupBox1.Controls.Add(this.rbMale);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
+            this.gbSex.Controls.Add(this.rbFemale);
+            this.gbSex.Controls.Add(this.rbMale);
+            resources.ApplyResources(this.gbSex, "gbSex");
+            this.gbSex.Name = "gbSex";
+            this.gbSex.TabStop = false;
             // 
             // rbFemale
             // 
@@ -247,14 +247,14 @@
             resources.ApplyResources(this.label13, "label13");
             this.label13.Name = "label13";
             // 
-            // groupBox2
+            // gbSomatotype
             // 
-            this.groupBox2.Controls.Add(this.rbHypotype);
-            this.groupBox2.Controls.Add(this.rbNormotype);
-            this.groupBox2.Controls.Add(this.rbHyperergic);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
+            this.gbSomatotype.Controls.Add(this.rbHypotype);
+            this.gbSomatotype.Controls.Add(this.rbNormotype);
+            this.gbSomatotype.Controls.Add(this.rbHyperergic);
+            resources.ApplyResources(this.gbSomatotype, "gbSomatotype");
+            this.gbSomatotype.Name = "gbSomatotype";
+            this.gbSomatotype.TabStop = false;
             // 
             // rbHypotype
             // 
@@ -309,8 +309,8 @@
             this.Controls.Add(this.cbxHIC);
             this.Controls.Add(this.txtNote);
             this.Controls.Add(this.cbDiagnosis);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbSomatotype);
+            this.Controls.Add(this.gbSex);
             this.Controls.Add(this.dtpBirthDate);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -346,10 +346,10 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.wPatient_FormClosing);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbSex.ResumeLayout(false);
+            this.gbSex.PerformLayout();
+            this.gbSomatotype.ResumeLayout(false);
+            this.gbSomatotype.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,7 +368,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker dtpBirthDate;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbSex;
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.Label label5;
@@ -389,7 +389,7 @@
         private System.Windows.Forms.Button cbDiagnosis;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbSomatotype;
         private System.Windows.Forms.RadioButton rbHypotype;
         private System.Windows.Forms.RadioButton rbNormotype;
         private System.Windows.Forms.RadioButton rbHyperergic;

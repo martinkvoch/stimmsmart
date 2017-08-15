@@ -40,6 +40,8 @@ namespace LANlib
             chDio = new Bits(res.DioRD);
             chDio[chnum - 1] = on;
             Lan(chDio.ByteValue);
+            Thread.Sleep(100);
+            ChRd(chnum);
         }
 
         public static ResponseDG LanRd()

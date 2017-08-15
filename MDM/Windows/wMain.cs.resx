@@ -167,7 +167,7 @@
     <value>Seznam pacientů</value>
   </data>
   <data name="miAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="miAbout.Text" xml:space="preserve">
     <value>O aplikaci</value>
@@ -175,11 +175,20 @@
   <data name="miAbout.ToolTipText" xml:space="preserve">
     <value>Zobrazí informace o aplikaci</value>
   </data>
+  <data name="miHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="miHelp.Text" xml:space="preserve">
+    <value>Nápověda...</value>
+  </data>
+  <data name="miHelp.ToolTipText" xml:space="preserve">
+    <value>Zobrazí manuál v aktuálním jazyce</value>
+  </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 6</value>
+    <value>149, 6</value>
   </data>
   <data name="miExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="miExit.Text" xml:space="preserve">
     <value>Konec</value>
@@ -188,7 +197,7 @@
     <value>Ukončí aplikaci</value>
   </data>
   <data name="miRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="miRestart.Text" xml:space="preserve">
     <value>Nové spuštění</value>
@@ -197,7 +206,7 @@
     <value>Ukončí a znovu spustí aplikaci i zařízení</value>
   </data>
   <data name="miSwitchOff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="miSwitchOff.Text" xml:space="preserve">
     <value>Vypnutí</value>
@@ -640,9 +649,5 @@
   </data>
   <data name="miProcedure.Text" xml:space="preserve">
     <value>Procedura</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>
