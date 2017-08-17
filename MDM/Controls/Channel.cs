@@ -354,6 +354,7 @@ namespace MDM.Controls
             ucMonitor.DOUT = resp.InputR.Verified.DOUT.ByteValue;
             ucMonitor.Status = resp.InputR.Status.Value;
             ucMonitor.Mode = (byte)resp.InputR.Verified.Mode;
+            ucMonitor.Ohms = (byte)(resp.InputR.AIN2 - resp.InputR.AIN1);
         }
 
         private void processResponse(ResponseDG resp)
@@ -469,11 +470,11 @@ namespace MDM.Controls
             pbProgress.Value = Elapsed = 0;
             Elapsed = 0;
             pbStatus.Image = Channels.ChannelsReadyImgs[Number - 1];
-            //pbStatus.Image = Resources.program_stimsmart_ready;
             lbStatus.Text = Resources.chDisconected;
             lbStatus.ForeColor = SystemColors.InactiveCaptionText;
             lbStatus.BackColor = SystemColors.Window;
             ucMonitor.On = false;
+            ucMonitor.MonMode = Program.LoggedUser.Role == UserRole.SuperAdmin ? WpfUC.MonitorMode.Admin : WpfUC.MonitorMode.User;
 #if LAN
             LANFunc.ChRst(Number);
             LANFunc.LanChOnOff(Number, false);
@@ -518,6 +519,7 @@ namespace MDM.Controls
                 LANFunc.ChDOUT(Number, 2);
             }
 #endif
+            ucMonitor.MonMode = Program.LoggedUser.Role == UserRole.SuperAdmin ? WpfUC.MonitorMode.Admin : WpfUC.MonitorMode.User;
             ucMonitor.On = true;
             LedRed();
             Current = .5;
@@ -680,7 +682,6 @@ namespace MDM.Controls
             Elapsed = 0;
             ucMonitor.On = false;
             pbStatus.Image = Channels.ChannelsErrorImgs[Number - 1];
-            //pbStatus.Image = Resources.program_stimsmart_error;
             lbStatus.Text = Resources.chInaccessible;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Red;

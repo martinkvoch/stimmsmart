@@ -16,11 +16,39 @@ using word = System.UInt16;
 
 namespace WpfUC
 {
+    public enum MonitorMode { User, Admin }
+
     /// <summary>
     /// Interaction logic for ucMonitor.xaml
     /// </summary>
     public partial class ucMonitor : UserControl
     {
+        #region MonMode
+        private MonitorMode monMode = MonitorMode.User;
+        public MonitorMode MonMode
+        {
+            get { return monMode; }
+            set
+            {
+                if(monMode != value)
+                {
+                    monMode = value;
+                    switch(monMode)
+                    {
+                        case MonitorMode.User:
+                            grLAN.Visibility = grMode.Visibility = grSegments.Visibility = Visibility.Hidden;
+                            grOhmMeter.Visibility = Visibility.Visible;
+                            break;
+                        case MonitorMode.Admin:
+                            grOhmMeter.Visibility = Visibility.Hidden;
+                            grLAN.Visibility = grMode.Visibility = grSegments.Visibility = Visibility.Visible;
+                            break;
+                    }
+                }
+            }
+        }
+        #endregion
+
         #region On
         private bool on = false;
         public bool On
@@ -31,7 +59,7 @@ namespace WpfUC
                 //if(on != value)
                 //{
                     //SetValue(OnProperty, value);
-                    on = disWS.On = disSweep.On = disATC.On = disDAC.On = disDOUT.On = disStatus.On = timElapsed.On = timLeft.On = timSegmentLeft.On = disMode.On = value;
+                    on = disWS.On = disSweep.On = disATC.On = disDAC.On = disDOUT.On = disStatus.On = timElapsed.On = timLeft.On = timSegmentLeft.On = disMode.On = disOhmMeter.On = value;
                     if(!on)
                     {
                         resetMonitor();
@@ -111,6 +139,12 @@ namespace WpfUC
             get { return disMode.Value; }
             set { disMode.Value = value; }
         }
+
+        public byte Ohms
+        {
+            get { return disOhmMeter.Value; }
+            set { disOhmMeter.Value = value; /*lbOhms.Content = disOhmMeter.Value;*/ }
+        }
         #endregion
 
         #region resetMonitor()
@@ -119,6 +153,8 @@ namespace WpfUC
             WS = Sweep = DAC = Status = Elapsed = Remained = SegmentLeft = 0;
             ATC = DOUT = Mode = 0;
             Segments = new byte[] { 5, 5, 5, 5, 5, 5 };
+            monMode = MonitorMode.Admin;
+            MonMode = MonitorMode.User;
         }
         #endregion
 

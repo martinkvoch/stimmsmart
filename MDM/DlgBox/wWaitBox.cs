@@ -1,26 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace MDM.DlgBox
 {
     public partial class wWaitBox : Form
     {
-        public wWaitBox(string msg)
+        private wWaitBox(string msg)
         {
             InitializeComponent();
             lbWaitMsg.Text = msg;
         }
 
-        public static wWaitBox Show(string msg)
+        public static wWaitBox Show(string fmt, params object[] args)
         {
-            wWaitBox res = new wWaitBox(msg);
+            wWaitBox res = new wWaitBox(string.Format(fmt, args));
 
             res.Show();
             res.Refresh();

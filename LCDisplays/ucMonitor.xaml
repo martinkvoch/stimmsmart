@@ -57,7 +57,7 @@
             <Border Grid.Row="1" Grid.RowSpan="8" BorderBrush="Gray" BorderThickness="30" Opacity=".3"/>
             <Border Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="6" BorderBrush="White" BorderThickness="30" Opacity=".6"/>
             <Border Grid.Column="5" Grid.Row="1" Grid.RowSpan="7" BorderBrush="White" BorderThickness="30" Opacity=".6"/>
-            <Grid Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
+            <Grid x:Name="grSegments" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -83,10 +83,14 @@
                 <local:ucSegments x:Name="segProcSegments" Grid.Row="1" Visibility="Visible"/>
                 <TextBlock Grid.Row="2" Text="SGMNTS" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity=".6"/>
             </Grid>
+            <!--<Label x:Name="lbOhms" Content="Label" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" FontSize="250" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity=".6"/>-->
             <local:ucTimer x:Name="timSegmentLeft" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="40,20,0,20"/>
             <local:ucTimer x:Name="timLeft" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
             <local:ucTimer x:Name="timElapsed" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan="7">
+            <Grid x:Name="grOhmMeter" Grid.Column="1" Grid.Row="1" Grid.RowSpan="7">
+                <local:ucOhmMeter x:Name="disOhmMeter" Margin="100"/>
+            </Grid>
+            <Grid x:Name="grLAN" Grid.Column="1" Grid.Row="1" Grid.RowSpan="7">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -174,7 +178,7 @@
                     <TextBlock Grid.Row="1" Grid.Column="1" Text="DAC" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="6" Grid.Column="2" Grid.RowSpan="2" Width="500">
+            <Grid x:Name="grMode" Grid.Row="6" Grid.Column="2" Grid.RowSpan="2" Width="500">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="250"/>
                     <RowDefinition/>

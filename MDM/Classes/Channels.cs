@@ -468,39 +468,37 @@ namespace MDM.Classes
         {
             if(!Program.IsDesignMode)
             {
+                wWaitBox msg = null;
 #if LAN
                 if(ChannelsOutOfOrder)
                 {
                     LANFunc.Lan(0); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
                     Thread.Sleep(300);
                     channels.ForEach(ch => {
-                        wWaitBox msg = wWaitBox.Show(string.Format(Resources.chOn, ch.Number));
-
-                        try
+                        if(chErrors[ch.Number - 1]) ch.Status = ChannelStatus.Inaccessible;
+                        else
                         {
-                            msg.Show();
-                            if(chErrors[ch.Number - 1]) ch.Status = ChannelStatus.Inaccessible;
-                            else
-                            {
-                                LANFunc.ChRst(ch.Number); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
-                                ch.Status = ChannelStatus.Inactive;
-                            }
-                        }
-                        finally
-                        {
-                            msg.Dispose();
+                            if(msg != null && !msg.IsDisposed) msg.Dispose();
+                            msg = wWaitBox.Show(Resources.chOn, ch.Number);
+                            LANFunc.ChRst(ch.Number); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
+                            ch.Status = ChannelStatus.Inactive;
                         }
                     });
+                    if(msg != null && !msg.IsDisposed) msg.Dispose();
                     //Enabled = true;
                 }
 #else
-            channels.ForEach(ch => {
-                wWaitBox msg = wWaitBox.Show(string.Format(Resources.chOn, ch.Number));
-
-                if(!chErrors[ch.Number - 1]) ch.Status = ChannelStatus.Inactive;
-                Thread.Sleep(200);
-                msg.Dispose();
-            });
+                channels.ForEach(ch => {
+                    if(!chErrors[ch.Number - 1])
+                    {
+                        if(msg != null && !msg.IsDisposed) msg.Dispose();
+                        msg = wWaitBox.Show(string.Format(Resources.chOn, ch.Number));
+                        ch.Status = ChannelStatus.Inactive;
+                        Thread.Sleep(200);
+                    }
+                    else ch.Status = ChannelStatus.Inaccessible;
+                });
+                if(msg != null && !msg.IsDisposed) msg.Dispose();
 #endif
             }
         }

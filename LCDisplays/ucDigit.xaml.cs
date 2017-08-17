@@ -1,9 +1,7 @@
-﻿using System.Windows.Controls;
-using System.Collections;
-using System.Windows;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using System.Threading;
+using System.Windows.Shapes;
 
 namespace WpfUC
 {

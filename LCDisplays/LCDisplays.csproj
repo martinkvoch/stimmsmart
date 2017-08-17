@@ -66,6 +66,9 @@
     <Compile Include="ucMonitor.xaml.cs">
       <DependentUpon>ucMonitor.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ucOhmMeter.xaml.cs">
+      <DependentUpon>ucOhmMeter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ucSegments.xaml.cs">
       <DependentUpon>ucSegments.xaml</DependentUpon>
     </Compile>
@@ -91,6 +94,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ucMonitor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ucOhmMeter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

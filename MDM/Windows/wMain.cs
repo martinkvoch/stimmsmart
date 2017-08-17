@@ -148,7 +148,7 @@ namespace MDM.Windows
         #region Události hlavního okna
         private void Main_Load(object sender, EventArgs e)
         {
-            logoBox.Location = new System.Drawing.Point((Width - logoBox.Width) / 2, logoBox.Location.Y);
+            logoBox.Location = new Point((Width - logoBox.Width) / 2, logoBox.Location.Y);
             if(timer == null)
             {
                 timer = new Timer();
@@ -317,32 +317,38 @@ namespace MDM.Windows
 
         private void miLogIn_Click(object sender, EventArgs e)
         {
-            using(wLogin frm = new wLogin())
+            if(panMain != null && panMain.Channels != null && panMain.Channels.ChannelsOutOfOrder)
             {
-                const string login = "Login()";
-
-                switch(frm.ShowDialog())
+                using(wLogin frm = new wLogin())
                 {
-                    case DialogResult.OK:
-                        Program.LoggedUser = frm.User;
-                        signInUser();
-                        Log.InfoToLog(login, string.Format(Resources.signedInUser, lbUser.Text));
-                        Language = Program.LoggedUser.Language;
-                        break;
-                    case DialogResult.Cancel:
-                        if(userLogged) signedOut(Resources.signedOutMsg);
-                        Log.ErrorToLog(login, string.Format(Resources.signedUnsuccessful, frm.User.Login));
-                        break;
+                    const string login = "Login()";
+
+                    switch(frm.ShowDialog())
+                    {
+                        case DialogResult.OK:
+                            Program.LoggedUser = frm.User;
+                            signInUser();
+                            Log.InfoToLog(login, string.Format(Resources.signedInUser, lbUser.Text));
+                            Language = Program.LoggedUser.Language;
+                            break;
+                        case DialogResult.Cancel:
+                            if(userLogged) signedOut(Resources.signedOutMsg);
+                            Log.ErrorToLog(login, string.Format(Resources.signedUnsuccessful, frm.User.Login));
+                            break;
+                    }
                 }
             }
         }
 
         private void miLogOut_Click(object sender, EventArgs e)
         {
-            TUser logusr = Program.LoggedUser;
+            if(panMain != null && panMain.Channels != null && panMain.Channels.ChannelsOutOfOrder)
+            {
+                TUser logusr = Program.LoggedUser;
 
-            signedOut(Resources.signedOutMsg);
-            Log.InfoToLog("Logout()", string.Format(Resources.signedOutUser, logusr.Login));
+                signedOut(Resources.signedOutMsg);
+                Log.InfoToLog("Logout()", string.Format(Resources.signedOutUser, logusr.Login));
+            }
         }
 
         private void miNewUser_Click(object sender, EventArgs e)
