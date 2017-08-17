@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
+﻿using System.Windows.Controls;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using word = System.UInt16;
 
 namespace WpfUC
 {
@@ -22,8 +11,8 @@ namespace WpfUC
     public partial class ucOhmMeter : UserControl
     {
         private const double cOpacityOff = .1D, cOpacityOn = .6D;
-        private byte[] cSegments = new byte[] { 28, 33, 38, 43, 48, 49, 50, 51, 52, 57, 62, 67, 72 };
-        //private byte[] cSegments = new byte[] { 72, 67, 62, 57, 52, 51, 50, 49, 48, 43, 38, 33, 28 };
+        private static word[] cSegments = new word[] { 28, 33, 38, 43, 48, 49, 50, 51, 52, 57, 62, 67, 72 };
+        //private static byte[] cSegments = new byte[] { 72, 67, 62, 57, 52, 51, 50, 49, 48, 43, 38, 33, 28 };
         private Storyboard sbFadeIn, sbFadeOut;
 
         #region On
@@ -43,18 +32,18 @@ namespace WpfUC
         #endregion
 
         #region Value
-        private byte _value = 0;
-        public byte Value
+        private word _value = cSegments[cSegments.Length - 1];
+        public word Value
         {
             get { return _value; }
             set
             {
                 if(_value != value && On)
                 {
-                    if(value < cSegments[0]) _value = cSegments[0];
-                    else if(value > cSegments[cSegments.Length - 1]) _value = cSegments[cSegments.Length - 1];
-                         else _value = value;
-                    segmentsOnOff(_value);
+                    //if(value < cSegments[0]) _value = cSegments[0];
+                    //else if(value > cSegments[cSegments.Length - 1]) _value = cSegments[cSegments.Length - 1];
+                    //     else _value = value;
+                    segmentsOnOff(_value = value);
                 }
             }
         }
@@ -69,7 +58,7 @@ namespace WpfUC
             }
         }
 
-        private int getIndex(byte value)
+        private int getIndex(word value)
         {
             int res = 0;
 
@@ -79,44 +68,25 @@ namespace WpfUC
             return res;
         }
 
-        private void segmentsOnOff(byte value)
+        private void segmentsOnOff(word value)
         {
-            int idx = getIndex(value);
+            int idx = getIndex(value) + 1;
 
             resetMeter();
-            for(int i = cSegments.Length - 1; i >= idx; i--)
+            Seg14.BeginStoryboard(sbFadeIn);
+            Seg14.Opacity = cOpacityOn;
+            for(int i = cSegments.Length; i > idx; i--)
             {
-                Rectangle rect = canMain.FindName("Seg" + (i + 1).ToString()) as Rectangle;
+                Rectangle rect = canMain.FindName("Seg" + i.ToString()) as Rectangle;
 
                 rect.BeginStoryboard(sbFadeIn);
                 rect.Opacity = cOpacityOn;
             }
-            //if(Seg14.Opacity == cOpacityOff)
-            //{
-            //    Seg14.BeginStoryboard(sbFadeIn);
-            //    Seg14.Opacity = cOpacityOn;
-            //}
-            //for(int i = cSegments.Length - 1; i >= 0; i--)
-            //{
-            //    Rectangle rect = canMain.FindName("Seg" + (i+1).ToString()) as Rectangle;
-
-            //    if(i <= idx)
-            //    {
-            //        if(rect.Opacity == cOpacityOff)
-            //        {
-            //            rect.BeginStoryboard(sbFadeIn);
-            //            rect.Opacity = cOpacityOn;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        if(rect.Opacity == cOpacityOn)
-            //        {
-            //            rect.BeginStoryboard(sbFadeOut);
-            //            rect.Opacity = cOpacityOff;
-            //        }
-            //    }
-            //}
+            if(value <= cSegments[0])
+            {
+                Seg1.BeginStoryboard(sbFadeIn);
+                Seg1.Opacity = cOpacityOn;
+            }
         }
 
         public ucOhmMeter()

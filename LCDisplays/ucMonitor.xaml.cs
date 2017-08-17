@@ -140,7 +140,7 @@ namespace WpfUC
             set { disMode.Value = value; }
         }
 
-        public byte Ohms
+        public word Ohms
         {
             get { return disOhmMeter.Value; }
             set { disOhmMeter.Value = value; /*lbOhms.Content = disOhmMeter.Value;*/ }
@@ -155,6 +155,7 @@ namespace WpfUC
             Segments = new byte[] { 5, 5, 5, 5, 5, 5 };
             monMode = MonitorMode.Admin;
             MonMode = MonitorMode.User;
+            Ohms = word.MaxValue;
         }
         #endregion
 

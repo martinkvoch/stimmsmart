@@ -179,23 +179,29 @@ namespace MDM.Controls
                         patient.CurrSegment++;
                         ucMonitor.NextSegment();
                         ucMonitor.SegmentLeft = (word)(Patient.Segments[Patient.CurrSegment - 1].Duration * 60);
-#if LAN
-                        LANFunc.ChMode(Number, 0, 0, 0, 0, 0);
-#else
-                        ucMonitor.Mode = 0;
-                        ucMonitor.Sweep = ucMonitor.WS = ucMonitor.Status = 0;
-#endif
                         current = Current;
                         Current = .5;
                         while(actCur != toBeSet) Application.DoEvents();
 #if LAN
-                        if(LANFunc.ChRd(Number).InputR.Status[1]) Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
+                        LANFunc.ChMode(Number, 0, 0, 0, 0, 0);
+                        Thread.Sleep(200);
+#else
+                        ucMonitor.Mode = 0;
+                        ucMonitor.Sweep = ucMonitor.WS = ucMonitor.Status = 0;
+#endif
+#if LAN
+                        ResponseDG resp = LANFunc.ChRd(Number);
+                        if(resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52) Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
                         else
                         {
                             LANFunc.ChMode(Number, 2, Patient.Segments[Patient.CurrSegment - 1].WaveShape, Patient.Segments[Patient.CurrSegment - 1].TMax, Patient.Segments[Patient.CurrSegment - 1].TMin, Patient.Segments[Patient.CurrSegment - 1].TSweep);
                             Current = current;
                         }
 #else
+                        ucMonitor.Mode = 2;
+                        ucMonitor.WS = Patient.Segments == null ? (word)0 : Patient.CurrSegment == 0 ? (word)0 : Patient.Segments[Patient.CurrSegment - 1].WaveShape;
+                        ucMonitor.Sweep = Patient.Segments == null ? (word)0 : Patient.CurrSegment == 0 ? (word)0 : Patient.Segments[Patient.CurrSegment - 1].TSweep;
+                        ucMonitor.Status = 0;
                         Current = current;
 #endif
                     }
@@ -354,7 +360,9 @@ namespace MDM.Controls
             ucMonitor.DOUT = resp.InputR.Verified.DOUT.ByteValue;
             ucMonitor.Status = resp.InputR.Status.Value;
             ucMonitor.Mode = (byte)resp.InputR.Verified.Mode;
-            ucMonitor.Ohms = (byte)(resp.InputR.AIN2 - resp.InputR.AIN1);
+            if(Status == ChannelStatus.Active || Status == ChannelStatus.Ready || Status == ChannelStatus.HighResistance)
+                ucMonitor.Ohms = resp.InputR.Verified.Mode == 0 ? (word)(resp.InputR.AIN2 - resp.InputR.AIN1) : word.MaxValue;
+            else ucMonitor.Ohms = word.MaxValue;
         }
 
         private void processResponse(ResponseDG resp)
@@ -519,7 +527,9 @@ namespace MDM.Controls
                 LANFunc.ChDOUT(Number, 2);
             }
 #endif
-            ucMonitor.MonMode = Program.LoggedUser.Role == UserRole.SuperAdmin ? WpfUC.MonitorMode.Admin : WpfUC.MonitorMode.User;
+            ucMonitor.Elapsed = 0;
+            ucMonitor.Remained = procDuration;
+            if(Patient.ID > NoSelection) ucMonitor.SegmentLeft = (word)(Patient.Segments[0].Duration * 60);
             ucMonitor.On = true;
             LedRed();
             Current = .5;
@@ -767,7 +777,6 @@ namespace MDM.Controls
                     if(!Channels.PatientAttached(frm.PatientID))
                     {
                         Patient = new SelectedPatient(frm.PatientID, NoSelection, frm.PatientName, frm.PatientDiagnosis, frm.PatientProcNum, frm.PatientCycleNum);
-                        //patient.CurrSegment = 0;
                         ucMonitor.Segments = Patient.Segments.Select(s => s.Duration).ToArray();
                         Status = ChannelStatus.Active;
                     }
