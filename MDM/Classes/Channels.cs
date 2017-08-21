@@ -497,10 +497,16 @@ namespace MDM.Classes
                         Thread.Sleep(200);
                     }
                     else ch.Status = ChannelStatus.Inaccessible;
+                    if(msg != null && !msg.IsDisposed) msg.Dispose();
                 });
                 if(msg != null && !msg.IsDisposed) msg.Dispose();
 #endif
             }
+        }
+
+        public void SetMonitor(UserRole role)
+        {
+            channels.ForEach(ch => ch.ucMonitor.MonMode = role == UserRole.SuperAdmin ? WpfUC.MonitorMode.Admin : WpfUC.MonitorMode.User);
         }
 
         /// <summary>

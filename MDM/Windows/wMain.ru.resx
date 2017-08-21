@@ -482,7 +482,7 @@
 </value>
   </data>
   <data name="miLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>217, 22</value>
   </data>
   <data name="miLog.Text" xml:space="preserve">
     <value>Журнал</value>
@@ -490,8 +490,17 @@
   <data name="miLog.ToolTipText" xml:space="preserve">
     <value>Функции администрирования журналa</value>
   </data>
+  <data name="miConfigSetup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>217, 22</value>
+  </data>
+  <data name="miConfigSetup.Text" xml:space="preserve">
+    <value>Настройка конфигурации</value>
+  </data>
+  <data name="miConfigSetup.ToolTipText" xml:space="preserve">
+    <value>Открывает диалоговое окно конфигурации</value>
+  </data>
   <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 6</value>
+    <value>214, 6</value>
   </data>
   <data name="miNewDatabase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -510,7 +519,7 @@
 </value>
   </data>
   <data name="miNewDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>217, 22</value>
   </data>
   <data name="miNewDatabase.Text" xml:space="preserve">
     <value>Новая база данных</value>
@@ -519,7 +528,10 @@
     <value>Создает новую базу данных поверх старой</value>
   </data>
   <data name="miCompactDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>217, 22</value>
+  </data>
+  <data name="miCompactDatabase.Text" xml:space="preserve">
+    <value>Сжатие базы данных</value>
   </data>
   <data name="miAdministration.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 20</value>

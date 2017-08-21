@@ -157,5 +157,17 @@ namespace MDM.Properties {
                 this["MinProcInterval"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Čeština|English|Pусский")]
+        public string langNames {
+            get {
+                return ((string)(this["langNames"]));
+            }
+            set {
+                this["langNames"] = value;
+            }
+        }
     }
 }

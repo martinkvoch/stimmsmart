@@ -197,6 +197,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.ru.resx</DependentUpon>
     </Compile>
+    <Compile Include="Windows\wConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\wConfig.Designer.cs">
+      <DependentUpon>wConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\wDiagnosis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +318,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DlgBox\wWaitBox.resx">
       <DependentUpon>wWaitBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wConfig.cs.resx">
+      <DependentUpon>wConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wConfig.resx">
+      <DependentUpon>wConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\wConfig.ru.resx">
+      <DependentUpon>wConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\wDiagnosis.cs.resx">
       <DependentUpon>wDiagnosis.cs</DependentUpon>
@@ -509,6 +524,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libs\Ionic.Zip.Reduced.dll" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\plus.png" />
     <None Include="Resources\help16.png" />
     <None Include="Resources\help.png" />
     <None Include="Resources\zluta_ready.jpg" />
@@ -523,6 +540,7 @@
     <None Include="Resources\cerna_ready.jpg" />
     <None Include="Resources\cervena_error.jpg" />
     <None Include="Resources\cervena_ready.jpg" />
+    <None Include="Resources\config.png" />
     <Content Include="Resources\deluser.png" />
     <None Include="Resources\filter.png" />
     <None Include="Resources\info1.png" />

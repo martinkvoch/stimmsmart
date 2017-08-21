@@ -167,7 +167,7 @@
     <value>Seznam pacientů</value>
   </data>
   <data name="miAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="miAbout.Text" xml:space="preserve">
     <value>O aplikaci</value>
@@ -176,7 +176,7 @@
     <value>Zobrazí informace o aplikaci</value>
   </data>
   <data name="miHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="miHelp.Text" xml:space="preserve">
     <value>Nápověda...</value>
@@ -185,10 +185,10 @@
     <value>Zobrazí manuál v aktuálním jazyce</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 6</value>
+    <value>146, 6</value>
   </data>
   <data name="miExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="miExit.Text" xml:space="preserve">
     <value>Konec</value>
@@ -197,7 +197,7 @@
     <value>Ukončí aplikaci</value>
   </data>
   <data name="miRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="miRestart.Text" xml:space="preserve">
     <value>Nové spuštění</value>
@@ -206,7 +206,7 @@
     <value>Ukončí a znovu spustí aplikaci i zařízení</value>
   </data>
   <data name="miSwitchOff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>149, 22</value>
   </data>
   <data name="miSwitchOff.Text" xml:space="preserve">
     <value>Vypnutí</value>
@@ -479,7 +479,7 @@
 </value>
   </data>
   <data name="miLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 22</value>
+    <value>192, 22</value>
   </data>
   <data name="miLog.Text" xml:space="preserve">
     <value>Deník</value>
@@ -487,8 +487,17 @@
   <data name="miLog.ToolTipText" xml:space="preserve">
     <value>Funkce pro správu deníku</value>
   </data>
+  <data name="miConfigSetup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 22</value>
+  </data>
+  <data name="miConfigSetup.Text" xml:space="preserve">
+    <value>Nastavení konfigurace</value>
+  </data>
+  <data name="miConfigSetup.ToolTipText" xml:space="preserve">
+    <value>Otevře dialog konfiguračních parametrů</value>
+  </data>
   <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>174, 6</value>
+    <value>189, 6</value>
   </data>
   <data name="miNewDatabase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -507,7 +516,7 @@
 </value>
   </data>
   <data name="miNewDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 22</value>
+    <value>192, 22</value>
   </data>
   <data name="miNewDatabase.Text" xml:space="preserve">
     <value>Nová databáze</value>
@@ -516,7 +525,7 @@
     <value>Vytvoří novou databázi místo staré</value>
   </data>
   <data name="miCompactDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 22</value>
+    <value>192, 22</value>
   </data>
   <data name="miCompactDatabase.Text" xml:space="preserve">
     <value>Komprese databáze</value>

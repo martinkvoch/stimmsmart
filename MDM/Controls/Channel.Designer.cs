@@ -296,7 +296,7 @@
         private System.Windows.Forms.Label lbRemain;
         private System.Windows.Forms.PictureBox pbStatus;
         private EConTech.Windows.MACUI.MACTrackBar tbCurrent;
-        private System.Windows.Forms.Integration.ElementHost elementHost1;
-        private WpfUC.ucMonitor ucMonitor;
+        internal System.Windows.Forms.Integration.ElementHost elementHost1;
+        internal WpfUC.ucMonitor ucMonitor;
     }
 }

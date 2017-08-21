@@ -376,7 +376,7 @@
     <value>tbCurrent</value>
   </data>
   <data name="&gt;&gt;tbCurrent.Type" xml:space="preserve">
-    <value>EConTech.Windows.MACUI.MACTrackBar, MACTrackBarLib, Version=1.0.6428.31373, Culture=neutral, PublicKeyToken=null</value>
+    <value>EConTech.Windows.MACUI.MACTrackBar, MACTrackBarLib, Version=1.0.6442.1812, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tbCurrent.Parent" xml:space="preserve">
     <value>groupBox3</value>

@@ -274,6 +274,7 @@ namespace MDM.Windows
             miUser.Visible = miSystem.Visible = toolStripMenuItem9.Visible = miHIC.Visible = (role != UserRole.NotLogged && role != UserRole.User);
             toolStripMenuItem11.Visible = toolStripMenuItem12.Visible = toolStripMenuItem13.Visible = miDeletePatient.Visible = miUndeletePatient.Visible = miWipePatient.Visible = miPurgePatient.Visible = miTruncatePatient.Visible = (role != UserRole.NotLogged && role != UserRole.User);
             miAdministration.Visible = (role == UserRole.SuperAdmin);
+            if(panMain != null && panMain.Channels != null) panMain.Channels.SetMonitor(role);
         }
 
         private void miUserList_Click(object sender, EventArgs e)
@@ -606,6 +607,11 @@ namespace MDM.Windows
         private void miCloseLogPanel_Click(object sender, EventArgs e)
         {
             if(currentPanel != null) (currentPanel as DBPanel).Close();
+        }
+
+        private void miConfigSetup_Click(object sender, EventArgs e)
+        {
+            using(wConfig frm = new wConfig()) frm.ShowDialog();
         }
 
         private void miNewDatabase_Click(object sender, EventArgs e)
