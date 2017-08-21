@@ -49,6 +49,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbCancel = new System.Windows.Forms.Button();
             this.cbOK = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtLANIPAddr = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nNOC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nNOP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nProcDur)).BeginInit();
@@ -56,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nMinTimeInt)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // nNOC
@@ -160,41 +164,41 @@
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.cbxCurrLang);
             this.groupBox1.Controls.Add(this.cbRemoveLang);
             this.groupBox1.Controls.Add(this.cbAddLang);
             this.groupBox1.Controls.Add(this.lbxLanguages);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
             // cbxCurrLang
             // 
+            resources.ApplyResources(this.cbxCurrLang, "cbxCurrLang");
             this.cbxCurrLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCurrLang.FormattingEnabled = true;
-            resources.ApplyResources(this.cbxCurrLang, "cbxCurrLang");
             this.cbxCurrLang.Name = "cbxCurrLang";
             // 
             // cbRemoveLang
             // 
-            this.cbRemoveLang.Image = global::MDM.Properties.Resources.minus;
             resources.ApplyResources(this.cbRemoveLang, "cbRemoveLang");
+            this.cbRemoveLang.Image = global::MDM.Properties.Resources.minus;
             this.cbRemoveLang.Name = "cbRemoveLang";
             this.cbRemoveLang.UseVisualStyleBackColor = true;
             // 
             // cbAddLang
             // 
-            this.cbAddLang.Image = global::MDM.Properties.Resources.plus;
             resources.ApplyResources(this.cbAddLang, "cbAddLang");
+            this.cbAddLang.Image = global::MDM.Properties.Resources.plus;
             this.cbAddLang.Name = "cbAddLang";
             this.cbAddLang.UseVisualStyleBackColor = true;
             // 
             // lbxLanguages
             // 
-            this.lbxLanguages.FormattingEnabled = true;
             resources.ApplyResources(this.lbxLanguages, "lbxLanguages");
+            this.lbxLanguages.FormattingEnabled = true;
             this.lbxLanguages.Name = "lbxLanguages";
             // 
             // label7
@@ -209,28 +213,46 @@
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel1.Controls.Add(this.cbCancel);
             this.panel1.Controls.Add(this.cbOK);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // cbCancel
             // 
+            resources.ApplyResources(this.cbCancel, "cbCancel");
             this.cbCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cbCancel.Image = global::MDM.Properties.Resources.no;
-            resources.ApplyResources(this.cbCancel, "cbCancel");
             this.cbCancel.Name = "cbCancel";
             this.cbCancel.UseVisualStyleBackColor = true;
             // 
             // cbOK
             // 
+            resources.ApplyResources(this.cbOK, "cbOK");
             this.cbOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.cbOK.Image = global::MDM.Properties.Resources.yes;
-            resources.ApplyResources(this.cbOK, "cbOK");
             this.cbOK.Name = "cbOK";
             this.cbOK.UseVisualStyleBackColor = true;
             this.cbOK.Click += new System.EventHandler(this.cbOK_Click);
+            // 
+            // panel2
+            // 
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtLANIPAddr);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Name = "panel2";
+            // 
+            // txtLANIPAddr
+            // 
+            resources.ApplyResources(this.txtLANIPAddr, "txtLANIPAddr");
+            this.txtLANIPAddr.Name = "txtLANIPAddr";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
             // 
             // wConfig
             // 
@@ -238,6 +260,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cbCancel;
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
@@ -264,6 +287,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,5 +316,8 @@
         private System.Windows.Forms.Button cbOK;
         private System.Windows.Forms.Button cbAddLang;
         private System.Windows.Forms.Button cbRemoveLang;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtLANIPAddr;
     }
 }

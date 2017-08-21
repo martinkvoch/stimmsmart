@@ -16,6 +16,7 @@ namespace MDM.Windows
             string[] langs = settings.langs.Split(new char[] { '|' }), langNames = settings.langNames.Split(new char[] { '|' });
 
             InitializeComponent();
+            txtLANIPAddr.Text = settings.LanIP;
             nNOC.Value = settings.NOC;
             nNOP.Value = settings.NOP;
             nProcDur.Value = settings.ProcDur;
@@ -34,6 +35,7 @@ namespace MDM.Windows
         {
             //Settings settings = new Settings();
 
+            Settings.Default.LanIP = txtLANIPAddr.Text;
             Settings.Default.NOC = (byte)nNOC.Value;
             Settings.Default.NOP = (byte)nNOP.Value;
             Settings.Default.ProcDur = (short)nProcDur.Value;
@@ -42,7 +44,8 @@ namespace MDM.Windows
             Settings.Default.langs = string.Join("|", lbxLanguages.Items.OfType<string>().Select(s => s.Substring(0, 2)));
             Settings.Default.lang = Settings.Default.langs.Split(new char[] { '|' })[cbxCurrLang.SelectedIndex];
             Settings.Default.Save();
-            Settings.Default.Upgrade();
+            new Settings().Save();
+            //Settings.Default.Upgrade();
         }
     }
 }

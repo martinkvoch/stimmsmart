@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using LANlib;
+using System.Windows.Forms;
 
 namespace MDM.DlgBox
 {
@@ -42,6 +43,7 @@ namespace MDM.DlgBox
 
         public static wDialogBoxOK ShowError(string msg, string hdr)
         {
+            Sound.Beep();
             return show(msg, hdr, MessageBoxIcon.Error);
         }
     }

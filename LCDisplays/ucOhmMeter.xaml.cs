@@ -11,8 +11,8 @@ namespace WpfUC
     public partial class ucOhmMeter : UserControl
     {
         private const double cOpacityOff = .1D, cOpacityOn = .6D;
-        private static word[] cSegments = new word[] { 28, 33, 38, 43, 48, 49, 50, 51, 52, 57, 62, 67, 72 };
-        //private static byte[] cSegments = new byte[] { 72, 67, 62, 57, 52, 51, 50, 49, 48, 43, 38, 33, 28 };
+        private static word[] cSegments = new word[] { 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62 };
+        //private static word[] cSegments = new word[] { 28, 33, 38, 43, 48, 49, 50, 51, 52, 57, 62, 67, 72 };
         private Storyboard sbFadeIn, sbFadeOut;
 
         #region On
@@ -25,14 +25,14 @@ namespace WpfUC
                 if(on != value)
                 {
                     on = value;
-                    if(on) Value = cSegments[0]; else resetMeter();
+                    if(on) Value = (word)(cSegments[cSegments.Length - 1] + 10); else resetMeter();
                 }
             }
         }
         #endregion
 
         #region Value
-        private word _value = cSegments[cSegments.Length - 1];
+        private word _value = (word)(cSegments[cSegments.Length - 1] + 10);
         public word Value
         {
             get { return _value; }
@@ -60,33 +60,27 @@ namespace WpfUC
 
         private int getIndex(word value)
         {
-            int res = 0;
+            int res = -1;
 
-            if(value <= cSegments[0]) res = 0;
-            else for(int i = 0; i < cSegments.Length - 2; i++) if(value > cSegments[i] && value <= cSegments[i + 1]) { res = i; break; }
-            if(value > cSegments[cSegments.Length - 1]) res = cSegments.Length - 1;
+            //if(value <= cSegments[0]) res = 0;
+            for(int i = 0; i < cSegments.Length - 1; i++) if(value >= cSegments[i] && value < cSegments[i + 1]) { res = i; break; }
+            //if(value >= cSegments[cSegments.Length - 1]) res = cSegments.Length - 1;
             return res;
         }
 
         private void segmentsOnOff(word value)
         {
-            int idx = getIndex(value) + 1;
+            int idx = getIndex(value);
 
             resetMeter();
-            Seg14.BeginStoryboard(sbFadeIn);
-            Seg14.Opacity = cOpacityOn;
-            for(int i = cSegments.Length; i > idx; i--)
-            {
-                Rectangle rect = canMain.FindName("Seg" + i.ToString()) as Rectangle;
+            if(idx >= 0)
+                for(int i = cSegments.Length + 1; i > idx; i--)
+                {
+                    Rectangle rect = canMain.FindName("Seg" + i.ToString()) as Rectangle;
 
-                rect.BeginStoryboard(sbFadeIn);
-                rect.Opacity = cOpacityOn;
-            }
-            if(value <= cSegments[0])
-            {
-                Seg1.BeginStoryboard(sbFadeIn);
-                Seg1.Opacity = cOpacityOn;
-            }
+                    rect.BeginStoryboard(sbFadeIn);
+                    rect.Opacity = cOpacityOn;
+                }
         }
 
         public ucOhmMeter()

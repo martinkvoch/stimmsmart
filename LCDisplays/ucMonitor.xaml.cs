@@ -36,12 +36,12 @@ namespace WpfUC
                     switch(monMode)
                     {
                         case MonitorMode.User:
-                            grLAN.Visibility = grMode.Visibility = grSegments.Visibility = Visibility.Hidden;
+                            grLAN.Visibility = grMode.Visibility = grSegments.Visibility = timSegmentLeft.Visibility = Visibility.Hidden;
                             grOhmMeter.Visibility = Visibility.Visible;
                             break;
                         case MonitorMode.Admin:
                             grOhmMeter.Visibility = Visibility.Hidden;
-                            grLAN.Visibility = grMode.Visibility = grSegments.Visibility = Visibility.Visible;
+                            grLAN.Visibility = grMode.Visibility = grSegments.Visibility = timSegmentLeft.Visibility = Visibility.Visible;
                             break;
                     }
                 }

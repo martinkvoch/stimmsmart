@@ -158,7 +158,7 @@ namespace LANlib
     #region Sound
     public static class Sound
     {
-        private const word F2 = 698, cCharGapID = 0x8000, cDash = 500, cDot = 200, cCharGap = cCharGapID + 80, cSignalGap = 40;
+        private const word F2 = 698, C4 = 1047, cCharGapID = 0x8000, cDash = 500, cDot = 200, cCharGap = cCharGapID + 80, cSignalGap = 40;
         private static readonly word[]
             cSOS = new word[] { cDot, cDot, cDot, cCharGap, cDash, cDash, cDash, cCharGap, cDot, cDot, cDot },
             cEND = new word[] { cDot, cCharGap, cDash, cDot, cCharGap, cDash, cDot, cDot };
@@ -184,6 +184,12 @@ namespace LANlib
         public static void BeepEND()
         {
             beep(cEND);
+        }
+
+        public static void Beep()
+        {
+            //Console.Beep();
+            Console.Beep(C4, 1500);
         }
     }
     #endregion

@@ -343,7 +343,8 @@ namespace MDM.Windows
 
         private void miLogOut_Click(object sender, EventArgs e)
         {
-            if(panMain != null && panMain.Channels != null && panMain.Channels.ChannelsOutOfOrder)
+            if(panMain != null && panMain.Channels != null && panMain.Channels.ChannelsOutOfOrder &&
+                !(panMain.Channels.IsAnyInStatus(ChannelStatus.Active) || panMain.Channels.IsAnyInStatus(ChannelStatus.Ready)))
             {
                 TUser logusr = Program.LoggedUser;
 

@@ -110,12 +110,6 @@
     <Compile Include="Controls\Channel.Designer.cs">
       <DependentUpon>Channel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ChannelMonitor.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controls\ChannelMonitor.Designer.cs">
-      <DependentUpon>ChannelMonitor.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controls\dbRestorePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -261,9 +255,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\Channel.ru.resx">
       <DependentUpon>Channel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controls\ChannelMonitor.resx">
-      <DependentUpon>ChannelMonitor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\DBPanel.cs.resx">
       <DependentUpon>DBPanel.cs</DependentUpon>

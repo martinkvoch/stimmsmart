@@ -36,10 +36,11 @@ namespace MDM.Classes
         /// <summary>
         /// Indikuje, zda jsou všechny kanály mimo provoz
         /// </summary>
-        public bool ChannelsOutOfOrder { get { return channels.All(ch => !ch.Enabled || !ch.InOrder); } }
-#endregion
+        public bool ChannelsOutOfOrder { get { return channels.All(ch => !ch.InOrder); } }
+        //public bool ChannelsOutOfOrder { get { return channels.All(ch => !ch.Enabled || !ch.InOrder); } }
+        #endregion
 
-#region Konstruktor, destruktor a obsluha kanálů
+        #region Konstruktor, destruktor a obsluha kanálů
         public Channels(MDMPanel parent)
         {
             int screenWidth = (int)SystemParameters.PrimaryScreenWidth;
@@ -468,8 +469,7 @@ namespace MDM.Classes
         {
             if(!Program.IsDesignMode)
             {
-                wWaitBox msg = null;
-#if LAN
+                //wWaitBox msg = null;
                 if(ChannelsOutOfOrder)
                 {
                     LANFunc.Lan(0); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
@@ -478,35 +478,30 @@ namespace MDM.Classes
                         if(chErrors[ch.Number - 1]) ch.Status = ChannelStatus.Inaccessible;
                         else
                         {
-                            if(msg != null && !msg.IsDisposed) msg.Dispose();
-                            msg = wWaitBox.Show(Resources.chOn, ch.Number);
+                            //if(msg != null && !msg.IsDisposed) msg.Dispose();
+                            //msg = wWaitBox.Show(Resources.chOn, ch.Number);
+#if LAN
                             LANFunc.ChRst(ch.Number); // prvním zápisem se vynuluje bit 14, 15 Statusu v Input registrech
+#else
+                            Thread.Sleep(200);
+#endif
                             ch.Status = ChannelStatus.Inactive;
                         }
                     });
-                    if(msg != null && !msg.IsDisposed) msg.Dispose();
+                    //if(msg != null && !msg.IsDisposed) msg.Dispose();
                     //Enabled = true;
                 }
-#else
-                channels.ForEach(ch => {
-                    if(!chErrors[ch.Number - 1])
-                    {
-                        if(msg != null && !msg.IsDisposed) msg.Dispose();
-                        msg = wWaitBox.Show(string.Format(Resources.chOn, ch.Number));
-                        ch.Status = ChannelStatus.Inactive;
-                        Thread.Sleep(200);
-                    }
-                    else ch.Status = ChannelStatus.Inaccessible;
-                    if(msg != null && !msg.IsDisposed) msg.Dispose();
-                });
-                if(msg != null && !msg.IsDisposed) msg.Dispose();
-#endif
             }
         }
 
         public void SetMonitor(UserRole role)
         {
             channels.ForEach(ch => ch.ucMonitor.MonMode = role == UserRole.SuperAdmin ? WpfUC.MonitorMode.Admin : WpfUC.MonitorMode.User);
+        }
+
+        public bool IsAnyInStatus(ChannelStatus status)
+        {
+            return channels.Any(ch => ch.Status == status);
         }
 
         /// <summary>

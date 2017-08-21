@@ -24,18 +24,18 @@
     <Viewbox Stretch="Fill">
         <Canvas x:Name="canMain" Height="277" Width="200" x:FieldModifier="private">
             <Rectangle x:Name="Seg1" Canvas.Top="0" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Green"/>
-            <Rectangle x:Name="Seg2" Canvas.Top="20" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Green"/>
-            <Rectangle x:Name="Seg3" Canvas.Top="40" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Green"/>
-            <Rectangle x:Name="Seg4" Canvas.Top="60" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Green"/>
-            <Rectangle x:Name="Seg5" Canvas.Top="80" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Green"/>
-            <Rectangle x:Name="Seg6" Canvas.Top="100" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Orange"/>
-            <Rectangle x:Name="Seg7" Canvas.Top="120" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Orange"/>
-            <Rectangle x:Name="Seg8" Canvas.Top="140" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Orange"/>
-            <Rectangle x:Name="Seg9" Canvas.Top="160" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Orange"/>
-            <Rectangle x:Name="Seg10" Canvas.Top="180" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Red"/>
-            <Rectangle x:Name="Seg11" Canvas.Top="200" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Red"/>
-            <Rectangle x:Name="Seg12" Canvas.Top="220" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Red"/>
-            <Rectangle x:Name="Seg13" Canvas.Top="240" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Red"/>
+            <Rectangle x:Name="Seg2" Canvas.Top="20" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FF00800C"/>
+            <Rectangle x:Name="Seg3" Canvas.Top="40" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FF008017"/>
+            <Rectangle x:Name="Seg4" Canvas.Top="60" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FF348000"/>
+            <Rectangle x:Name="Seg5" Canvas.Top="80" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FF7A8000"/>
+            <Rectangle x:Name="Seg6" Canvas.Top="100" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FFAEFF00"/>
+            <Rectangle x:Name="Seg7" Canvas.Top="120" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FFFFD100"/>
+            <Rectangle x:Name="Seg8" Canvas.Top="140" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FFFFDC00"/>
+            <Rectangle x:Name="Seg9" Canvas.Top="160" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FFFFF300"/>
+            <Rectangle x:Name="Seg10" Canvas.Top="180" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FFFFE800"/>
+            <Rectangle x:Name="Seg11" Canvas.Top="200" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FFFF9700"/>
+            <Rectangle x:Name="Seg12" Canvas.Top="220" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FFFF8000"/>
+            <Rectangle x:Name="Seg13" Canvas.Top="240" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="#FFFF4600"/>
             <Rectangle x:Name="Seg14" Canvas.Top="260" x:FieldModifier="private" Style="{StaticResource SegmentStyle}" Fill="Red"/>
         </Canvas>
     </Viewbox>

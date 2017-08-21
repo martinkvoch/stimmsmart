@@ -160,8 +160,8 @@
   <data name="rbMale.Text" xml:space="preserve">
     <value>Mужчина</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>  &amp;Cекс  </value>
+  <data name="gbSex.Text" xml:space="preserve">
+    <value>  П&amp;олом  </value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>87, 13</value>
@@ -232,8 +232,8 @@
   <data name="rbHyperergic.Text" xml:space="preserve">
     <value>Гиперергический</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>  Tип те&amp;лосложения </value>
+  <data name="gbSomatotype.Text" xml:space="preserve">
+    <value>  T&amp;ип телосложения </value>
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 13</value>

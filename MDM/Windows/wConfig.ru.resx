@@ -137,7 +137,7 @@
     <value>Продолжительность процедуры в секундах</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 111</value>
+    <value>12, 143</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>228, 47</value>
@@ -145,11 +145,21 @@
   <data name="label4.Text" xml:space="preserve">
     <value>Минимальная продолжительность процедуры в минутах, которая должна быть подсчитана</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 188</value>
+  </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>323, 13</value>
+    <value>237, 32</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Минимальный интервал времени между процедурами в часах</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>  Язык  </value>
   </data>
   <data name="cbRemoveLang.Location" type="System.Drawing.Point, System.Drawing">
     <value>198, 132</value>
@@ -184,14 +194,17 @@
   <data name="label6.Text" xml:space="preserve">
     <value>Текущий язык</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>  Язык  </value>
-  </data>
   <data name="cbCancel.Text" xml:space="preserve">
     <value>Отмена</value>
   </data>
   <data name="cbOK.Text" xml:space="preserve">
     <value>Сохранить</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 13</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>ИП-адрес устройства ЛАН</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Настройка конфигурации</value>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LANlib;
+using System;
 using System.Windows.Forms;
 
 namespace MDM.DlgBox
@@ -10,6 +11,7 @@ namespace MDM.DlgBox
         public wTimeoutDlgBox()
         {
             InitializeComponent();
+            Sound.Beep();
         }
 
         private void btnOK_Click(object sender, EventArgs e)

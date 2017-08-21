@@ -625,7 +625,7 @@ namespace MDM.Controls
             lbStatus.BackColor = Color.OrangeRed;
             current = Current;
             Current = .5;
-            Sound.BeepSOS();
+            Sound.Beep();
         }
         #endregion
 
@@ -735,7 +735,7 @@ namespace MDM.Controls
                 if(procID > NoSelection) PatProc.FinishProcedure(procID, Elapsed, ProcResult.Finished);
                 Log.InfoToLog(string.Format(Resources.chNum, Number), string.Format(Resources.chUserProcCompleted, Patient.Name, Patient.ProcNum, Patient.CycleNum, Patient.ProcNum == 1 ? "st" : Patient.ProcNum == 2 ? "nd" : Patient.ProcNum == 3 ? "rd" : "th", Elapsed / 60, Elapsed % 60));
                 Status = ChannelStatus.Inactive;
-                Sound.BeepEND();
+                Sound.Beep();
             }
         }
 
