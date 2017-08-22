@@ -469,13 +469,13 @@
     <value>Skutečně chcete ukončit tuto proceduru předčasně?</value>
   </data>
   <data name="exitNo" xml:space="preserve">
-    <value>V tomto okamžiku nelze ukončit aplikaci.</value>
+    <value>Probíhá-li procedura, nelze ukončit aplikaci.</value>
   </data>
   <data name="restartNo" xml:space="preserve">
-    <value>V tuto chvíli nelze přístroj restartovat.</value>
+    <value>Probíhá-li procedura, nelze přístroj restartovat.</value>
   </data>
   <data name="shutdownNo" xml:space="preserve">
-    <value>V tuto chvíli nelze přístroj vypnout.</value>
+    <value>Probíhá-li procedura, nelze přístroj vypnout.</value>
   </data>
   <data name="patDuplMsg" xml:space="preserve">
     <value>Tento pacient je již připojen na jiný kanál.</value>

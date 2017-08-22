@@ -299,6 +299,44 @@ namespace MDM.Data
         #endregion
 
         #region Backup(), Restore(), Compact()
+        private const string nulDrive = "nul";
+
+        private static string getFlashDrive()
+        {
+            DriveInfo drive = DriveInfo.GetDrives().Where(d => d.IsReady && d.DriveType == DriveType.Removable).FirstOrDefault();
+            string res = nulDrive;
+
+            if(drive != null) res = drive.Name;
+            return res;
+        }
+
+        private static void checkSpace(string fn)
+        {
+            DriveInfo drive = DriveInfo.GetDrives().Where(d => d.IsReady && d.DriveType == DriveType.Removable).FirstOrDefault();
+
+            if(drive != null)
+            {
+                string baseDir = Path.Combine(drive.Name, BackupDir);
+                string oldestDir = Directory.GetDirectories(Directory.GetDirectories(baseDir).OrderBy(d => d).FirstOrDefault()).OrderBy(d => d).FirstOrDefault();
+                string oldestFile = Directory.GetFiles(oldestDir ?? baseDir, Path.ChangeExtension("*", EncExt)).OrderBy(f => f).FirstOrDefault();
+                FileInfo fi = new FileInfo(fn);
+
+                while(fi.Length > drive.AvailableFreeSpace && !string.IsNullOrEmpty(oldestFile))
+                {
+                    File.Delete(oldestFile);
+                    if(Directory.GetFiles(oldestDir).Length == 0)
+                    {
+                        Directory.Delete(oldestDir);
+                        oldestDir = Path.GetDirectoryName(oldestDir);
+                        if(Directory.GetDirectories(oldestDir).Length == 0) Directory.Delete(oldestDir);
+                    }
+                    drive = DriveInfo.GetDrives().Where(d => d.IsReady && d.DriveType == DriveType.Removable).FirstOrDefault();
+                    oldestDir = Directory.GetDirectories(Directory.GetDirectories(baseDir).OrderBy(d => d).FirstOrDefault()).OrderBy(d => d).FirstOrDefault();
+                    oldestFile = Directory.GetFiles(oldestDir ?? baseDir, Path.ChangeExtension("*", EncExt)).OrderBy(f => f).FirstOrDefault();
+                }
+            }
+        }
+
         internal static void Backup(bool silent = false)
         {
             DbStatus oldStatus = Status;
@@ -309,14 +347,27 @@ namespace MDM.Data
                 Status = DbStatus.BackedUp;
                 if(File.Exists(dbFileName))
                 {
-                    string bckFN = Date2Fn(DateTime.Now.ToString("G"));
-                    string msg = string.Format(Resources.bckDataOK, Fn2Date(bckFN));
+                    string bckFN = Date2Fn(DateTime.Now.ToString("G")),
+                           msg = string.Format(Resources.bckDataOK, Fn2Date(bckFN)),
+                           usbFlash = getFlashDrive();
 
-                    //if(!Directory.Exists(BackupDir)) Directory.CreateDirectory(BackupDir);
                     if(!Directory.Exists(Path.GetDirectoryName(bckFN))) Directory.CreateDirectory(Path.GetDirectoryName(bckFN));
                     File.Copy(dbFileName, bckFN, true);
                     zip(bckFN);
                     File.Delete(bckFN);
+                    if(usbFlash != nulDrive)
+                    {
+                        try
+                        {
+                            checkSpace(Path.ChangeExtension(bckFN, EncExt));
+                            bckFN = Path.Combine(usbFlash, bckFN);
+                            if(!Directory.Exists(Path.GetDirectoryName(bckFN))) Directory.CreateDirectory(Path.GetDirectoryName(bckFN));
+                            File.Copy(dbFileName, bckFN, true);
+                            zip(bckFN);
+                            File.Delete(bckFN);
+                        }
+                        catch { }
+                    }
                     Log.InfoToLog(methodName, msg);
                     if(!silent) DialogBox.ShowInfo(msg, Resources.bckDataH);
                 }

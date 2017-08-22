@@ -718,7 +718,7 @@ namespace MDM.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to At this point, you can not quit..
+        ///   Looks up a localized string similar to If the procedure is in progress, you can not close the application..
         /// </summary>
         public static string exitNo {
             get {
@@ -1711,7 +1711,7 @@ namespace MDM.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to At this point, you can not restart the device..
+        ///   Looks up a localized string similar to If the procedure is in progress, the device can not be restarted..
         /// </summary>
         public static string restartNo {
             get {
@@ -1812,7 +1812,7 @@ namespace MDM.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to At this point, you can not switch off the device..
+        ///   Looks up a localized string similar to If the procedure is in progress, the device can not be turned off..
         /// </summary>
         public static string shutdownNo {
             get {

@@ -33,7 +33,7 @@ namespace MDM.Data
         }
 
         #region Zápis do deníku
-        private void toLog(LogTyp typ, string sender, string msg = null)
+        private void toLog(LogTyp typ, string sender, string msg = null, bool showInStatus = true)
         {
             if(Database.Status == DbStatus.Open)
             {
@@ -41,7 +41,7 @@ namespace MDM.Data
                     string.Format("(TYP, SENDER, MSG) values ({0}, '{1}', '{2}')", Convert.ToByte(typ), sender,
                     string.IsNullOrEmpty(msg) ? null : msg.Replace('\'', '"'));
 
-                if(Insert(cmd) > 0 && MainFrm != null)
+                if(Insert(cmd) > 0 && showInStatus && MainFrm != null)
                 {
                     DBPanel pan = MainFrm.Controls[panControl] as DBPanel;
 
@@ -78,9 +78,9 @@ namespace MDM.Data
         /// </summary>
         /// <param name="sender">název komponenty, která zprávu zapsala</param>
         /// <param name="msg">zpráva zapsaná do deníku</param>
-        public static void ErrorToLog(string sender, string msg = null)
+        public static void ErrorToLog(string sender, string msg = null, bool showInStatus = true)
         {
-            using(Log log = new Log()) log.toLog(LogTyp.Error, sender, msg);
+            using(Log log = new Log()) log.toLog(LogTyp.Error, sender, msg, showInStatus);
         }
         #endregion
 

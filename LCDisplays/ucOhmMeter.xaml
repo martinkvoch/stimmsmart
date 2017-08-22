@@ -8,13 +8,13 @@
              d:DesignHeight="277" d:DesignWidth="200">
     <UserControl.Resources>
         <Storyboard x:Name="FadeIn" x:Key="FadeIn">
-            <DoubleAnimation Duration="0:0:0.4" Storyboard.TargetProperty="(Rectangle.Opacity)" Storyboard.TargetName="{x:Null}" To=".6"/>
+            <DoubleAnimation Duration="0:0:0.4" Storyboard.TargetProperty="(Rectangle.Opacity)" Storyboard.TargetName="{x:Null}" To=".75"/>
         </Storyboard>
         <Storyboard x:Name="FadeOut" x:Key="FadeOut">
-            <DoubleAnimation Duration="0:0:0.4" Storyboard.TargetProperty="(Rectangle.Opacity)" Storyboard.TargetName="{x:Null}" To=".1"/>
+            <DoubleAnimation Duration="0:0:0.4" Storyboard.TargetProperty="(Rectangle.Opacity)" Storyboard.TargetName="{x:Null}" To=".25"/>
         </Storyboard>
         <Style TargetType="{x:Type Rectangle}" x:Key="SegmentStyle">
-            <Setter Property="Opacity" Value=".1"/>
+            <Setter Property="Opacity" Value=".25"/>
             <Setter Property="Width" Value="200"/>
             <Setter Property="Height" Value="17"/>
             <!--<Setter Property="Margin" Value="0,0,0,5"/>-->

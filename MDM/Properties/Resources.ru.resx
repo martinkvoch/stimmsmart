@@ -472,13 +472,13 @@
     <value>Вы действительно хотите завершить процедуру преждевременно?</value>
   </data>
   <data name="exitNo" xml:space="preserve">
-    <value>На данный момент вы не можете выйти из приложения.</value>
+    <value>Если процедура выполняется, вы не можете закрыть приложение.</value>
   </data>
   <data name="restartNo" xml:space="preserve">
-    <value>На данный момент вы не можете перезагрузить устройство.</value>
+    <value>Если процедура выполняется, устройство не может быть перезапущено.</value>
   </data>
   <data name="shutdownNo" xml:space="preserve">
-    <value>На данный момент вы не можете выключить устройство.</value>
+    <value>Если выполняется процедура, устройство не может быть отключено.</value>
   </data>
   <data name="patDuplMsg" xml:space="preserve">
     <value>Этот пациент уже подключен к другому каналу.</value>

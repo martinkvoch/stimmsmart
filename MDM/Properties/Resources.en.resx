@@ -469,13 +469,13 @@
     <value>Do you really want to terminate the procedure prematurely?</value>
   </data>
   <data name="exitNo" xml:space="preserve">
-    <value>At this point, you can not quit.</value>
+    <value>If the procedure is in progress, you can not close the application.</value>
   </data>
   <data name="restartNo" xml:space="preserve">
-    <value>At this point, you can not restart the device.</value>
+    <value>If the procedure is in progress, the device can not be restarted.</value>
   </data>
   <data name="shutdownNo" xml:space="preserve">
-    <value>At this point, you can not switch off the device.</value>
+    <value>If the procedure is in progress, the device can not be turned off.</value>
   </data>
   <data name="patDuplMsg" xml:space="preserve">
     <value>This patient is already attached to another channel.</value>

@@ -503,7 +503,7 @@
     <value>User login {0} failed</value>
   </data>
   <data name="shutdownNo" xml:space="preserve">
-    <value>At this point, you can not switch off the device.</value>
+    <value>If the procedure is in progress, the device can not be turned off.</value>
   </data>
   <data name="restartQ" xml:space="preserve">
     <value>Do you really want to restart device?</value>
@@ -593,7 +593,7 @@
     <value>The procedure is performed...</value>
   </data>
   <data name="exitNo" xml:space="preserve">
-    <value>At this point, you can not quit.</value>
+    <value>If the procedure is in progress, you can not close the application.</value>
   </data>
   <data name="modra_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\modra_error.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -788,7 +788,7 @@
     <value>..\Resources\yes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="restartNo" xml:space="preserve">
-    <value>At this point, you can not restart the device.</value>
+    <value>If the procedure is in progress, the device can not be restarted.</value>
   </data>
   <data name="UserRoleUser" xml:space="preserve">
     <value>User</value>

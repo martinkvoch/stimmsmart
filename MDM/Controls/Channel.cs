@@ -325,6 +325,8 @@ namespace MDM.Controls
         }
 
 #if LAN
+        private bool bStatusD13 = false;
+
         private void processMBStatus(ResponseDG resp)
         {
             if(Status != ChannelStatus.Disabled && Status != ChannelStatus.Inactive/* && Status != ChannelStatus.Error*/ && Status != ChannelStatus.Inaccessible)
@@ -332,9 +334,9 @@ namespace MDM.Controls
                 string msg = string.Empty;
 
                 if(resp.InputR.Status[0]) msg = Resources.chStatusErr1 + Environment.NewLine;
-                //if(Status != ChannelStatus.Inactive && Status != ChannelStatus.Active && Status != ChannelStatus.Ready && !InOrder && resp.InputR.Status[1]) msg += "Příliš vysoká impedance zátěže." + Environment.NewLine;
                 if(resp.InputR.Status[2]) msg += Resources.chStatusErr2 + Environment.NewLine;
-                if(resp.InputR.Status[13]) msg += Resources.chStatusErr3 + Environment.NewLine;
+                if(resp.InputR.Status[13] && !bStatusD13) msg += Resources.chStatusErr3 + Environment.NewLine;
+                bStatusD13 = resp.InputR.Status[13];
                 if(resp.InputR.Status[14])
                 {
                     msg += Resources.chStatusErr4 + Environment.NewLine;
@@ -402,15 +404,15 @@ namespace MDM.Controls
                 {
                     if(actCur < toBeSet)
                     {
-                        if(oldStatus == ChannelStatus.HighResistance || oldStatus == ChannelStatus.Paused) currIncr(6);
+                        if(oldStatus == ChannelStatus.HighResistance || oldStatus == ChannelStatus.Paused) currIncr(10);
                         else if(Status == ChannelStatus.Ready || Status == ChannelStatus.Active) currIncr(16);
-                        else currIncr(4);
+                        else currIncr(6);
                     }
                     else
                     {
                         if(Status == ChannelStatus.Inactive || Status == ChannelStatus.Disabled || Status == ChannelStatus.Disconnected || Status == ChannelStatus.Inaccessible) currDecr(32);
-                        else if(Status == ChannelStatus.Paused || Status == ChannelStatus.HighResistance) currDecr(12);
-                        else currDecr(6);
+                        else if(Status == ChannelStatus.Paused || Status == ChannelStatus.HighResistance) currDecr(16);
+                        else currDecr(8);
                     }
                     LANFunc.ChAtCf(Number, actCur);
                     if(Status != ChannelStatus.SetCurrent) tbCurrent.Value = actCur;
@@ -685,10 +687,9 @@ namespace MDM.Controls
             if(chWorker.IsBusy) chWorker.CancelAsync();
             cbSetCurrent.Enabled = cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = tbCurrent.Enabled = cbPatSelect.Enabled = false;
             timer.Stop();
-            Patient = new SelectedPatient();
             lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
             Current = 0D;
-            pbProgress.Value = 0;
+            pbProgress.Value = tbCurrent.Value = 0;
             Elapsed = 0;
             ucMonitor.On = false;
             pbStatus.Image = Channels.ChannelsErrorImgs[Number - 1];
@@ -698,10 +699,11 @@ namespace MDM.Controls
             LEDBits = new Bits();
             if(procID > NoSelection)
             {
-                PatProc.FinishProcedure(procID, Elapsed, Data.ProcResult.Failed);
-                Log.ErrorToLog(string.Format(Resources.chNum, Number), string.Format(Resources.chUserProcCompleted, Patient.Name, Patient.ProcNum, Patient.CycleNum, Patient.ProcNum == 1 ? "st" : Patient.ProcNum == 2 ? "nd" : Patient.ProcNum == 3 ? "rd" : "th", Elapsed / 60, Elapsed % 60));
+                PatProc.FinishProcedure(procID, Elapsed, ProcResult.Failed);
+                Log.ErrorToLog(string.Format(Resources.chNum, Number), string.Format(Resources.chUserProcCompleted, Patient.Name, Patient.ProcNum, Patient.CycleNum, Patient.ProcNum == 1 ? "st" : Patient.ProcNum == 2 ? "nd" : Patient.ProcNum == 3 ? "rd" : "th", Elapsed / 60, Elapsed % 60), false);
                 Patient = new SelectedPatient();
             }
+            Patient = new SelectedPatient();
 #if LAN
             LANFunc.ChRst(Number);
             LANFunc.LanChOnOff(Number, false);

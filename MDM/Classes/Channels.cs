@@ -40,7 +40,7 @@ namespace MDM.Classes
         //public bool ChannelsOutOfOrder { get { return channels.All(ch => !ch.Enabled || !ch.InOrder); } }
         #endregion
 
-        #region Konstruktor, destruktor a obsluha kanálů
+#region Konstruktor, destruktor a obsluha kanálů
         public Channels(MDMPanel parent)
         {
             int screenWidth = (int)SystemParameters.PrimaryScreenWidth;
