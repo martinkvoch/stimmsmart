@@ -120,6 +120,9 @@
   <data name="PatHdrCountry" xml:space="preserve">
     <value>Country</value>
   </data>
+  <data name="dgCPain" xml:space="preserve">
+    <value>Chronic pain (non-oncogenic)</value>
+  </data>
   <data name="ProcHdrDatum" xml:space="preserve">
     <value>Date of procedure</value>
   </data>
@@ -172,9 +175,6 @@
   <data name="chSetCurrent" xml:space="preserve">
     <value>Set the current...</value>
   </data>
-  <data name="error1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\error1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="cs" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cs.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -192,6 +192,9 @@
   </data>
   <data name="finish" xml:space="preserve">
     <value>Completion of initialization.</value>
+  </data>
+  <data name="restoreQH" xml:space="preserve">
+    <value>Restoring the database</value>
   </data>
   <data name="stop_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stop_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,8 +217,11 @@
   <data name="userlist" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\userlist.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="chHighResistance" xml:space="preserve">
-    <value>The resistance is too high</value>
+  <data name="chInaccessible" xml:space="preserve">
+    <value>Channel inaccessible</value>
+  </data>
+  <data name="testChError12" xml:space="preserve">
+    <value>Diode of channel {0} does not light red</value>
   </data>
   <data name="gr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -298,14 +304,8 @@
   <data name="startup" xml:space="preserve">
     <value>Inicialization of startup...</value>
   </data>
-  <data name="ProcHdrDuration" xml:space="preserve">
-    <value>Duration of the procedure</value>
-  </data>
   <data name="about" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\about.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="signedOutMsg" xml:space="preserve">
-    <value>Signed out</value>
   </data>
   <data name="user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -333,6 +333,9 @@
   </data>
   <data name="testChannel" xml:space="preserve">
     <value>Self-test in progress...</value>
+  </data>
+  <data name="backuprestore" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backuprestore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="noPatient" xml:space="preserve">
     <value>No patients are registered.\nPlease register the patient and then select him/she for the procedure.</value>
@@ -427,9 +430,6 @@
   <data name="chPaused" xml:space="preserve">
     <value>The procedure is suspended</value>
   </data>
-  <data name="pswNotMatchMsg" xml:space="preserve">
-    <value>* Passwords do not match *</value>
-  </data>
   <data name="userdelete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\userdelete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -475,6 +475,9 @@
   <data name="chInactive" xml:space="preserve">
     <value>Channel inactive</value>
   </data>
+  <data name="config" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\config.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bckDataH" xml:space="preserve">
     <value>Backup copy of database</value>
   </data>
@@ -495,9 +498,6 @@
   </data>
   <data name="PatSexMale" xml:space="preserve">
     <value>Male</value>
-  </data>
-  <data name="testChError12" xml:space="preserve">
-    <value>Diode of channel {0} does not light red</value>
   </data>
   <data name="signedUnsuccessful" xml:space="preserve">
     <value>User login {0} failed</value>
@@ -532,8 +532,8 @@
   <data name="testChError4" xml:space="preserve">
     <value>The stress at channel load {0} does not match the tolerance ({1}). Attenuation coefficient = {2}</value>
   </data>
-  <data name="restoreQH" xml:space="preserve">
-    <value>Restoring the database</value>
+  <data name="restartNo" xml:space="preserve">
+    <value>If the procedure is in progress, the device can not be restarted.</value>
   </data>
   <data name="erase" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\erase1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -643,8 +643,8 @@
   <data name="exitQH" xml:space="preserve">
     <value>Application exit</value>
   </data>
-  <data name="UserHdrLang" xml:space="preserve">
-    <value>Language</value>
+  <data name="ProcHdrDuration" xml:space="preserve">
+    <value>Duration of the procedure</value>
   </data>
   <data name="backupmakenew" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\backupmakenew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -663,6 +663,9 @@
   </data>
   <data name="chError" xml:space="preserve">
     <value>An error occurred</value>
+  </data>
+  <data name="chHighResistance" xml:space="preserve">
+    <value>The resistance is too high</value>
   </data>
   <data name="chActive" xml:space="preserve">
     <value>Connect the electrodes</value>
@@ -727,8 +730,8 @@
   <data name="signedInUser" xml:space="preserve">
     <value>User {0} has signed in</value>
   </data>
-  <data name="chInaccessible" xml:space="preserve">
-    <value>Channel inaccessible</value>
+  <data name="testDongle" xml:space="preserve">
+    <value>Authentication dongle...</value>
   </data>
   <data name="startInitMsg" xml:space="preserve">
     <value>{0} inicialization started.</value>
@@ -742,8 +745,8 @@
   <data name="UserHdrRole" xml:space="preserve">
     <value>Role</value>
   </data>
-  <data name="pswMatchMsg" xml:space="preserve">
-    <value>Passwords match</value>
+  <data name="pswNotMatchMsg" xml:space="preserve">
+    <value>* Passwords do not match *</value>
   </data>
   <data name="testChError32" xml:space="preserve">
     <value>Too high impedance on channel {0}</value>
@@ -781,14 +784,14 @@
   <data name="shutdownMsg" xml:space="preserve">
     <value>Application and device are switched off.</value>
   </data>
-  <data name="dgCPain" xml:space="preserve">
-    <value>Chronic pain (non-oncogenic)</value>
+  <data name="UserHdrLang" xml:space="preserve">
+    <value>Language</value>
   </data>
   <data name="yes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\yes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="restartNo" xml:space="preserve">
-    <value>If the procedure is in progress, the device can not be restarted.</value>
+  <data name="signedOutMsg" xml:space="preserve">
+    <value>Signed out</value>
   </data>
   <data name="UserRoleUser" xml:space="preserve">
     <value>User</value>
@@ -804,6 +807,9 @@
   </data>
   <data name="testChError13" xml:space="preserve">
     <value>Diode of channel {0} does not light green</value>
+  </data>
+  <data name="segments" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segments.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UserNewMsg" xml:space="preserve">
     <value>New user "{0}" was created.</value>
@@ -826,11 +832,11 @@
   <data name="dbcompact" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dbcompact.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="testDongle" xml:space="preserve">
-    <value>Authentication dongle...</value>
+  <data name="UserNewHdr" xml:space="preserve">
+    <value>New user</value>
   </data>
-  <data name="backuprestore" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backuprestore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="error1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\error1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="el" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\el.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -841,13 +847,13 @@
   <data name="patProc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\patProc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UserNewHdr" xml:space="preserve">
-    <value>New user</value>
+  <data name="pswMatchMsg" xml:space="preserve">
+    <value>Passwords match</value>
   </data>
   <data name="patSelName" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="config" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\config.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="segments16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\segments16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -194,6 +194,12 @@ namespace MDM.Windows
                 }
             }
         }
+
+        private void wMain_SizeChanged(object sender, EventArgs e)
+        {
+            //if(Size != winSize) Size = winSize;
+            WindowState = FormWindowState.Maximized;
+        }
         #endregion
 
         #region StatusBar
@@ -629,10 +635,9 @@ namespace MDM.Windows
             SwitchToPanel();
         }
 
-        private void wMain_SizeChanged(object sender, EventArgs e)
+        private void miUpgSegs_Click(object sender, EventArgs e)
         {
-            //if(Size != winSize) Size = winSize;
-            WindowState = FormWindowState.Maximized;
+            using(wWaitBox box = wWaitBox.Show(miUpgSegs.Text)) Procedure.Init();
         }
         #endregion
 

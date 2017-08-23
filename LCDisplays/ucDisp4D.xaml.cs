@@ -21,7 +21,7 @@ namespace WpfUC
     public partial class ucDisp4D : UserControl
     {
         #region On
-        private bool on = false;
+        private bool on = true;
         public bool On
         {
             get { return on; }
@@ -37,7 +37,7 @@ namespace WpfUC
         #endregion
 
         #region Value
-        private int _value = 0;
+        private int _value = -1;
         public int Value
         {
             get { return _value; }
@@ -45,8 +45,8 @@ namespace WpfUC
             {
                 if(_value != value && On)
                 {
-                    _value = value;
                     if(value < 0) _value = -value;
+                    else _value = value;
                     _value %= 10000;
                     D1000.Value = (byte)(_value / 1000);
                     D100.Value = (byte)((_value / 100) % 10);

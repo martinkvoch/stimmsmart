@@ -44,7 +44,7 @@ namespace MDM
             Settings settings = new Settings();
 
             setProgress(Resources.startup);
-            Log.InfoToLog(methodName, string.Format(Resources.startInitMsg, Resources.AppName) + ", " + string.Format(Resources.curLang, settings.lang) + ", " + string.Format(Resources.numberOfChannels, settings.NOC));
+            Log.InfoToLog(methodName, string.Format(Resources.startInitMsg, Resources.AppName) + ", " + string.Format(Resources.curLang, settings.lang) + ", " + string.Format(Resources.numberOfChannels, Math.Min(settings.NOC, Program.MOC)));
             //Log.InfoToLog(methodName, string.Format(Resources.curLang, settings.lang));
             //Log.InfoToLog(methodName, string.Format(Resources.numberOfChannels, settings.NOC));
             Thread.Sleep(DELAY);

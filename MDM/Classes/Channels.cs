@@ -22,7 +22,7 @@ namespace MDM.Classes
     /// </summary>
     public class Channels : Component
     {
-        private static readonly byte noc = new Settings().NOC;
+        private static byte noc = new Settings().NOC;
         internal static readonly Image[]
             ChannelsReadyImgs = new Image[] { Resources.cervena_ready, Resources.modra_ready, Resources.cerna_ready, Resources.zluta_ready, Resources.bila_ready, Resources.zelena_ready },
             ChannelsErrorImgs = new Image[] { Resources.cervena_error, Resources.modra_error, Resources.cerna_error, Resources.zluta_error, Resources.bila_error, Resources.zelena_error };
@@ -48,11 +48,11 @@ namespace MDM.Classes
 #if LAN
             LAN.SlaveIP = new Settings().LanIP;
 #endif
-            for(byte ch = noc; ch > 0; ch--)
+            for(byte ch = Program.MOC; ch > 0; ch--)
             {
                 Channel chnl = new Channel(ch, this);
 
-                chnl.Width = screenWidth / noc;
+                chnl.Width = screenWidth / Program.MOC;
                 chnl.Dock = DockStyle.Left;
                 channels.Add(chnl);
                 parent.Controls.Add(chnl);
@@ -141,7 +141,10 @@ namespace MDM.Classes
 
         public static bool[] Autotest()
         {
-            bool[] chErrors = new bool[noc];
+            bool[] chErrors = new bool[Program.MOC];
+
+            if(noc > Program.MOC) noc = Program.MOC;
+            for(byte b = noc; b < Program.MOC; b++) chErrors[b] = true;
 #if LAN
             const string methodFmt = "{0}.{1}()";
             ResponseDG resp;

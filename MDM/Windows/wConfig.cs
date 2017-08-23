@@ -16,8 +16,9 @@ namespace MDM.Windows
             string[] langs = settings.langs.Split(new char[] { '|' }), langNames = settings.langNames.Split(new char[] { '|' });
 
             InitializeComponent();
+            nNOC.Maximum = Program.MOC;
             txtLANIPAddr.Text = settings.LanIP;
-            nNOC.Value = settings.NOC;
+            nNOC.Value = Math.Min(settings.NOC, Program.MOC);
             nNOP.Value = settings.NOP;
             nProcDur.Value = settings.ProcDur;
             nMinProcDur.Value = settings.CountedProcAfter;

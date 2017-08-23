@@ -16,6 +16,10 @@ namespace MDM
     static class Program
     {
         const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}";
+        /// <summary>
+        /// Maximální fyzický počet kanálů
+        /// </summary>
+        public const byte MOC = 6;
         public static string Language = "xx";
         public static TUser LoggedUser = new TUser();
         //private static int kbDelay = SystemInformation.KeyboardSpeed;
@@ -38,7 +42,7 @@ namespace MDM
         {
             get
             {
-                if(chErrors.Length == 0) chErrors = new bool[new Settings().NOC];
+                if(chErrors.Length == 0) chErrors = new bool[Math.Min(new Settings().NOC, MOC)];
                 return chErrors;
             }
             set

@@ -482,7 +482,7 @@
 </value>
   </data>
   <data name="miLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 22</value>
+    <value>335, 22</value>
   </data>
   <data name="miLog.Text" xml:space="preserve">
     <value>Журнал</value>
@@ -491,7 +491,7 @@
     <value>Функции администрирования журналa</value>
   </data>
   <data name="miConfigSetup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 22</value>
+    <value>335, 22</value>
   </data>
   <data name="miConfigSetup.Text" xml:space="preserve">
     <value>Настройка конфигурации</value>
@@ -500,7 +500,16 @@
     <value>Открывает диалоговое окно конфигурации</value>
   </data>
   <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 6</value>
+    <value>332, 6</value>
+  </data>
+  <data name="miUpgSegs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>335, 22</value>
+  </data>
+  <data name="miUpgSegs.Text" xml:space="preserve">
+    <value>Корректировка таблицы процедур и сегментов</value>
+  </data>
+  <data name="miUpgSegs.ToolTipText" xml:space="preserve">
+    <value>Выполняет коррекцию таблиц PROCEDURE &amp; SEGMENTS</value>
   </data>
   <data name="miNewDatabase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -519,7 +528,7 @@
 </value>
   </data>
   <data name="miNewDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 22</value>
+    <value>335, 22</value>
   </data>
   <data name="miNewDatabase.Text" xml:space="preserve">
     <value>Новая база данных</value>
@@ -528,7 +537,7 @@
     <value>Создает новую базу данных поверх старой</value>
   </data>
   <data name="miCompactDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>217, 22</value>
+    <value>335, 22</value>
   </data>
   <data name="miCompactDatabase.Text" xml:space="preserve">
     <value>Сжатие базы данных</value>

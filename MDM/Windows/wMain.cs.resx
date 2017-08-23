@@ -479,7 +479,7 @@
 </value>
   </data>
   <data name="miLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
+    <value>270, 22</value>
   </data>
   <data name="miLog.Text" xml:space="preserve">
     <value>Deník</value>
@@ -488,7 +488,7 @@
     <value>Funkce pro správu deníku</value>
   </data>
   <data name="miConfigSetup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
+    <value>270, 22</value>
   </data>
   <data name="miConfigSetup.Text" xml:space="preserve">
     <value>Nastavení konfigurace</value>
@@ -497,7 +497,16 @@
     <value>Otevře dialog konfiguračních parametrů</value>
   </data>
   <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 6</value>
+    <value>267, 6</value>
+  </data>
+  <data name="miUpgSegs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 22</value>
+  </data>
+  <data name="miUpgSegs.Text" xml:space="preserve">
+    <value>Oprava tabulky procedur a segmentů</value>
+  </data>
+  <data name="miUpgSegs.ToolTipText" xml:space="preserve">
+    <value>Provádí opravu tabulek PROCEDURE &amp; SEGMENTS</value>
   </data>
   <data name="miNewDatabase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -516,7 +525,7 @@
 </value>
   </data>
   <data name="miNewDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
+    <value>270, 22</value>
   </data>
   <data name="miNewDatabase.Text" xml:space="preserve">
     <value>Nová databáze</value>
@@ -525,7 +534,7 @@
     <value>Vytvoří novou databázi místo staré</value>
   </data>
   <data name="miCompactDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 22</value>
+    <value>270, 22</value>
   </data>
   <data name="miCompactDatabase.Text" xml:space="preserve">
     <value>Komprese databáze</value>
@@ -658,5 +667,9 @@
   </data>
   <data name="miProcedure.Text" xml:space="preserve">
     <value>Procedura</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
 </root>

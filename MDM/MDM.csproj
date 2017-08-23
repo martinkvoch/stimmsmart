@@ -515,6 +515,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libs\Ionic.Zip.Reduced.dll" />
+    <None Include="Resources\segments16.png" />
+    <None Include="Resources\segments.png" />
     <None Include="Resources\minus.png" />
     <None Include="Resources\plus.png" />
     <None Include="Resources\help16.png" />
