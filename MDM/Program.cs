@@ -10,6 +10,8 @@ using MDM.DlgBox;
 using MDM.Properties;
 using MDM.Windows;
 using System.IO;
+using System.ComponentModel;
+using MDM.HASP;
 
 namespace MDM
 {
@@ -52,6 +54,7 @@ namespace MDM
         }
         #endregion
 
+        [DefaultValue(true)]
         public static bool KeepRunning { get; set; }
 
         #region SetLanguage(), GetLangs()
@@ -151,12 +154,37 @@ namespace MDM
         }
         #endregion
 
+        #region testDongle()
+        private static void testDongle(ref wMain main)
+        {
+            while(true)
+            {
+                if(!MDMHASP.HaspCheck())
+                {
+                    using(wDialogBoxOK dlg = DialogBox.ShowError(Resources.testDongleKOmsg, Resources.testDongleKOhdr)) Thread.Sleep(3000);
+                    if(main != null && main.IsHandleCreated && !main.IsDisposed)
+                    {
+                        wMain frm = main;
+
+                        KeepRunning = false;
+                        frm.ForceExit = true;
+                        frm.Invoke(new MethodInvoker(delegate { frm.Close(); }));
+                        //main.Close();
+                    }
+                    else Application.Exit();
+                }
+                else Thread.Sleep(10000);
+            }
+        }
+        #endregion
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
+            wMain main = null;
             Settings settings = new Settings();
 
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
@@ -172,16 +200,25 @@ namespace MDM
             //PatProc.Alter();
             //Log.Init();
             ShowSplash(true);
-            Application.ApplicationExit += appExit;
-            KeepRunning = false;
-            while(true)
+            if(KeepRunning)
             {
-                wMain main = new wMain(Program.Language);
+                Thread thread = new Thread(() => testDongle(ref main));
 
-                Application.Run(main);
-                main.DisposeMain();
-                if(!KeepRunning) break;
-            } 
+                thread.IsBackground = true;
+                Application.ApplicationExit += appExit;
+                KeepRunning = false;
+                while(true)
+                {
+                    main = new wMain(Program.Language);
+                    if(!thread.IsAlive) thread.Start();
+                    Application.Run(main);
+                    main.DisposeMain();
+                    main.Dispose();
+                    if(!KeepRunning) break;
+                }
+                thread.Abort();
+            }
+            else Database.Close();
         }
 
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)

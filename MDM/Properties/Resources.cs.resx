@@ -615,4 +615,16 @@
   <data name="chUserProcCompleted" xml:space="preserve">
     <value>Pacient '{0}' dokončil proceduru číslo {1} v {2}. cyklu za {4} minut a {5} sekund</value>
   </data>
+  <data name="testDongleKO" xml:space="preserve">
+    <value>Ověření hardwarového klíče bylo neúspěšné.</value>
+  </data>
+  <data name="testDongleKOhdr" xml:space="preserve">
+    <value>Chybí hardwarový klíč</value>
+  </data>
+  <data name="testDongleKOmsg" xml:space="preserve">
+    <value>Hardwarový klíč nebyl nalezen v USB portu. Aplikace bude ukončena.</value>
+  </data>
+  <data name="testDongleOK" xml:space="preserve">
+    <value>Ověření hardwarového klíče bylo úspěšné.</value>
+  </data>
 </root>

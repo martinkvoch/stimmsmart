@@ -16,7 +16,7 @@ namespace MDM.Controls
 
         internal void DisposeMain()
         {
-            Channels.DisposeMain();
+            if(Channels != null) Channels.DisposeMain();
             Channels = null;
         }
     }

@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using MDM.Data;
 using MDM.Properties;
 using MDM.Classes;
+using MDM.DlgBox;
+using MDM.HASP;
 
 namespace MDM
 {
@@ -45,8 +47,6 @@ namespace MDM
 
             setProgress(Resources.startup);
             Log.InfoToLog(methodName, string.Format(Resources.startInitMsg, Resources.AppName) + ", " + string.Format(Resources.curLang, settings.lang) + ", " + string.Format(Resources.numberOfChannels, Math.Min(settings.NOC, Program.MOC)));
-            //Log.InfoToLog(methodName, string.Format(Resources.curLang, settings.lang));
-            //Log.InfoToLog(methodName, string.Format(Resources.numberOfChannels, settings.NOC));
             Thread.Sleep(DELAY);
         }
 
@@ -55,11 +55,12 @@ namespace MDM
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
             setProgress(Resources.testDongle);
-            Log.InfoToLog(methodName);
+            Program.KeepRunning = MDMHASP.HaspCheck();
+            Log.InfoToLog(methodName, Program.KeepRunning ? Resources.testDongleOK : Resources.testDongleOK);
             Thread.Sleep(DELAY);
         }
 
-        private void testChannel(/*int ch*/)
+        private void testChannel()
         {
             setProgress(Resources.testChannel);
             Program.ChErrors = Channels.Autotest();
@@ -74,6 +75,11 @@ namespace MDM
             Thread.Sleep(DELAY);
         }
 
+        private void wSplashScreen_Load(object sender, EventArgs e)
+        {
+            lbSerNum.Text = MDMHASP.HaspGet();
+        }
+
         private void SplashScreen_Shown(object sender, EventArgs e)
         {
             //string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
@@ -83,10 +89,12 @@ namespace MDM
                 Cursor = Cursors.AppStarting;
                 startup();
                 testDongle();
-                //Log.InfoToLog("wSplashScreen.testChannel()", "Test OK");
-                //for(int i = 1; i <= new Settings().NOC; i++) testChannel(i);
-                testChannel();
-                finishInit();
+                if(Program.KeepRunning)
+                {
+                    testChannel();
+                    finishInit();
+                }
+                else DialogBox.ShowErrorModal(Resources.testDongleKOmsg, Resources.testDongleKOhdr);
                 Close();
             }
             else

@@ -1814,7 +1814,7 @@ namespace MDM.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1050000446.
+        ///   Looks up a localized string similar to 0.
         /// </summary>
         public static string serNum {
             get {
@@ -2121,6 +2121,42 @@ namespace MDM.Properties {
         public static string testDongle {
             get {
                 return ResourceManager.GetString("testDongle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verification of the hardware key was unsuccessful..
+        /// </summary>
+        public static string testDongleKO {
+            get {
+                return ResourceManager.GetString("testDongleKO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Missing hardware key.
+        /// </summary>
+        public static string testDongleKOhdr {
+            get {
+                return ResourceManager.GetString("testDongleKOhdr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The hardware key was not found on the USB port. The application will be terminated..
+        /// </summary>
+        public static string testDongleKOmsg {
+            get {
+                return ResourceManager.GetString("testDongleKOmsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verification of the hardware key was successful..
+        /// </summary>
+        public static string testDongleOK {
+            get {
+                return ResourceManager.GetString("testDongleOK", resourceCulture);
             }
         }
         

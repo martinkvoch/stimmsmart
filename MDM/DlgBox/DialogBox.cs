@@ -19,14 +19,15 @@ namespace MDM.DlgBox
             return res;
         }
 
-        private static wDialogBoxOK show(string msg, string hdr, MessageBoxIcon icon)
+        private static wDialogBoxOK show(string msg, string hdr, MessageBoxIcon icon, bool modal = false)
         {
             wDialogBoxOK res = new wDialogBoxOK();
 
             res.Text = hdr;
             res.Message = msg;
             res.SetIcon(icon);
-            res.Show();
+            if(modal) res.ShowDialog();
+            else res.Show();
             res.Refresh();
             return res;
         }
@@ -41,10 +42,15 @@ namespace MDM.DlgBox
             return show(msg, hdr, MessageBoxIcon.Warning);
         }
 
-        public static wDialogBoxOK ShowError(string msg, string hdr)
+        public static wDialogBoxOK ShowError(string msg, string hdr, bool modal = false)
         {
-            Sound.Beep();
-            return show(msg, hdr, MessageBoxIcon.Error);
+            if(!modal) Sound.Beep();
+            return show(msg, hdr, MessageBoxIcon.Error, modal);
+        }
+
+        public static wDialogBoxOK ShowErrorModal(string msg, string hdr)
+        {
+            return show(msg, hdr, MessageBoxIcon.Error, true);
         }
     }
 }

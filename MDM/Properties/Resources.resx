@@ -362,7 +362,7 @@
     <value>First Name</value>
   </data>
   <data name="serNum" xml:space="preserve">
-    <value>1050000446</value>
+    <value>0</value>
   </data>
   <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -855,5 +855,17 @@
   </data>
   <data name="segments16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\segments16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="testDongleKO" xml:space="preserve">
+    <value>Verification of the hardware key was unsuccessful.</value>
+  </data>
+  <data name="testDongleKOhdr" xml:space="preserve">
+    <value>Missing hardware key</value>
+  </data>
+  <data name="testDongleKOmsg" xml:space="preserve">
+    <value>The hardware key was not found on the USB port. The application will be terminated.</value>
+  </data>
+  <data name="testDongleOK" xml:space="preserve">
+    <value>Verification of the hardware key was successful.</value>
   </data>
 </root>

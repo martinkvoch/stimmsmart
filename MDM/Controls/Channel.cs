@@ -759,7 +759,7 @@ namespace MDM.Controls
 
                         if(IsHandleCreated && !IsDisposed) Invoke(new MethodInvoker(delegate { processResponse(resp); }));
 #else
-                        if(IsHandleCreated && !IsDisposed) this.Invoke(new MethodInvoker(delegate { processResponse(); }));
+                        if(IsHandleCreated && !IsDisposed) Invoke(new MethodInvoker(delegate { processResponse(); }));
 #endif
                     }
                     catch { }

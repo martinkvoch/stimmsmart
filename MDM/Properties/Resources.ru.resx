@@ -618,4 +618,16 @@
   <data name="chUserProcCompleted" xml:space="preserve">
     <value>Пациент «{0}» выполнил процедуру {1} в {2}. циклe после {4} минут и {5} секунд</value>
   </data>
+  <data name="testDongleKO" xml:space="preserve">
+    <value>Проверка аппаратного ключа не удалась.</value>
+  </data>
+  <data name="testDongleKOhdr" xml:space="preserve">
+    <value>Отсутствует аппаратный ключ</value>
+  </data>
+  <data name="testDongleKOmsg" xml:space="preserve">
+    <value>Аппаратный ключ не был найден на USB-порту. Приложение будет прекращено.</value>
+  </data>
+  <data name="testDongleOK" xml:space="preserve">
+    <value>Проверка аппаратного ключа прошла успешно.</value>
+  </data>
 </root>

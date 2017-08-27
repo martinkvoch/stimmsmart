@@ -65,6 +65,10 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="hasp_net_windows, Version=7.6.9949.60000, Culture=neutral, PublicKeyToken=56120be447701319, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\hasp_net_windows.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\Ionic.Zip.Reduced.dll</HintPath>
@@ -171,6 +175,7 @@
     <Compile Include="DlgBox\wWaitBox.Designer.cs">
       <DependentUpon>wWaitBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="HASP\MDMHASP.cs" />
     <Compile Include="Properties\Resources.cs.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -514,6 +519,7 @@
     <None Include="Resources\close16.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Libs\hasp_net_windows.dll" />
     <Content Include="Libs\Ionic.Zip.Reduced.dll" />
     <None Include="Resources\segments16.png" />
     <None Include="Resources\segments.png" />

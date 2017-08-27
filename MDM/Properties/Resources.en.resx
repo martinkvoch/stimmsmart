@@ -615,4 +615,16 @@
   <data name="chUserProcCompleted" xml:space="preserve">
     <value>Patient '{0}' completed the procedure of {1} in {2}-{3} cycle after {4} minutes and {5} seconds</value>
   </data>
+  <data name="testDongleKO" xml:space="preserve">
+    <value>Verification of the hardware key was unsuccessful.</value>
+  </data>
+  <data name="testDongleKOhdr" xml:space="preserve">
+    <value>Missing hardware key</value>
+  </data>
+  <data name="testDongleKOmsg" xml:space="preserve">
+    <value>The hardware key was not found on the USB port. The application will be terminated.</value>
+  </data>
+  <data name="testDongleOK" xml:space="preserve">
+    <value>Verification of the hardware key was successful.</value>
+  </data>
 </root>

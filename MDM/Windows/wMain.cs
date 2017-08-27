@@ -24,7 +24,7 @@ namespace MDM.Windows
         const string methodFmt = "{0}.{1}()", errorFmt = "{0}: {1}";
         private MDMPanel currentPanel;
         private Timer timer;
-        private bool forceExit = false;
+        internal bool ForceExit = false;
         //private Size winSize;
         //private System.Threading.Timer timer;
 
@@ -181,7 +181,7 @@ namespace MDM.Windows
         {
             if(!Program.KeepRunning)
             {
-                e.Cancel = !forceExit && userLogged && (DialogBox.ShowYN(Resources.exitQ, Resources.exitQH) == DialogResult.No);
+                e.Cancel = !ForceExit && userLogged && (DialogBox.ShowYN(Resources.exitQ, Resources.exitQH) == DialogResult.No);
                 if(!e.Cancel)
                 {
                     miLogOut.PerformClick();
@@ -240,7 +240,7 @@ namespace MDM.Windows
                 if(DialogBox.ShowYN(Resources.restartQ, Resources.restartQH) == DialogResult.Yes)
                 {
                     Program.KeepRunning = false;
-                    forceExit = true;
+                    ForceExit = true;
                     Program.Restart();
                 }
             }
@@ -254,7 +254,7 @@ namespace MDM.Windows
                 if(DialogBox.ShowYN(Resources.shutdownQ, Resources.shutdownQH) == DialogResult.Yes)
                 {
                     Program.KeepRunning = false;
-                    forceExit = true;
+                    ForceExit = true;
                     Program.Shutdown();
                 }
             }
