@@ -11,7 +11,9 @@ using MDM.Properties;
 using MDM.Windows;
 using System.IO;
 using System.ComponentModel;
+#if HASP
 using MDM.HASP;
+#endif
 
 namespace MDM
 {
@@ -97,7 +99,11 @@ namespace MDM
 
         internal static string GetSerNum()
         {
+#if HASP
+            return MDMHASP.HaspGet();
+#else
             return Resources.serNum;
+#endif
         }
         #endregion
 
@@ -155,6 +161,7 @@ namespace MDM
         #endregion
 
         #region testDongle()
+#if HASP
         private static void testDongle(ref wMain main)
         {
             while(true)
@@ -176,6 +183,7 @@ namespace MDM
                 else Thread.Sleep(10000);
             }
         }
+#endif
         #endregion
 
         /// <summary>
@@ -202,21 +210,28 @@ namespace MDM
             ShowSplash(true);
             if(KeepRunning)
             {
+#if HASP
                 Thread thread = new Thread(() => testDongle(ref main));
 
                 thread.IsBackground = true;
+                thread.SetApartmentState(ApartmentState.STA);
+#endif
                 Application.ApplicationExit += appExit;
                 KeepRunning = false;
                 while(true)
                 {
                     main = new wMain(Program.Language);
+#if HASP
                     if(!thread.IsAlive) thread.Start();
+#endif
                     Application.Run(main);
                     main.DisposeMain();
                     main.Dispose();
                     if(!KeepRunning) break;
                 }
+#if HASP
                 thread.Abort();
+#endif
             }
             else Database.Close();
         }
@@ -224,7 +239,7 @@ namespace MDM
         static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             Log.ErrorToLog("UnhandledException()", e.ExceptionObject.ToString());
-            DialogBox.ShowError(e.ExceptionObject.ToString(), "Generic error");
+            DialogBox.ShowError(e.ExceptionObject.ToString(), Resources.GenericErrorHdr, true);
         }
     }
 }

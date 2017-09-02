@@ -7,7 +7,9 @@ using MDM.Data;
 using MDM.Properties;
 using MDM.Classes;
 using MDM.DlgBox;
+#if HASP
 using MDM.HASP;
+#endif
 
 namespace MDM
 {
@@ -31,7 +33,6 @@ namespace MDM
             lbProtBy.Text = settings.lang.Equals("ru", StringComparison.OrdinalIgnoreCase) ? settings.ProtByRU : settings.ProtBy;
             lbCopyright.Text = Program.GetCopyright();
             lbSerNum.Text = Program.GetSerNum();
-            //Procedure.Init();
         }
 
         private void setProgress(string msg)
@@ -55,7 +56,11 @@ namespace MDM
             string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
 
             setProgress(Resources.testDongle);
+#if HASP
             Program.KeepRunning = MDMHASP.HaspCheck();
+#else
+            Program.KeepRunning = true;
+#endif
             Log.InfoToLog(methodName, Program.KeepRunning ? Resources.testDongleOK : Resources.testDongleOK);
             Thread.Sleep(DELAY);
         }
@@ -77,7 +82,7 @@ namespace MDM
 
         private void wSplashScreen_Load(object sender, EventArgs e)
         {
-            lbSerNum.Text = MDMHASP.HaspGet();
+            lbSerNum.Text = Program.GetSerNum();
         }
 
         private void SplashScreen_Shown(object sender, EventArgs e)

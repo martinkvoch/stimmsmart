@@ -773,6 +773,15 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Generic error.
+        /// </summary>
+        public static string GenericErrorHdr {
+            get {
+                return ResourceManager.GetString("GenericErrorHdr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap gr {
@@ -902,6 +911,24 @@ namespace MDM.Properties {
         public static string langChanged {
             get {
                 return ResourceManager.GetString("langChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If the procedure is in progress, you can not change the language..
+        /// </summary>
+        public static string langNo {
+            get {
+                return ResourceManager.GetString("langNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change of language.
+        /// </summary>
+        public static string langQH {
+            get {
+                return ResourceManager.GetString("langQH", resourceCulture);
             }
         }
         

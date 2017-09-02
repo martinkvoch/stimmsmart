@@ -627,4 +627,13 @@
   <data name="testDongleOK" xml:space="preserve">
     <value>Ověření hardwarového klíče bylo úspěšné.</value>
   </data>
+  <data name="GenericErrorHdr" xml:space="preserve">
+    <value>Obecná chyba</value>
+  </data>
+  <data name="langNo" xml:space="preserve">
+    <value>Probíhá-li procedura, nelze měnit jazyk.</value>
+  </data>
+  <data name="langQH" xml:space="preserve">
+    <value>Změna jazyka</value>
+  </data>
 </root>

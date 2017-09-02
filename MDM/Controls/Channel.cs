@@ -184,11 +184,11 @@ namespace MDM.Controls
                         while(actCur != toBeSet) Application.DoEvents();
 #if LAN
                         LANFunc.ChMode(Number, 0, 0, 0, 0, 0);
-                        Thread.Sleep(200);
 #else
                         ucMonitor.Mode = 0;
                         ucMonitor.Sweep = ucMonitor.WS = ucMonitor.Status = 0;
 #endif
+                        Thread.Sleep(200);
 #if LAN
                         ResponseDG resp = LANFunc.ChRd(Number);
                         if(resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52) Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
@@ -538,7 +538,7 @@ namespace MDM.Controls
         }
         #endregion
 
-#region preparedness()
+#region ready()
         /// <summary>
         /// Uvede kanál do stavu "připraven". V tomto stavu se čeká na stisk tlačítka Začít, poté kanál přechází do stavu "léčení".
         /// V průběhu setrvání v tomto stavu se provádí měření odporu, pokud je odpor vysoký, přechází se do stavu "aktivní".

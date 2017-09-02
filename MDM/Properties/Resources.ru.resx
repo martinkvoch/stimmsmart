@@ -630,4 +630,13 @@
   <data name="testDongleOK" xml:space="preserve">
     <value>Проверка аппаратного ключа прошла успешно.</value>
   </data>
+  <data name="GenericErrorHdr" xml:space="preserve">
+    <value>Произошла ошибка</value>
+  </data>
+  <data name="langNo" xml:space="preserve">
+    <value>Если процедура выполняется, вы не можете изменить язык.</value>
+  </data>
+  <data name="langQH" xml:space="preserve">
+    <value>Изменение языка</value>
+  </data>
 </root>

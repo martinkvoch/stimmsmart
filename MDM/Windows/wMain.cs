@@ -644,7 +644,9 @@ namespace MDM.Windows
         #region Nastavení jazyka
         private void miLangXX_Click(object sender, EventArgs e)
         {
-            Language = (sender as ToolStripMenuItem).Tag.ToString();
+            if(panMain != null && panMain.Channels != null && panMain.Channels.ChannelsOutOfOrder)
+                Language = (sender as ToolStripMenuItem).Tag.ToString();
+            else DialogBox.ShowWarn(Resources.langNo, Resources.langQH);
         }
         #endregion
     }

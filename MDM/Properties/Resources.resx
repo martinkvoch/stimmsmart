@@ -868,4 +868,13 @@
   <data name="testDongleOK" xml:space="preserve">
     <value>Verification of the hardware key was successful.</value>
   </data>
+  <data name="GenericErrorHdr" xml:space="preserve">
+    <value>Generic error</value>
+  </data>
+  <data name="langNo" xml:space="preserve">
+    <value>If the procedure is in progress, you can not change the language.</value>
+  </data>
+  <data name="langQH" xml:space="preserve">
+    <value>Change of language</value>
+  </data>
 </root>
