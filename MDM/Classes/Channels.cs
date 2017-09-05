@@ -503,7 +503,7 @@ namespace MDM.Classes
             if(protocol.Trim().Length > 0)
             {
                 Log.ErrorToLog(methodName, Resources.testChErrors + ":" + Environment.NewLine + protocol);
-                DialogBox.ShowError(protocol, Resources.testChErrors);
+                DialogBox.ShowError(protocol, Resources.testChErrors, true);
             }
             lanr.Abort();
 #endif

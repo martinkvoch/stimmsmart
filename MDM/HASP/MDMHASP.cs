@@ -1,5 +1,6 @@
 ﻿using System.Xml.Linq;
 using Aladdin.HASP;
+using System.IO;
 
 namespace MDM.HASP
 {
@@ -31,13 +32,22 @@ namespace MDM.HASP
                 "tLEApXYvLvz6PEJdj4TegCZugj7c8bIOEqLXmloZ6EgVnjQ7/ttys7VFITB3mazzFiyQuKf4J6+b/a/Y";
         private static string info = null;
 
+        private static string vCode()
+        {
+            const string hvc = "CWOZO.hvc";
+            string res = string.Empty;
+
+            if(File.Exists(hvc)) res = File.ReadAllText(hvc);
+            return res;
+        }
+
         public static bool HaspCheck()
         {
             bool res = false;
 
             try
             {
-                HaspStatus status = Hasp.GetInfo(scope, format, vendorCode, ref info);
+                HaspStatus status = Hasp.GetInfo(scope, format, vCode(), ref info);
 
                 res = status == HaspStatus.StatusOk;
             }
@@ -49,7 +59,7 @@ namespace MDM.HASP
         {
             XDocument xml;
             string res = string.Empty;
-            HaspStatus status = Hasp.GetInfo(scope, format, vendorCode, ref info);
+            HaspStatus status = Hasp.GetInfo(scope, format, vCode(), ref info);
 
             if(status == HaspStatus.StatusOk)
             {

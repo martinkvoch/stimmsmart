@@ -63,6 +63,7 @@ namespace WpfUC
             int res = -1;
 
             if(value <= cSegments[0]) res = 0;
+            else if(value >= cSegments[cSegments.Length - 1]) res = cSegments.Length - 1;
             else for(int i = 0; i < cSegments.Length - 1; i++) if(value >= cSegments[i] && value < cSegments[i + 1]) { res = i; break; }
             return res;
         }

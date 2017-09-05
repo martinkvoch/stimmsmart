@@ -213,19 +213,19 @@ namespace MDM.Data
                 seg.Insert(id, 7, 1, 10, 10, 533);
                 seg.Insert(id, 8, 0, 15, 76, 832);
                 seg.Insert(id, 8, 1, 15, 10, 832);
-                seg.Insert(id, 9, 0, 5, 273, 1287);
+                seg.Insert(id, 9, 0, 5, 273, 1249);
                 seg.Insert(id, 9, 1, 15, 76, 832);
                 seg.Insert(id, 9, 2, 10, 10, 533);
-                seg.Insert(id, 10, 0, 5, 273, 1287);
+                seg.Insert(id, 10, 0, 5, 273, 1249);
                 seg.Insert(id, 10, 1, 15, 76, 832);
                 seg.Insert(id, 10, 2, 10, 10, 533);
-                seg.Insert(id, 11, 0, 5, 273, 1271);
+                seg.Insert(id, 11, 0, 5, 273, 1249);
                 seg.Insert(id, 11, 1, 15, 76, 832);
                 seg.Insert(id, 11, 2, 10, 10, 533);
-                seg.Insert(id, 12, 0, 5, 273, 1287);
+                seg.Insert(id, 12, 0, 5, 273, 1249);
                 seg.Insert(id, 12, 1, 15, 76, 832);
                 seg.Insert(id, 12, 2, 10, 10, 533);
-                seg.Insert(id, 13, 0, 5, 273, 1287);
+                seg.Insert(id, 13, 0, 5, 273, 1249);
                 seg.Insert(id, 13, 1, 15, 76, 832);
                 seg.Insert(id, 13, 2, 10, 10, 533);
 
