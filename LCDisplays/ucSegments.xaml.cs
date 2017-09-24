@@ -10,17 +10,22 @@ namespace WpfUC
     public partial class ucSegments : UserControl
     {
         //const int cSegNum = 6;
-        const double cOpacityOff = .2D, cOpacityOn = .6D;
+        const double cOpacityOff = .2D, cOpacityOn = .7D;
 
         #region On
         private bool on = true;
-        private bool On
+        public bool On
         {
             get { return on; }
             set
             {
                 on = value;
                 if(!on) Segments = new byte[] { 5, 5, 5, 5, 5, 5 };
+                //else foreach(Border b in grMain.Children)
+                //    {
+                //        b.Background = Brushes.White;
+                //        b.Opacity = cOpacityOn;
+                //    }
             }
         }
         #endregion
@@ -38,7 +43,7 @@ namespace WpfUC
                 grMain.Children.Clear();
                 foreach(int seg in segments)
                 {
-                    Border b = new Border() { Background = Brushes.Black, Margin = new Thickness(5, 0, 5, 0), Opacity = cOpacityOff };
+                    Border b = new Border() { Background = (on ? Brushes.White : Brushes.Black), Margin = new Thickness(5, 0, 5, 0), Opacity = (on ? cOpacityOn : cOpacityOff), CornerRadius = new CornerRadius(4) };
                     int span = seg / 5;
 
                     grMain.Children.Add(b);
@@ -61,8 +66,16 @@ namespace WpfUC
                 if(_curSegment != value)
                 {
                     _curSegment = value;
-                    if(_curSegment == 0) foreach(UIElement b in grMain.Children) b.Opacity = cOpacityOff;
-                    else if(_curSegment <= grMain.Children.Count) grMain.Children[_curSegment - 1].Opacity = cOpacityOn;
+                    if(_curSegment == 0) foreach(Border b in grMain.Children)
+                        {
+                            b.Background = Brushes.Black;
+                            b.Opacity = cOpacityOff;
+                        }
+                    else if(_curSegment <= grMain.Children.Count)
+                    {
+                        (grMain.Children[_curSegment - 1] as Border).Background = Brushes.White;
+                        grMain.Children[_curSegment - 1].Opacity = cOpacityOn;
+                    }
                 }
             }
         }

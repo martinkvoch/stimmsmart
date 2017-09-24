@@ -119,63 +119,69 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 13</value>
+    <value>113, 16</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>&amp;Uživatelské jméno</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 13</value>
+    <value>85, 16</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>&amp;Jméno osoby</value>
   </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>  &amp;Heslo  </value>
+  </data>
   <data name="cbEmptyPsw.Text" xml:space="preserve">
     <value>Vymazat</value>
   </data>
+  <data name="lbPswMatch.Text" xml:space="preserve">
+    <value>Hesla souhlasí</value>
+  </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 13</value>
+    <value>117, 16</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Vložte heslo znovu</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>  &amp;Heslo  </value>
-  </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 13</value>
+    <value>42, 16</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>J&amp;azyk</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>  &amp;Role uživatele  </value>
   </data>
   <data name="rbAdmin.Text" xml:space="preserve">
     <value>&amp;Administrátor</value>
   </data>
   <data name="rbUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 17</value>
+    <value>71, 20</value>
   </data>
   <data name="rbUser.Text" xml:space="preserve">
     <value>Uži&amp;vatel</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>  &amp;Role uživatele  </value>
-  </data>
   <data name="cbSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 248</value>
+    <value>75, 306</value>
   </data>
   <data name="cbSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 32</value>
+    <value>106, 32</value>
   </data>
   <data name="cbSave.Text" xml:space="preserve">
     <value>Ul&amp;ožit</value>
   </data>
   <data name="cbCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>200, 248</value>
+    <value>224, 306</value>
   </data>
   <data name="cbCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 32</value>
+    <value>106, 32</value>
   </data>
   <data name="cbCancel.Text" xml:space="preserve">
     <value>&amp;Storno</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>404, 355</value>
   </data>
 </root>

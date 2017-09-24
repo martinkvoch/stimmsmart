@@ -43,19 +43,25 @@
             // 
             // cbSelect
             // 
-            this.cbSelect.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.cbSelect.Image = global::MDM.Properties.Resources.yes;
             resources.ApplyResources(this.cbSelect, "cbSelect");
+            this.cbSelect.BackColor = System.Drawing.Color.YellowGreen;
+            this.cbSelect.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.cbSelect.FlatAppearance.BorderSize = 0;
+            this.cbSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cbSelect.Image = global::MDM.Properties.Resources.yes;
             this.cbSelect.Name = "cbSelect";
-            this.cbSelect.UseVisualStyleBackColor = true;
+            this.cbSelect.UseVisualStyleBackColor = false;
             // 
             // cbCancel
             // 
-            this.cbCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cbCancel.Image = global::MDM.Properties.Resources.no;
             resources.ApplyResources(this.cbCancel, "cbCancel");
+            this.cbCancel.BackColor = System.Drawing.Color.Salmon;
+            this.cbCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cbCancel.FlatAppearance.BorderSize = 0;
+            this.cbCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.cbCancel.Image = global::MDM.Properties.Resources.no;
             this.cbCancel.Name = "cbCancel";
-            this.cbCancel.UseVisualStyleBackColor = true;
+            this.cbCancel.UseVisualStyleBackColor = false;
             // 
             // wDiagnosis
             // 

@@ -81,7 +81,7 @@
                     <Border Grid.Column="5" BorderBrush="Black" BorderThickness="5,0,5,0"/>
                 </Grid>
                 <local:ucSegments x:Name="segProcSegments" Grid.Row="1" Visibility="Visible"/>
-                <TextBlock Grid.Row="2" Text="SGMNTS" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity=".6"/>
+                <TextBlock Grid.Row="2" Text="SEGMENTS" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity=".6"/>
             </Grid>
             <!--<Label x:Name="lbOhms" Content="0" Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" FontSize="250" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity=".6"/>-->
             <local:ucTimer x:Name="timSegmentLeft" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="40,20,0,20"/>

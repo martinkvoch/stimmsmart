@@ -40,22 +40,30 @@
             // cbSelect
             // 
             resources.ApplyResources(this.cbSelect, "cbSelect");
+            this.cbSelect.BackColor = System.Drawing.Color.YellowGreen;
             this.cbSelect.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.cbSelect.FlatAppearance.BorderSize = 0;
+            this.cbSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cbSelect.Image = global::MDM.Properties.Resources.yes;
             this.cbSelect.Name = "cbSelect";
-            this.cbSelect.UseVisualStyleBackColor = true;
+            this.cbSelect.UseVisualStyleBackColor = false;
             // 
             // cbCancel
             // 
             resources.ApplyResources(this.cbCancel, "cbCancel");
+            this.cbCancel.BackColor = System.Drawing.Color.Salmon;
             this.cbCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cbCancel.FlatAppearance.BorderSize = 0;
+            this.cbCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.cbCancel.Image = global::MDM.Properties.Resources.no;
             this.cbCancel.Name = "cbCancel";
-            this.cbCancel.UseVisualStyleBackColor = true;
+            this.cbCancel.UseVisualStyleBackColor = false;
             // 
             // txtFindName
             // 
             resources.ApplyResources(this.txtFindName, "txtFindName");
+            this.txtFindName.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtFindName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFindName.Name = "txtFindName";
             this.txtFindName.TextChanged += new System.EventHandler(this.txtFindName_TextChanged);
             // 

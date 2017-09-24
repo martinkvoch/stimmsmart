@@ -120,6 +120,12 @@
     <Compile Include="Controls\dbRestorePanel.Designer.cs">
       <DependentUpon>dbRestorePanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MDMTrackBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\MDMTrackBar.Designer.cs">
+      <DependentUpon>MDMTrackBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\DBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -588,10 +594,6 @@
     <ProjectReference Include="..\LCDisplays\LCDisplays.csproj">
       <Project>{4933479f-e27e-48c7-bfd4-81f6910adbba}</Project>
       <Name>LCDisplays</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MACTrackBarLib\MACTrackBarLib.csproj">
-      <Project>{77a112b1-5440-440b-a0f6-2edcc5b093cb}</Project>
-      <Name>MACTrackBarLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

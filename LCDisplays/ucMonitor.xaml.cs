@@ -36,12 +36,12 @@ namespace WpfUC
                     switch(monMode)
                     {
                         case MonitorMode.User:
-                            grLAN.Visibility = grMode.Visibility = grSegments.Visibility = timSegmentLeft.Visibility = Visibility.Hidden;
+                            grLAN.Visibility = grMode.Visibility = grSegments.Visibility = timSegmentLeft.Visibility = timElapsed.Visibility = Visibility.Hidden;
                             grOhmMeter.Visibility = Visibility.Visible;
                             break;
                         case MonitorMode.Admin:
                             grOhmMeter.Visibility = Visibility.Hidden;
-                            grLAN.Visibility = grMode.Visibility = grSegments.Visibility = timSegmentLeft.Visibility = Visibility.Visible;
+                            grLAN.Visibility = grMode.Visibility = grSegments.Visibility = timSegmentLeft.Visibility = timElapsed.Visibility = Visibility.Visible;
                             break;
                     }
                 }
@@ -59,7 +59,7 @@ namespace WpfUC
                 //if(on != value)
                 //{
                     //SetValue(OnProperty, value);
-                    on = disWS.On = disSweep.On = disATC.On = disDAC.On = disDOUT.On = disStatus.On = timElapsed.On = timLeft.On = timSegmentLeft.On = disMode.On = disOhmMeter.On = value;
+                    on = disWS.On = disSweep.On = disATC.On = disDAC.On = disDOUT.On = disStatus.On = timElapsed.On = timLeft.On = timSegmentLeft.On = disMode.On = disOhmMeter.On = segProcSegments.On = value;
                     if(!on)
                     {
                         resetMonitor();

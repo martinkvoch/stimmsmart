@@ -10,8 +10,9 @@ namespace WpfUC
     /// </summary>
     public partial class ucDigit : UserControl
     {
-        private const double cOpacityOff = .1D, cOpacityOn = .6D;
+        private double cOpacityOff = .1D, cOpacityOn = .7D;
         private Storyboard sbFadeIn, sbFadeOut;
+        private Style styleOff, styleOn;
 
         #region On
         private bool on = false;
@@ -69,9 +70,10 @@ namespace WpfUC
             foreach(Shape sp in canMain.Children)
             {
                 sp.BeginStoryboard(sbFadeOut);
-                sp.Opacity = cOpacityOff;
+                sp.Style = styleOff;
+                //sp.Opacity = cOpacityOff;
             }
-            Seg11.Visibility = Seg12.Visibility = Seg71.Visibility = Seg72.Visibility = Visibility.Hidden;
+            //Seg11.Visibility = Seg12.Visibility = Seg71.Visibility = Seg72.Visibility = Visibility.Hidden;
         }
 
         private void set0()
@@ -83,18 +85,20 @@ namespace WpfUC
             Seg5.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
             Seg7.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg2.Opacity = Seg3.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
+            Seg1.Style = Seg2.Style = Seg3.Style = Seg5.Style = Seg6.Style = Seg7.Style = styleOn;
+            //Seg1.Opacity = Seg2.Opacity = Seg3.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
         }
 
         private void set1()
         {
             resetDigit();
-            Seg12.Visibility = Seg72.Visibility = Visibility.Visible;
+            //Seg12.Visibility = Seg72.Visibility = Visibility.Visible;
             Seg3.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
-            Seg12.BeginStoryboard(sbFadeIn);
-            Seg72.BeginStoryboard(sbFadeIn);
-            Seg3.Opacity = Seg6.Opacity = Seg12.Opacity = Seg72.Opacity = cOpacityOn;
+            //Seg12.BeginStoryboard(sbFadeIn);
+            //Seg72.BeginStoryboard(sbFadeIn);
+            Seg3.Style = Seg6.Style = styleOn;
+            //Seg3.Opacity = Seg6.Opacity = /*Seg12.Opacity = Seg72.Opacity =*/ cOpacityOn;
         }
 
         private void set2()
@@ -105,7 +109,8 @@ namespace WpfUC
             Seg4.BeginStoryboard(sbFadeIn);
             Seg5.BeginStoryboard(sbFadeIn);
             Seg7.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg3.Opacity = Seg4.Opacity = Seg5.Opacity = Seg7.Opacity = cOpacityOn;
+            Seg1.Style = Seg3.Style = Seg4.Style = Seg5.Style = Seg7.Style = styleOn;
+            //Seg1.Opacity = Seg3.Opacity = Seg4.Opacity = Seg5.Opacity = Seg7.Opacity = cOpacityOn;
         }
 
         private void set3()
@@ -116,21 +121,23 @@ namespace WpfUC
             Seg4.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
             Seg7.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg3.Opacity = Seg4.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
+            Seg1.Style = Seg3.Style = Seg4.Style = Seg6.Style = Seg7.Style = styleOn;
+            //Seg1.Opacity = Seg3.Opacity = Seg4.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
         }
 
         private void set4()
         {
             resetDigit();
-            Seg11.Visibility = Seg12.Visibility = Seg72.Visibility = Visibility.Visible;
-            Seg11.BeginStoryboard(sbFadeIn);
-            Seg12.BeginStoryboard(sbFadeIn);
+            //Seg11.Visibility = Seg12.Visibility = Seg72.Visibility = Visibility.Visible;
+            //Seg11.BeginStoryboard(sbFadeIn);
+            //Seg12.BeginStoryboard(sbFadeIn);
             Seg2.BeginStoryboard(sbFadeIn);
             Seg3.BeginStoryboard(sbFadeIn);
             Seg4.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
-            Seg72.BeginStoryboard(sbFadeIn);
-            Seg11.Opacity = Seg12.Opacity = Seg2.Opacity = Seg3.Opacity = Seg4.Opacity = Seg6.Opacity = Seg72.Opacity = cOpacityOn;
+            //Seg72.BeginStoryboard(sbFadeIn);
+            ///*Seg11.Opacity = Seg12.Opacity =*/ Seg2.Opacity = Seg3.Opacity = Seg4.Opacity = Seg6.Opacity = /*Seg72.Opacity =*/ cOpacityOn;
+            Seg2.Style = Seg3.Style = Seg4.Style = Seg6.Style = styleOn;
         }
 
         private void set5()
@@ -141,7 +148,8 @@ namespace WpfUC
             Seg4.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
             Seg7.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg2.Opacity = Seg4.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
+            Seg1.Style = Seg2.Style = Seg4.Style = Seg6.Style = Seg7.Style = styleOn;
+            //Seg1.Opacity = Seg2.Opacity = Seg4.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
         }
 
         private void set6()
@@ -153,18 +161,20 @@ namespace WpfUC
             Seg5.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
             Seg7.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg2.Opacity = Seg4.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
+            Seg1.Style = Seg2.Style = Seg4.Style = Seg5.Style = Seg6.Style = Seg7.Style = styleOn;
+            //Seg1.Opacity = Seg2.Opacity = Seg4.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
         }
 
         private void set7()
         {
             resetDigit();
-            Seg72.Visibility = Visibility.Visible;
+            //Seg72.Visibility = Visibility.Visible;
             Seg1.BeginStoryboard(sbFadeIn);
             Seg3.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
-            Seg72.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg3.Opacity = Seg6.Opacity = Seg72.Opacity = cOpacityOn;
+            //Seg72.BeginStoryboard(sbFadeIn);
+            Seg1.Style = Seg3.Style = Seg6.Style = styleOn;
+            //Seg1.Opacity = Seg3.Opacity = Seg6.Opacity = /*Seg72.Opacity =*/ cOpacityOn;
         }
 
         private void set8()
@@ -177,7 +187,8 @@ namespace WpfUC
             Seg5.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
             Seg7.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg2.Opacity = Seg3.Opacity = Seg4.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
+            Seg1.Style = Seg2.Style = Seg3.Style = Seg4.Style = Seg5.Style = Seg6.Style = Seg7.Style = styleOn;
+            //Seg1.Opacity = Seg2.Opacity = Seg3.Opacity = Seg4.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
         }
 
         private void set9()
@@ -189,38 +200,47 @@ namespace WpfUC
             Seg4.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
             Seg7.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg2.Opacity = Seg3.Opacity = Seg4.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
+            Seg1.Style = Seg2.Style = Seg3.Style = Seg4.Style = Seg6.Style = Seg7.Style = styleOn;
+            //Seg1.Opacity = Seg2.Opacity = Seg3.Opacity = Seg4.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
         }
 
         private void setA()
         {
             resetDigit();
-            Seg71.Visibility = Seg72.Visibility = Visibility.Visible;
+            //Seg71.Visibility = Seg72.Visibility = Visibility.Visible;
             Seg1.BeginStoryboard(sbFadeIn);
             Seg2.BeginStoryboard(sbFadeIn);
             Seg3.BeginStoryboard(sbFadeIn);
             Seg4.BeginStoryboard(sbFadeIn);
             Seg5.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
-            Seg71.BeginStoryboard(sbFadeIn);
-            Seg72.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg2.Opacity = Seg3.Opacity = Seg4.Opacity = Seg5.Opacity = Seg6.Opacity = Seg71.Opacity = Seg72.Opacity = cOpacityOn;
+            //Seg71.BeginStoryboard(sbFadeIn);
+            //Seg72.BeginStoryboard(sbFadeIn);
+            //Seg1.Opacity = Seg2.Opacity = Seg3.Opacity = Seg4.Opacity = Seg5.Opacity = Seg6.Opacity = /*Seg71.Opacity = Seg72.Opacity =*/ cOpacityOn;
+            Seg1.Style = Seg2.Style = Seg3.Style = Seg4.Style = Seg5.Style = Seg6.Style = styleOn;
         }
 
         private void setB()
         {
             resetDigit();
-            Seg11.Visibility = Seg71.Visibility = Visibility.Visible;
-            Seg1.BeginStoryboard(sbFadeIn);
-            Seg11.BeginStoryboard(sbFadeIn);
             Seg2.BeginStoryboard(sbFadeIn);
-            Seg3.BeginStoryboard(sbFadeIn);
             Seg4.BeginStoryboard(sbFadeIn);
             Seg5.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
             Seg7.BeginStoryboard(sbFadeIn);
-            Seg71.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg11.Opacity = Seg2.Opacity = Seg3.Opacity = Seg4.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = Seg71.Opacity = cOpacityOn;
+            //Seg2.Opacity = Seg4.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
+            Seg2.Style = Seg4.Style = Seg5.Style = Seg6.Style = Seg7.Style = styleOn;
+            //Seg11.Visibility = Seg71.Visibility = Visibility.Visible;
+            //Seg1.BeginStoryboard(sbFadeIn);
+            //Seg11.BeginStoryboard(sbFadeIn);
+            //Seg2.BeginStoryboard(sbFadeIn);
+            //Seg3.BeginStoryboard(sbFadeIn);
+            //Seg4.BeginStoryboard(sbFadeIn);
+            //Seg5.BeginStoryboard(sbFadeIn);
+            //Seg6.BeginStoryboard(sbFadeIn);
+            //Seg7.BeginStoryboard(sbFadeIn);
+            //Seg71.BeginStoryboard(sbFadeIn);
+            //Seg1.Opacity = Seg11.Opacity = Seg2.Opacity = Seg3.Opacity = Seg4.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = Seg71.Opacity = cOpacityOn;
         }
 
         private void setC()
@@ -230,22 +250,30 @@ namespace WpfUC
             Seg2.BeginStoryboard(sbFadeIn);
             Seg5.BeginStoryboard(sbFadeIn);
             Seg7.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg2.Opacity = Seg5.Opacity = Seg7.Opacity = cOpacityOn;
+            Seg1.Style = Seg2.Style = Seg5.Style = Seg7.Style = styleOn;
+            //Seg1.Opacity = Seg2.Opacity = Seg5.Opacity = Seg7.Opacity = cOpacityOn;
         }
 
         private void setD()
         {
             resetDigit();
-            Seg11.Visibility = Seg71.Visibility = Visibility.Visible;
-            Seg1.BeginStoryboard(sbFadeIn);
-            Seg11.BeginStoryboard(sbFadeIn);
-            Seg2.BeginStoryboard(sbFadeIn);
             Seg3.BeginStoryboard(sbFadeIn);
+            Seg4.BeginStoryboard(sbFadeIn);
             Seg5.BeginStoryboard(sbFadeIn);
             Seg6.BeginStoryboard(sbFadeIn);
             Seg7.BeginStoryboard(sbFadeIn);
-            Seg71.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg11.Opacity = Seg2.Opacity = Seg3.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = Seg71.Opacity = cOpacityOn;
+            //Seg3.Opacity = Seg4.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = cOpacityOn;
+            Seg3.Style = Seg4.Style = Seg5.Style = Seg6.Style = Seg7.Style = styleOn;
+            //Seg11.Visibility = Seg71.Visibility = Visibility.Visible;
+            //Seg1.BeginStoryboard(sbFadeIn);
+            //Seg11.BeginStoryboard(sbFadeIn);
+            //Seg2.BeginStoryboard(sbFadeIn);
+            //Seg3.BeginStoryboard(sbFadeIn);
+            //Seg5.BeginStoryboard(sbFadeIn);
+            //Seg6.BeginStoryboard(sbFadeIn);
+            //Seg7.BeginStoryboard(sbFadeIn);
+            //Seg71.BeginStoryboard(sbFadeIn);
+            //Seg1.Opacity = Seg11.Opacity = Seg2.Opacity = Seg3.Opacity = Seg5.Opacity = Seg6.Opacity = Seg7.Opacity = Seg71.Opacity = cOpacityOn;
         }
 
         private void setE()
@@ -256,20 +284,22 @@ namespace WpfUC
             Seg4.BeginStoryboard(sbFadeIn);
             Seg5.BeginStoryboard(sbFadeIn);
             Seg7.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg2.Opacity = Seg4.Opacity = Seg5.Opacity = Seg7.Opacity = cOpacityOn;
+            Seg1.Style = Seg2.Style = Seg4.Style = Seg5.Style = Seg7.Style = styleOn;
+            //Seg1.Opacity = Seg2.Opacity = Seg4.Opacity = Seg5.Opacity = Seg7.Opacity = cOpacityOn;
         }
 
         private void setF()
         {
             resetDigit();
-            Seg11.Visibility = Seg71.Visibility = Visibility.Visible;
+            //Seg11.Visibility = Seg71.Visibility = Visibility.Visible;
             Seg1.BeginStoryboard(sbFadeIn);
-            Seg11.BeginStoryboard(sbFadeIn);
+            //Seg11.BeginStoryboard(sbFadeIn);
             Seg2.BeginStoryboard(sbFadeIn);
             Seg4.BeginStoryboard(sbFadeIn);
             Seg5.BeginStoryboard(sbFadeIn);
-            Seg71.BeginStoryboard(sbFadeIn);
-            Seg1.Opacity = Seg11.Opacity = Seg2.Opacity = Seg4.Opacity = Seg5.Opacity = Seg71.Opacity = cOpacityOn;
+            //Seg71.BeginStoryboard(sbFadeIn);
+            Seg1.Style = Seg2.Style = Seg4.Style = Seg5.Style = styleOn;
+            //Seg1.Opacity = /*Seg11.Opacity =*/ Seg2.Opacity = Seg4.Opacity = Seg5.Opacity = /*Seg71.Opacity =*/ cOpacityOn;
         }
         #endregion
 
@@ -278,6 +308,10 @@ namespace WpfUC
             InitializeComponent();
             sbFadeIn = FindResource("FadeIn") as Storyboard;
             sbFadeOut = FindResource("FadeOut") as Storyboard;
+            cOpacityOff = (double)FindResource("OpacityOff");
+            cOpacityOn = (double)FindResource("OpacityOn");
+            styleOff = FindResource("SegmentStyleOff") as Style;
+            styleOn = FindResource("SegmentStyleOn") as Style;
             resetDigit();
             On = false;
             Value = 0;

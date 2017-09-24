@@ -119,26 +119,26 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cbSelect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 243</value>
+    <value>92, 309</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cbSelect.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 0, 0, 0</value>
   </data>
   <data name="cbSelect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 36</value>
+    <value>121, 36</value>
   </data>
   <data name="cbSelect.Text" xml:space="preserve">
     <value>Vybrat</value>
   </data>
   <data name="cbCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>239, 243</value>
+    <value>242, 309</value>
   </data>
   <data name="cbCancel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 0, 0, 0</value>
   </data>
   <data name="cbCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 36</value>
+    <value>121, 36</value>
   </data>
   <data name="cbCancel.Text" xml:space="preserve">
     <value>Zpět</value>

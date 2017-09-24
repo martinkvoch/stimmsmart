@@ -39,19 +39,25 @@
             // 
             // cbSignIn
             // 
+            this.cbSignIn.BackColor = System.Drawing.Color.YellowGreen;
             this.cbSignIn.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.cbSignIn.FlatAppearance.BorderSize = 0;
+            this.cbSignIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             resources.ApplyResources(this.cbSignIn, "cbSignIn");
             this.cbSignIn.Image = global::MDM.Properties.Resources.yes;
             this.cbSignIn.Name = "cbSignIn";
-            this.cbSignIn.UseVisualStyleBackColor = true;
+            this.cbSignIn.UseVisualStyleBackColor = false;
             // 
             // cbExitApp
             // 
+            this.cbExitApp.BackColor = System.Drawing.Color.Salmon;
             this.cbExitApp.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cbExitApp.FlatAppearance.BorderSize = 0;
+            this.cbExitApp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             resources.ApplyResources(this.cbExitApp, "cbExitApp");
             this.cbExitApp.Image = global::MDM.Properties.Resources.no;
             this.cbExitApp.Name = "cbExitApp";
-            this.cbExitApp.UseVisualStyleBackColor = true;
+            this.cbExitApp.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -60,6 +66,7 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtPassword, "txtPassword");
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.UseSystemPasswordChar = true;
@@ -72,6 +79,7 @@
             // 
             // cbxUserName
             // 
+            this.cbxUserName.BackColor = System.Drawing.Color.Silver;
             this.cbxUserName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cbxUserName, "cbxUserName");
             this.cbxUserName.FormattingEnabled = true;

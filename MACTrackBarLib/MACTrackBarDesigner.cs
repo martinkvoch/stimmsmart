@@ -51,10 +51,9 @@ namespace EConTech.Windows.MACUI.Designer
 	/// <summary>
 	/// The Designer for the <see cref="MACTrackBar"/>.
 	/// </summary>
-	public class MACTrackBarDesigner : System.Windows.Forms.Design.ControlDesigner
+	public class MACTrackBarDesigner : ControlDesigner
 	{
-		public MACTrackBarDesigner()
-		{}
+		public MACTrackBarDesigner() { }
 
 		/// <summary>
 		/// Returns the allowable design time selection rules.
@@ -72,9 +71,7 @@ namespace EConTech.Windows.MACUI.Designer
 						return (base.SelectionRules & ~SelectionRules.TopSizeable) & ~SelectionRules.BottomSizeable;
 					else //control.Orientation == Orientation.Vertical
 						return (base.SelectionRules & ~SelectionRules.LeftSizeable) & ~SelectionRules.RightSizeable;
-				else
-					return base.SelectionRules;
-
+				else return base.SelectionRules;
 			}
 		}
 

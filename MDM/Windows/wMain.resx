@@ -117,173 +117,608 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="ssMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>126, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="panLog.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 48</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miExit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="&gt;&gt;miNewUser.Name" xml:space="preserve">
-    <value>miNewUser</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem12.Name" xml:space="preserve">
-    <value>toolStripMenuItem12</value>
-  </data>
-  <data name="miNewUser.Text" xml:space="preserve">
-    <value>New</value>
-  </data>
-  <data name="tbRestart.ToolTipText" xml:space="preserve">
-    <value>Restart</value>
-  </data>
-  <data name="tbRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="lbClock.Text" xml:space="preserve">
-    <value>12:00:00</value>
-  </data>
-  <data name="&gt;&gt;restoreFromThisBackupToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbRestart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miNewDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>321, 22</value>
-  </data>
-  <data name="&gt;&gt;ssMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;miNewUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ssMain.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panProcedure.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="lbStatus.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="miLangCS.Text" xml:space="preserve">
-    <value>Čeština</value>
+  <data name="lbStatus.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;logoBox.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="lbStatus.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="miLangRU.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lbStatus.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>643, 465</value>
+  <data name="lbStatus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>363, 32</value>
   </data>
-  <data name="miEditUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
+  <data name="lbStatus.Text" xml:space="preserve">
+    <value>Information</value>
   </data>
-  <data name="&gt;&gt;restoreFromThisBackupToolStripMenuItem.Name" xml:space="preserve">
-    <value>restoreFromThisBackupToolStripMenuItem</value>
+  <data name="lbStatus.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="lbKbdLang.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lbKbdLang.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="lbKbdLang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 32</value>
+  </data>
+  <data name="lbUser.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lbUser.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="lbUser.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 11.25pt, style=Bold</value>
+  </data>
+  <data name="lbUser.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="lbUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="logoBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
+  <data name="lbUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 32</value>
+  </data>
+  <data name="lbUser.Text" xml:space="preserve">
+    <value>Signed out</value>
+  </data>
+  <data name="lbUser.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="lbClock.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 11.25pt, style=Bold</value>
+  </data>
+  <data name="lbClock.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="lbClock.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 32</value>
+  </data>
+  <data name="lbClock.Text" xml:space="preserve">
+    <value>12:00:00</value>
+  </data>
+  <data name="ssMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 428</value>
+  </data>
+  <data name="ssMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>643, 37</value>
+  </data>
+  <data name="ssMain.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ssMain.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;ssMain.Name" xml:space="preserve">
+    <value>ssMain</value>
+  </data>
+  <data name="&gt;&gt;ssMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ssMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ssMain.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <metadata name="tsMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>236, 17</value>
+  </metadata>
+  <data name="tbAbout.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbAbout.Text" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <data name="tbAbout.ToolTipText" xml:space="preserve">
+    <value>About...</value>
+  </data>
+  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="tbShutdown.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbShutdown.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbShutdown.Text" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <data name="tbShutdown.ToolTipText" xml:space="preserve">
+    <value>Shutdown</value>
+  </data>
+  <data name="tbRestart.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbRestart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbRestart.Text" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <data name="tbRestart.ToolTipText" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="tbExit.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbExit.Text" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <data name="tbExit.ToolTipText" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="tbLogin.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbLogin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbLogin.Text" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <data name="tbLogin.ToolTipText" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="tbLogout.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbLogout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>23, 22</value>
+  </data>
+  <data name="tbLogout.Text" xml:space="preserve">
+    <value>toolStripButton1</value>
+  </data>
+  <data name="tbLogout.ToolTipText" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="toolStripSeparator1.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>20, 25</value>
+  </data>
+  <data name="tbProcedures.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbProcedures.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 22</value>
+  </data>
+  <data name="tbProcedures.Text" xml:space="preserve">
+    <value>Procedures</value>
+  </data>
+  <data name="tbPatList.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="tbPatList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 22</value>
+  </data>
+  <data name="tbPatList.Text" xml:space="preserve">
+    <value>Patient List</value>
+  </data>
+  <data name="tsMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="tsMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>643, 25</value>
+  </data>
+  <data name="tsMain.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tsMain.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;tsMain.Name" xml:space="preserve">
+    <value>tsMain</value>
+  </data>
+  <data name="&gt;&gt;tsMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsMain.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;tsMain.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;tbProcedures.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="miAbout.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miAbout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="miAbout.Text" xml:space="preserve">
+    <value>About...</value>
+  </data>
+  <data name="miAbout.ToolTipText" xml:space="preserve">
+    <value>Displays information about application</value>
+  </data>
+  <data name="miHelp.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="miHelp.Text" xml:space="preserve">
+    <value>Help...</value>
+  </data>
+  <data name="miHelp.ToolTipText" xml:space="preserve">
+    <value>Displays manual in proper language</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 6</value>
+  </data>
+  <data name="miExit.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
+  </data>
+  <data name="miExit.Text" xml:space="preserve">
+    <value>Exit</value>
   </data>
   <data name="miExit.ToolTipText" xml:space="preserve">
     <value>Quits the application</value>
   </data>
-  <data name="miTruncatePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="miRestart.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="&gt;&gt;panHIC.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6444.35822, Culture=neutral, PublicKeyToken=null</value>
+  <data name="miRestart.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
   </data>
-  <data name="makeNewBackupToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="miRestart.Text" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="miRestart.ToolTipText" xml:space="preserve">
+    <value>Shuts down and restarts the application and device</value>
+  </data>
+  <data name="miSwitchOff.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="miSwitchOff.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 22</value>
   </data>
-  <data name="&gt;&gt;closeToolStripMenuItem.Name" xml:space="preserve">
-    <value>closeToolStripMenuItem</value>
+  <data name="miSwitchOff.Text" xml:space="preserve">
+    <value>Shutdown</value>
+  </data>
+  <data name="miSwitchOff.ToolTipText" xml:space="preserve">
+    <value>Exits the application and shuts down the entire device</value>
+  </data>
+  <data name="miFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 20</value>
+  </data>
+  <data name="miFile.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="miUserList.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miUserList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 30</value>
+  </data>
+  <data name="miUserList.Text" xml:space="preserve">
+    <value>List of users...</value>
+  </data>
+  <data name="miUserList.ToolTipText" xml:space="preserve">
+    <value>Opens the panel with list of users</value>
+  </data>
+  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 6</value>
+  </data>
+  <data name="miLogIn.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miLogIn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 30</value>
+  </data>
+  <data name="miLogIn.Text" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="miLogIn.ToolTipText" xml:space="preserve">
+    <value>Performs a user logs on to the application</value>
+  </data>
+  <data name="miLogOut.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miLogOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 30</value>
+  </data>
+  <data name="miLogOut.Text" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="miLogOut.ToolTipText" xml:space="preserve">
+    <value>Performs user logout from application</value>
+  </data>
+  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 6</value>
+  </data>
+  <data name="miNewUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miNewUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 30</value>
+  </data>
+  <data name="miNewUser.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="miNewUser.ToolTipText" xml:space="preserve">
+    <value>Adds a new user</value>
+  </data>
+  <data name="miEditUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miEditUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 30</value>
+  </data>
+  <data name="miEditUser.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="miEditUser.ToolTipText" xml:space="preserve">
+    <value>Modifies the user's parameters</value>
   </data>
   <data name="toolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 6</value>
   </data>
-  <data name="miPatientProc.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="miDeleteUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="miHelp.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="miDeleteUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 30</value>
+  </data>
+  <data name="miDeleteUser.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="miDeleteUser.ToolTipText" xml:space="preserve">
+    <value>Marks the user for deletion</value>
+  </data>
+  <data name="miUndeleteUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miUndeleteUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 30</value>
+  </data>
+  <data name="miUndeleteUser.Text" xml:space="preserve">
+    <value>Undelete...</value>
+  </data>
+  <data name="miUndeleteUser.ToolTipText" xml:space="preserve">
+    <value>The denomination to delete user</value>
+  </data>
+  <data name="miWipeUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miWipeUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 30</value>
+  </data>
+  <data name="miWipeUser.Text" xml:space="preserve">
+    <value>Wipe</value>
+  </data>
+  <data name="miWipeUser.ToolTipText" xml:space="preserve">
+    <value>Physically deletes the user</value>
+  </data>
+  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 6</value>
+  </data>
+  <data name="miPurgeUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miPurgeUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 30</value>
+  </data>
+  <data name="miPurgeUser.Text" xml:space="preserve">
+    <value>Purge</value>
+  </data>
+  <data name="miPurgeUser.ToolTipText" xml:space="preserve">
+    <value>Cleanses the table of users from the records marked for deletion</value>
+  </data>
+  <data name="miTruncateUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miTruncateUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 30</value>
+  </data>
+  <data name="miTruncateUser.Text" xml:space="preserve">
+    <value>Truncate</value>
+  </data>
+  <data name="miTruncateUser.ToolTipText" xml:space="preserve">
+    <value>Completely empties table of users</value>
+  </data>
+  <data name="miUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 20</value>
+  </data>
+  <data name="miUser.Text" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 6</value>
+  </data>
+  <data name="miPatientList.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miPatientList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 30</value>
+  </data>
+  <data name="miPatientList.Text" xml:space="preserve">
+    <value>List of Patients...</value>
+  </data>
+  <data name="miPatientList.ToolTipText" xml:space="preserve">
+    <value>Opens the panel with list of patients</value>
+  </data>
+  <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 6</value>
+  </data>
+  <data name="miNewPatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
   <data name="miNewPatient.Size" type="System.Drawing.Size, System.Drawing">
     <value>234, 30</value>
   </data>
-  <data name="miDeleteUser.ToolTipText" xml:space="preserve">
-    <value>Marks the user for deletion</value>
+  <data name="miNewPatient.Text" xml:space="preserve">
+    <value>New</value>
   </data>
-  <data name="miLog.ToolTipText" xml:space="preserve">
-    <value>Log administration functions</value>
+  <data name="miNewPatient.ToolTipText" xml:space="preserve">
+    <value>Adds a new patient</value>
   </data>
-  <data name="tsMain.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;miUpgSegs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbLogin.Name" xml:space="preserve">
-    <value>tbLogin</value>
-  </data>
-  <data name="&gt;&gt;miBackupDatabase.Name" xml:space="preserve">
-    <value>miBackupDatabase</value>
-  </data>
-  <data name="&gt;&gt;miProcedure.Name" xml:space="preserve">
-    <value>miProcedure</value>
-  </data>
-  <data name="miConfigSetup.ToolTipText" xml:space="preserve">
-    <value>Opens configuration dialog</value>
-  </data>
-  <data name="miClearLogSelection.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="miPatientList.Text" xml:space="preserve">
-    <value>List of Patients...</value>
-  </data>
-  <data name="&gt;&gt;miUndeletePatient.Name" xml:space="preserve">
-    <value>miUndeletePatient</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miAdministration.Name" xml:space="preserve">
-    <value>miAdministration</value>
-  </data>
-  <data name="miRestart.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="miEditPatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="tbExit.Text" xml:space="preserve">
-    <value>toolStripButton1</value>
+  <data name="miEditPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 30</value>
   </data>
-  <data name="&gt;&gt;miWipeUser.Name" xml:space="preserve">
-    <value>miWipeUser</value>
+  <data name="miEditPatient.Text" xml:space="preserve">
+    <value>Edit</value>
   </data>
-  <data name="miNewUser.ToolTipText" xml:space="preserve">
-    <value>Adds a new user</value>
+  <data name="miEditPatient.ToolTipText" xml:space="preserve">
+    <value>Makes changes on patient's record</value>
   </data>
-  <data name="&gt;&gt;miTruncateUser.Name" xml:space="preserve">
-    <value>miTruncateUser</value>
+  <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 6</value>
   </data>
-  <data name="&gt;&gt;miPurgeUser.Name" xml:space="preserve">
-    <value>miPurgeUser</value>
+  <data name="miDeletePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miDeletePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 30</value>
+  </data>
+  <data name="miDeletePatient.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="miDeletePatient.ToolTipText" xml:space="preserve">
+    <value>Marks the patient record for deletion</value>
+  </data>
+  <data name="miUndeletePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miUndeletePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 30</value>
+  </data>
+  <data name="miUndeletePatient.Text" xml:space="preserve">
+    <value>Undelete...</value>
+  </data>
+  <data name="miUndeletePatient.ToolTipText" xml:space="preserve">
+    <value>The denomination to delete patient record</value>
+  </data>
+  <data name="miWipePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miWipePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 30</value>
+  </data>
+  <data name="miWipePatient.Text" xml:space="preserve">
+    <value>Wipe</value>
+  </data>
+  <data name="miWipePatient.ToolTipText" xml:space="preserve">
+    <value>Physically deletes the patient record</value>
+  </data>
+  <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 6</value>
+  </data>
+  <data name="miPurgePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miPurgePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 30</value>
+  </data>
+  <data name="miPurgePatient.Text" xml:space="preserve">
+    <value>Purge</value>
+  </data>
+  <data name="miPurgePatient.ToolTipText" xml:space="preserve">
+    <value>Cleanses the table of patients from the records marked for deletion</value>
+  </data>
+  <data name="miTruncatePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miTruncatePatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 30</value>
+  </data>
+  <data name="miTruncatePatient.Text" xml:space="preserve">
+    <value>Truncate</value>
+  </data>
+  <data name="miTruncatePatient.ToolTipText" xml:space="preserve">
+    <value>Completely empties table of patients</value>
+  </data>
+  <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 6</value>
+  </data>
+  <data name="miPatientProc.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miPatientProc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 30</value>
+  </data>
+  <data name="miPatientProc.Text" xml:space="preserve">
+    <value>Patient Procedures</value>
+  </data>
+  <data name="miHIC.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miHIC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 30</value>
+  </data>
+  <data name="miHIC.Text" xml:space="preserve">
+    <value>Health Insurance Companies</value>
+  </data>
+  <data name="miHIC.ToolTipText" xml:space="preserve">
+    <value>Opens the panel with list of health insurance companies and allows changes on it.</value>
+  </data>
+  <data name="miPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 20</value>
+  </data>
+  <data name="miPatient.Text" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="miPatient.ToolTipText" xml:space="preserve">
+    <value>Modifies the patient's parameters</value>
+  </data>
+  <data name="miBackupDatabase.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miBackupDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
+  </data>
+  <data name="miBackupDatabase.Text" xml:space="preserve">
+    <value>Backup database</value>
+  </data>
+  <data name="miBackupDatabase.ToolTipText" xml:space="preserve">
+    <value>Makes current database backup</value>
+  </data>
+  <data name="miRestoreDatabase.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miRestoreDatabase.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 22</value>
+  </data>
+  <data name="miRestoreDatabase.Text" xml:space="preserve">
+    <value>Restore database...</value>
+  </data>
+  <data name="miRestoreDatabase.ToolTipText" xml:space="preserve">
+    <value>Restores the database from backup</value>
+  </data>
+  <data name="miSystem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="miSystem.Text" xml:space="preserve">
+    <value>System</value>
   </data>
   <data name="miLog.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -306,716 +741,44 @@
         U1awKTsvZ+Nr2dmbnwFA/gXWRrZx9GwqXAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="miLogOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 30</value>
+  <data name="miLog.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
   </data>
-  <data name="miWipePatient.ToolTipText" xml:space="preserve">
-    <value>Physically deletes the patient record</value>
-  </data>
-  <data name="&gt;&gt;makeNewBackupToolStripMenuItem.Name" xml:space="preserve">
-    <value>makeNewBackupToolStripMenuItem</value>
-  </data>
-  <data name="tbAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="&gt;&gt;panDBRestore.Name" xml:space="preserve">
-    <value>panDBRestore</value>
-  </data>
-  <data name="&gt;&gt;panPatient.Name" xml:space="preserve">
-    <value>panPatient</value>
-  </data>
-  <data name="&gt;&gt;miUserList.Name" xml:space="preserve">
-    <value>miUserList</value>
-  </data>
-  <data name="miPurgeUser.ToolTipText" xml:space="preserve">
-    <value>Cleanses the table of users from the records marked for deletion</value>
-  </data>
-  <data name="&gt;&gt;panProcedure.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6444.35822, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="miPatientProc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 30</value>
-  </data>
-  <data name="tsMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>643, 25</value>
-  </data>
-  <data name="miSwitchOff.ToolTipText" xml:space="preserve">
-    <value>Exits the application and shuts down the entire device</value>
-  </data>
-  <data name="tbLogout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>AppName</value>
-  </data>
-  <data name="&gt;&gt;miRestart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miLangEN.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
-    <value>toolStripSeparator1</value>
-  </data>
-  <data name="miFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 20</value>
-  </data>
-  <data name="miHIC.ToolTipText" xml:space="preserve">
-    <value>Opens the panel with list of health insurance companies and allows changes on it.</value>
-  </data>
-  <data name="tbExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="miSystem.Text" xml:space="preserve">
-    <value>System</value>
-  </data>
-  <data name="tbAbout.ToolTipText" xml:space="preserve">
-    <value>About...</value>
-  </data>
-  <data name="miUndeletePatient.ToolTipText" xml:space="preserve">
-    <value>The denomination to delete patient record</value>
-  </data>
-  <data name="&gt;&gt;miPatientList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miWipeUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 30</value>
-  </data>
-  <data name="miTruncateUser.Text" xml:space="preserve">
-    <value>Truncate</value>
-  </data>
-  <data name="miLangEN.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="miPurgePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 30</value>
-  </data>
-  <data name="tbPatList.Text" xml:space="preserve">
-    <value>Patient List</value>
-  </data>
-  <data name="panHIC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>156, 50</value>
-  </data>
-  <data name="lbKbdLang.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="miLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>321, 22</value>
   </data>
   <data name="miLog.Text" xml:space="preserve">
     <value>Log</value>
   </data>
-  <data name="tbProcedures.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="miLog.ToolTipText" xml:space="preserve">
+    <value>Log administration functions</value>
   </data>
-  <data name="&gt;&gt;panProcedure.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;miTheLog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miTheLog.Text" xml:space="preserve">
-    <value>Log</value>
-  </data>
-  <data name="&gt;&gt;panPatient.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;miUser.Name" xml:space="preserve">
-    <value>miUser</value>
-  </data>
-  <data name="&gt;&gt;miCompactDatabase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miTheLog.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="miHelp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
-  </data>
-  <data name="&gt;&gt;tbLogout.Name" xml:space="preserve">
-    <value>tbLogout</value>
-  </data>
-  <data name="miExit.Text" xml:space="preserve">
-    <value>Exit</value>
-  </data>
-  <data name="&gt;&gt;panHIC.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="miEditUser.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="miSwitchOff.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
-  </data>
-  <data name="&gt;&gt;miUndeletePatient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miUserList.ToolTipText" xml:space="preserve">
-    <value>Opens the panel with list of users</value>
-  </data>
-  <data name="&gt;&gt;miPatientProc.Name" xml:space="preserve">
-    <value>miPatientProc</value>
-  </data>
-  <data name="&gt;&gt;miPatientProc.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miDBRestore.Text" xml:space="preserve">
-    <value>Restore</value>
-  </data>
-  <data name="miEditPatient.ToolTipText" xml:space="preserve">
-    <value>Makes changes on patient's record</value>
-  </data>
-  <data name="miUserList.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="miConfigSetup.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="miDeletePatient.Text" xml:space="preserve">
-    <value>Delete</value>
+  <data name="miConfigSetup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>321, 22</value>
   </data>
-  <data name="miDeleteUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="miConfigSetup.Text" xml:space="preserve">
+    <value>Configuration setup</value>
+  </data>
+  <data name="miConfigSetup.ToolTipText" xml:space="preserve">
+    <value>Opens configuration dialog</value>
+  </data>
+  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>318, 6</value>
+  </data>
+  <data name="miUpgSegs.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
-  </data>
-  <data name="tbLogout.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="&gt;&gt;miLogIn.Name" xml:space="preserve">
-    <value>miLogIn</value>
-  </data>
-  <data name="&gt;&gt;miDeleteUser.Name" xml:space="preserve">
-    <value>miDeleteUser</value>
-  </data>
-  <data name="miAdministration.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 20</value>
-  </data>
-  <data name="&gt;&gt;miSystem.Name" xml:space="preserve">
-    <value>miSystem</value>
-  </data>
-  <data name="makeNewBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Creates a new backup</value>
-  </data>
-  <data name="tbAbout.Text" xml:space="preserve">
-    <value>toolStripButton1</value>
-  </data>
-  <data name="&gt;&gt;miUserList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miUpgSegs.Text" xml:space="preserve">
-    <value>Correcting a table of procedures and segments</value>
-  </data>
-  <data name="miPatientList.ToolTipText" xml:space="preserve">
-    <value>Opens the panel with list of patients</value>
-  </data>
-  <data name="miEditUser.ToolTipText" xml:space="preserve">
-    <value>Modifies the user's parameters</value>
-  </data>
-  <data name="&gt;&gt;panPatient.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;makeNewBackupToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="panDBRestore.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 344</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem9.Name" xml:space="preserve">
-    <value>toolStripMenuItem9</value>
-  </data>
-  <data name="miPurgePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;miCompactDatabase.Name" xml:space="preserve">
-    <value>miCompactDatabase</value>
-  </data>
-  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
-  </data>
-  <data name="tbExit.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="miBackupDatabase.ToolTipText" xml:space="preserve">
-    <value>Makes current database backup</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem7.Name" xml:space="preserve">
-    <value>toolStripMenuItem7</value>
-  </data>
-  <data name="tbLogin.Text" xml:space="preserve">
-    <value>toolStripButton1</value>
-  </data>
-  <data name="&gt;&gt;miHelp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbStatus.Name" xml:space="preserve">
-    <value>lbStatus</value>
-  </data>
-  <data name="miDeletePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miSwitchOff.Text" xml:space="preserve">
-    <value>Shutdown</value>
-  </data>
-  <data name="miUndeleteUser.ToolTipText" xml:space="preserve">
-    <value>The denomination to delete user</value>
-  </data>
-  <data name="&gt;&gt;miClear.Name" xml:space="preserve">
-    <value>miClear</value>
-  </data>
-  <data name="&gt;&gt;miEditUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miLangCS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem6.Name" xml:space="preserve">
-    <value>toolStripMenuItem6</value>
-  </data>
-  <data name="miLogIn.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miNewDatabase.ToolTipText" xml:space="preserve">
-    <value>Creates new database over the old one</value>
-  </data>
-  <data name="logoBox.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="miUndeleteUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 30</value>
-  </data>
-  <data name="&gt;&gt;miLog.Name" xml:space="preserve">
-    <value>miLog</value>
-  </data>
-  <data name="&gt;&gt;miPurgePatient.Name" xml:space="preserve">
-    <value>miPurgePatient</value>
-  </data>
-  <data name="&gt;&gt;panHIC.Name" xml:space="preserve">
-    <value>panHIC</value>
-  </data>
-  <data name="&gt;&gt;panProcedure.Name" xml:space="preserve">
-    <value>panProcedure</value>
-  </data>
-  <data name="miEditPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 30</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="panUser.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="tbPatList.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="&gt;&gt;panDBRestore.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="miPatientList.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miClear.Text" xml:space="preserve">
-    <value>Erase</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="panPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 346</value>
-  </data>
-  <data name="&gt;&gt;ssMain.Name" xml:space="preserve">
-    <value>ssMain</value>
-  </data>
-  <data name="miPatient.ToolTipText" xml:space="preserve">
-    <value>Modifies the patient's parameters</value>
-  </data>
-  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 6</value>
-  </data>
-  <data name="miUndeletePatient.Text" xml:space="preserve">
-    <value>Undelete...</value>
-  </data>
-  <data name="tbLogin.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="miRestoreDatabase.Text" xml:space="preserve">
-    <value>Restore database...</value>
-  </data>
-  <data name="miLang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 20</value>
-  </data>
-  <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>6, 25</value>
-  </data>
-  <data name="miAbout.Text" xml:space="preserve">
-    <value>About...</value>
-  </data>
-  <data name="miClosePanel.ToolTipText" xml:space="preserve">
-    <value>Closes the open panel</value>
-  </data>
-  <data name="miFile.Text" xml:space="preserve">
-    <value>File</value>
-  </data>
-  <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 6</value>
-  </data>
-  <data name="miClearLogAll.ToolTipText" xml:space="preserve">
-    <value>Erases all records</value>
-  </data>
-  <data name="&gt;&gt;miLangRU.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem10.Name" xml:space="preserve">
-    <value>toolStripMenuItem10</value>
-  </data>
-  <data name="&gt;&gt;miLogOut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miRestoreDatabase.Name" xml:space="preserve">
-    <value>miRestoreDatabase</value>
-  </data>
-  <data name="miEditPatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miLogIn.Text" xml:space="preserve">
-    <value>Log in</value>
-  </data>
-  <data name="&gt;&gt;miDBRestore.Name" xml:space="preserve">
-    <value>miDBRestore</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miPurgePatient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panHIC.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lbClock.Name" xml:space="preserve">
-    <value>lbClock</value>
-  </data>
-  <data name="ssMain.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt</value>
-  </data>
-  <data name="miPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 20</value>
-  </data>
-  <data name="miWipePatient.Text" xml:space="preserve">
-    <value>Wipe</value>
-  </data>
-  <data name="miPurgeUser.Text" xml:space="preserve">
-    <value>Purge</value>
-  </data>
-  <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 6</value>
-  </data>
-  <data name="miClearLogAll.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="&gt;&gt;miLangCS.Name" xml:space="preserve">
-    <value>miLangCS</value>
-  </data>
-  <data name="&gt;&gt;miUndeleteUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panUser.Name" xml:space="preserve">
-    <value>panUser</value>
-  </data>
-  <data name="miLogIn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 30</value>
-  </data>
-  <data name="miTruncateUser.ToolTipText" xml:space="preserve">
-    <value>Completely empties table of users</value>
-  </data>
-  <data name="&gt;&gt;tbPatList.Name" xml:space="preserve">
-    <value>tbPatList</value>
-  </data>
-  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
-  </data>
-  <data name="miNewUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 30</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="panUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 48</value>
-  </data>
-  <data name="makeNewBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
-  </data>
-  <data name="deleteBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Deletes the current backup</value>
-  </data>
-  <data name="panUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>333, 346</value>
-  </data>
-  <data name="&gt;&gt;miClearLogWarning.Name" xml:space="preserve">
-    <value>miClearLogWarning</value>
-  </data>
-  <data name="miLang.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;miPatient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbStatus.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
-  </data>
-  <data name="deleteBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
-  </data>
-  <data name="miSwitchOff.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lbKbdLang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 32</value>
-  </data>
-  <data name="toolStripSeparator1.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="lbUser.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;logoBox.Name" xml:space="preserve">
-    <value>logoBox</value>
-  </data>
-  <data name="&gt;&gt;deleteBackupToolStripMenuItem.Name" xml:space="preserve">
-    <value>deleteBackupToolStripMenuItem</value>
-  </data>
-  <data name="restoreFromThisBackupToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem5.Name" xml:space="preserve">
-    <value>toolStripMenuItem5</value>
-  </data>
-  <data name="miTruncatePatient.ToolTipText" xml:space="preserve">
-    <value>Completely empties table of patients</value>
-  </data>
-  <data name="&gt;&gt;miSystem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="restoreFromThisBackupToolStripMenuItem.Text" xml:space="preserve">
-    <value>Restore from this backup</value>
-  </data>
-  <data name="&gt;&gt;tbPatList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 6</value>
-  </data>
-  <data name="lbStatus.AutoSize" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panLog.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="lbStatus.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miDeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 30</value>
-  </data>
-  <data name="&gt;&gt;tbExit.Name" xml:space="preserve">
-    <value>tbExit</value>
-  </data>
-  <data name="panProcedure.Location" type="System.Drawing.Point, System.Drawing">
-    <value>232, 48</value>
-  </data>
-  <data name="&gt;&gt;msMain.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="lbUser.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="lbStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>363, 32</value>
-  </data>
-  <data name="miCompactDatabase.Text" xml:space="preserve">
-    <value>Compact database</value>
-  </data>
-  <data name="&gt;&gt;miNewPatient.Name" xml:space="preserve">
-    <value>miNewPatient</value>
-  </data>
-  <data name="&gt;&gt;miUndeleteUser.Name" xml:space="preserve">
-    <value>miUndeleteUser</value>
-  </data>
-  <data name="&gt;&gt;miLangEN.Name" xml:space="preserve">
-    <value>miLangEN</value>
-  </data>
-  <data name="&gt;&gt;miProcedure.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miNewDatabase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;closeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miRestoreDatabase.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;miSwitchOff.Name" xml:space="preserve">
-    <value>miSwitchOff</value>
-  </data>
-  <data name="&gt;&gt;miClosePanel.Name" xml:space="preserve">
-    <value>miClosePanel</value>
-  </data>
-  <data name="deleteBackupToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>20, 25</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="logoBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 48</value>
-  </data>
-  <data name="&gt;&gt;miDeletePatient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 6</value>
-  </data>
-  <data name="miClosePanel.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miClearLogSelection.ToolTipText" xml:space="preserve">
-    <value>Erases selected records</value>
-  </data>
-  <data name="&gt;&gt;panLog.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6444.35822, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="miLogOut.ToolTipText" xml:space="preserve">
-    <value>Performs user logout from application</value>
-  </data>
-  <data name="&gt;&gt;miWipePatient.Name" xml:space="preserve">
-    <value>miWipePatient</value>
-  </data>
-  <data name="miTruncateUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 30</value>
-  </data>
-  <data name="&gt;&gt;miTruncatePatient.Name" xml:space="preserve">
-    <value>miTruncatePatient</value>
-  </data>
-  <data name="miAbout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
-  </data>
-  <data name="miHelp.ToolTipText" xml:space="preserve">
-    <value>Displays manual in proper language</value>
-  </data>
-  <data name="&gt;&gt;miConfigSetup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="panMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 344</value>
-  </data>
-  <data name="&gt;&gt;miHIC.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miPatientList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 30</value>
-  </data>
-  <data name="&gt;&gt;miClearLogError.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="panDBRestore.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="panLog.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="miClosePanel.Text" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="&gt;&gt;miAbout.Name" xml:space="preserve">
-    <value>miAbout</value>
-  </data>
-  <data name="lbClock.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
-  </data>
-  <data name="tbShutdown.Text" xml:space="preserve">
-    <value>toolStripButton1</value>
-  </data>
-  <data name="miSystem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 20</value>
-  </data>
-  <data name="miTruncatePatient.Text" xml:space="preserve">
-    <value>Truncate</value>
-  </data>
-  <data name="&gt;&gt;tsMain.Name" xml:space="preserve">
-    <value>tsMain</value>
-  </data>
-  <data name="miPurgePatient.Text" xml:space="preserve">
-    <value>Purge</value>
-  </data>
-  <data name="tbProcedures.Text" xml:space="preserve">
-    <value>Procedures</value>
-  </data>
-  <data name="miPurgePatient.ToolTipText" xml:space="preserve">
-    <value>Cleanses the table of patients from the records marked for deletion</value>
-  </data>
-  <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 6</value>
-  </data>
-  <data name="miClearLogInformation.Text" xml:space="preserve">
-    <value>Informations</value>
-  </data>
-  <data name="&gt;&gt;miTruncateUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panMain.Type" xml:space="preserve">
-    <value>MDM.Controls.mainPanel, MDM, Version=1.0.6444.35822, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="logoBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>491, 1</value>
-  </data>
-  <data name="miAbout.ToolTipText" xml:space="preserve">
-    <value>Displays information about application</value>
-  </data>
-  <data name="tbRestart.Text" xml:space="preserve">
-    <value>toolStripButton1</value>
-  </data>
-  <data name="&gt;&gt;miConfigSetup.Name" xml:space="preserve">
-    <value>miConfigSetup</value>
-  </data>
-  <data name="tbLogin.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="miClearLogError.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="miUserList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 30</value>
-  </data>
-  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 6</value>
-  </data>
-  <data name="&gt;&gt;lbStatus.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miUserList.Text" xml:space="preserve">
-    <value>List of users...</value>
-  </data>
-  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 6</value>
-  </data>
-  <data name="miLogOut.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 20</value>
   </data>
   <data name="miUpgSegs.Size" type="System.Drawing.Size, System.Drawing">
     <value>321, 22</value>
   </data>
-  <data name="miLog.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
+  <data name="miUpgSegs.Text" xml:space="preserve">
+    <value>Correcting a table of procedures and segments</value>
   </data>
-  <data name="miLangCS.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="panHIC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 344</value>
+  <data name="miUpgSegs.ToolTipText" xml:space="preserve">
+    <value>Performs fixing of PROCEDURE &amp; SEGMENTS tables</value>
   </data>
   <data name="miNewDatabase.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1033,668 +796,596 @@
         YpyRQy415w24LkldlbohdfM/xRk55IoWur835syHjSUlhAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="miUser.Text" xml:space="preserve">
-    <value>User</value>
-  </data>
-  <data name="miClear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 22</value>
-  </data>
-  <data name="lbStatus.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="miEditPatient.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="panMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 48</value>
-  </data>
-  <data name="miProcedure.Text" xml:space="preserve">
-    <value>Procedure</value>
-  </data>
-  <data name="miPatient.Text" xml:space="preserve">
-    <value>Patient</value>
-  </data>
-  <data name="miLogOut.Text" xml:space="preserve">
-    <value>Log out</value>
-  </data>
-  <data name="miHelp.Text" xml:space="preserve">
-    <value>Help...</value>
-  </data>
-  <data name="lbUser.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 11.25pt, style=Bold</value>
-  </data>
-  <data name="ssMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 428</value>
-  </data>
-  <data name="tbExit.ToolTipText" xml:space="preserve">
-    <value>Exit</value>
-  </data>
-  <data name="restoreFromThisBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>206, 22</value>
-  </data>
-  <data name="&gt;&gt;panPatient.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6444.35822, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="miProcedure.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 20</value>
-  </data>
-  <data name="miTruncateUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miPurgeUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;miUpgSegs.Name" xml:space="preserve">
-    <value>miUpgSegs</value>
-  </data>
-  <data name="miWipeUser.ToolTipText" xml:space="preserve">
-    <value>Physically deletes the user</value>
-  </data>
-  <data name="miNewPatient.Text" xml:space="preserve">
-    <value>New</value>
-  </data>
   <data name="miNewDatabase.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miClear.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="lbUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 32</value>
-  </data>
-  <data name="lbUser.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;miEditPatient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="panProcedure.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 346</value>
-  </data>
-  <data name="miLang.ToolTipText" xml:space="preserve">
-    <value>Čeština</value>
-  </data>
-  <data name="&gt;&gt;miWipePatient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbAbout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panMain.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tbAbout.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="miClearLogWarning.Text" xml:space="preserve">
-    <value>Warnings</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem4.Name" xml:space="preserve">
-    <value>toolStripMenuItem4</value>
-  </data>
-  <data name="&gt;&gt;miClearLogInformation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miPatient.Name" xml:space="preserve">
-    <value>miPatient</value>
-  </data>
-  <data name="&gt;&gt;panDBRestore.Type" xml:space="preserve">
-    <value>MDM.Controls.dbRestorePanel, MDM, Version=1.0.6444.35822, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem13.Name" xml:space="preserve">
-    <value>toolStripMenuItem13</value>
-  </data>
-  <data name="&gt;&gt;miLogIn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miConfigSetup.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miUndeleteUser.Text" xml:space="preserve">
-    <value>Undelete...</value>
-  </data>
-  <data name="&gt;&gt;tbProcedures.Name" xml:space="preserve">
-    <value>tbProcedures</value>
-  </data>
-  <data name="msMain.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="tbPatList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 22</value>
-  </data>
-  <data name="miConfigSetup.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="miNewDatabase.Size" type="System.Drawing.Size, System.Drawing">
     <value>321, 22</value>
-  </data>
-  <data name="&gt;&gt;miClearLogWarning.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miTheLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 20</value>
-  </data>
-  <data name="miHIC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 30</value>
-  </data>
-  <data name="miConfigSetup.Text" xml:space="preserve">
-    <value>Configuration setup</value>
-  </data>
-  <data name="&gt;&gt;logoBox.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="miTruncatePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 30</value>
-  </data>
-  <data name="&gt;&gt;miLog.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miClearLogSelection.Name" xml:space="preserve">
-    <value>miClearLogSelection</value>
-  </data>
-  <data name="miBackupDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 22</value>
-  </data>
-  <data name="&gt;&gt;miClearLogInformation.Name" xml:space="preserve">
-    <value>miClearLogInformation</value>
-  </data>
-  <data name="miUndeletePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miWipePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 30</value>
-  </data>
-  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 6</value>
-  </data>
-  <data name="miUpgSegs.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;miNewDatabase.Name" xml:space="preserve">
-    <value>miNewDatabase</value>
-  </data>
-  <data name="&gt;&gt;tbShutdown.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbUser.Text" xml:space="preserve">
-    <value>Signed out</value>
-  </data>
-  <data name="restoreFromThisBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Restores the database from current backup</value>
-  </data>
-  <data name="msMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>643, 24</value>
-  </data>
-  <data name="miAbout.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem8.Name" xml:space="preserve">
-    <value>toolStripMenuItem8</value>
-  </data>
-  <data name="tbLogout.Text" xml:space="preserve">
-    <value>toolStripButton1</value>
-  </data>
-  <data name="&gt;&gt;miClear.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbKbdLang.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;panProcedure.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;miLangRU.Name" xml:space="preserve">
-    <value>miLangRU</value>
-  </data>
-  <data name="&gt;&gt;ssMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miUpgSegs.ToolTipText" xml:space="preserve">
-    <value>Performs fixing of PROCEDURE &amp; SEGMENTS tables</value>
-  </data>
-  <data name="&gt;&gt;miRestoreDatabase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miClearLogError.Text" xml:space="preserve">
-    <value>Errors</value>
-  </data>
-  <data name="miWipePatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miRestoreDatabase.ToolTipText" xml:space="preserve">
-    <value>Restores the database from backup</value>
-  </data>
-  <data name="miLangEN.Text" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="&gt;&gt;miClosePanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tbShutdown.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
-  </data>
-  <data name="miCompactDatabase.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;miClearLogAll.Name" xml:space="preserve">
-    <value>miClearLogAll</value>
-  </data>
-  <data name="miHIC.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;panLog.Name" xml:space="preserve">
-    <value>panLog</value>
-  </data>
-  <data name="lbClock.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 32</value>
-  </data>
-  <data name="msMain.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tbRestart.Name" xml:space="preserve">
-    <value>tbRestart</value>
-  </data>
-  <data name="&gt;&gt;miAdministration.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miClearLogWarning.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="miDeleteUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 30</value>
-  </data>
-  <data name="miPurgeUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 30</value>
-  </data>
-  <data name="panPatient.Location" type="System.Drawing.Point, System.Drawing">
-    <value>180, 48</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>wMain</value>
-  </data>
-  <data name="miLangRU.Text" xml:space="preserve">
-    <value>Pусский</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem11.Name" xml:space="preserve">
-    <value>toolStripMenuItem11</value>
-  </data>
-  <data name="&gt;&gt;miNewPatient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miRestart.ToolTipText" xml:space="preserve">
-    <value>Shuts down and restarts the application and device</value>
-  </data>
-  <data name="miClearLogInformation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 22</value>
-  </data>
-  <data name="tsMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="&gt;&gt;panDBRestore.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="miWipeUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miWipeUser.Text" xml:space="preserve">
-    <value>Wipe</value>
-  </data>
-  <data name="panMain.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;tbLogout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miDeletePatient.Name" xml:space="preserve">
-    <value>miDeletePatient</value>
-  </data>
-  <data name="&gt;&gt;tbShutdown.Name" xml:space="preserve">
-    <value>tbShutdown</value>
-  </data>
-  <data name="&gt;&gt;lbUser.Name" xml:space="preserve">
-    <value>lbUser</value>
-  </data>
-  <data name="miClosePanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 22</value>
-  </data>
-  <data name="msMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;miHelp.Name" xml:space="preserve">
-    <value>miHelp</value>
-  </data>
-  <data name="miUndeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 30</value>
-  </data>
-  <data name="&gt;&gt;miClearLogSelection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miClearLogAll.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbStatus.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 6</value>
-  </data>
-  <data name="&gt;&gt;miWipeUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miNewPatient.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;tsMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miPatientProc.Text" xml:space="preserve">
-    <value>Patient Procedures</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
-    <value>toolStripMenuItem2</value>
   </data>
   <data name="miNewDatabase.Text" xml:space="preserve">
     <value>New database</value>
   </data>
-  <data name="&gt;&gt;miDeleteUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="miNewDatabase.ToolTipText" xml:space="preserve">
+    <value>Creates new database over the old one</value>
+  </data>
+  <data name="miCompactDatabase.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
   </data>
   <data name="miCompactDatabase.Size" type="System.Drawing.Size, System.Drawing">
     <value>321, 22</value>
   </data>
-  <data name="miDeletePatient.ToolTipText" xml:space="preserve">
-    <value>Marks the patient record for deletion</value>
+  <data name="miCompactDatabase.Text" xml:space="preserve">
+    <value>Compact database</value>
   </data>
-  <data name="miClearLogSelection.Text" xml:space="preserve">
-    <value>Selection</value>
+  <data name="miAdministration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 20</value>
   </data>
-  <data name="&gt;&gt;miLogOut.Name" xml:space="preserve">
-    <value>miLogOut</value>
+  <data name="miAdministration.Text" xml:space="preserve">
+    <value>Administration</value>
   </data>
-  <data name="tbLogout.ToolTipText" xml:space="preserve">
-    <value>Log out</value>
+  <data name="miClearLogInformation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
   </data>
-  <data name="deleteBackupToolStripMenuItem.Text" xml:space="preserve">
-    <value>Delete backup</value>
+  <data name="miClearLogInformation.Text" xml:space="preserve">
+    <value>Informations</value>
   </data>
-  <data name="panLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>273, 344</value>
+  <data name="miClearLogInformation.ToolTipText" xml:space="preserve">
+    <value>Erases information records</value>
   </data>
-  <data name="miRestoreDatabase.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 22</value>
+  <data name="miClearLogWarning.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panMain.Name" xml:space="preserve">
-    <value>panMain</value>
-  </data>
-  <data name="&gt;&gt;miExit.Name" xml:space="preserve">
-    <value>miExit</value>
-  </data>
-  <data name="&gt;&gt;panUser.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;miClearLogError.Name" xml:space="preserve">
-    <value>miClearLogError</value>
-  </data>
-  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 6</value>
-  </data>
-  <data name="&gt;&gt;miPurgeUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;miFile.Name" xml:space="preserve">
-    <value>miFile</value>
-  </data>
-  <data name="miNewUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;miRestart.Name" xml:space="preserve">
-    <value>miRestart</value>
-  </data>
-  <data name="miUndeleteUser.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
-    <value>Closes the restore panel</value>
-  </data>
-  <data name="&gt;&gt;miLang.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lbUser.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="tbShutdown.ToolTipText" xml:space="preserve">
-    <value>Shutdown</value>
-  </data>
-  <data name="miEditUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 30</value>
-  </data>
-  <data name="&gt;&gt;miTheLog.Name" xml:space="preserve">
-    <value>miTheLog</value>
-  </data>
-  <data name="&gt;&gt;miLang.Name" xml:space="preserve">
-    <value>miLang</value>
-  </data>
-  <data name="&gt;&gt;panMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ssMain.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;miSwitchOff.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="miClearLogWarning.Text" xml:space="preserve">
+    <value>Warnings</value>
   </data>
   <data name="miClearLogWarning.ToolTipText" xml:space="preserve">
     <value>Erases warning records</value>
   </data>
-  <data name="&gt;&gt;miUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="miClearLogError.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
   </data>
-  <data name="panHIC.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+  <data name="miClearLogError.Text" xml:space="preserve">
+    <value>Errors</value>
+  </data>
+  <data name="miClearLogError.ToolTipText" xml:space="preserve">
+    <value>Erases error records</value>
+  </data>
+  <data name="miClearLogSelection.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
+  </data>
+  <data name="miClearLogSelection.Text" xml:space="preserve">
+    <value>Selection</value>
+  </data>
+  <data name="miClearLogSelection.ToolTipText" xml:space="preserve">
+    <value>Erases selected records</value>
+  </data>
+  <data name="miClearLogAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 22</value>
+  </data>
+  <data name="miClearLogAll.Text" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="miClearLogAll.ToolTipText" xml:space="preserve">
+    <value>Erases all records</value>
+  </data>
+  <data name="miClear.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miClear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 22</value>
+  </data>
+  <data name="miClear.Text" xml:space="preserve">
+    <value>Erase</value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 6</value>
+  </data>
+  <data name="miClosePanel.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miClosePanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 22</value>
+  </data>
+  <data name="miClosePanel.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="miClosePanel.ToolTipText" xml:space="preserve">
+    <value>Closes the open panel</value>
+  </data>
+  <data name="miTheLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 20</value>
+  </data>
+  <data name="miTheLog.Text" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="miTheLog.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <metadata name="msMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="miLangCS.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miLangCS.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
+  </data>
+  <data name="miLangCS.Text" xml:space="preserve">
+    <value>Čeština</value>
+  </data>
+  <data name="miLangEN.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miLangEN.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
+  </data>
+  <data name="miLangEN.Text" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="miLangRU.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miLangRU.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
+  </data>
+  <data name="miLangRU.Text" xml:space="preserve">
+    <value>Pусский</value>
+  </data>
+  <data name="miLang.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="miLang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 20</value>
+  </data>
+  <data name="miLang.ToolTipText" xml:space="preserve">
+    <value>Čeština</value>
+  </data>
+  <data name="restoreFromThisBackupToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="restoreFromThisBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="restoreFromThisBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Restore from this backup</value>
+  </data>
+  <data name="restoreFromThisBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Restores the database from current backup</value>
+  </data>
+  <data name="makeNewBackupToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="makeNewBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="makeNewBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Create a new backup</value>
+  </data>
+  <data name="makeNewBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Creates a new backup</value>
+  </data>
+  <data name="deleteBackupToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="deleteBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="deleteBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Delete backup</value>
+  </data>
+  <data name="deleteBackupToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Deletes the current backup</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 6</value>
+  </data>
+  <data name="closeToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="closeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>206, 22</value>
+  </data>
+  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="closeToolStripMenuItem.ToolTipText" xml:space="preserve">
+    <value>Closes the restore panel</value>
+  </data>
+  <data name="miDBRestore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 20</value>
+  </data>
+  <data name="miDBRestore.Text" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="miDBRestore.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="miProcedure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
+  </data>
+  <data name="miProcedure.Text" xml:space="preserve">
+    <value>Procedure</value>
+  </data>
+  <data name="miProcedure.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="msMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="msMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>643, 24</value>
+  </data>
+  <data name="msMain.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="msMain.Text" xml:space="preserve">
+    <value>menuStrip1</value>
   </data>
   <data name="&gt;&gt;msMain.Name" xml:space="preserve">
     <value>msMain</value>
   </data>
-  <data name="&gt;&gt;deleteBackupToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;msMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lbClock.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;msMain.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;lbKbdLang.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lbKbdLang.Name" xml:space="preserve">
-    <value>lbKbdLang</value>
-  </data>
-  <data name="&gt;&gt;panLog.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;logoBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;msMain.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="logoBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="miRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
+  <data name="logoBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>491, 1</value>
   </data>
-  <data name="&gt;&gt;miBackupDatabase.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="logoBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 48</value>
   </data>
-  <data name="panDBRestore.Location" type="System.Drawing.Point, System.Drawing">
-    <value>72, 48</value>
+  <data name="logoBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
   </data>
-  <data name="lbClock.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
+  <data name="logoBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
-  <data name="tsMain.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;logoBox.Name" xml:space="preserve">
+    <value>logoBox</value>
+  </data>
+  <data name="&gt;&gt;logoBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;logoBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;logoBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="panProcedure.Location" type="System.Drawing.Point, System.Drawing">
+    <value>232, 48</value>
+  </data>
+  <data name="panProcedure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 346</value>
+  </data>
+  <data name="panProcedure.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;panProcedure.Name" xml:space="preserve">
+    <value>panProcedure</value>
+  </data>
+  <data name="&gt;&gt;panProcedure.Type" xml:space="preserve">
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6476.36085, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;panProcedure.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panProcedure.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panPatient.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 48</value>
+  </data>
+  <data name="panPatient.Size" type="System.Drawing.Size, System.Drawing">
+    <value>368, 346</value>
+  </data>
+  <data name="panPatient.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;panPatient.Name" xml:space="preserve">
+    <value>panPatient</value>
+  </data>
+  <data name="&gt;&gt;panPatient.Type" xml:space="preserve">
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6476.36085, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;panPatient.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panPatient.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;miDBRestore.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="panHIC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>156, 50</value>
   </data>
-  <data name="lbStatus.Text" xml:space="preserve">
-    <value>Information</value>
+  <data name="panHIC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>319, 344</value>
   </data>
-  <data name="miLog.Size" type="System.Drawing.Size, System.Drawing">
-    <value>321, 22</value>
+  <data name="panHIC.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="&gt;&gt;msMain.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panHIC.Name" xml:space="preserve">
+    <value>panHIC</value>
+  </data>
+  <data name="&gt;&gt;panHIC.Type" xml:space="preserve">
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6476.36085, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;panHIC.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panHIC.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="panUser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 48</value>
+  </data>
+  <data name="panUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>333, 346</value>
+  </data>
+  <data name="panUser.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;panUser.Name" xml:space="preserve">
+    <value>panUser</value>
+  </data>
+  <data name="&gt;&gt;panUser.Type" xml:space="preserve">
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6476.36085, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;panUser.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;panUser.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="miClearLogInformation.ToolTipText" xml:space="preserve">
-    <value>Erases information records</value>
+  <data name="panDBRestore.Location" type="System.Drawing.Point, System.Drawing">
+    <value>72, 48</value>
   </data>
-  <data name="tbRestart.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
+  <data name="panDBRestore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>256, 344</value>
   </data>
-  <data name="&gt;&gt;tbAbout.Name" xml:space="preserve">
-    <value>tbAbout</value>
+  <data name="panDBRestore.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
   </data>
-  <data name="&gt;&gt;miHIC.Name" xml:space="preserve">
-    <value>miHIC</value>
+  <data name="&gt;&gt;panDBRestore.Name" xml:space="preserve">
+    <value>panDBRestore</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;panDBRestore.Type" xml:space="preserve">
+    <value>MDM.Controls.dbRestorePanel, MDM, Version=1.0.6476.36085, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="tbProcedures.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
-  </data>
-  <data name="tbLogin.ToolTipText" xml:space="preserve">
-    <value>Log in</value>
-  </data>
-  <data name="&gt;&gt;miAbout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miAdministration.Text" xml:space="preserve">
-    <value>Administration</value>
-  </data>
-  <data name="&gt;&gt;tbLogin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="miLangRU.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 22</value>
-  </data>
-  <data name="miProcedure.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="miDBRestore.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ssMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>643, 37</value>
-  </data>
-  <data name="miClearLogError.ToolTipText" xml:space="preserve">
-    <value>Erases error records</value>
-  </data>
-  <data name="miExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 22</value>
-  </data>
-  <data name="miDBRestore.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 20</value>
-  </data>
-  <data name="ssMain.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="miBackupDatabase.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="&gt;&gt;tsMain.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panDBRestore.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;miPatientList.Name" xml:space="preserve">
-    <value>miPatientList</value>
+  <data name="&gt;&gt;panDBRestore.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;panUser.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6444.35822, Culture=neutral, PublicKeyToken=null</value>
+  <data name="panLog.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 48</value>
   </data>
-  <data name="&gt;&gt;msMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="panLog.Size" type="System.Drawing.Size, System.Drawing">
+    <value>273, 344</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
-    <value>toolStripMenuItem1</value>
+  <data name="panLog.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="closeToolStripMenuItem.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
+  <data name="&gt;&gt;panLog.Name" xml:space="preserve">
+    <value>panLog</value>
   </data>
-  <data name="miRestart.Text" xml:space="preserve">
-    <value>Restart</value>
+  <data name="&gt;&gt;panLog.Type" xml:space="preserve">
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6476.36085, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="closeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Close</value>
+  <data name="&gt;&gt;panLog.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;miEditPatient.Name" xml:space="preserve">
-    <value>miEditPatient</value>
+  <data name="&gt;&gt;panLog.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
+  <data name="panMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 48</value>
+  </data>
+  <data name="panMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 344</value>
+  </data>
+  <data name="panMain.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;panMain.Name" xml:space="preserve">
+    <value>panMain</value>
+  </data>
+  <data name="&gt;&gt;panMain.Type" xml:space="preserve">
+    <value>MDM.Controls.mainPanel, MDM, Version=1.0.6476.36085, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;panMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panMain.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;miEditUser.Name" xml:space="preserve">
-    <value>miEditUser</value>
+  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
   </data>
-  <data name="panPatient.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>643, 465</value>
+  </data>
+  <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 8.25pt</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>AppName</value>
+  </data>
+  <data name="&gt;&gt;lbStatus.Name" xml:space="preserve">
+    <value>lbStatus</value>
+  </data>
+  <data name="&gt;&gt;lbStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbKbdLang.Name" xml:space="preserve">
+    <value>lbKbdLang</value>
+  </data>
+  <data name="&gt;&gt;lbKbdLang.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbUser.Name" xml:space="preserve">
+    <value>lbUser</value>
   </data>
   <data name="&gt;&gt;lbUser.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ssMain.Text" xml:space="preserve">
-    <value>statusStrip1</value>
+  <data name="&gt;&gt;lbClock.Name" xml:space="preserve">
+    <value>lbClock</value>
   </data>
-  <data name="miNewPatient.ToolTipText" xml:space="preserve">
-    <value>Adds a new patient</value>
+  <data name="&gt;&gt;lbClock.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="makeNewBackupToolStripMenuItem.Text" xml:space="preserve">
-    <value>Create a new backup</value>
+  <data name="&gt;&gt;tbAbout.Name" xml:space="preserve">
+    <value>tbAbout</value>
   </data>
-  <data name="&gt;&gt;miTruncatePatient.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tbShutdown.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="miLogIn.ToolTipText" xml:space="preserve">
-    <value>Performs a user logs on to the application</value>
-  </data>
-  <data name="miHIC.Text" xml:space="preserve">
-    <value>Health Insurance Companies</value>
-  </data>
-  <data name="miClearLogAll.Text" xml:space="preserve">
-    <value>All</value>
-  </data>
-  <data name="miLangEN.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="miExit.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
+  <data name="&gt;&gt;tbAbout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
     <value>toolStripSeparator3</value>
   </data>
-  <data name="miBackupDatabase.Text" xml:space="preserve">
-    <value>Backup database</value>
+  <data name="&gt;&gt;toolStripSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="miDeleteUser.Text" xml:space="preserve">
-    <value>Delete</value>
+  <data name="&gt;&gt;tbShutdown.Name" xml:space="preserve">
+    <value>tbShutdown</value>
+  </data>
+  <data name="&gt;&gt;tbShutdown.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbRestart.Name" xml:space="preserve">
+    <value>tbRestart</value>
+  </data>
+  <data name="&gt;&gt;tbRestart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbExit.Name" xml:space="preserve">
+    <value>tbExit</value>
+  </data>
+  <data name="&gt;&gt;tbExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbLogin.Name" xml:space="preserve">
+    <value>tbLogin</value>
+  </data>
+  <data name="&gt;&gt;tbLogin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbLogout.Name" xml:space="preserve">
+    <value>tbLogout</value>
+  </data>
+  <data name="&gt;&gt;tbLogout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbProcedures.Name" xml:space="preserve">
+    <value>tbProcedures</value>
+  </data>
+  <data name="&gt;&gt;tbProcedures.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbPatList.Name" xml:space="preserve">
+    <value>tbPatList</value>
+  </data>
+  <data name="&gt;&gt;tbPatList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miFile.Name" xml:space="preserve">
+    <value>miFile</value>
+  </data>
+  <data name="&gt;&gt;miFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miAbout.Name" xml:space="preserve">
+    <value>miAbout</value>
+  </data>
+  <data name="&gt;&gt;miAbout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miHelp.Name" xml:space="preserve">
+    <value>miHelp</value>
+  </data>
+  <data name="&gt;&gt;miHelp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
+    <value>toolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miExit.Name" xml:space="preserve">
+    <value>miExit</value>
+  </data>
+  <data name="&gt;&gt;miExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miRestart.Name" xml:space="preserve">
+    <value>miRestart</value>
+  </data>
+  <data name="&gt;&gt;miRestart.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miSwitchOff.Name" xml:space="preserve">
+    <value>miSwitchOff</value>
+  </data>
+  <data name="&gt;&gt;miSwitchOff.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miUser.Name" xml:space="preserve">
+    <value>miUser</value>
+  </data>
+  <data name="&gt;&gt;miUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miUserList.Name" xml:space="preserve">
+    <value>miUserList</value>
+  </data>
+  <data name="&gt;&gt;miUserList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem5.Name" xml:space="preserve">
+    <value>toolStripMenuItem5</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miLogIn.Name" xml:space="preserve">
+    <value>miLogIn</value>
+  </data>
+  <data name="&gt;&gt;miLogIn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miLogOut.Name" xml:space="preserve">
+    <value>miLogOut</value>
+  </data>
+  <data name="&gt;&gt;miLogOut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem3.Name" xml:space="preserve">
     <value>toolStripMenuItem3</value>
@@ -1702,28 +1393,340 @@
   <data name="&gt;&gt;toolStripMenuItem3.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;miNewUser.Name" xml:space="preserve">
+    <value>miNewUser</value>
+  </data>
+  <data name="&gt;&gt;miNewUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miEditUser.Name" xml:space="preserve">
+    <value>miEditUser</value>
+  </data>
+  <data name="&gt;&gt;miEditUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem8.Name" xml:space="preserve">
+    <value>toolStripMenuItem8</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miDeleteUser.Name" xml:space="preserve">
+    <value>miDeleteUser</value>
+  </data>
+  <data name="&gt;&gt;miDeleteUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miUndeleteUser.Name" xml:space="preserve">
+    <value>miUndeleteUser</value>
+  </data>
+  <data name="&gt;&gt;miUndeleteUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miWipeUser.Name" xml:space="preserve">
+    <value>miWipeUser</value>
+  </data>
+  <data name="&gt;&gt;miWipeUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem7.Name" xml:space="preserve">
+    <value>toolStripMenuItem7</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miPurgeUser.Name" xml:space="preserve">
+    <value>miPurgeUser</value>
+  </data>
+  <data name="&gt;&gt;miPurgeUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miTruncateUser.Name" xml:space="preserve">
+    <value>miTruncateUser</value>
+  </data>
+  <data name="&gt;&gt;miTruncateUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miPatient.Name" xml:space="preserve">
+    <value>miPatient</value>
+  </data>
+  <data name="&gt;&gt;miPatient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem9.Name" xml:space="preserve">
+    <value>toolStripMenuItem9</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miPatientList.Name" xml:space="preserve">
+    <value>miPatientList</value>
+  </data>
+  <data name="&gt;&gt;miPatientList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem10.Name" xml:space="preserve">
+    <value>toolStripMenuItem10</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miNewPatient.Name" xml:space="preserve">
+    <value>miNewPatient</value>
+  </data>
+  <data name="&gt;&gt;miNewPatient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miEditPatient.Name" xml:space="preserve">
+    <value>miEditPatient</value>
+  </data>
+  <data name="&gt;&gt;miEditPatient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem11.Name" xml:space="preserve">
+    <value>toolStripMenuItem11</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miDeletePatient.Name" xml:space="preserve">
+    <value>miDeletePatient</value>
+  </data>
+  <data name="&gt;&gt;miDeletePatient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miUndeletePatient.Name" xml:space="preserve">
+    <value>miUndeletePatient</value>
+  </data>
+  <data name="&gt;&gt;miUndeletePatient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miWipePatient.Name" xml:space="preserve">
+    <value>miWipePatient</value>
+  </data>
+  <data name="&gt;&gt;miWipePatient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem12.Name" xml:space="preserve">
+    <value>toolStripMenuItem12</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miPurgePatient.Name" xml:space="preserve">
+    <value>miPurgePatient</value>
+  </data>
+  <data name="&gt;&gt;miPurgePatient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miTruncatePatient.Name" xml:space="preserve">
+    <value>miTruncatePatient</value>
+  </data>
+  <data name="&gt;&gt;miTruncatePatient.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem13.Name" xml:space="preserve">
+    <value>toolStripMenuItem13</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miPatientProc.Name" xml:space="preserve">
+    <value>miPatientProc</value>
+  </data>
+  <data name="&gt;&gt;miPatientProc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miHIC.Name" xml:space="preserve">
+    <value>miHIC</value>
+  </data>
+  <data name="&gt;&gt;miHIC.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miSystem.Name" xml:space="preserve">
+    <value>miSystem</value>
+  </data>
+  <data name="&gt;&gt;miSystem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miBackupDatabase.Name" xml:space="preserve">
+    <value>miBackupDatabase</value>
+  </data>
+  <data name="&gt;&gt;miBackupDatabase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miRestoreDatabase.Name" xml:space="preserve">
+    <value>miRestoreDatabase</value>
+  </data>
+  <data name="&gt;&gt;miRestoreDatabase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miAdministration.Name" xml:space="preserve">
+    <value>miAdministration</value>
+  </data>
+  <data name="&gt;&gt;miAdministration.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miLog.Name" xml:space="preserve">
+    <value>miLog</value>
+  </data>
+  <data name="&gt;&gt;miLog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miConfigSetup.Name" xml:space="preserve">
+    <value>miConfigSetup</value>
+  </data>
+  <data name="&gt;&gt;miConfigSetup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem6.Name" xml:space="preserve">
+    <value>toolStripMenuItem6</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miUpgSegs.Name" xml:space="preserve">
+    <value>miUpgSegs</value>
+  </data>
+  <data name="&gt;&gt;miUpgSegs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miNewDatabase.Name" xml:space="preserve">
+    <value>miNewDatabase</value>
+  </data>
+  <data name="&gt;&gt;miNewDatabase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miCompactDatabase.Name" xml:space="preserve">
+    <value>miCompactDatabase</value>
+  </data>
+  <data name="&gt;&gt;miCompactDatabase.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miTheLog.Name" xml:space="preserve">
+    <value>miTheLog</value>
+  </data>
+  <data name="&gt;&gt;miTheLog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miClear.Name" xml:space="preserve">
+    <value>miClear</value>
+  </data>
+  <data name="&gt;&gt;miClear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miClearLogInformation.Name" xml:space="preserve">
+    <value>miClearLogInformation</value>
+  </data>
+  <data name="&gt;&gt;miClearLogInformation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miClearLogWarning.Name" xml:space="preserve">
+    <value>miClearLogWarning</value>
+  </data>
+  <data name="&gt;&gt;miClearLogWarning.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miClearLogError.Name" xml:space="preserve">
+    <value>miClearLogError</value>
+  </data>
+  <data name="&gt;&gt;miClearLogError.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miClearLogSelection.Name" xml:space="preserve">
+    <value>miClearLogSelection</value>
+  </data>
+  <data name="&gt;&gt;miClearLogSelection.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miClearLogAll.Name" xml:space="preserve">
+    <value>miClearLogAll</value>
+  </data>
+  <data name="&gt;&gt;miClearLogAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem4.Name" xml:space="preserve">
+    <value>toolStripMenuItem4</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miClosePanel.Name" xml:space="preserve">
+    <value>miClosePanel</value>
+  </data>
+  <data name="&gt;&gt;miClosePanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miLang.Name" xml:space="preserve">
+    <value>miLang</value>
+  </data>
+  <data name="&gt;&gt;miLang.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miLangCS.Name" xml:space="preserve">
+    <value>miLangCS</value>
+  </data>
   <data name="&gt;&gt;miLangCS.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tbExit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;miLangEN.Name" xml:space="preserve">
+    <value>miLangEN</value>
   </data>
-  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>318, 6</value>
+  <data name="&gt;&gt;miLangEN.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="ssMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>126, 17</value>
-  </metadata>
-  <metadata name="msMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="tsMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>236, 17</value>
-  </metadata>
+  <data name="&gt;&gt;miLangRU.Name" xml:space="preserve">
+    <value>miLangRU</value>
+  </data>
+  <data name="&gt;&gt;miLangRU.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miDBRestore.Name" xml:space="preserve">
+    <value>miDBRestore</value>
+  </data>
+  <data name="&gt;&gt;miDBRestore.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;restoreFromThisBackupToolStripMenuItem.Name" xml:space="preserve">
+    <value>restoreFromThisBackupToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;restoreFromThisBackupToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;makeNewBackupToolStripMenuItem.Name" xml:space="preserve">
+    <value>makeNewBackupToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;makeNewBackupToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;deleteBackupToolStripMenuItem.Name" xml:space="preserve">
+    <value>deleteBackupToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;deleteBackupToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
+    <value>toolStripMenuItem2</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;closeToolStripMenuItem.Name" xml:space="preserve">
+    <value>closeToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;closeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;miProcedure.Name" xml:space="preserve">
+    <value>miProcedure</value>
+  </data>
+  <data name="&gt;&gt;miProcedure.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>wMain</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

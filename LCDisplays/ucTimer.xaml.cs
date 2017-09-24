@@ -21,7 +21,7 @@ namespace WpfUC
     public partial class ucTimer : UserControl
     {
         #region On
-        private bool on = false;
+        private bool on = true;
         public bool On
         {
             get { return on; }
@@ -30,7 +30,12 @@ namespace WpfUC
                 if(on != value)
                 {
                     on = DH.On = JH.On = DS.On = JS.On = value;
-                    if(!on) Value = 0;
+                    if(!on)
+                    {
+                        dot1.Fill = dot2.Fill = Brushes.Black;
+                        Value = 0;
+                    }
+                    else dot1.Fill = dot2.Fill = Brushes.White;
                 }
             }
         }

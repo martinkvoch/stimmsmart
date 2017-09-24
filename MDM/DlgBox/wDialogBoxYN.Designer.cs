@@ -40,20 +40,26 @@
             // 
             // btnYes
             // 
+            this.btnYes.BackColor = System.Drawing.Color.YellowGreen;
             this.btnYes.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnYes.Image = global::MDM.Properties.Resources.yes;
+            this.btnYes.FlatAppearance.BorderSize = 0;
+            this.btnYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             resources.ApplyResources(this.btnYes, "btnYes");
+            this.btnYes.Image = global::MDM.Properties.Resources.yes;
             this.btnYes.Name = "btnYes";
-            this.btnYes.UseVisualStyleBackColor = true;
+            this.btnYes.UseVisualStyleBackColor = false;
             this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // btnNo
             // 
+            this.btnNo.BackColor = System.Drawing.Color.Salmon;
             this.btnNo.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.btnNo.Image = global::MDM.Properties.Resources.no;
+            this.btnNo.FlatAppearance.BorderSize = 0;
+            this.btnNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             resources.ApplyResources(this.btnNo, "btnNo");
+            this.btnNo.Image = global::MDM.Properties.Resources.no;
             this.btnNo.Name = "btnNo";
-            this.btnNo.UseVisualStyleBackColor = true;
+            this.btnNo.UseVisualStyleBackColor = false;
             this.btnNo.Click += new System.EventHandler(this.btnNo_Click);
             // 
             // panel1

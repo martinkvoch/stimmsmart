@@ -83,10 +83,13 @@
             // 
             // cbEmptyPsw
             // 
-            this.cbEmptyPsw.Image = global::MDM.Properties.Resources.pswempty;
+            this.cbEmptyPsw.BackColor = System.Drawing.Color.SandyBrown;
+            this.cbEmptyPsw.FlatAppearance.BorderSize = 0;
+            this.cbEmptyPsw.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             resources.ApplyResources(this.cbEmptyPsw, "cbEmptyPsw");
+            this.cbEmptyPsw.Image = global::MDM.Properties.Resources.pswempty;
             this.cbEmptyPsw.Name = "cbEmptyPsw";
-            this.cbEmptyPsw.UseVisualStyleBackColor = true;
+            this.cbEmptyPsw.UseVisualStyleBackColor = false;
             this.cbEmptyPsw.Click += new System.EventHandler(this.cbEmptyPsw_Click);
             // 
             // lbPswMatch
@@ -151,19 +154,25 @@
             // 
             // cbSave
             // 
+            this.cbSave.BackColor = System.Drawing.Color.YellowGreen;
             this.cbSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.cbSave.Image = global::MDM.Properties.Resources.savedatabase;
+            this.cbSave.FlatAppearance.BorderSize = 0;
+            this.cbSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             resources.ApplyResources(this.cbSave, "cbSave");
+            this.cbSave.Image = global::MDM.Properties.Resources.savedatabase;
             this.cbSave.Name = "cbSave";
-            this.cbSave.UseVisualStyleBackColor = true;
+            this.cbSave.UseVisualStyleBackColor = false;
             // 
             // cbCancel
             // 
+            this.cbCancel.BackColor = System.Drawing.Color.Salmon;
             this.cbCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cbCancel.Image = global::MDM.Properties.Resources.no;
+            this.cbCancel.FlatAppearance.BorderSize = 0;
+            this.cbCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             resources.ApplyResources(this.cbCancel, "cbCancel");
+            this.cbCancel.Image = global::MDM.Properties.Resources.no;
             this.cbCancel.Name = "cbCancel";
-            this.cbCancel.UseVisualStyleBackColor = true;
+            this.cbCancel.UseVisualStyleBackColor = false;
             // 
             // wUser
             // 

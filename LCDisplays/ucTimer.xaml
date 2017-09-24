@@ -21,8 +21,8 @@
             <local:ucDigit x:Name="DH" Margin="0,0,16,0" x:FieldModifier="private"/>
             <local:ucDigit x:Name="JH" Grid.Column="1" Margin="0,0,0,0" x:FieldModifier="private"/>
             <StackPanel Grid.Column="2" Opacity=".6">
-                <Ellipse Width="48" Height="40" Fill="Black" Margin="0,80,0,70"/>
-                <Ellipse Width="48" Height="40" Fill="Black"/>
+                <Ellipse x:Name="dot1" Width="48" Height="48" Fill="Black" Margin="0,80,0,70"/>
+                <Ellipse x:Name="dot2" Width="48" Height="48" Fill="Black"/>
             </StackPanel>
             <local:ucDigit x:Name="DS" Grid.Column="3" Margin="0,0,16,0" x:FieldModifier="private"/>
             <local:ucDigit x:Name="JS" Grid.Column="4" Margin="0,0,16,0" x:FieldModifier="private"/>

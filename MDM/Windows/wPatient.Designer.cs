@@ -75,93 +75,86 @@
             // 
             // cbCancel
             // 
-            resources.ApplyResources(this.cbCancel, "cbCancel");
+            this.cbCancel.BackColor = System.Drawing.Color.Salmon;
             this.cbCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cbCancel.FlatAppearance.BorderSize = 0;
+            this.cbCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            resources.ApplyResources(this.cbCancel, "cbCancel");
             this.cbCancel.Image = global::MDM.Properties.Resources.no;
             this.cbCancel.Name = "cbCancel";
-            this.toolTip.SetToolTip(this.cbCancel, resources.GetString("cbCancel.ToolTip"));
-            this.cbCancel.UseVisualStyleBackColor = true;
+            this.cbCancel.UseVisualStyleBackColor = false;
             // 
             // cbSave
             // 
-            resources.ApplyResources(this.cbSave, "cbSave");
+            this.cbSave.BackColor = System.Drawing.Color.YellowGreen;
             this.cbSave.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.cbSave.FlatAppearance.BorderSize = 0;
+            this.cbSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            resources.ApplyResources(this.cbSave, "cbSave");
             this.cbSave.Image = global::MDM.Properties.Resources.savedatabase;
             this.cbSave.Name = "cbSave";
-            this.toolTip.SetToolTip(this.cbSave, resources.GetString("cbSave.ToolTip"));
-            this.cbSave.UseVisualStyleBackColor = true;
+            this.cbSave.UseVisualStyleBackColor = false;
             // 
             // txtFName
             // 
             resources.ApplyResources(this.txtFName, "txtFName");
             this.txtFName.Name = "txtFName";
-            this.toolTip.SetToolTip(this.txtFName, resources.GetString("txtFName.ToolTip"));
             // 
             // lbID
             // 
-            resources.ApplyResources(this.lbID, "lbID");
             this.lbID.BackColor = System.Drawing.SystemColors.Window;
             this.lbID.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            resources.ApplyResources(this.lbID, "lbID");
             this.lbID.Name = "lbID";
-            this.toolTip.SetToolTip(this.lbID, resources.GetString("lbID.ToolTip"));
             // 
             // txtMName
             // 
             resources.ApplyResources(this.txtMName, "txtMName");
             this.txtMName.Name = "txtMName";
-            this.toolTip.SetToolTip(this.txtMName, resources.GetString("txtMName.ToolTip"));
             // 
             // txtLName
             // 
             resources.ApplyResources(this.txtLName, "txtLName");
             this.txtLName.Name = "txtLName";
-            this.toolTip.SetToolTip(this.txtLName, resources.GetString("txtLName.ToolTip"));
             // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.toolTip.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.toolTip.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             // 
             // label3
             // 
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.toolTip.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.toolTip.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
             // 
             // dtpBirthDate
             // 
-            resources.ApplyResources(this.dtpBirthDate, "dtpBirthDate");
             this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            resources.ApplyResources(this.dtpBirthDate, "dtpBirthDate");
             this.dtpBirthDate.Name = "dtpBirthDate";
-            this.toolTip.SetToolTip(this.dtpBirthDate, resources.GetString("dtpBirthDate.ToolTip"));
             // 
             // gbSex
             // 
-            resources.ApplyResources(this.gbSex, "gbSex");
             this.gbSex.Controls.Add(this.rbFemale);
             this.gbSex.Controls.Add(this.rbMale);
+            resources.ApplyResources(this.gbSex, "gbSex");
             this.gbSex.Name = "gbSex";
             this.gbSex.TabStop = false;
-            this.toolTip.SetToolTip(this.gbSex, resources.GetString("gbSex.ToolTip"));
             // 
             // rbFemale
             // 
             resources.ApplyResources(this.rbFemale, "rbFemale");
             this.rbFemale.Name = "rbFemale";
-            this.toolTip.SetToolTip(this.rbFemale, resources.GetString("rbFemale.ToolTip"));
             this.rbFemale.UseVisualStyleBackColor = true;
             // 
             // rbMale
@@ -170,98 +163,82 @@
             this.rbMale.Checked = true;
             this.rbMale.Name = "rbMale";
             this.rbMale.TabStop = true;
-            this.toolTip.SetToolTip(this.rbMale, resources.GetString("rbMale.ToolTip"));
             this.rbMale.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.toolTip.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // txtAddr
             // 
             resources.ApplyResources(this.txtAddr, "txtAddr");
             this.txtAddr.Name = "txtAddr";
-            this.toolTip.SetToolTip(this.txtAddr, resources.GetString("txtAddr.ToolTip"));
             // 
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.toolTip.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
             // 
             // txtCity
             // 
             resources.ApplyResources(this.txtCity, "txtCity");
             this.txtCity.Name = "txtCity";
-            this.toolTip.SetToolTip(this.txtCity, resources.GetString("txtCity.ToolTip"));
             // 
             // label7
             // 
             resources.ApplyResources(this.label7, "label7");
             this.label7.Name = "label7";
-            this.toolTip.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
             // 
             // txtZip
             // 
             resources.ApplyResources(this.txtZip, "txtZip");
             this.txtZip.Name = "txtZip";
-            this.toolTip.SetToolTip(this.txtZip, resources.GetString("txtZip.ToolTip"));
             // 
             // label8
             // 
             resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
-            this.toolTip.SetToolTip(this.label8, resources.GetString("label8.ToolTip"));
             // 
             // txtCountry
             // 
             resources.ApplyResources(this.txtCountry, "txtCountry");
             this.txtCountry.Name = "txtCountry";
-            this.toolTip.SetToolTip(this.txtCountry, resources.GetString("txtCountry.ToolTip"));
             // 
             // label9
             // 
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
-            this.toolTip.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
             // 
             // txtPhone
             // 
             resources.ApplyResources(this.txtPhone, "txtPhone");
             this.txtPhone.Name = "txtPhone";
-            this.toolTip.SetToolTip(this.txtPhone, resources.GetString("txtPhone.ToolTip"));
             // 
             // label10
             // 
             resources.ApplyResources(this.label10, "label10");
             this.label10.Name = "label10";
-            this.toolTip.SetToolTip(this.label10, resources.GetString("label10.ToolTip"));
             // 
             // txtMedRec
             // 
             resources.ApplyResources(this.txtMedRec, "txtMedRec");
             this.txtMedRec.Name = "txtMedRec";
-            this.toolTip.SetToolTip(this.txtMedRec, resources.GetString("txtMedRec.ToolTip"));
             // 
             // label11
             // 
             resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
-            this.toolTip.SetToolTip(this.label11, resources.GetString("label11.ToolTip"));
             // 
             // txtDiagnosis
             // 
             resources.ApplyResources(this.txtDiagnosis, "txtDiagnosis");
             this.txtDiagnosis.Name = "txtDiagnosis";
-            this.toolTip.SetToolTip(this.txtDiagnosis, resources.GetString("txtDiagnosis.ToolTip"));
             // 
             // label12
             // 
             resources.ApplyResources(this.label12, "label12");
             this.label12.Name = "label12";
-            this.toolTip.SetToolTip(this.label12, resources.GetString("label12.ToolTip"));
             // 
             // cbDiagnosis
             // 
@@ -275,23 +252,20 @@
             // 
             resources.ApplyResources(this.label13, "label13");
             this.label13.Name = "label13";
-            this.toolTip.SetToolTip(this.label13, resources.GetString("label13.ToolTip"));
             // 
             // gbSomatotype
             // 
-            resources.ApplyResources(this.gbSomatotype, "gbSomatotype");
             this.gbSomatotype.Controls.Add(this.rbHypotype);
             this.gbSomatotype.Controls.Add(this.rbNormotype);
             this.gbSomatotype.Controls.Add(this.rbHyperergic);
+            resources.ApplyResources(this.gbSomatotype, "gbSomatotype");
             this.gbSomatotype.Name = "gbSomatotype";
             this.gbSomatotype.TabStop = false;
-            this.toolTip.SetToolTip(this.gbSomatotype, resources.GetString("gbSomatotype.ToolTip"));
             // 
             // rbHypotype
             // 
             resources.ApplyResources(this.rbHypotype, "rbHypotype");
             this.rbHypotype.Name = "rbHypotype";
-            this.toolTip.SetToolTip(this.rbHypotype, resources.GetString("rbHypotype.ToolTip"));
             this.rbHypotype.UseVisualStyleBackColor = true;
             this.rbHypotype.Click += new System.EventHandler(this.somtype_Click);
             // 
@@ -301,7 +275,6 @@
             this.rbNormotype.Checked = true;
             this.rbNormotype.Name = "rbNormotype";
             this.rbNormotype.TabStop = true;
-            this.toolTip.SetToolTip(this.rbNormotype, resources.GetString("rbNormotype.ToolTip"));
             this.rbNormotype.UseVisualStyleBackColor = true;
             this.rbNormotype.Click += new System.EventHandler(this.somtype_Click);
             // 
@@ -309,7 +282,6 @@
             // 
             resources.ApplyResources(this.rbHyperergic, "rbHyperergic");
             this.rbHyperergic.Name = "rbHyperergic";
-            this.toolTip.SetToolTip(this.rbHyperergic, resources.GetString("rbHyperergic.ToolTip"));
             this.rbHyperergic.UseVisualStyleBackColor = true;
             this.rbHyperergic.Click += new System.EventHandler(this.somtype_Click);
             // 
@@ -319,21 +291,18 @@
             this.txtNote.HideSelection = false;
             this.txtNote.Name = "txtNote";
             this.txtNote.ShowSelectionMargin = true;
-            this.toolTip.SetToolTip(this.txtNote, resources.GetString("txtNote.ToolTip"));
             // 
             // label14
             // 
             resources.ApplyResources(this.label14, "label14");
             this.label14.Name = "label14";
-            this.toolTip.SetToolTip(this.label14, resources.GetString("label14.ToolTip"));
             // 
             // cbxHIC
             // 
-            resources.ApplyResources(this.cbxHIC, "cbxHIC");
             this.cbxHIC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxHIC.FormattingEnabled = true;
+            resources.ApplyResources(this.cbxHIC, "cbxHIC");
             this.cbxHIC.Name = "cbxHIC";
-            this.toolTip.SetToolTip(this.cbxHIC, resources.GetString("cbxHIC.ToolTip"));
             this.cbxHIC.SelectedIndexChanged += new System.EventHandler(this.cbxHIC_SelectedIndexChanged);
             // 
             // wPatient
@@ -381,7 +350,6 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.toolTip.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.wPatient_FormClosing);
             this.gbSex.ResumeLayout(false);

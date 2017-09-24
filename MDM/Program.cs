@@ -197,7 +197,7 @@ namespace MDM
 
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
             Application.CurrentCulture = new CultureInfo(settings.lang);
-            Application.EnableVisualStyles();
+            //Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Language = settings.lang;
             SetLanguage();

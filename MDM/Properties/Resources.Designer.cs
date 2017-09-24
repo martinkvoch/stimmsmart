@@ -670,6 +670,16 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap erase1 {
+            get {
+                object obj = ResourceManager.GetObject("erase1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error {0} while executing {1}.
         /// </summary>
         public static string errExecCmd {
@@ -1613,66 +1623,6 @@ namespace MDM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap program_stimsmart_error {
-            get {
-                object obj = ResourceManager.GetObject("program stimsmart error", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap program_stimsmart_kanal_pripraven_ {
-            get {
-                object obj = ResourceManager.GetObject("program stimsmart kanal pripraven ", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap program_stimsmart_nastavte_proud {
-            get {
-                object obj = ResourceManager.GetObject("program stimsmart nastavte proud", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap program_stimsmart_probiha_procedura {
-            get {
-                object obj = ResourceManager.GetObject("program stimsmart probiha procedura", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap program_stimsmart_ready {
-            get {
-                object obj = ResourceManager.GetObject("program stimsmart ready", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap program_stimsmart_vysoky_odpor {
-            get {
-                object obj = ResourceManager.GetObject("program stimsmart vysoky odpor", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap pswempty {
             get {
                 object obj = ResourceManager.GetObject("pswempty", resourceCulture);
@@ -1973,6 +1923,66 @@ namespace MDM.Properties {
         public static string startup {
             get {
                 return ResourceManager.GetString("startup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap stimsmart_error {
+            get {
+                object obj = ResourceManager.GetObject("stimsmart_error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap stimsmart_kanal_pripraven {
+            get {
+                object obj = ResourceManager.GetObject("stimsmart_kanal_pripraven", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap stimsmart_nastavte_proud {
+            get {
+                object obj = ResourceManager.GetObject("stimsmart_nastavte_proud", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap stimsmart_probiha_procedura {
+            get {
+                object obj = ResourceManager.GetObject("stimsmart_probiha_procedura", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap stimsmart_ready {
+            get {
+                object obj = ResourceManager.GetObject("stimsmart_ready", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap stimsmart_vysoky_odpor {
+            get {
+                object obj = ResourceManager.GetObject("stimsmart_vysoky_odpor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

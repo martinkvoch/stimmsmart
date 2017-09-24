@@ -47,7 +47,7 @@ namespace MDM.Controls
     {
         internal const int NoSelection = -1;
         private word procDuration = (word)new Settings().ProcDur;
-        private string chNumTxt, elapsedTxt;
+        //private string chNumTxt, elapsedTxt;
         private double current = 0D;
         private BackgroundWorker chWorker = new BackgroundWorker();
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
@@ -255,21 +255,21 @@ namespace MDM.Controls
         public Channel(byte chnum, Channels parent)
         {
             InitializeComponent();
-            tbCurrent.Size = new Size(42, 226);
+            //tbCurrent.Size = new Size(38, 121);
             tbCurrent.Enabled = false;
             chNum = chnum;
             Channels = parent;
-            chNumTxt = groupBox1.Text;
-            elapsedTxt = lbElapsed.Text;
+            //chNumTxt = groupBox1.Text;
+            //elapsedTxt = lbElapsed.Text;
             FontHeight = Width < 240 ? 8 : 10;
-            Channel_FontChanged(null, null);
+            //Channel_FontChanged(null, null);
             pbProgress.Maximum = procDuration;
             chWorker.WorkerSupportsCancellation = true;
             chWorker.DoWork += chWorker_DoWork;
             timer.Interval = 1000;
             timer.Tick += timerTick;
             Led.Blink(0);
-            groupBox1.Text = string.Format(chNumTxt, chNum);
+            //groupBox1.Text = string.Format(chNumTxt, chNum);
             cbPatSelect.Text = string.Format("&{0}", chNum);
             pbProgress.Value = 0;
         }
@@ -472,7 +472,9 @@ namespace MDM.Controls
             cbSetCurrent.Enabled = cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = tbCurrent.Enabled = cbPatSelect.Enabled = false;
             timer.Stop();
             Patient = new SelectedPatient();
-            lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
+            //lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
+            cbStart.Visible = true;
+            cbCurrMinus.Visible = cbCurrPlus.Visible = false;
             cbPause.Text = Resources.cbPauseText;
             cbPause.Image = Resources.pause;
             cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Bold);
@@ -501,8 +503,8 @@ namespace MDM.Controls
         {
             reset();
             lbStatus.Text = Resources.chInactive;
-            lbStatus.ForeColor = SystemColors.ActiveCaptionText;
-            lbStatus.BackColor = SystemColors.Window;
+            lbStatus.ForeColor = Color.White;// SystemColors.ActiveCaptionText;
+            lbStatus.BackColor = Color.Goldenrod;// SystemColors.Window;
             cbPatSelect.Enabled = true;
         }
 #endregion
@@ -515,8 +517,8 @@ namespace MDM.Controls
         {
             cbPatSelect.Enabled = cbStop.Enabled = true;
             cbStart.Enabled = false;
-            pbStatus.Image = Resources.program_stimsmart_vysoky_odpor;
-            lbPatName.ForeColor = lbDiagnosis.ForeColor = lbProcNum.ForeColor = SystemColors.ActiveCaptionText;
+            pbStatus.Image = Resources.stimsmart_vysoky_odpor;
+            //lbPatName.ForeColor = lbDiagnosis.ForeColor = lbProcNum.ForeColor = SystemColors.ActiveCaptionText;
             lbStatus.Text = Resources.chActive;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
@@ -549,7 +551,7 @@ namespace MDM.Controls
             {
                 cbPatSelect.Enabled = true;
                 cbStart.Enabled = true;
-                pbStatus.Image = Resources.program_stimsmart_kanal_pripraven_;
+                pbStatus.Image = Resources.stimsmart_kanal_pripraven;
                 lbStatus.Text = Resources.chReady;
                 lbStatus.ForeColor = Color.White;
                 lbStatus.BackColor = Color.Green;
@@ -571,8 +573,8 @@ namespace MDM.Controls
             cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Regular);
             cbPause.Text = Resources.cbPauseText;
             cbPause.Image = Resources.pause;
-            lbPatName.ForeColor = lbDiagnosis.ForeColor = lbProcNum.ForeColor = lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
-            pbStatus.Image = Resources.program_stimsmart_probiha_procedura;
+            //lbPatName.ForeColor = lbDiagnosis.ForeColor = lbProcNum.ForeColor = lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
+            pbStatus.Image = Resources.stimsmart_probiha_procedura;
             lbStatus.Text = Resources.chInProgress;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
@@ -604,11 +606,11 @@ namespace MDM.Controls
             cbPause.Enabled = false;
             tbCurrent.Enabled = true;
             tbCurrent.Focus();
-            lbCurrent.ForeColor = SystemColors.ActiveCaptionText;
-            pbStatus.Image = Resources.program_stimsmart_nastavte_proud;
+            //lbCurrent.ForeColor = SystemColors.ActiveCaptionText;
+            pbStatus.Image = Resources.stimsmart_nastavte_proud;
             lbStatus.Text = Resources.chSetCurrent;
             lbStatus.ForeColor = Color.White;
-            lbStatus.BackColor = Color.OrangeRed;
+            lbStatus.BackColor = Color.RoyalBlue;
         }
 #endregion
 
@@ -621,7 +623,7 @@ namespace MDM.Controls
         {
             paused();
             cbPause.Enabled = false;
-            pbStatus.Image = Resources.program_stimsmart_vysoky_odpor;
+            pbStatus.Image = Resources.stimsmart_vysoky_odpor;
             lbStatus.Text = Resources.chHighResistance;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
@@ -687,7 +689,7 @@ namespace MDM.Controls
             if(chWorker.IsBusy) chWorker.CancelAsync();
             cbSetCurrent.Enabled = cbStart.Enabled = cbPause.Enabled = cbStop.Enabled = tbCurrent.Enabled = cbPatSelect.Enabled = false;
             timer.Stop();
-            lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
+            //lbCurrent.ForeColor = SystemColors.InactiveCaptionText;
             Current = 0D;
             pbProgress.Value = tbCurrent.Value = 0;
             Elapsed = 0;
@@ -768,6 +770,7 @@ namespace MDM.Controls
             }
             e.Cancel = true;
         }
+
         private void cbPatSelect_Click(object sender, EventArgs e)
         {
             using(wPatSelect frm = new wPatSelect())
@@ -789,18 +792,25 @@ namespace MDM.Controls
 
         private void cbSetCurrent_EnabledChanged(object sender, EventArgs e)
         {
-            lbCurrent.ForeColor = cbSetCurrent.Enabled ? SystemColors.ActiveCaptionText : SystemColors.InactiveCaptionText;
+            //lbCurrent.ForeColor = cbSetCurrent.Enabled ? SystemColors.ActiveCaptionText : SystemColors.InactiveCaptionText;
             tbCurrent.Enabled = cbSetCurrent.Enabled;
         }
 
 
         private void cbSetCurrent_Click(object sender, EventArgs e)
         {
-            if(Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) Status = ChannelStatus.SetCurrent;
+            if(Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored)
+            {
+                cbStart.Visible = false;
+                cbCurrMinus.Visible = cbCurrPlus.Visible = true;
+                Status = ChannelStatus.SetCurrent;
+            }
             else if(Status == ChannelStatus.SetCurrent)
             {
+                cbStart.Visible = true;
+                cbCurrMinus.Visible = cbCurrPlus.Visible = false;
                 //Current = Math.Round(tbCurrent.Value * (maxmA / tbCurrent.Maximum), 2);
-                Current = Math.Round((double)tbCurrent.Value * curstep, 2);
+                Current = Math.Round(tbCurrent.Value * curstep, 2);
                 Status = oldStatus;
             }
         }
@@ -854,24 +864,49 @@ namespace MDM.Controls
             foreach(Control c in Controls) c.Font = Font;
         }
 
-        private void tbCurrent_EnabledChanged(object sender, EventArgs e)
+        private void Channel_SizeChanged(object sender, EventArgs e)
         {
-            tbCurrent.TickColor = tbCurrent.TrackerColor = tbCurrent.TrackLineColor = tbCurrent.Enabled ? Color.Indigo : SystemColors.Control;
+            cbPause.Width = cbStop.Width = cbCurrMinus.Width = cbCurrPlus.Width = (cbSetCurrent.Width - 4) / 2;
+            cbStop.Left = cbCurrPlus.Left = cbPause.Right + 4;
+            tbCurrent.Location = new Point(lbCurrent.Left, cbSetCurrent.Top);
         }
 
-        private void tbCurrent_MouseDown(object sender, MouseEventArgs e)
+        private void cbCurrMinus_Click(object sender, EventArgs e)
         {
-            cbSetCurrent.PerformClick();
+            tbCurrent.Value--;
         }
 
-        private void tbCurrent_ValueChanged(object sender, decimal value)
+        private void cbCurrPlus_Click(object sender, EventArgs e)
         {
-            if(value > byte.MaxValue) value = byte.MaxValue;
-            if(value < byte.MinValue) value = byte.MinValue;
+            tbCurrent.Value++;
+        }
+
+        //private void tbCurrent_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if(e.KeyCode == Keys.Up) tbCurrent.Value++;
+        //    else if(e.KeyCode == Keys.Down) tbCurrent.Value--;
+        //}
+
+        //private void tbCurrent_EnabledChanged(object sender, EventArgs e)
+        //{
+        //    //tbCurrent.TickColor = tbCurrent.TrackerColor = tbCurrent.TrackLineColor = tbCurrent.Enabled ? Color.Indigo : SystemColors.Control;
+        //}
+
+        //private void tbCurrent_MouseDown(object sender, MouseEventArgs e)
+        //{
+        //    cbSetCurrent.PerformClick();
+        //}
+
+        private void tbCurrent_ValueChanged(object sender, EventArgs e)
+        {
+            //int value = tbCurrent.Value;
+
+            //if(value > byte.MaxValue) value = byte.MaxValue;
+            //if(value < byte.MinValue) value = byte.MinValue;
             //_current = Math.Round((double)value * curstep, 2);
             //lbCurrent.Text = _current.ToString("F2");// + " mA";
-            lbCurrent.Text = Math.Round((double)value * curstep, 2).ToString("F2");// + " mA";
-            if(Status == ChannelStatus.SetCurrent) toBeSet = (byte)value;
+            lbCurrent.Text = Math.Round(tbCurrent.Value * curstep, 2).ToString("F2");// + " mA";
+            if(Status == ChannelStatus.SetCurrent) toBeSet = (byte)tbCurrent.Value;
         }
 #endregion
     }
