@@ -277,7 +277,7 @@ namespace MDM.Windows
         private void applyRole(UserRole role)
         {
             miPatient.Visible = (role != UserRole.NotLogged);
-            miUser.Visible = miSystem.Visible = toolStripMenuItem9.Visible = miHIC.Visible = (role != UserRole.NotLogged && role != UserRole.User);
+            miUser.Visible = miSystem.Visible = toolStripMenuItem9.Visible = /*miHIC.Visible =*/ (role != UserRole.NotLogged && role != UserRole.User);
             toolStripMenuItem11.Visible = toolStripMenuItem12.Visible = toolStripMenuItem13.Visible = miDeletePatient.Visible = miUndeletePatient.Visible = miWipePatient.Visible = miPurgePatient.Visible = miTruncatePatient.Visible = (role != UserRole.NotLogged && role != UserRole.User);
             miAdministration.Visible = (role == UserRole.SuperAdmin);
             if(panMain != null && panMain.Channels != null) panMain.Channels.SetMonitor(role);
@@ -318,6 +318,8 @@ namespace MDM.Windows
                 miLogOut.Enabled = tbLogout.Enabled = tbProcedures.Enabled = tbPatList.Enabled = true;
                 panMain.Enabled = true;
                 applyRole(Program.LoggedUser.Role);
+                if(Program.LoggedUser.Role == UserRole.SuperAdmin && Database.GetFlashDrive() == Database.NulDrive)
+                    DialogBox.ShowWarn("Zálohovací médium nebylo nalezeno!", "Varování");
             }
             else signOutUser();
         }

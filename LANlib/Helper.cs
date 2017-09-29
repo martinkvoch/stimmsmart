@@ -183,6 +183,12 @@ namespace LANlib
             //Console.Beep();
             Console.Beep(C4, 1500);
         }
+
+        public static void Beep(int duration)
+        {
+            //Console.Beep();
+            Console.Beep(C4, duration);
+        }
     }
     #endregion
 }

@@ -1929,16 +1929,6 @@ namespace MDM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap stimsmart_error {
-            get {
-                object obj = ResourceManager.GetObject("stimsmart_error", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap stimsmart_kanal_pripraven {
             get {
                 object obj = ResourceManager.GetObject("stimsmart_kanal_pripraven", resourceCulture);
@@ -1962,16 +1952,6 @@ namespace MDM.Properties {
         public static System.Drawing.Bitmap stimsmart_probiha_procedura {
             get {
                 object obj = ResourceManager.GetObject("stimsmart_probiha_procedura", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap stimsmart_ready {
-            get {
-                object obj = ResourceManager.GetObject("stimsmart_ready", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

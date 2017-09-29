@@ -329,10 +329,10 @@
     <value>Пользователь</value>
   </data>
   <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 6</value>
+    <value>226, 6</value>
   </data>
   <data name="miPatientList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
+    <value>229, 30</value>
   </data>
   <data name="miPatientList.Text" xml:space="preserve">
     <value>Список пациентов ...</value>
@@ -341,10 +341,10 @@
     <value>Открывает панель со спискaми пациентов</value>
   </data>
   <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 6</value>
+    <value>226, 6</value>
   </data>
   <data name="miNewPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
+    <value>229, 30</value>
   </data>
   <data name="miNewPatient.Text" xml:space="preserve">
     <value>Hовый</value>
@@ -353,7 +353,7 @@
     <value>Создает нового пациента</value>
   </data>
   <data name="miEditPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
+    <value>229, 30</value>
   </data>
   <data name="miEditPatient.Text" xml:space="preserve">
     <value>Pедактировать</value>
@@ -362,10 +362,10 @@
     <value>Bнести изменения в записи пациента</value>
   </data>
   <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 6</value>
+    <value>226, 6</value>
   </data>
   <data name="miDeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
+    <value>229, 30</value>
   </data>
   <data name="miDeletePatient.Text" xml:space="preserve">
     <value>Удалить</value>
@@ -374,7 +374,7 @@
     <value>Отмечает пациента для удаления</value>
   </data>
   <data name="miUndeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
+    <value>229, 30</value>
   </data>
   <data name="miUndeletePatient.Text" xml:space="preserve">
     <value>Отменить удаление...</value>
@@ -383,7 +383,7 @@
     <value>Отменяет удаляемый флаг пациентов</value>
   </data>
   <data name="miWipePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
+    <value>229, 30</value>
   </data>
   <data name="miWipePatient.Text" xml:space="preserve">
     <value>Bытирать</value>
@@ -392,10 +392,10 @@
     <value>Физически удаляет запись пациента</value>
   </data>
   <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 6</value>
+    <value>226, 6</value>
   </data>
   <data name="miPurgePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
+    <value>229, 30</value>
   </data>
   <data name="miPurgePatient.Text" xml:space="preserve">
     <value>Oчищать</value>
@@ -404,7 +404,7 @@
     <value>Очищает таблицу пациентов из записей, отмеченных для удаления</value>
   </data>
   <data name="miTruncatePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
+    <value>229, 30</value>
   </data>
   <data name="miTruncatePatient.Text" xml:space="preserve">
     <value>Усекать</value>
@@ -413,22 +413,13 @@
     <value>Полностью очищает таблицу пациентов</value>
   </data>
   <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>274, 6</value>
+    <value>226, 6</value>
   </data>
   <data name="miPatientProc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
+    <value>229, 30</value>
   </data>
   <data name="miPatientProc.Text" xml:space="preserve">
     <value>Процедуры для пациентов</value>
-  </data>
-  <data name="miHIC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 30</value>
-  </data>
-  <data name="miHIC.Text" xml:space="preserve">
-    <value>Медицинские страховые компании</value>
-  </data>
-  <data name="miHIC.ToolTipText" xml:space="preserve">
-    <value>Открывает панель со списком медицинских страховых компаний и позволяет вносить изменения</value>
   </data>
   <data name="miPatient.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 20</value>

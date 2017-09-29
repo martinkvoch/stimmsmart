@@ -12,6 +12,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Channel));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbCurrent = new MDM.Controls.MDMTrackBar();
             this.lbCurrent = new System.Windows.Forms.Label();
             this.cbCurrPlus = new System.Windows.Forms.Button();
             this.cbCurrMinus = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.pbStatus = new System.Windows.Forms.PictureBox();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.ucMonitor = new WpfUC.ucMonitor();
-            this.tbCurrent = new MDM.Controls.MDMTrackBar();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -60,6 +60,15 @@
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
+            // 
+            // tbCurrent
+            // 
+            resources.ApplyResources(this.tbCurrent, "tbCurrent");
+            this.tbCurrent.BackColor = System.Drawing.Color.Gainsboro;
+            this.tbCurrent.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.tbCurrent.Name = "tbCurrent";
+            this.tbCurrent.ThumbColor = System.Drawing.Color.DarkMagenta;
+            this.tbCurrent.ValueChanged += new System.EventHandler(this.tbCurrent_ValueChanged);
             // 
             // lbCurrent
             // 
@@ -256,7 +265,7 @@
             // pbStatus
             // 
             resources.ApplyResources(this.pbStatus, "pbStatus");
-            this.pbStatus.Image = global::MDM.Properties.Resources.stimsmart_ready;
+            this.pbStatus.Image = global::MDM.Properties.Resources.stimsmart_kanal_pripraven;
             this.pbStatus.Name = "pbStatus";
             this.pbStatus.TabStop = false;
             // 
@@ -265,15 +274,6 @@
             resources.ApplyResources(this.elementHost1, "elementHost1");
             this.elementHost1.Name = "elementHost1";
             this.elementHost1.Child = this.ucMonitor;
-            // 
-            // tbCurrent
-            // 
-            resources.ApplyResources(this.tbCurrent, "tbCurrent");
-            this.tbCurrent.BackColor = System.Drawing.Color.Gainsboro;
-            this.tbCurrent.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.tbCurrent.Name = "tbCurrent";
-            this.tbCurrent.ThumbColor = System.Drawing.Color.DarkMagenta;
-            this.tbCurrent.ValueChanged += new System.EventHandler(this.tbCurrent_ValueChanged);
             // 
             // Channel
             // 

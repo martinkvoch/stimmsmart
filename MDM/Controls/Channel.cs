@@ -359,7 +359,7 @@ namespace MDM.Controls
             ucMonitor.Sweep = resp.InputR.Verified.T3Sweep;
             ucMonitor.ATC = (byte)resp.InputR.Verified.AttenCoef;
             ucMonitor.DAC = resp.InputR.Verified.DAC;
-            ucMonitor.DOUT = resp.InputR.Verified.DOUT.ByteValue;
+            ucMonitor.DeltaU = (byte)Math.Abs(resp.InputR.AIN2 - resp.InputR.AIN1);// resp.InputR.Verified.DOUT.ByteValue;
             ucMonitor.Status = resp.InputR.Status.Value;
             ucMonitor.Mode = (byte)resp.InputR.Verified.Mode;
             if(Status == ChannelStatus.Active || Status == ChannelStatus.Ready || Status == ChannelStatus.HighResistance)
@@ -427,7 +427,7 @@ namespace MDM.Controls
             ucMonitor.Sweep = Patient.Segments == null ? (word)0 : Patient.CurrSegment == 0 ? (word)0 : Patient.Segments[Patient.CurrSegment - 1].TSweep;
             ucMonitor.ATC = actCur;
             ucMonitor.DAC = (word)(InOrder ? 0x8000 : 0);
-            ucMonitor.DOUT = (byte)(InOrder ? 2 : 0);
+            ucMonitor.DeltaU = 0;
             ucMonitor.Status = 0;
             ucMonitor.Mode = (byte)(InOrder ? 2 : 0);
         }
@@ -547,6 +547,7 @@ namespace MDM.Controls
         /// </summary>
         private void preparedness()
         {
+            if(oldStatus == ChannelStatus.Active) Sound.Beep(700);
             if(Patient.ID > NoSelection)
             {
                 cbPatSelect.Enabled = true;
@@ -579,6 +580,7 @@ namespace MDM.Controls
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.Green;
             tbCurrent.Enabled = false;
+            if(oldStatus == ChannelStatus.HighResistance) Sound.Beep(700);
             if(oldStatus == ChannelStatus.Ready)
             {
                 patient.CurrSegment = 1;

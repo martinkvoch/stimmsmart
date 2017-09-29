@@ -329,10 +329,10 @@
     <value>Uživatel</value>
   </data>
   <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 6</value>
+    <value>181, 6</value>
   </data>
   <data name="miPatientList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 30</value>
+    <value>184, 30</value>
   </data>
   <data name="miPatientList.Text" xml:space="preserve">
     <value>Seznam...</value>
@@ -341,10 +341,10 @@
     <value>Otevře panel se seznamem pacientů</value>
   </data>
   <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 6</value>
+    <value>181, 6</value>
   </data>
   <data name="miNewPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 30</value>
+    <value>184, 30</value>
   </data>
   <data name="miNewPatient.Text" xml:space="preserve">
     <value>Nový</value>
@@ -353,7 +353,7 @@
     <value>Přidá nového pacienta</value>
   </data>
   <data name="miEditPatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 30</value>
+    <value>184, 30</value>
   </data>
   <data name="miEditPatient.Text" xml:space="preserve">
     <value>Upravit</value>
@@ -362,10 +362,10 @@
     <value>Upraví údaje o pacientovi</value>
   </data>
   <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 6</value>
+    <value>181, 6</value>
   </data>
   <data name="miDeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 30</value>
+    <value>184, 30</value>
   </data>
   <data name="miDeletePatient.Text" xml:space="preserve">
     <value>Smazat</value>
@@ -374,7 +374,7 @@
     <value>Označí záznam pacienta ke smazání</value>
   </data>
   <data name="miUndeletePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 30</value>
+    <value>184, 30</value>
   </data>
   <data name="miUndeletePatient.Text" xml:space="preserve">
     <value>Odmazat...</value>
@@ -383,7 +383,7 @@
     <value>Zruší označení záznamu pacienta ke zrušení</value>
   </data>
   <data name="miWipePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 30</value>
+    <value>184, 30</value>
   </data>
   <data name="miWipePatient.Text" xml:space="preserve">
     <value>Odstranit</value>
@@ -392,10 +392,10 @@
     <value>Fyzicky vymaže záznam pacienta</value>
   </data>
   <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 6</value>
+    <value>181, 6</value>
   </data>
   <data name="miPurgePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 30</value>
+    <value>184, 30</value>
   </data>
   <data name="miPurgePatient.Text" xml:space="preserve">
     <value>Vyčistit</value>
@@ -404,7 +404,7 @@
     <value>Vyčistí tabulku pacientů od záznamů označených ke zrušení</value>
   </data>
   <data name="miTruncatePatient.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 30</value>
+    <value>184, 30</value>
   </data>
   <data name="miTruncatePatient.Text" xml:space="preserve">
     <value>Vyprázdnit</value>
@@ -413,22 +413,13 @@
     <value>Kompletně vyprázdní tabulku pacientů</value>
   </data>
   <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>189, 6</value>
+    <value>181, 6</value>
   </data>
   <data name="miPatientProc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 30</value>
+    <value>184, 30</value>
   </data>
   <data name="miPatientProc.Text" xml:space="preserve">
     <value>Procedury pacienta</value>
-  </data>
-  <data name="miHIC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 30</value>
-  </data>
-  <data name="miHIC.Text" xml:space="preserve">
-    <value>Zdravotní pojišťovny</value>
-  </data>
-  <data name="miHIC.ToolTipText" xml:space="preserve">
-    <value>Otevře seznam zdravotních pojišťoven a umožní provádět v něm změny</value>
   </data>
   <data name="miPatient.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 20</value>
@@ -667,9 +658,5 @@
   </data>
   <data name="miProcedure.Text" xml:space="preserve">
     <value>Procedura</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>

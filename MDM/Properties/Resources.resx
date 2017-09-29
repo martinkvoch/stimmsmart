@@ -130,9 +130,6 @@
     <value>Stimsmart</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="stimsmart_ready" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\program stimsmart ready.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="savedatabase" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\savedatabase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -255,9 +252,6 @@
   </data>
   <data name="bckDataKO" xml:space="preserve">
     <value>Creating a backup copy of database failed.</value>
-  </data>
-  <data name="stimsmart_vysoky_odpor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\program stimsmart vysoky odpor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="signedOutUser" xml:space="preserve">
     <value>User {0} has signed out</value>
@@ -535,9 +529,6 @@
   <data name="procAbortH" xml:space="preserve">
     <value>Premature procedure termination</value>
   </data>
-  <data name="stimsmart_probiha_procedura" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\program stimsmart probiha procedura.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="noPatientHdr" xml:space="preserve">
     <value>No patients</value>
   </data>
@@ -658,9 +649,6 @@
   <data name="PatHdrPhone" xml:space="preserve">
     <value>Phone</value>
   </data>
-  <data name="stimsmart_nastavte_proud" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\program stimsmart nastavte proud.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ProcHdrDuration" xml:space="preserve">
     <value>Duration of the procedure</value>
   </data>
@@ -678,9 +666,6 @@
   </data>
   <data name="ProcHdrResult" xml:space="preserve">
     <value>Result of completation</value>
-  </data>
-  <data name="stimsmart_error" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\program stimsmart error.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="chError" xml:space="preserve">
     <value>An error occurred</value>
@@ -768,9 +753,6 @@
   </data>
   <data name="pswNotMatchMsg" xml:space="preserve">
     <value>* Passwords do not match *</value>
-  </data>
-  <data name="stimsmart_kanal_pripraven" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\program stimsmart kanal pripraven .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PatEditHdr" xml:space="preserve">
     <value>Edit Patient</value>
@@ -879,5 +861,17 @@
   </data>
   <data name="erase1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\erase1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stimsmart_kanal_pripraven" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stimsmart_kanal_pripraven .jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stimsmart_nastavte_proud" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stimsmart_nastavte_proud.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stimsmart_probiha_procedura" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stimsmart_probiha_procedura.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="stimsmart_vysoky_odpor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stimsmart_vysoky_odpor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

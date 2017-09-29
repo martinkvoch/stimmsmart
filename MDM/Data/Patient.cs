@@ -21,7 +21,7 @@ namespace MDM.Data
         public DateTime? BirthDate;
         public Sex Sex;
         public string Address, City, ZipCode, Country, Phone, MedRec, Note;
-        public int? DgID, HICID;
+        public int? DgID;//, HICID;
         public Somatotype? SomType;
 
         public TPatient(int id, 
@@ -29,7 +29,7 @@ namespace MDM.Data
             DateTime? bdate = null, 
             Sex sex = Sex.Male, 
             string addr = null, string city = null, string zip = null, string country = null, string phone = null, string medrec = null, string note = null, 
-            int? dgid = null, int? hicid = null, 
+            int? dgid = null, //int? hicid = null, 
             Somatotype? somtype = null)
         {
             ID = id;
@@ -46,7 +46,7 @@ namespace MDM.Data
             MedRec = medrec;
             Note = note;
             DgID = dgid;
-            HICID = hicid;
+            //HICID = hicid;
             SomType = somtype;
         }
     }
@@ -61,7 +61,7 @@ namespace MDM.Data
                      "case PAT.SEX when 1 then '{4}' else '{5}' end [{6}], " +
                      "PAT.ADDRESS [{7}], PAT.CITY [{8}], PAT.ZIPCODE [{9}], PAT.COUNTRY [{10}], PAT.PHONE [{11}], PAT.MEDICAL_RECORD [{12}], PAT.NOTE [{13}], " +
                      "DG.NAME [{14}], " +
-                     "HIC.NAME [{15}], " +
+                     //"HIC.NAME [{15}], " +
                      "case PAT.SOMATOTYPE when 0 then '{16}' when 1 then '{17}' else '{18}' end [{19}] " +
                  "from {20} PAT, {21} DG, {22} HIC " +
                  "where PAT.DG_ID = DG.ID and PAT.HIC_ID = HIC.ID and {23} PAT.DELETED order by 4";
@@ -125,7 +125,7 @@ namespace MDM.Data
             DateTime? bdate = null, 
             Sex sex = Sex.Male, 
             string addr = null, string city = null, string zip = null, string country = null, string phone = null, string medrec = null, string note = null, 
-            int? dgid = null, int? hicid = null, 
+            int? dgid = null, //int? hicid = null, 
             Somatotype? somtype = null)
         {
             const string delim = ", ";
@@ -144,7 +144,7 @@ namespace MDM.Data
             if(!string.IsNullOrEmpty(medrec)) { ins += "MEDICAL_RECORD" + delim; val += string.Format("'{0}'" + delim, medrec); }
             if(!string.IsNullOrEmpty(note)) { ins += "NOTE" + delim; val += string.Format("'{0}'" + delim, note); }
             if(dgid.HasValue) { ins += "DG_ID" + delim; val += string.Format("{0}" + delim, dgid.Value); }
-            if(hicid.HasValue) { ins += "HIC_ID" + delim; val += string.Format("{0}" + delim, hicid.Value); }
+            //if(hicid.HasValue) { ins += "HIC_ID" + delim; val += string.Format("{0}" + delim, hicid.Value); }
             if(somtype.HasValue) { ins += "SOMATOTYPE" + delim; val += string.Format("{0}" + delim, (byte)somtype.Value); }
 
             if(ins.EndsWith(delim)) ins = ins.Substring(0, ins.Length - delim.Length);
@@ -156,7 +156,7 @@ namespace MDM.Data
             DateTime? bdate = null,
             Sex sex = Sex.Male,
             string addr = null, string city = null, string zip = null, string country = null, string phone = null, string medrec = null, string note = null,
-            int? dgid = null, int? hicid = null,
+            int? dgid = null, //int? hicid = null,
             Somatotype? somtype = null)
         {
             const string delim = ", ";
@@ -175,7 +175,7 @@ namespace MDM.Data
             if(!string.IsNullOrEmpty(medrec)) { res += string.Format("MEDICAL_RECORD='{0}'" + delim, medrec); }
             if(!string.IsNullOrEmpty(note)) { res += string.Format("NOTE='{0}'" + delim, note); }
             if(dgid.HasValue) { res += string.Format("DG_ID={0}" + delim, dgid.Value); }
-            if(hicid.HasValue) { res += string.Format("HIC_ID={0}" + delim, hicid.Value); }
+            //if(hicid.HasValue) { res += string.Format("HIC_ID={0}" + delim, hicid.Value); }
             if(somtype.HasValue) { res += string.Format("SOMATOTYPE={0}" + delim, (byte)somtype.Value); }
 
             if(res.EndsWith(delim)) res = res.Substring(0, res.Length - delim.Length);
@@ -221,7 +221,7 @@ namespace MDM.Data
                 if(frm.ShowDialog() == DialogResult.OK)
                     using(Patient pat = new Patient())
                         if(pat.Insert(string.Format(insertFmt(frm.FirstName, frm.MiddleName, frm.LastName, frm.BirthDay, frm.Sex,
-                            frm.Address, frm.City, frm.ZIP, frm.Country, frm.Phone, frm.MedRec, frm.Note, frm.Diagnosis.ID, frm.HIC.Id, frm.Somtype))) > 0)
+                            frm.Address, frm.City, frm.ZIP, frm.Country, frm.Phone, frm.MedRec, frm.Note, frm.Diagnosis.ID, /*frm.HIC.Id,*/ frm.Somtype))) > 0)
                         {
                             string msg = string.Format(Resources.PatNewMsg, frm.PatientName);
 
@@ -265,11 +265,11 @@ namespace MDM.Data
                         frm.MedRec = dt.Rows[0]["MEDICAL_RECORD"].ToString();
                         frm.Note = dt.Rows[0]["NOTE"].ToString();
                         frm.Diagnosis = Diagnosis.Get(Convert.ToInt32(dt.Rows[0]["DG_ID"]));
-                        frm.HIC = HIC.Get(Convert.ToInt32(dt.Rows[0]["HIC_ID"]));
+                        //frm.HIC = HIC.Get(Convert.ToInt32(dt.Rows[0]["HIC_ID"]));
                         frm.Somtype = (Somatotype)Enum.Parse(typeof(Somatotype), dt.Rows[0]["SOMATOTYPE"].ToString());
                         if(frm.ShowDialog() == DialogResult.OK)
                         {
-                            if(pat.Update(updateFmt(frm.FirstName, frm.MiddleName, frm.LastName, frm.BirthDay, frm.Sex, frm.Address, frm.City, frm.ZIP, frm.Country, frm.Phone, frm.MedRec, frm.Note, frm.Diagnosis.ID, frm.HIC.Id, frm.Somtype), string.Format(updWhereFmt, id)))
+                            if(pat.Update(updateFmt(frm.FirstName, frm.MiddleName, frm.LastName, frm.BirthDay, frm.Sex, frm.Address, frm.City, frm.ZIP, frm.Country, frm.Phone, frm.MedRec, frm.Note, frm.Diagnosis.ID, /*frm.HIC.Id,*/ frm.Somtype), string.Format(updWhereFmt, id)))
                             {
                                 string msg = string.Format(Resources.PatEditMsg, frm.PatientName);
 

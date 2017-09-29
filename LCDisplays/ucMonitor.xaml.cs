@@ -59,7 +59,7 @@ namespace WpfUC
                 //if(on != value)
                 //{
                     //SetValue(OnProperty, value);
-                    on = disWS.On = disSweep.On = disATC.On = disDAC.On = disDOUT.On = disStatus.On = timElapsed.On = timLeft.On = timSegmentLeft.On = disMode.On = disOhmMeter.On = segProcSegments.On = value;
+                    on = disWS.On = disSweep.On = disATC.On = disDAC.On = disDeltaU.On = disStatus.On = timElapsed.On = timLeft.On = timSegmentLeft.On = disMode.On = disOhmMeter.On = segProcSegments.On = value;
                     if(!on)
                     {
                         resetMonitor();
@@ -98,10 +98,10 @@ namespace WpfUC
             set { disDAC.Value = value; }
         }
 
-        public byte DOUT
+        public byte DeltaU
         {
-            get { return (byte)disDOUT.Value; }
-            set { disDOUT.Value = value; }
+            get { return (byte)disDeltaU.Value; }
+            set { disDeltaU.Value = value; }
         }
 
         public word Status
@@ -151,7 +151,7 @@ namespace WpfUC
         private void resetMonitor()
         {
             WS = Sweep = DAC = Status = Elapsed = Remained = SegmentLeft = 0;
-            ATC = DOUT = Mode = 0;
+            ATC = DeltaU = Mode = 0;
             Segments = new byte[] { 5, 5, 5, 5, 5, 5 };
             monMode = MonitorMode.Admin;
             MonMode = MonitorMode.User;

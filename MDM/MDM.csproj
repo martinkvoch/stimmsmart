@@ -121,7 +121,7 @@
       <DependentUpon>dbRestorePanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\MDMTrackBar.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\MDMTrackBar.Designer.cs">
       <DependentUpon>MDMTrackBar.cs</DependentUpon>
@@ -527,6 +527,10 @@
   <ItemGroup>
     <Content Include="Libs\hasp_net_windows.dll" />
     <Content Include="Libs\Ionic.Zip.Reduced.dll" />
+    <None Include="Resources\stimsmart_vysoky_odpor.jpg" />
+    <None Include="Resources\stimsmart_probiha_procedura.jpg" />
+    <None Include="Resources\stimsmart_nastavte_proud.jpg" />
+    <None Include="Resources\stimsmart_kanal_pripraven .jpg" />
     <None Include="Resources\segments16.png" />
     <None Include="Resources\segments.png" />
     <None Include="Resources\minus.png" />
@@ -557,12 +561,6 @@
     <None Include="Resources\stop_red.png" />
     <None Include="Resources\gr.png" />
     <None Include="Resources\el.png" />
-    <None Include="Resources\program stimsmart vysoky odpor.jpg" />
-    <None Include="Resources\program stimsmart probiha procedura.jpg" />
-    <None Include="Resources\program stimsmart nastavte proud.jpg" />
-    <None Include="Resources\program stimsmart kanal pripraven .jpg" />
-    <None Include="Resources\program stimsmart error.jpg" />
-    <None Include="Resources\program stimsmart ready.jpg" />
     <None Include="Resources\stop.png" />
     <None Include="Resources\pause.png" />
     <None Include="Resources\start.png" />

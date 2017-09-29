@@ -299,12 +299,12 @@ namespace MDM.Data
         #endregion
 
         #region Backup(), Restore(), Compact()
-        private const string nulDrive = "nul";
+        internal const string NulDrive = "nul";
 
-        private static string getFlashDrive()
+        internal static string GetFlashDrive()
         {
             DriveInfo drive = DriveInfo.GetDrives().Where(d => d.IsReady && d.DriveType == DriveType.Removable).FirstOrDefault();
-            string res = nulDrive;
+            string res = NulDrive;
 
             if(drive != null) res = drive.Name;
             return res;
@@ -349,13 +349,13 @@ namespace MDM.Data
                 {
                     string bckFN = Date2Fn(DateTime.Now.ToString("G")),
                            msg = string.Format(Resources.bckDataOK, Fn2Date(bckFN)),
-                           usbFlash = getFlashDrive();
+                           usbFlash = GetFlashDrive();
 
                     if(!Directory.Exists(Path.GetDirectoryName(bckFN))) Directory.CreateDirectory(Path.GetDirectoryName(bckFN));
                     File.Copy(dbFileName, bckFN, true);
                     zip(bckFN);
                     File.Delete(bckFN);
-                    if(usbFlash != nulDrive)
+                    if(usbFlash != NulDrive)
                     {
                         try
                         {

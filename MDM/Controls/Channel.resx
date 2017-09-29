@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="tbCurrent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 118</value>
+    <value>143, 118</value>
   </data>
   <data name="tbCurrent.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 137</value>
@@ -136,7 +136,7 @@
     <value>tbCurrent</value>
   </data>
   <data name="&gt;&gt;tbCurrent.Type" xml:space="preserve">
-    <value>MDM.Controls.MDMTrackBar, MDM, Version=1.0.6477.1843, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.MDMTrackBar, MDM, Version=1.0.6481.27935, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tbCurrent.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -154,7 +154,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbCurrent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 47</value>
+    <value>143, 47</value>
   </data>
   <data name="lbCurrent.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -370,7 +370,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="cbStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 66</value>
+    <value>134, 66</value>
   </data>
   <data name="cbStart.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -415,7 +415,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="cbSetCurrent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 66</value>
+    <value>134, 66</value>
   </data>
   <data name="cbSetCurrent.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -454,7 +454,7 @@
     <value>2, 0, 2, 0</value>
   </data>
   <data name="lbStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 23</value>
+    <value>203, 23</value>
   </data>
   <data name="lbStatus.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -490,7 +490,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 260</value>
+    <value>214, 260</value>
   </data>
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -523,7 +523,7 @@
     <value>NoControl</value>
   </data>
   <data name="cbPatSelect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>185, 32</value>
+    <value>183, 32</value>
   </data>
   <data name="cbPatSelect.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -634,7 +634,7 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 17</value>
+    <value>168, 17</value>
   </data>
   <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -706,7 +706,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbProcNum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>145, 104</value>
+    <value>143, 104</value>
   </data>
   <data name="lbProcNum.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -748,7 +748,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="lbDiagnosis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 23</value>
+    <value>203, 23</value>
   </data>
   <data name="lbDiagnosis.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -784,7 +784,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="lbPatName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 23</value>
+    <value>171, 23</value>
   </data>
   <data name="lbPatName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -820,7 +820,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 139</value>
+    <value>214, 139</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -856,7 +856,7 @@
     <value>0, 6, 0, 6</value>
   </data>
   <data name="pbProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 20</value>
+    <value>104, 20</value>
   </data>
   <data name="pbProgress.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -877,7 +877,7 @@
     <value>70, 9</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
+    <value>106, 22</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -934,7 +934,7 @@
     <value>Top, Right</value>
   </data>
   <data name="Led.Location" type="System.Drawing.Point, System.Drawing">
-    <value>185, 7</value>
+    <value>183, 7</value>
   </data>
   <data name="Led.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -964,7 +964,7 @@
     <value>0, 399</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 40</value>
+    <value>214, 40</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -994,7 +994,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="pbStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 59</value>
+    <value>214, 57</value>
   </data>
   <data name="pbStatus.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -1021,7 +1021,7 @@
     <value>0, 439</value>
   </data>
   <data name="elementHost1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 192</value>
+    <value>214, 192</value>
   </data>
   <data name="elementHost1.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1057,7 +1057,7 @@
     <value>156, 2</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 690</value>
+    <value>214, 688</value>
   </data>
   <data name="&gt;&gt;ucMonitor.Name" xml:space="preserve">
     <value>ucMonitor</value>

@@ -135,8 +135,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="700"/>
                     </Grid.ColumnDefinitions>
-                    <local:ucDisp3D x:Name="disDOUT" Grid.Row="1"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Text="DOUT" Foreground="Black" FontSize="130" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
+                    <local:ucDisp3D x:Name="disDeltaU" Grid.Row="1"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="dU" Foreground="Black" FontSize="150" FontWeight="Bold" VerticalAlignment="Center" Opacity=".6"/>
                 </Grid>
                 <Grid Grid.Row="3">
                     <Grid.RowDefinitions>

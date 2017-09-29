@@ -149,12 +149,12 @@ namespace MDM.Windows
         {
             InitializeComponent();
 
-            using(HIC hic = new HIC()) cbxHIC.DataSource = hic.Select("ID, NAME, CODE, trim(CODE)||' - '||trim(NAME) DISPNAME");
-            cbxHIC.DisplayMember = "DISPNAME";
+            //using(HIC hic = new HIC()) cbxHIC.DataSource = hic.Select("ID, NAME, CODE, trim(CODE)||' - '||trim(NAME) DISPNAME");
+            //cbxHIC.DisplayMember = "DISPNAME";
             if(newOne)
             {
                 Text = Resources.PatNewHdr;
-                cbxHIC.SelectedIndex = 0;
+                //cbxHIC.SelectedIndex = 0;
                 Somtype = Somatotype.Normotype;
                 DgName = Diagnosis.Name;
             }

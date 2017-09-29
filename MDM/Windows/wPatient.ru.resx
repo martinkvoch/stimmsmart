@@ -117,126 +117,138 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cbCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>294, 441</value>
+  </data>
+  <data name="cbCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 34</value>
+  </data>
   <data name="cbCancel.Text" xml:space="preserve">
     <value>Отм&amp;ена</value>
+  </data>
+  <data name="cbSave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>140, 441</value>
+  </data>
+  <data name="cbSave.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 34</value>
   </data>
   <data name="cbSave.Text" xml:space="preserve">
     <value>С&amp;охранить</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
+    <value>40, 14</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Hомер</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 13</value>
+    <value>30, 14</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>&amp;Имя</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 13</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>&amp;Второе имя</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 13</value>
+    <value>53, 14</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>&amp;Фамилия</value>
   </data>
+  <data name="gbSex.Text" xml:space="preserve">
+    <value>  П&amp;олом  </value>
+  </data>
   <data name="rbFemale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 17</value>
+    <value>75, 18</value>
   </data>
   <data name="rbFemale.Text" xml:space="preserve">
     <value>Женщина</value>
   </data>
   <data name="rbMale.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 17</value>
+    <value>71, 18</value>
   </data>
   <data name="rbMale.Text" xml:space="preserve">
     <value>Mужчина</value>
   </data>
-  <data name="gbSex.Text" xml:space="preserve">
-    <value>  П&amp;олом  </value>
-  </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 13</value>
+    <value>86, 14</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>&amp;День рождения</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 13</value>
+    <value>39, 14</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>&amp;Адрес</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 13</value>
+    <value>36, 14</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>&amp;Город</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 13</value>
+    <value>72, 14</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>&amp;Почт. индекс</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 14</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>&amp;Страна</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 13</value>
+    <value>50, 14</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>&amp;Телефон</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 13</value>
+    <value>112, 14</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>&amp;Медицинская запись</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 13</value>
+    <value>72, 14</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
     <value>Д&amp;иагностика</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 13</value>
+    <value>184, 14</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>Меди&amp;цинская страховая компания</value>
   </data>
+  <data name="gbSomatotype.Text" xml:space="preserve">
+    <value>  T&amp;ип телосложения </value>
+  </data>
   <data name="rbHypotype.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 17</value>
+    <value>66, 18</value>
   </data>
   <data name="rbHypotype.Text" xml:space="preserve">
     <value>Гипотип</value>
   </data>
   <data name="rbNormotype.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 17</value>
+    <value>73, 18</value>
   </data>
   <data name="rbNormotype.Text" xml:space="preserve">
     <value>Обычный</value>
   </data>
   <data name="rbHyperergic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 17</value>
+    <value>111, 18</value>
   </data>
   <data name="rbHyperergic.Text" xml:space="preserve">
     <value>Гиперергический</value>
   </data>
-  <data name="gbSomatotype.Text" xml:space="preserve">
-    <value>  T&amp;ип телосложения </value>
-  </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
+    <value>51, 14</value>
   </data>
   <data name="label14.Text" xml:space="preserve">
     <value>&amp;Заметки</value>
