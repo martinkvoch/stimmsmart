@@ -126,8 +126,7 @@
 Или обратитесь в службу технической поддержки.</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Программа ожидает ответа устройства.
-Вы можете закончить ожидание, нажав кнопку «Закрыть».</value>
+    <value>Программа ожидает ответа устройства.</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Ошибка - устройство MDM не отвечает</value>

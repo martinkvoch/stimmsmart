@@ -110,12 +110,12 @@ namespace MDM.Classes
                     else if(!LAN.TimedOut)
                     {
                         wWaitBox box;
-                        bool[] chErrors = new bool[noc];
+                        bool[] chErrors;
 
                         if(!dlg.IsDisposed) dlg.Dispose();
                         box = wWaitBox.Show(Resources.testChannel);
                         chErrors = Autotest();
-                        channels.channels.ForEach(ch => ch.Invoke(new MethodInvoker(delegate { ch.Status = ChannelStatus.Inactive; })));
+                        channels.channels.ForEach(ch => { if(!chErrors[ch.Number - 1]) ch.Invoke(new MethodInvoker(delegate { ch.Status = ChannelStatus.Inactive; })); });
                         box.Dispose();
                         lanTimedOut = false;
                     }

@@ -11,8 +11,7 @@ namespace WpfUC
     public partial class ucOhmMeter : UserControl
     {
         private const double cOpacityOff = .25D, cOpacityOn = .75D;
-        private static word[] cSegments = new word[] { 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62 };
-        //private static word[] cSegments = new word[] { 28, 33, 38, 43, 48, 49, 50, 51, 52, 57, 62, 67, 72 };
+        private static word[] cSegments = new word[] { 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62, 64 };
         private Storyboard sbFadeIn, sbFadeOut;
 
         #region On
@@ -63,7 +62,6 @@ namespace WpfUC
             int res = -1;
 
             if(value <= cSegments[0]) res = 0;
-            else if(value >= cSegments[cSegments.Length - 1]) res = cSegments.Length - 1;
             else for(int i = 0; i < cSegments.Length - 1; i++) if(value >= cSegments[i] && value < cSegments[i + 1]) { res = i; break; }
             return res;
         }
@@ -74,7 +72,7 @@ namespace WpfUC
 
             resetMeter();
             if(idx >= 0)
-                for(int i = cSegments.Length + 1; i > idx; i--)
+                for(int i = cSegments.Length; i > idx; i--)
                 {
                     Rectangle rect = canMain.FindName("Seg" + i.ToString()) as Rectangle;
 

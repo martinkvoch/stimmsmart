@@ -38,8 +38,8 @@
             // 
             // btnOK
             // 
-            this.btnOK.BackColor = System.Drawing.Color.YellowGreen;
             resources.ApplyResources(this.btnOK, "btnOK");
+            this.btnOK.BackColor = System.Drawing.Color.YellowGreen;
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.FlatAppearance.BorderSize = 0;
             this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -50,22 +50,22 @@
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.label1);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.Red;
             resources.ApplyResources(this.label1, "label1");
+            this.label1.BackColor = System.Drawing.Color.Red;
             this.label1.ForeColor = System.Drawing.Color.Yellow;
             this.label1.Name = "label1";
             // 
             // label2
             // 
-            this.label2.BackColor = System.Drawing.SystemColors.Window;
             resources.ApplyResources(this.label2, "label2");
+            this.label2.BackColor = System.Drawing.SystemColors.Window;
             this.label2.Name = "label2";
             // 
             // wTimeoutDlgBox

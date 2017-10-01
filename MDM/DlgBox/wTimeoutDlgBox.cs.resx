@@ -127,9 +127,7 @@ Případně kontaktujte technickou podporu.
 </value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Program čeká na reakci přístroje.
-Čekání lze ukončit stiskem tlačítka Zavřít.
-</value>
+    <value>Program čeká na reakci přístroje.</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Chyba - přístroj MDM nereaguje</value>
