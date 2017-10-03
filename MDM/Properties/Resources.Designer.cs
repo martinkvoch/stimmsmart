@@ -719,6 +719,16 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap exit64 {
+            get {
+                object obj = ResourceManager.GetObject("exit64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Application exits..
         /// </summary>
         public static string exitMsg {
@@ -1008,6 +1018,16 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap login48 {
+            get {
+                object obj = ResourceManager.GetObject("login48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Information.
         /// </summary>
         public static string LogInfo {
@@ -1042,6 +1062,16 @@ namespace MDM.Properties {
         public static System.Drawing.Bitmap logout {
             get {
                 object obj = ResourceManager.GetObject("logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap logout48 {
+            get {
+                object obj = ResourceManager.GetObject("logout48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1366,6 +1396,16 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap patlist64 {
+            get {
+                object obj = ResourceManager.GetObject("patlist64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Patient.
         /// </summary>
         public static string PatNewHdr {
@@ -1531,6 +1571,16 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap procedures64 {
+            get {
+                object obj = ResourceManager.GetObject("procedures64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Channel number.
         /// </summary>
         public static string ProcHdrChannel {
@@ -1671,6 +1721,16 @@ namespace MDM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap refresh64 {
+            get {
+                object obj = ResourceManager.GetObject("refresh64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap restart {
             get {
                 object obj = ResourceManager.GetObject("restart", resourceCulture);
@@ -1796,6 +1856,16 @@ namespace MDM.Properties {
         public static string serNum {
             get {
                 return ResourceManager.GetString("serNum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap shutdown64 {
+            get {
+                object obj = ResourceManager.GetObject("shutdown64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

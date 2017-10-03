@@ -15,7 +15,7 @@ using MDM.Windows;
 
 namespace MDM.Controls
 {
-    public enum ChannelStatus { Disabled, Inactive, Active, Ready, InProgress, SetCurrent, HighResistance, Paused, Restored/*, Error*/, Inaccessible, Disconnected }
+    public enum ChannelStatus { Disabled, Inactive, Active, Ready, InProgress, SetCurrent, HighResistance, Paused,/* Restored, Error*/ Inaccessible, Disconnected }
 
 #region struct SelectedPatient
     public struct SelectedPatient
@@ -89,7 +89,7 @@ namespace MDM.Controls
                         case ChannelStatus.SetCurrent: setCurrent(); break;
                         case ChannelStatus.HighResistance: highResistance(); break;
                         case ChannelStatus.Paused: paused(); break;
-                        case ChannelStatus.Restored: restored(); break;
+                        //case ChannelStatus.Restored: restored(); break;
                         //case ChannelStatus.Error: error(); break;
                         case ChannelStatus.Inaccessible: inaccessible(); break;
                         case ChannelStatus.Disconnected: disconnected(); break;
@@ -172,7 +172,7 @@ namespace MDM.Controls
                 //lbRemain.Text = string.Format("{0}:{1:D2}", remain / 60, remain % 60);
                 //lbElapsed.Text = string.Format(elapsedTxt, elapsed / 60, elapsed % 60);
                 if(elapsed != 0U) pbProgress.PerformStep();
-                if(Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent || Status == ChannelStatus.Restored)
+                if(Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent /*|| Status == ChannelStatus.Restored*/)
                 {
                     if(ucMonitor.SegmentLeft == 0 && Patient.CurrSegment < Patient.Segments.Length)
                     {
@@ -241,7 +241,7 @@ namespace MDM.Controls
 #region InOrder
         public bool InOrder
         {
-            get { return status == ChannelStatus.InProgress || status == ChannelStatus.SetCurrent || status == ChannelStatus.Restored || status == ChannelStatus.Paused; }
+            get { return status == ChannelStatus.InProgress || status == ChannelStatus.SetCurrent /*|| status == ChannelStatus.Restored*/ || status == ChannelStatus.Paused; }
         }
 #endregion
 #endregion
@@ -382,7 +382,7 @@ namespace MDM.Controls
                 {
                     if(actCur == toBeSet && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52) Status = ChannelStatus.Active;
                 }
-                else if((Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored) && resp.InputR.Status[1])
+                else if((Status == ChannelStatus.InProgress /*|| Status == ChannelStatus.Restored*/) && resp.InputR.Status[1])
                 {
                     Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
                 }
@@ -651,21 +651,21 @@ namespace MDM.Controls
             lbStatus.BackColor = Color.OrangeRed;
             LedGreen(true);
         }
-#endregion
+        #endregion
 
-#region restored()
-        /// <summary>
-        /// Uvede kanál do stavu "obnoven". Z tohoto stavu může kanál přejít do stavu "pozastaven", "chyba" nebo "neaktivní".
-        /// </summary>
-        private void restored()
-        {
-            inProgress();
-            cbPause.Text = Resources.cbPauseText;
-            cbPause.Image = Resources.pause;
-            lbStatus.Text = Resources.chRestored;
-            lbStatus.ForeColor = Color.White;
-            lbStatus.BackColor = Color.Green;
-        }
+#region restored() - odstraněno
+        ///// <summary>
+        ///// Uvede kanál do stavu "obnoven". Z tohoto stavu může kanál přejít do stavu "pozastaven", "chyba" nebo "neaktivní".
+        ///// </summary>
+        //private void restored()
+        //{
+        //    inProgress();
+        //    cbPause.Text = Resources.cbPauseText;
+        //    cbPause.Image = Resources.pause;
+        //    lbStatus.Text = Resources.chRestored;
+        //    lbStatus.ForeColor = Color.White;
+        //    lbStatus.BackColor = Color.Green;
+        //}
 #endregion
 
 #region error() - odstraněno
@@ -715,7 +715,7 @@ namespace MDM.Controls
         }
 #endregion
 
-#region Disconnected
+#region disconnected
         /// <summary>
         /// Uvede kanál do stavu "odpojený". Do tohoto stavu se kanál dostane po přerušení spojení s deskou LAN přístroje MDM.
         /// Po opětovném navázání spojení se kanál vrací do stavu "neaktivní".
@@ -735,7 +735,7 @@ namespace MDM.Controls
         /// <param name="e">parametry události</param>
         private void timerTick(object sender, EventArgs e)
         {
-            if(Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent || Status == ChannelStatus.Restored) Elapsed++;
+            if(Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent /*|| Status == ChannelStatus.Restored*/) Elapsed++;
             if(Elapsed >= procDuration)
             {
                 if(procID > NoSelection) PatProc.FinishProcedure(procID, Elapsed, ProcResult.Finished);
@@ -792,16 +792,16 @@ namespace MDM.Controls
             }
         }
 
-        private void cbSetCurrent_EnabledChanged(object sender, EventArgs e)
-        {
-            //lbCurrent.ForeColor = cbSetCurrent.Enabled ? SystemColors.ActiveCaptionText : SystemColors.InactiveCaptionText;
-            tbCurrent.Enabled = cbSetCurrent.Enabled;
-        }
+        //private void cbSetCurrent_EnabledChanged(object sender, EventArgs e)
+        //{
+        //    //lbCurrent.ForeColor = cbSetCurrent.Enabled ? SystemColors.ActiveCaptionText : SystemColors.InactiveCaptionText;
+        //    tbCurrent.Enabled = cbSetCurrent.Enabled;
+        //}
 
 
         private void cbSetCurrent_Click(object sender, EventArgs e)
         {
-            if(Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored)
+            if(Status == ChannelStatus.InProgress /*|| Status == ChannelStatus.Restored*/)
             {
                 cbStart.Visible = false;
                 cbCurrMinus.Visible = cbCurrPlus.Visible = true;
@@ -824,7 +824,7 @@ namespace MDM.Controls
 
         private void cbPause_Click(object sender, EventArgs e)
         {
-            if(Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored)
+            if(Status == ChannelStatus.InProgress /*|| Status == ChannelStatus.Restored*/)
             {
                 current = Current;
                 Current = 0D;
@@ -834,7 +834,7 @@ namespace MDM.Controls
             else if(Status == ChannelStatus.Paused)
             {
                 Current = current;
-                Status = ChannelStatus.Restored;
+                Status = ChannelStatus.InProgress;// ChannelStatus.Restored;
                 timer.Start();
             }
         }
@@ -871,6 +871,14 @@ namespace MDM.Controls
             cbPause.Width = cbStop.Width = cbCurrMinus.Width = cbCurrPlus.Width = (cbSetCurrent.Width - 4) / 2;
             cbStop.Left = cbCurrPlus.Left = cbPause.Right + 4;
             tbCurrent.Location = new Point(lbCurrent.Left, cbSetCurrent.Top);
+        }
+
+        private void buttons_EnabledChanged(object sender, EventArgs e)
+        {
+            Button cb = sender as Button;
+
+            cb.BackColor = cb.Enabled ? Color.RoyalBlue : Color.LightGray;
+            if(cb == cbSetCurrent) tbCurrent.Enabled = cbSetCurrent.Enabled;
         }
 
         private void cbCurrMinus_Click(object sender, EventArgs e)

@@ -12,7 +12,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Channel));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tbCurrent = new MDM.Controls.MDMTrackBar();
             this.lbCurrent = new System.Windows.Forms.Label();
             this.cbCurrPlus = new System.Windows.Forms.Button();
             this.cbCurrMinus = new System.Windows.Forms.Button();
@@ -38,6 +37,7 @@
             this.pbStatus = new System.Windows.Forms.PictureBox();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.ucMonitor = new WpfUC.ucMonitor();
+            this.tbCurrent = new MDM.Controls.MDMTrackBar();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,15 +61,6 @@
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
-            // tbCurrent
-            // 
-            resources.ApplyResources(this.tbCurrent, "tbCurrent");
-            this.tbCurrent.BackColor = System.Drawing.Color.Gainsboro;
-            this.tbCurrent.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.tbCurrent.Name = "tbCurrent";
-            this.tbCurrent.ThumbColor = System.Drawing.Color.DarkMagenta;
-            this.tbCurrent.ValueChanged += new System.EventHandler(this.tbCurrent_ValueChanged);
-            // 
             // lbCurrent
             // 
             resources.ApplyResources(this.lbCurrent, "lbCurrent");
@@ -83,11 +74,12 @@
             this.cbCurrPlus.BackColor = System.Drawing.Color.RoyalBlue;
             resources.ApplyResources(this.cbCurrPlus, "cbCurrPlus");
             this.cbCurrPlus.FlatAppearance.BorderSize = 0;
-            this.cbCurrPlus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.cbCurrPlus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cbCurrPlus.ForeColor = System.Drawing.Color.White;
             this.cbCurrPlus.Image = global::MDM.Properties.Resources.stop_red1;
             this.cbCurrPlus.Name = "cbCurrPlus";
             this.cbCurrPlus.UseVisualStyleBackColor = false;
+            this.cbCurrPlus.EnabledChanged += new System.EventHandler(this.buttons_EnabledChanged);
             this.cbCurrPlus.Click += new System.EventHandler(this.cbCurrPlus_Click);
             // 
             // cbCurrMinus
@@ -95,11 +87,12 @@
             this.cbCurrMinus.BackColor = System.Drawing.Color.RoyalBlue;
             resources.ApplyResources(this.cbCurrMinus, "cbCurrMinus");
             this.cbCurrMinus.FlatAppearance.BorderSize = 0;
-            this.cbCurrMinus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.cbCurrMinus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cbCurrMinus.ForeColor = System.Drawing.Color.White;
             this.cbCurrMinus.Image = global::MDM.Properties.Resources.erase1;
             this.cbCurrMinus.Name = "cbCurrMinus";
             this.cbCurrMinus.UseVisualStyleBackColor = false;
+            this.cbCurrMinus.EnabledChanged += new System.EventHandler(this.buttons_EnabledChanged);
             this.cbCurrMinus.Click += new System.EventHandler(this.cbCurrMinus_Click);
             // 
             // cbStop
@@ -107,11 +100,12 @@
             this.cbStop.BackColor = System.Drawing.Color.RoyalBlue;
             resources.ApplyResources(this.cbStop, "cbStop");
             this.cbStop.FlatAppearance.BorderSize = 0;
-            this.cbStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.cbStop.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cbStop.ForeColor = System.Drawing.Color.White;
             this.cbStop.Image = global::MDM.Properties.Resources.stop;
             this.cbStop.Name = "cbStop";
             this.cbStop.UseVisualStyleBackColor = false;
+            this.cbStop.EnabledChanged += new System.EventHandler(this.buttons_EnabledChanged);
             this.cbStop.Click += new System.EventHandler(this.cbStop_Click);
             // 
             // cbPause
@@ -119,11 +113,12 @@
             this.cbPause.BackColor = System.Drawing.Color.RoyalBlue;
             resources.ApplyResources(this.cbPause, "cbPause");
             this.cbPause.FlatAppearance.BorderSize = 0;
-            this.cbPause.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.cbPause.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cbPause.ForeColor = System.Drawing.Color.White;
             this.cbPause.Image = global::MDM.Properties.Resources.pause;
             this.cbPause.Name = "cbPause";
             this.cbPause.UseVisualStyleBackColor = false;
+            this.cbPause.EnabledChanged += new System.EventHandler(this.buttons_EnabledChanged);
             this.cbPause.Click += new System.EventHandler(this.cbPause_Click);
             // 
             // cbStart
@@ -131,11 +126,12 @@
             resources.ApplyResources(this.cbStart, "cbStart");
             this.cbStart.BackColor = System.Drawing.Color.RoyalBlue;
             this.cbStart.FlatAppearance.BorderSize = 0;
-            this.cbStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.cbStart.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cbStart.ForeColor = System.Drawing.Color.White;
             this.cbStart.Image = global::MDM.Properties.Resources.start;
             this.cbStart.Name = "cbStart";
             this.cbStart.UseVisualStyleBackColor = false;
+            this.cbStart.EnabledChanged += new System.EventHandler(this.buttons_EnabledChanged);
             this.cbStart.Click += new System.EventHandler(this.cbStart_Click);
             // 
             // cbSetCurrent
@@ -143,12 +139,12 @@
             resources.ApplyResources(this.cbSetCurrent, "cbSetCurrent");
             this.cbSetCurrent.BackColor = System.Drawing.Color.RoyalBlue;
             this.cbSetCurrent.FlatAppearance.BorderSize = 0;
-            this.cbSetCurrent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.cbSetCurrent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cbSetCurrent.ForeColor = System.Drawing.Color.White;
             this.cbSetCurrent.Image = global::MDM.Properties.Resources.stop_red;
             this.cbSetCurrent.Name = "cbSetCurrent";
             this.cbSetCurrent.UseVisualStyleBackColor = false;
-            this.cbSetCurrent.EnabledChanged += new System.EventHandler(this.cbSetCurrent_EnabledChanged);
+            this.cbSetCurrent.EnabledChanged += new System.EventHandler(this.buttons_EnabledChanged);
             this.cbSetCurrent.Click += new System.EventHandler(this.cbSetCurrent_Click);
             // 
             // lbStatus
@@ -177,10 +173,11 @@
             resources.ApplyResources(this.cbPatSelect, "cbPatSelect");
             this.cbPatSelect.BackColor = System.Drawing.Color.RoyalBlue;
             this.cbPatSelect.FlatAppearance.BorderSize = 0;
-            this.cbPatSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.cbPatSelect.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
             this.cbPatSelect.ForeColor = System.Drawing.Color.White;
             this.cbPatSelect.Name = "cbPatSelect";
             this.cbPatSelect.UseVisualStyleBackColor = false;
+            this.cbPatSelect.EnabledChanged += new System.EventHandler(this.buttons_EnabledChanged);
             this.cbPatSelect.Click += new System.EventHandler(this.cbPatSelect_Click);
             // 
             // label4
@@ -274,6 +271,15 @@
             resources.ApplyResources(this.elementHost1, "elementHost1");
             this.elementHost1.Name = "elementHost1";
             this.elementHost1.Child = this.ucMonitor;
+            // 
+            // tbCurrent
+            // 
+            resources.ApplyResources(this.tbCurrent, "tbCurrent");
+            this.tbCurrent.BackColor = System.Drawing.Color.Gainsboro;
+            this.tbCurrent.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.tbCurrent.Name = "tbCurrent";
+            this.tbCurrent.ThumbColor = System.Drawing.Color.DarkMagenta;
+            this.tbCurrent.ValueChanged += new System.EventHandler(this.tbCurrent_ValueChanged);
             // 
             // Channel
             // 

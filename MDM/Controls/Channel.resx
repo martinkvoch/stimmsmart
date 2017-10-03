@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="tbCurrent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 118</value>
+    <value>133, 118</value>
   </data>
   <data name="tbCurrent.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 137</value>
@@ -136,7 +136,7 @@
     <value>tbCurrent</value>
   </data>
   <data name="&gt;&gt;tbCurrent.Type" xml:space="preserve">
-    <value>MDM.Controls.MDMTrackBar, MDM, Version=1.0.6481.27935, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.MDMTrackBar, MDM, Version=1.0.6485.27180, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tbCurrent.Parent" xml:space="preserve">
     <value>groupBox3</value>
@@ -154,7 +154,7 @@
     <value>NoControl</value>
   </data>
   <data name="lbCurrent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 47</value>
+    <value>133, 47</value>
   </data>
   <data name="lbCurrent.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -196,7 +196,7 @@
     <value>NoControl</value>
   </data>
   <data name="cbCurrPlus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>75, 47</value>
+    <value>65, 47</value>
   </data>
   <data name="cbCurrPlus.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -274,7 +274,7 @@
     <value>NoControl</value>
   </data>
   <data name="cbStop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>75, 189</value>
+    <value>65, 189</value>
   </data>
   <data name="cbStop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -370,7 +370,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="cbStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 66</value>
+    <value>124, 66</value>
   </data>
   <data name="cbStart.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -396,9 +396,6 @@
   <data name="cbSetCurrent.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
-  <data name="cbSetCurrent.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="cbSetCurrent.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -415,7 +412,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="cbSetCurrent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 66</value>
+    <value>124, 66</value>
   </data>
   <data name="cbSetCurrent.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -454,7 +451,7 @@
     <value>2, 0, 2, 0</value>
   </data>
   <data name="lbStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 23</value>
+    <value>193, 23</value>
   </data>
   <data name="lbStatus.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -481,7 +478,7 @@
     <value>Arial, 8.25pt</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 139</value>
+    <value>0, 167</value>
   </data>
   <data name="groupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -490,7 +487,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 260</value>
+    <value>204, 260</value>
   </data>
   <data name="groupBox3.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -517,19 +514,19 @@
     <value>Flat</value>
   </data>
   <data name="cbPatSelect.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt, style=Bold</value>
+    <value>Arial, 12pt, style=Bold</value>
   </data>
   <data name="cbPatSelect.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="cbPatSelect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 32</value>
+    <value>163, 32</value>
   </data>
   <data name="cbPatSelect.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="cbPatSelect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 23</value>
+    <value>34, 34</value>
   </data>
   <data name="cbPatSelect.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -559,7 +556,7 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 108</value>
+    <value>2, 136</value>
   </data>
   <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -595,7 +592,7 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 59</value>
+    <value>2, 70</value>
   </data>
   <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -634,7 +631,7 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 17</value>
+    <value>158, 17</value>
   </data>
   <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -706,13 +703,13 @@
     <value>NoControl</value>
   </data>
   <data name="lbProcNum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 104</value>
+    <value>133, 126</value>
   </data>
   <data name="lbProcNum.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="lbProcNum.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 23</value>
+    <value>64, 34</value>
   </data>
   <data name="lbProcNum.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -742,13 +739,13 @@
     <value>NoControl</value>
   </data>
   <data name="lbDiagnosis.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 74</value>
+    <value>4, 85</value>
   </data>
   <data name="lbDiagnosis.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="lbDiagnosis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 23</value>
+    <value>193, 34</value>
   </data>
   <data name="lbDiagnosis.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -784,7 +781,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="lbPatName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>171, 23</value>
+    <value>152, 34</value>
   </data>
   <data name="lbPatName.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -820,7 +817,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 139</value>
+    <value>204, 167</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -856,7 +853,7 @@
     <value>0, 6, 0, 6</value>
   </data>
   <data name="pbProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 20</value>
+    <value>94, 20</value>
   </data>
   <data name="pbProgress.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -877,7 +874,7 @@
     <value>70, 9</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 22</value>
+    <value>96, 22</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -934,7 +931,7 @@
     <value>Top, Right</value>
   </data>
   <data name="Led.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 7</value>
+    <value>173, 7</value>
   </data>
   <data name="Led.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -961,10 +958,10 @@
     <value>Top</value>
   </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 399</value>
+    <value>0, 427</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 40</value>
+    <value>204, 40</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -988,13 +985,13 @@
     <value>NoControl</value>
   </data>
   <data name="pbStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 631</value>
+    <value>0, 659</value>
   </data>
   <data name="pbStatus.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="pbStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 57</value>
+    <value>204, 19</value>
   </data>
   <data name="pbStatus.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -1018,10 +1015,10 @@
     <value>Top</value>
   </data>
   <data name="elementHost1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 439</value>
+    <value>0, 467</value>
   </data>
   <data name="elementHost1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 192</value>
+    <value>204, 192</value>
   </data>
   <data name="elementHost1.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1057,7 +1054,7 @@
     <value>156, 2</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 688</value>
+    <value>204, 678</value>
   </data>
   <data name="&gt;&gt;ucMonitor.Name" xml:space="preserve">
     <value>ucMonitor</value>

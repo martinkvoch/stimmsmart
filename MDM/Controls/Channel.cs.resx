@@ -118,20 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tbCurrent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 116</value>
+  </data>
   <data name="lbCurrent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 45</value>
+    <value>157, 45</value>
   </data>
   <data name="lbCurrent.Text" xml:space="preserve">
     <value>0,00</value>
   </data>
   <data name="cbCurrPlus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 45</value>
+    <value>91, 45</value>
   </data>
   <data name="cbCurrMinus.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 45</value>
   </data>
   <data name="cbStop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 187</value>
+    <value>91, 187</value>
   </data>
   <data name="cbStop.Text" xml:space="preserve">
     <value>&amp;STOP</value>
@@ -146,7 +149,7 @@
     <value>5, 45</value>
   </data>
   <data name="cbStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 66</value>
+    <value>148, 66</value>
   </data>
   <data name="cbStart.Text" xml:space="preserve">
     <value>&amp;ZAČÁTEK</value>
@@ -155,7 +158,7 @@
     <value>5, 116</value>
   </data>
   <data name="cbSetCurrent.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 66</value>
+    <value>148, 66</value>
   </data>
   <data name="cbSetCurrent.Text" xml:space="preserve">
     <value>&amp;NASTAVENÍ PROUDU</value>
@@ -167,28 +170,22 @@
     <value>5, 17</value>
   </data>
   <data name="lbStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 23</value>
+    <value>218, 23</value>
   </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 116</value>
+  <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 173</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 259</value>
+    <value>228, 259</value>
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>  STAV KANÁLU  </value>
   </data>
-  <data name="tbCurrent.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 3</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 139</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>  VÝBĚR PACIENTA  </value>
-  </data>
   <data name="cbPatSelect.Location" type="System.Drawing.Point, System.Drawing">
-    <value>203, 32</value>
+    <value>187, 32</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 139</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 14</value>
@@ -206,7 +203,7 @@
     <value>Arial, 6.75pt</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 17</value>
+    <value>187, 17</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 12</value>
@@ -221,28 +218,28 @@
     <value>JMÉNO</value>
   </data>
   <data name="lbProcNum.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 104</value>
+    <value>157, 129</value>
   </data>
   <data name="lbDiagnosis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 23</value>
+    <value>217, 34</value>
   </data>
   <data name="lbPatName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>191, 23</value>
+    <value>176, 34</value>
   </data>
-  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 398</value>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 173</value>
   </data>
-  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 40</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>  VÝBĚR PACIENTA  </value>
+  </data>
+  <data name="pbProgress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 20</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>56, 9</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 22</value>
-  </data>
-  <data name="pbProgress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 20</value>
+    <value>133, 22</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>47, 14</value>
@@ -251,21 +248,27 @@
     <value>PRŮBĚH</value>
   </data>
   <data name="Led.Location" type="System.Drawing.Point, System.Drawing">
-    <value>203, 7</value>
+    <value>197, 7</value>
+  </data>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 432</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 40</value>
   </data>
   <data name="pbStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 624</value>
+    <value>0, 658</value>
   </data>
   <data name="pbStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 96</value>
+    <value>228, 56</value>
   </data>
   <data name="elementHost1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 438</value>
+    <value>0, 472</value>
   </data>
   <data name="elementHost1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 186</value>
+    <value>228, 186</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 720</value>
+    <value>228, 714</value>
   </data>
 </root>

@@ -148,7 +148,7 @@ namespace MDM.Windows
         #region Události hlavního okna
         private void Main_Load(object sender, EventArgs e)
         {
-            logoBox.Location = new Point((Width - logoBox.Width) / 2, logoBox.Location.Y);
+            //logoBox.Location = new Point((Width - logoBox.Width) / 2, logoBox.Location.Y);
             if(timer == null)
             {
                 timer = new Timer();
