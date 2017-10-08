@@ -319,7 +319,12 @@ namespace MDM.Windows
                 panMain.Enabled = true;
                 applyRole(Program.LoggedUser.Role);
                 if(Program.LoggedUser.Role == UserRole.SuperAdmin && Database.GetFlashDrive() == Database.NulDrive)
-                    DialogBox.ShowWarn("Zálohovací médium nebylo nalezeno!", "Varování");
+                {
+                    const string cWarn = "Zálohovací médium nebylo nalezeno.";
+
+                    Log.WarningToLog("signInUser()", cWarn);
+                    DialogBox.ShowWarn(cWarn, "Varování");
+                }
             }
             else signOutUser();
         }

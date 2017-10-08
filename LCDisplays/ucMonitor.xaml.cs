@@ -98,9 +98,9 @@ namespace WpfUC
             set { disDAC.Value = value; }
         }
 
-        public byte DeltaU
+        public word DeltaU
         {
-            get { return (byte)disDeltaU.Value; }
+            get { return (word)disDeltaU.Value; }
             set { disDeltaU.Value = value; }
         }
 
@@ -150,8 +150,8 @@ namespace WpfUC
         #region resetMonitor()
         private void resetMonitor()
         {
-            WS = Sweep = DAC = Status = Elapsed = Remained = SegmentLeft = 0;
-            ATC = DeltaU = Mode = 0;
+            WS = Sweep = DAC = Status = Elapsed = DeltaU = Remained = SegmentLeft = 0;
+            ATC = Mode = 0;
             Segments = new byte[] { 5, 5, 5, 5, 5, 5 };
             monMode = MonitorMode.Admin;
             MonMode = MonitorMode.User;

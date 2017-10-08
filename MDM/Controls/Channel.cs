@@ -176,6 +176,11 @@ namespace MDM.Controls
                 {
                     if(ucMonitor.SegmentLeft == 0 && Patient.CurrSegment < Patient.Segments.Length)
                     {
+                        if(Status == ChannelStatus.SetCurrent)
+                        {
+                            cbSetCurrent.PerformClick();
+                            DialogBox.ShowInfo(Resources.chSetCurrAborted, string.Format(Resources.chNum, Number));
+                        }
                         patient.CurrSegment++;
                         ucMonitor.NextSegment();
                         ucMonitor.SegmentLeft = (word)(Patient.Segments[Patient.CurrSegment - 1].Duration * 60);
@@ -359,7 +364,7 @@ namespace MDM.Controls
             ucMonitor.Sweep = resp.InputR.Verified.T3Sweep;
             ucMonitor.ATC = (byte)resp.InputR.Verified.AttenCoef;
             ucMonitor.DAC = resp.InputR.Verified.DAC;
-            ucMonitor.DeltaU = (byte)Math.Abs(resp.InputR.AIN2 - resp.InputR.AIN1);// resp.InputR.Verified.DOUT.ByteValue;
+            ucMonitor.DeltaU = (word)Math.Abs(resp.InputR.AIN2 - resp.InputR.AIN1);// resp.InputR.Verified.DOUT.ByteValue;
             ucMonitor.Status = resp.InputR.Status.Value;
             ucMonitor.Mode = (byte)resp.InputR.Verified.Mode;
             if(Status == ChannelStatus.Active || Status == ChannelStatus.Ready || Status == ChannelStatus.HighResistance)
@@ -382,14 +387,15 @@ namespace MDM.Controls
                 {
                     if(actCur == toBeSet && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52) Status = ChannelStatus.Active;
                 }
-                else if((Status == ChannelStatus.InProgress /*|| Status == ChannelStatus.Restored*/) && resp.InputR.Status[1])
+                else if((Status == ChannelStatus.InProgress || Status == ChannelStatus.SetCurrent /*|| Status == ChannelStatus.Restored*/) && resp.InputR.Status[1])
                 {
+                    if(Status == ChannelStatus.SetCurrent) cbSetCurrent.PerformClick();
                     Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
                 }
                 else if(Status == ChannelStatus.HighResistance)
                 {
-                    if(actCur == (byte)(Math.Round(.5 / curstep, 0))) LANFunc.ChMode(Number, 0, 0, 0, 0, 0);
-                    if(actCur == toBeSet && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) <= 48)
+                    //if(actCur == (byte)(Math.Round(.5 / curstep, 0))) LANFunc.ChMode(Number, 0, 0, 0, 0, 0);
+                    if(actCur == (byte)(Math.Round(.5 / curstep, 0)) && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) <= 48)
                     {
                         LANFunc.ChMode(Number, 2, Patient.Segments[Patient.CurrSegment - 1].WaveShape, Patient.Segments[Patient.CurrSegment - 1].TMax, Patient.Segments[Patient.CurrSegment - 1].TMin, Patient.Segments[Patient.CurrSegment - 1].TSweep);
                         Current = current;
@@ -427,8 +433,7 @@ namespace MDM.Controls
             ucMonitor.Sweep = Patient.Segments == null ? (word)0 : Patient.CurrSegment == 0 ? (word)0 : Patient.Segments[Patient.CurrSegment - 1].TSweep;
             ucMonitor.ATC = actCur;
             ucMonitor.DAC = (word)(InOrder ? 0x8000 : 0);
-            ucMonitor.DeltaU = 0;
-            ucMonitor.Status = 0;
+            ucMonitor.DeltaU = ucMonitor.Status = 0;
             ucMonitor.Mode = (byte)(InOrder ? 2 : 0);
         }
 
@@ -606,15 +611,16 @@ namespace MDM.Controls
         {
             cbSetCurrent.Font = new Font(cbSetCurrent.Font, FontStyle.Bold);
             cbPause.Enabled = false;
-            tbCurrent.Enabled = true;
+            tbCurrent.Enabled = cbSetCurrent.Enabled = cbCurrMinus.Enabled = cbCurrPlus.Enabled = true;
             tbCurrent.Focus();
             //lbCurrent.ForeColor = SystemColors.ActiveCaptionText;
             pbStatus.Image = Resources.stimsmart_nastavte_proud;
             lbStatus.Text = Resources.chSetCurrent;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.RoyalBlue;
+            if(oldStatus == ChannelStatus.HighResistance) Sound.Beep(700);
         }
-#endregion
+        #endregion
 
 #region highResistance()
         /// <summary>
@@ -623,13 +629,16 @@ namespace MDM.Controls
         /// </summary>
         private void highResistance()
         {
-            paused();
+            //paused();
+            cbPatSelect.Enabled = cbStart.Enabled = cbSetCurrent.Enabled = cbCurrMinus.Enabled = cbCurrPlus.Enabled = false;
             cbPause.Enabled = false;
             pbStatus.Image = Resources.stimsmart_vysoky_odpor;
             lbStatus.Text = Resources.chHighResistance;
             lbStatus.ForeColor = Color.White;
             lbStatus.BackColor = Color.OrangeRed;
+            LedGreen(true);
             current = Current;
+            LANFunc.ChMode(Number, 0, 0, 0, 0, 0);
             Current = .5;
             Sound.Beep();
         }
@@ -642,7 +651,7 @@ namespace MDM.Controls
         /// </summary>
         private void paused()
         {
-            cbPatSelect.Enabled = cbStart.Enabled = cbSetCurrent.Enabled = false;
+            cbPatSelect.Enabled = cbStart.Enabled = cbSetCurrent.Enabled = cbCurrMinus.Enabled = cbCurrPlus.Enabled = false;
             cbPause.Enabled = cbStop.Enabled = true;
             cbPause.Text = Resources.cbPauseResumeText;
             cbPause.Image = Resources.start;

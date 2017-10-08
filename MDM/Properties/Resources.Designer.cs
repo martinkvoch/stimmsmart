@@ -323,6 +323,15 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The current setting has been interrupted. Continue setting in a moment..
+        /// </summary>
+        public static string chSetCurrAborted {
+            get {
+                return ResourceManager.GetString("chSetCurrAborted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set the current....
         /// </summary>
         public static string chSetCurrent {

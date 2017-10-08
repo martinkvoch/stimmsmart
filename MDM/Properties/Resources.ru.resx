@@ -639,4 +639,7 @@
   <data name="langQH" xml:space="preserve">
     <value>Изменение языка</value>
   </data>
+  <data name="chSetCurrAborted" xml:space="preserve">
+    <value>Текущая настройка прервана. Продолжайте установку в одно мгновение.</value>
+  </data>
 </root>

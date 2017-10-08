@@ -636,4 +636,7 @@
   <data name="langQH" xml:space="preserve">
     <value>Change of language</value>
   </data>
+  <data name="chSetCurrAborted" xml:space="preserve">
+    <value>The current setting has been interrupted. Continue setting in a moment.</value>
+  </data>
 </root>
