@@ -268,6 +268,7 @@ namespace MDM.Controls
             //elapsedTxt = lbElapsed.Text;
             FontHeight = Width < 240 ? 8 : 10;
             //Channel_FontChanged(null, null);
+            Patient = new SelectedPatient(NoSelection);
             pbProgress.Maximum = procDuration;
             chWorker.WorkerSupportsCancellation = true;
             chWorker.DoWork += chWorker_DoWork;
@@ -416,7 +417,8 @@ namespace MDM.Controls
                     }
                     else
                     {
-                        if(Status == ChannelStatus.Inactive || Status == ChannelStatus.Disabled || Status == ChannelStatus.Disconnected || Status == ChannelStatus.Inaccessible) currDecr(32);
+                        if(Status == ChannelStatus.Inactive) currDecr(12);
+                        else if(Status == ChannelStatus.Disabled || Status == ChannelStatus.Disconnected || Status == ChannelStatus.Inaccessible) currDecr(32);
                         else if(Status == ChannelStatus.Paused || Status == ChannelStatus.HighResistance) currDecr(16);
                         else currDecr(8);
                     }

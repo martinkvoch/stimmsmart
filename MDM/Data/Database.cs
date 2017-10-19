@@ -13,7 +13,7 @@ using MDM.Properties;
 
 namespace MDM.Data
 {
-    public enum DbStatus { Created, Closed, Open, BackedUp, Restored, Compressed }
+    public enum DbStatus { Created, Saved, Closed, Open, BackedUp, Restored, Compressed }
 
     public static class Database
     {
@@ -60,7 +60,8 @@ namespace MDM.Data
             {
                 zip.Password = EncryptionUtilities.DecryptString(pwd);
                 zip.Encryption = EncryptionAlgorithm.WinZipAes256;
-                zip.AddFile(Path.ChangeExtension(zipFN, Path.GetExtension(dbFileName)), string.Empty);
+                zip.AddFile(dbFileName, string.Empty);
+                //zip.AddFile(Path.ChangeExtension(zipFN, Path.GetExtension(dbFileName)), string.Empty);
                 zip.Save();
             }
         }
@@ -298,7 +299,7 @@ namespace MDM.Data
         }
         #endregion
 
-        #region Backup(), Restore(), Compact()
+        #region Save(), Backup(), Restore(), Compact()
         internal const string NulDrive = "nul";
 
         internal static string GetFlashDrive()
@@ -334,6 +335,30 @@ namespace MDM.Data
                     oldestDir = Directory.GetDirectories(Directory.GetDirectories(baseDir).OrderBy(d => d).FirstOrDefault()).OrderBy(d => d).FirstOrDefault();
                     oldestFile = Directory.GetFiles(oldestDir ?? baseDir, Path.ChangeExtension("*", EncExt)).OrderBy(f => f).FirstOrDefault();
                 }
+            }
+        }
+
+        internal static void Save()
+        {
+            DbStatus oldStatus = Status;
+            string methodName = string.Format(methodFmt, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
+
+            try
+            {
+                Status = DbStatus.Saved;
+                if(File.Exists(dbFileName))
+                {
+                    zip();
+                    Log.InfoToLog(methodName, "Databáze byla uložena.");
+                }
+            }
+            catch(SQLiteException e)
+            {
+                Log.ErrorToLog(methodName, string.Format(errorFmt, e.ErrorCode, e.Message));
+            }
+            finally
+            {
+                Status = oldStatus;
             }
         }
 

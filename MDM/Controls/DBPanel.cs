@@ -34,11 +34,12 @@ namespace MDM.Controls
         {
             bool enabled = (dataGrid.Rows.Count > 0) && !ReferenceEquals(dataGrid.Rows[0].Cells[0].Value, null);
 
-            if((PanelButtons & (int)PanelButton.Delete) > 0) nbDelete.Enabled = enabled;
-            if((PanelButtons & (int)PanelButton.Edit) > 0) nbEdit.Enabled = enabled;
-            if((PanelButtons & (int)PanelButton.Wipe) > 0) nbWipe.Enabled = enabled;
-            if((PanelButtons & (int)PanelButton.Undelete) > 0) nbUndelete.Enabled = enabled;
-            if((PanelButtons & (int)PanelButton.Filter) > 0) nbFilter.Enabled = enabled;
+            if((PanelButtons & (int)PanelButton.Insert) > 0) nbAddNew.Enabled = nbAddNew.Enabled && enabled;
+            if((PanelButtons & (int)PanelButton.Delete) > 0) nbDelete.Enabled = nbDelete.Enabled && enabled;
+            if((PanelButtons & (int)PanelButton.Edit) > 0) nbEdit.Enabled = nbEdit.Enabled && enabled;
+            if((PanelButtons & (int)PanelButton.Wipe) > 0) nbWipe.Enabled = nbWipe.Enabled && enabled;
+            if((PanelButtons & (int)PanelButton.Undelete) > 0) nbUndelete.Enabled = nbUndelete.Enabled && enabled;
+            if((PanelButtons & (int)PanelButton.Filter) > 0) nbFilter.Enabled = nbFilter.Enabled && enabled;
         }
         #endregion
 
@@ -48,6 +49,19 @@ namespace MDM.Controls
         }
 
         #region Veřejné funkce
+        public void SetButton(PanelButton button, bool enable = true)
+        {
+            switch(button)
+            {
+                case PanelButton.Insert: nbAddNew.Enabled = enable; break;
+                case PanelButton.Delete: nbDelete.Enabled = enable; break;
+                case PanelButton.Edit: nbEdit.Enabled = enable; break;
+                case PanelButton.Wipe: nbWipe.Enabled = enable; break;
+                case PanelButton.Undelete: nbUndelete.Enabled = enable; break;
+                case PanelButton.Filter: nbFilter.Enabled = enable; break;
+            }
+        }
+
         public override void Fill(string cmd = null)
         {
             if(DBObject != null)
@@ -62,18 +76,17 @@ namespace MDM.Controls
                     bindingSource.Dispose();
                     bindingSource = new BindingSource();
                     bindingSource.DataSource = dbpDataSet.Tables[0].DefaultView;
-                    dataGrid.DataSource = bindingSource;
-                    dbpNavigator.BindingSource = bindingSource;
+                    dataGrid.DataSource = dbpNavigator.BindingSource = bindingSource;
                     bindingSource.Position = pos;
+                    if((PanelButtons & (int)PanelButton.Filter) > 0)
+                    {
+                        nbFilter.Image = Resources.filter; // !!!!!
+                        nbFilter.DropDownItems.Clear();
+                        nbFilter.DropDownItems.Add(new ToolStripMenuItem(Resources.filterAll, null, ddi_tsmi_click));
+                        nbFilter.DropDownItems.AddRange(dbpDataSet.Tables[0].Rows.OfType<DataRow>().Select(r => r[0].ToString()).Distinct().Select(s => new ToolStripMenuItem(s, null, ddi_tsmi_click)).ToArray());
+                    }
+                    setButtons();
                 }
-                if((PanelButtons & (int)PanelButton.Filter) > 0)
-                {
-                    nbFilter.Image = Resources.filter; // !!!!!
-                    nbFilter.DropDownItems.Clear();
-                    nbFilter.DropDownItems.Add(new ToolStripMenuItem(Resources.filterAll, null, ddi_tsmi_click));
-                    nbFilter.DropDownItems.AddRange(dbpDataSet.Tables[0].Rows.OfType<DataRow>().Select(r => r[0].ToString()).Distinct().Select(s => new ToolStripMenuItem(s, null, ddi_tsmi_click)).ToArray());
-                }
-                setButtons();
             }
         }
 

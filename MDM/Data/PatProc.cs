@@ -75,7 +75,11 @@ namespace MDM.Data
             using(PatProc proc = new PatProc())
             {
                 if((duration / 60) < new Settings().CountedProcAfter) proc.Delete(procID);
-                else proc.Update(string.Format(updFmt, duration, (int)result), string.Format(updWhereFmt, procID));
+                else
+                {
+                    proc.Update(string.Format(updFmt, duration, (int)result), string.Format(updWhereFmt, procID));
+                    Database.Save();
+                }
             }
         }
     }

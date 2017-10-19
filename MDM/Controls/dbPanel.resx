@@ -138,16 +138,19 @@
     <value>True</value>
   </data>
   <data name="nbAddNew.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+    <value>36, 37</value>
   </data>
   <data name="nbAddNew.Text" xml:space="preserve">
     <value>Add new</value>
+  </data>
+  <data name="dbpNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <metadata name="bindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="nbCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 22</value>
+    <value>35, 37</value>
   </data>
   <data name="nbCount.Text" xml:space="preserve">
     <value>of {0}</value>
@@ -170,7 +173,7 @@
     <value>True</value>
   </data>
   <data name="nbMoveFirst.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+    <value>36, 37</value>
   </data>
   <data name="nbMoveFirst.Text" xml:space="preserve">
     <value>Move first</value>
@@ -188,7 +191,7 @@
     <value>True</value>
   </data>
   <data name="nbMovePrevious.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+    <value>36, 37</value>
   </data>
   <data name="nbMovePrevious.Text" xml:space="preserve">
     <value>Move previous</value>
@@ -221,7 +224,7 @@
     <value>True</value>
   </data>
   <data name="nbMoveNext.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+    <value>36, 37</value>
   </data>
   <data name="nbMoveNext.Text" xml:space="preserve">
     <value>Move next</value>
@@ -241,7 +244,7 @@
     <value>True</value>
   </data>
   <data name="nbMoveLast.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+    <value>36, 37</value>
   </data>
   <data name="nbMoveLast.Text" xml:space="preserve">
     <value>Move last</value>
@@ -262,13 +265,13 @@
     <value>True</value>
   </data>
   <data name="nbDelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+    <value>36, 37</value>
   </data>
   <data name="nbDelete.Text" xml:space="preserve">
     <value>Delete</value>
   </data>
   <data name="nbClose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+    <value>36, 37</value>
   </data>
   <data name="nbClose.Text" xml:space="preserve">
     <value>Close</value>
@@ -277,7 +280,7 @@
     <value>Magenta</value>
   </data>
   <data name="nbEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+    <value>36, 36</value>
   </data>
   <data name="nbEdit.Text" xml:space="preserve">
     <value>Edit</value>
@@ -298,7 +301,7 @@
     <value>True</value>
   </data>
   <data name="nbWipe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+    <value>36, 36</value>
   </data>
   <data name="nbWipe.Text" xml:space="preserve">
     <value>Wipe</value>
@@ -310,7 +313,7 @@
     <value>Magenta</value>
   </data>
   <data name="nbUndelete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 22</value>
+    <value>36, 36</value>
   </data>
   <data name="nbUndelete.Text" xml:space="preserve">
     <value>Undelete</value>
@@ -319,7 +322,7 @@
     <value>Magenta</value>
   </data>
   <data name="nbFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 22</value>
+    <value>45, 36</value>
   </data>
   <data name="nbFilter.Text" xml:space="preserve">
     <value>Select the patient</value>
@@ -328,7 +331,7 @@
     <value>0, 0</value>
   </data>
   <data name="dbpNavigator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 25</value>
+    <value>368, 40</value>
   </data>
   <data name="dbpNavigator.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -353,13 +356,13 @@
     <value>Fill</value>
   </data>
   <data name="dataGrid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 25</value>
+    <value>0, 40</value>
   </data>
   <data name="dataGrid.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
     <value>Vertical</value>
   </data>
   <data name="dataGrid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>368, 321</value>
+    <value>368, 306</value>
   </data>
   <data name="dataGrid.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -482,6 +485,6 @@
     <value>DBPanel</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>MDM.Controls.MDMPanel, MDM, Version=1.0.6416.33701, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.MDMPanel, MDM, Version=1.0.6501.43176, Culture=neutral, PublicKeyToken=null</value>
   </data>
 </root>

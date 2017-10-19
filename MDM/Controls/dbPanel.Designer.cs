@@ -60,10 +60,12 @@
             // dbpNavigator
             // 
             this.dbpNavigator.AddNewItem = this.nbAddNew;
+            resources.ApplyResources(this.dbpNavigator, "dbpNavigator");
             this.dbpNavigator.BindingSource = this.bindingSource;
             this.dbpNavigator.CountItem = this.nbCount;
             this.dbpNavigator.DeleteItem = null;
             this.dbpNavigator.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.dbpNavigator.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.dbpNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nbMoveFirst,
             this.nbMovePrevious,
@@ -78,7 +80,6 @@
             this.nbWipe,
             this.nbUndelete,
             this.nbFilter});
-            resources.ApplyResources(this.dbpNavigator, "dbpNavigator");
             this.dbpNavigator.MoveFirstItem = this.nbMoveFirst;
             this.dbpNavigator.MoveLastItem = this.nbMoveLast;
             this.dbpNavigator.MoveNextItem = this.nbMoveNext;
@@ -179,6 +180,10 @@
             // 
             // dataGrid
             // 
+            this.dataGrid.AllowUserToAddRows = false;
+            this.dataGrid.AllowUserToDeleteRows = false;
+            this.dataGrid.AllowUserToResizeColumns = false;
+            this.dataGrid.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.dataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -225,7 +230,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dbpDataSet)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -241,12 +245,12 @@
         private System.Windows.Forms.ToolStripButton nbMoveLast;
         private System.Windows.Forms.ToolStripButton nbAddNew;
         private System.Windows.Forms.ToolStripButton nbDelete;
-        private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.BindingSource bindingSource;
         private System.Windows.Forms.ToolStripButton nbEdit;
         private Data.DBDataSet dbpDataSet;
         private System.Windows.Forms.ToolStripButton nbWipe;
         private System.Windows.Forms.ToolStripButton nbUndelete;
         private System.Windows.Forms.ToolStripDropDownButton nbFilter;
+        internal System.Windows.Forms.DataGridView dataGrid;
     }
 }

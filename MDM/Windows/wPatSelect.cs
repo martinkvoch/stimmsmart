@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SQLite;
+using System.Drawing;
 using System.Windows.Forms;
 
 using MDM.Data;
@@ -12,6 +13,7 @@ namespace MDM.Windows
     using word = UInt16;
     using dword = UInt32;
     using DlgBox;
+    using Classes;
 
     public partial class wPatSelect : Form
     {
@@ -147,6 +149,13 @@ namespace MDM.Windows
         private void dataGrid_DoubleClick(object sender, EventArgs e)
         {
             cbSelect.PerformClick();
+        }
+
+        private void dataGrid_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            int pid = -1;
+
+            if(int.TryParse(dataGrid.Rows[e.RowIndex].Cells[0].Value.ToString(), out pid) && Channels.PatientAttached(pid)) dataGrid.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.LightGray;
         }
     }
 }

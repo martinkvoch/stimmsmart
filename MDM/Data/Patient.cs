@@ -233,6 +233,7 @@ namespace MDM.Data
                                 MainFrm.ShowInStatus(LogTyp.Information, msg);
                                 if(pan != null) pan.Fill();
                             }
+                            Database.Save();
                         }
             }
         }
@@ -301,7 +302,7 @@ namespace MDM.Data
         }
         #endregion
 
-        #region Age()
+        #region Age() - zrušeno
         //public static byte Age(int patientID)
         //{
         //    byte res = 0;
@@ -319,7 +320,7 @@ namespace MDM.Data
         //}
         #endregion
 
-        #region Exists()
+        #region Exists() - zrušeno
         //public static bool Exists(int id)
         //{
         //    return Count(false, id) > 0L;

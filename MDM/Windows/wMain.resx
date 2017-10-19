@@ -1034,7 +1034,7 @@
     <value>panProcedure</value>
   </data>
   <data name="&gt;&gt;panProcedure.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6485.28874, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6501.32016, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panProcedure.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1055,7 +1055,7 @@
     <value>panPatient</value>
   </data>
   <data name="&gt;&gt;panPatient.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6485.28874, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6501.32016, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panPatient.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1076,7 +1076,7 @@
     <value>panHIC</value>
   </data>
   <data name="&gt;&gt;panHIC.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6485.28874, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6501.32016, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panHIC.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1097,7 +1097,7 @@
     <value>panUser</value>
   </data>
   <data name="&gt;&gt;panUser.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6485.28874, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6501.32016, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panUser.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1118,7 +1118,7 @@
     <value>panDBRestore</value>
   </data>
   <data name="&gt;&gt;panDBRestore.Type" xml:space="preserve">
-    <value>MDM.Controls.dbRestorePanel, MDM, Version=1.0.6485.28874, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.dbRestorePanel, MDM, Version=1.0.6501.32016, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panDBRestore.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1139,7 +1139,7 @@
     <value>panLog</value>
   </data>
   <data name="&gt;&gt;panLog.Type" xml:space="preserve">
-    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6485.28874, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.DBPanel, MDM, Version=1.0.6501.32016, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panLog.Parent" xml:space="preserve">
     <value>$this</value>
@@ -1160,7 +1160,7 @@
     <value>panMain</value>
   </data>
   <data name="&gt;&gt;panMain.Type" xml:space="preserve">
-    <value>MDM.Controls.mainPanel, MDM, Version=1.0.6485.28874, Culture=neutral, PublicKeyToken=null</value>
+    <value>MDM.Controls.mainPanel, MDM, Version=1.0.6501.32016, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panMain.Parent" xml:space="preserve">
     <value>$this</value>

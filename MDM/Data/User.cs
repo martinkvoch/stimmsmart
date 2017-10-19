@@ -123,6 +123,7 @@ namespace MDM.Data
                                 MainFrm.ShowInStatus(LogTyp.Information, msg);
                                 if(pan != null) pan.Fill();
                             }
+                            Database.Save();
                         }
             }
         }

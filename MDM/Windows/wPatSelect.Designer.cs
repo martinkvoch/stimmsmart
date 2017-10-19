@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wPatSelect));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbSelect = new System.Windows.Forms.Button();
             this.cbCancel = new System.Windows.Forms.Button();
             this.txtFindName = new System.Windows.Forms.TextBox();
@@ -88,9 +89,12 @@
             this.dataGrid.ReadOnly = true;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.dataGrid.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.RowTemplate.Height = 40;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGrid.ShowEditingIcon = false;
+            this.dataGrid.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGrid_RowPrePaint);
             this.dataGrid.DoubleClick += new System.EventHandler(this.dataGrid_DoubleClick);
             // 
             // wPatSelect

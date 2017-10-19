@@ -22,6 +22,7 @@ namespace MDM.Classes
     /// </summary>
     public class Channels : Component
     {
+        private static Channels me;
         private static byte noc = new Settings().NOC;
         internal static readonly Image[]
             ChannelsReadyImgs = new Image[] { Resources.cervena_ready, Resources.modra_ready, Resources.cerna_ready, Resources.zluta_ready, Resources.bila_ready, Resources.zelena_ready },
@@ -45,6 +46,7 @@ namespace MDM.Classes
         {
             int screenWidth = (int)SystemParameters.PrimaryScreenWidth;
 
+            me = this;
 #if LAN
             LAN.SlaveIP = new Settings().LanIP;
 #endif
@@ -559,9 +561,14 @@ namespace MDM.Classes
         /// </summary>
         /// <param name="patId">identifikační číslo zkoumaného pacienta</param>
         /// <returns>Vrací logickou hodnotu true v případě, že pacient je již na některém kanále připojen.</returns>
-        public bool PatientAttached(int patId)
+        public static bool PatientAttached(int patId)
         {
-            return channels.Any(ch => ch.Patient.ID == patId);
+            return me.channels.Any(ch => ch.Patient.ID == patId);
+        }
+
+        public static int[] AttachedPatients()
+        {
+            return me.channels.Where(ch => ch.Patient.ID > 0).Select(ch => ch.Patient.ID).ToArray();
         }
 #endregion
     }

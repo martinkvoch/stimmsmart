@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 //using System.Windows;
 using System.Windows.Forms;
-
+using MDM.Classes;
 using MDM.Controls;
 using MDM.Data;
 using MDM.DlgBox;
@@ -88,6 +88,8 @@ namespace MDM.Windows
             Program.SetLanguage();
             MDMTable.MainFrm = this;
             InitializeComponent();
+            panPatient.dataGrid.RowsDefaultCellStyle.Font = new Font("Arial", 12);
+            panPatient.dataGrid.RowTemplate.Height = 40;
             constructMiLang();
             Language = lang ?? settings.lang;
             setMILang();
@@ -437,14 +439,23 @@ namespace MDM.Windows
         private void updPatientButtons(bool undel = false)
         {
             miEditPatient.Enabled = miDeletePatient.Enabled = miWipePatient.Enabled = (!undel && currentPanel == panPatient && Patient.Count() > 0);
+            miDeletePatient.Enabled = miWipePatient.Enabled = !undel && miDeletePatient.Enabled && Channels.AttachedPatients().Length == 0;
+            if(panPatient != null)
+            {
+                panPatient.SetButton(PanelButton.Delete, miDeletePatient.Enabled);
+                panPatient.SetButton(PanelButton.Wipe, miWipePatient.Enabled);
+            }
             miUndeletePatient.Enabled = Patient.Count(true) > 0;
             panPatient.Fill();
         }
 
         private void miPatientList_Click(object sender, EventArgs e)
         {
-            using(Patient pat = new Patient()) panPatient.Open(pat, Program.LoggedUser.Role == UserRole.User ? PanelLayout.WODelete : PanelLayout.Edit);
-            updPatientButtons();
+            if(currentPanel != panPatient)
+            {
+                using(Patient pat = new Patient()) panPatient.Open(pat, Program.LoggedUser.Role == UserRole.User ? PanelLayout.WODelete : PanelLayout.Edit);
+                updPatientButtons();
+            }
         }
 
         private void miNewPatient_Click(object sender, EventArgs e)
@@ -519,10 +530,10 @@ namespace MDM.Windows
             updPatientButtons(true);
         }
 
-        private void miHIC_Click(object sender, EventArgs e)
-        {
-            using(HIC hic = new HIC()) panHIC.Open(hic, PanelLayout.Edit);
-        }
+        //private void miHIC_Click(object sender, EventArgs e)
+        //{
+        //    using(HIC hic = new HIC()) panHIC.Open(hic, PanelLayout.Edit);
+        //}
         #endregion
 
         #region menu System
@@ -639,7 +650,7 @@ namespace MDM.Windows
 
         private void tbProcedures_Click(object sender, EventArgs e)
         {
-            SwitchToPanel();
+            if(currentPanel != panMain) SwitchToPanel();
         }
 
         private void miUpgSegs_Click(object sender, EventArgs e)
