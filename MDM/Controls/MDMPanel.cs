@@ -16,7 +16,7 @@ namespace MDM.Controls
     {
         public MDMTable DBObject = null;
         public ToolStripMenuItem PanelMenu;
-        private PanelLayout panelLayout = PanelLayout.ReadOnly;
+        public PanelLayout PanelLayout = PanelLayout.ReadOnly;
         //private string cmd;
 
         protected string Cmd { get; set; }
@@ -25,9 +25,9 @@ namespace MDM.Controls
         //    private set { cmd = value; }
         //}
 
-        protected void switchToPanel(MDMPanel pan = null)
+        private void switchToPanel(MDMPanel pan = null, bool undel = false)
         {
-            (Parent as wMain).SwitchToPanel(pan);
+            (Parent as wMain).SwitchToPanel(pan, undel);
             if(PanelMenu != null) PanelMenu.Visible = true;
         }
 
@@ -40,7 +40,7 @@ namespace MDM.Controls
             {
                 byte res = (byte)PanelButton.Navigator;
 
-                switch(panelLayout)
+                switch(PanelLayout)
                 {
                     case PanelLayout.DeleteOnly:
                         res += (byte)PanelButton.Delete;
@@ -55,11 +55,11 @@ namespace MDM.Controls
                         res += (byte)PanelButton.Edit;
                         break;
                     case PanelLayout.Undelete:
-                        res += (byte)PanelButton.Insert;
-                        res += (byte)PanelButton.Delete;
-                        res += (byte)PanelButton.Edit;
+                        //res += (byte)PanelButton.Insert;
+                        //res += (byte)PanelButton.Delete;
+                        //res += (byte)PanelButton.Edit;
                         res += (byte)PanelButton.Undelete;
-                        res += (byte)PanelButton.Wipe;
+                        //res += (byte)PanelButton.Wipe;
                         break;
                     case PanelLayout.WFilter:
                         res += (byte)PanelButton.Filter;
@@ -82,7 +82,7 @@ namespace MDM.Controls
         {
             DBObject = dbObject;
             PanelMenu = panMenu;
-            panelLayout = layout;
+            PanelLayout = layout;
             Cmd = cmd;
             Fill(cmd);
             switchToPanel(this);

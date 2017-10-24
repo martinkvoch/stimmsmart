@@ -117,10 +117,10 @@ namespace MDM.Windows
         #endregion
 
         #region Operace s panely
-        private void updAllButtons()
+        private void updAllButtons(bool undel = false)
         {
-            updUserButtons();
-            updPatientButtons();
+            updUserButtons(undel);
+            updPatientButtons(undel);
             updRestoreButtons();
             updLogButtons();
         }
@@ -129,7 +129,7 @@ namespace MDM.Windows
         /// Přepíná zobrazení na daný panel
         /// </summary>
         /// <param name="pan">panel, který bude zobrazen</param>
-        internal void SwitchToPanel(MDMPanel pan = null)
+        internal void SwitchToPanel(MDMPanel pan = null, bool undel = false)
         {
             if(currentPanel != null && currentPanel != panMain)
             { // nejdřív musíme zavřít naposledy otevřený panel...
@@ -143,7 +143,7 @@ namespace MDM.Windows
             pan.Visible = true;
             pan.Focus();
             currentPanel = pan;
-            updAllButtons();
+            updAllButtons(pan.PanelLayout == PanelLayout.Undelete);
         }
         #endregion
 
@@ -446,7 +446,7 @@ namespace MDM.Windows
                 panPatient.SetButton(PanelButton.Wipe, miWipePatient.Enabled);
             }
             miUndeletePatient.Enabled = Patient.Count(true) > 0;
-            panPatient.Fill();
+            using(Patient pat = new Patient()) panPatient.Fill(undel ? pat.SelectDeleted() : pat.SelectCmd());
         }
 
         private void miPatientList_Click(object sender, EventArgs e)

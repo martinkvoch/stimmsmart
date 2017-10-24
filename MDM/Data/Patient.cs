@@ -63,8 +63,10 @@ namespace MDM.Data
                      "DG.NAME [{14}], " +
                      //"HIC.NAME [{15}], " +
                      "case PAT.SOMATOTYPE when 0 then '{16}' when 1 then '{17}' else '{18}' end [{19}] " +
-                 "from {20} PAT, {21} DG, {22} HIC " +
-                 "where PAT.DG_ID = DG.ID and PAT.HIC_ID = HIC.ID and {23} PAT.DELETED order by 4";
+                 "from {20} PAT, {21} DG " +
+                 //"from {20} PAT, {21} DG, {22} HIC " +
+                 "where PAT.DG_ID = DG.ID and {23} PAT.DELETED order by 4";
+                 //"where PAT.DG_ID = DG.ID and PAT.HIC_ID = HIC.ID and {23} PAT.DELETED order by 4";
         internal const string TName = "PATIENT";
 
         #region Init()

@@ -279,7 +279,7 @@ namespace MDM.Data
                     Log.Init();
                     User.Init();
                     Diagnosis.Init();
-                    HIC.Init();
+                    //HIC.Init();
                     Procedure.Init();
                     Patient.Init();
                     PatProc.Init();
