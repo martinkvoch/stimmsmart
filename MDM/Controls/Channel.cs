@@ -51,6 +51,7 @@ namespace MDM.Controls
         private double current = 0D;
         private BackgroundWorker chWorker = new BackgroundWorker();
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+        private volatile bool afterOn = false;
 
 #region Vlastnosti
 #region Number
@@ -379,10 +380,17 @@ namespace MDM.Controls
             {
                 //chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
                 fillMonitor(resp);
-                processMBStatus(resp);
+                if(!afterOn) processMBStatus(resp);
                 if(Status == ChannelStatus.Active)
                 {
-                    if(actCur == toBeSet && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) <= 48) Status = ChannelStatus.Ready;
+                    resp = LANFunc.ChRd(Number);
+                    if (resp.InputR.Status[15])
+                    {
+                        LANFunc.ChRst(Number);
+                        Status = ChannelStatus.Inactive;
+                        Sound.Beep(700);
+                    }
+                    else if (actCur == toBeSet && resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) <= 48) Status = ChannelStatus.Ready;
                 }
                 else if(Status == ChannelStatus.Ready) // elektrody nejsou nasazeny ve stavu "připraven"
                 {
@@ -495,6 +503,7 @@ namespace MDM.Controls
             ucMonitor.On = false;
             ucMonitor.MonMode = Program.LoggedUser.Role == UserRole.SuperAdmin ? WpfUC.MonitorMode.Admin : WpfUC.MonitorMode.User;
 #if LAN
+            while (actCur > 0) Application.DoEvents();
             LANFunc.ChRst(Number);
             LANFunc.LanChOnOff(Number, false);
 #endif
@@ -532,6 +541,7 @@ namespace MDM.Controls
 #if LAN
             if(oldStatus == ChannelStatus.Inactive)
             {
+                afterOn = true;
                 LANFunc.LanChOnOff(Number);
                 LANFunc.ChRst(Number);
                 LANFunc.ChDAC(Number);
