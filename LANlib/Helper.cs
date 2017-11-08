@@ -150,33 +150,33 @@ namespace LANlib
     #region Sound
     public static class Sound
     {
-        private const word F2 = 698, C4 = 1047, cCharGapID = 0x8000, cDash = 500, cDot = 200, cCharGap = cCharGapID + 80, cSignalGap = 40;
-        private static readonly word[]
-            cSOS = new word[] { cDot, cDot, cDot, cCharGap, cDash, cDash, cDash, cCharGap, cDot, cDot, cDot },
-            cEND = new word[] { cDot, cCharGap, cDash, cDot, cCharGap, cDash, cDot, cDot };
+        private const word F2 = 698, C4 = 1047, F4 = 1396;//, cCharGapID = 0x8000, cDash = 500, cDot = 200, cCharGap = cCharGapID + 80, cSignalGap = 40;
+        //private static readonly word[]
+        //    cSOS = new word[] { cDot, cDot, cDot, cCharGap, cDash, cDash, cDash, cCharGap, cDot, cDot, cDot },
+        //    cEND = new word[] { cDot, cCharGap, cDash, cDot, cCharGap, cDash, cDot, cDot };
 
-        private static void beep(word[] what)
-        {
-            foreach(word w in what)
-            {
-                if(w > cCharGapID) Thread.Sleep(w - cCharGapID);
-                else
-                {
-                    Console.Beep(F2, w);
-                    Thread.Sleep(cSignalGap);
-                }
-            }
-        }
+        //private static void beep(word[] what)
+        //{
+        //    foreach(word w in what)
+        //    {
+        //        if(w > cCharGapID) Thread.Sleep(w - cCharGapID);
+        //        else
+        //        {
+        //            Console.Beep(F2, w);
+        //            Thread.Sleep(cSignalGap);
+        //        }
+        //    }
+        //}
 
-        public static void BeepSOS()
-        {
-            beep(cSOS);
-        }
+        //public static void BeepSOS()
+        //{
+        //    beep(cSOS);
+        //}
 
-        public static void BeepEND()
-        {
-            beep(cEND);
-        }
+        //public static void BeepEND()
+        //{
+        //    beep(cEND);
+        //}
 
         public static void Beep()
         {
@@ -186,8 +186,12 @@ namespace LANlib
 
         public static void Beep(int duration)
         {
-            //Console.Beep();
             Console.Beep(C4, duration);
+        }
+
+        public static void FinalBeep()
+        {
+            Console.Beep(F4, 800);
         }
     }
     #endregion

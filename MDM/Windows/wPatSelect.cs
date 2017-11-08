@@ -155,7 +155,8 @@ namespace MDM.Windows
         {
             int pid = -1;
 
-            if(int.TryParse(dataGrid.Rows[e.RowIndex].Cells[0].Value.ToString(), out pid) && Channels.PatientAttached(pid)) dataGrid.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.LightGray;
+            if(int.TryParse(dataGrid.Rows[e.RowIndex].Cells[0].Value.ToString(), out pid) && Channels.PatientAttached(pid))
+                dataGrid.Rows[e.RowIndex].DefaultCellStyle.ForeColor = dataGrid.Rows[e.RowIndex].DefaultCellStyle.SelectionForeColor = Color.LightGray;
         }
     }
 }

@@ -51,7 +51,9 @@ namespace MDM.Controls
         private double current = 0D;
         private BackgroundWorker chWorker = new BackgroundWorker();
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+#if LAN
         private volatile bool afterOn = false;
+#endif
 
 #region Vlastnosti
 #region Number
@@ -153,7 +155,7 @@ namespace MDM.Controls
                 }
             }
         }
-        #endregion
+#endregion
 
 #region Elapsed
         private word elapsed = word.MaxValue;
@@ -177,10 +179,12 @@ namespace MDM.Controls
                 {
                     if(ucMonitor.SegmentLeft == 0 && Patient.CurrSegment < Patient.Segments.Length)
                     {
+                        wDialogBoxOK dlg = null;
+
                         if(Status == ChannelStatus.SetCurrent)
                         {
                             cbSetCurrent.PerformClick();
-                            DialogBox.ShowInfo(Resources.chSetCurrAborted, string.Format(Resources.chNum, Number));
+                            dlg = DialogBox.ShowInfo(Resources.chSetCurrAborted, string.Format(Resources.chNum, Number));
                         }
                         patient.CurrSegment++;
                         ucMonitor.NextSegment();
@@ -210,6 +214,7 @@ namespace MDM.Controls
                         ucMonitor.Status = 0;
                         Current = current;
 #endif
+                        if(dlg != null && !dlg.IsDisposed) dlg.Dispose();
                     }
                     ucMonitor.SegmentLeft--;
                 }
@@ -220,7 +225,7 @@ namespace MDM.Controls
         ///// Čas, který zbývá vykonat do ukončení procedury.
         ///// </summary>
         //public word Remained { get { return Status == ChannelStatus.InProgress || Status == ChannelStatus.Restored ? (word)(procDuration - elapsed) : procDuration; } }
-        #endregion
+#endregion
 
 #region LEDBits
         private Bits ledBits = new Bits();
@@ -296,7 +301,7 @@ namespace MDM.Controls
             timer.Dispose();
             timer = null;
         }
-        #endregion
+#endregion
 
 #region Utility kanálu
         private void led(DioReg clr, bool blink)
@@ -378,7 +383,6 @@ namespace MDM.Controls
         {
             if(resp != null)
             {
-                //chMon.Record(resp.InputR.Status.Value, (byte)resp.InputR.Verified.AttenCoef, resp.InputR.Verified.DAC, resp.InputR.Verified.DOUT.ByteValue, aStatus[(int)Status]);
                 fillMonitor(resp);
                 if(!afterOn) processMBStatus(resp);
                 if(Status == ChannelStatus.Active)
@@ -555,7 +559,7 @@ namespace MDM.Controls
             LedRed();
             Current = .5;
         }
-        #endregion
+#endregion
 
 #region ready()
         /// <summary>
@@ -632,7 +636,7 @@ namespace MDM.Controls
             lbStatus.BackColor = Color.RoyalBlue;
             if(oldStatus == ChannelStatus.HighResistance) Sound.Beep(700);
         }
-        #endregion
+#endregion
 
 #region highResistance()
         /// <summary>
@@ -654,7 +658,7 @@ namespace MDM.Controls
             Current = .5;
             Sound.Beep();
         }
-        #endregion
+#endregion
 
 #region paused()
         //TODO: pozastavení a obnovení také na mezerník
@@ -672,7 +676,7 @@ namespace MDM.Controls
             lbStatus.BackColor = Color.OrangeRed;
             LedGreen(true);
         }
-        #endregion
+#endregion
 
 #region restored() - odstraněno
         ///// <summary>
@@ -762,7 +766,7 @@ namespace MDM.Controls
                 if(procID > NoSelection) PatProc.FinishProcedure(procID, Elapsed, ProcResult.Finished);
                 Log.InfoToLog(string.Format(Resources.chNum, Number), string.Format(Resources.chUserProcCompleted, Patient.Name, Patient.ProcNum, Patient.CycleNum, Patient.ProcNum == 1 ? "st" : Patient.ProcNum == 2 ? "nd" : Patient.ProcNum == 3 ? "rd" : "th", Elapsed / 60, Elapsed % 60));
                 Status = ChannelStatus.Inactive;
-                Sound.Beep();
+                Sound.FinalBeep();
             }
         }
 
