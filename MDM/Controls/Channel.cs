@@ -201,7 +201,11 @@ namespace MDM.Controls
                         Thread.Sleep(200);
 #if LAN
                         ResponseDG resp = LANFunc.ChRd(Number);
-                        if(resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52) Status = ChannelStatus.HighResistance; // příliš vysoká impedance - navlhčit elektrody
+                        if(resp.InputR.AIN2 > 0 && (resp.InputR.AIN2 - resp.InputR.AIN1) >= 52) // příliš vysoká impedance - navlhčit elektrody
+                        {
+                            Current = current;
+                            Status = ChannelStatus.HighResistance;
+                        }
                         else
                         {
                             LANFunc.ChMode(Number, 2, Patient.Segments[Patient.CurrSegment - 1].WaveShape, Patient.Segments[Patient.CurrSegment - 1].TMax, Patient.Segments[Patient.CurrSegment - 1].TMin, Patient.Segments[Patient.CurrSegment - 1].TSweep);
@@ -522,6 +526,7 @@ namespace MDM.Controls
         private void deactivate()
         {
             reset();
+            if(oldStatus == ChannelStatus.InProgress || oldStatus == ChannelStatus.SetCurrent || oldStatus == ChannelStatus.Paused) Sound.FinalBeep();
             lbStatus.Text = Resources.chInactive;
             lbStatus.ForeColor = Color.White;// SystemColors.ActiveCaptionText;
             lbStatus.BackColor = Color.Goldenrod;// SystemColors.Window;
