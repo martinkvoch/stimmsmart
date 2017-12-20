@@ -444,7 +444,7 @@ namespace MDM.Classes
 
                     q.DioWR = res.DioRD;
                     q.HoldingR = res.InputR.Verified;
-                    q.HoldingR.AttenCoef = 220;
+                    q.HoldingR.AttenCoef = 210;
                     LAN.MasterCmd(q);
                 }
             }

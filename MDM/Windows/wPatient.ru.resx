@@ -220,6 +220,9 @@
   <data name="label12.Text" xml:space="preserve">
     <value>Д&amp;иагностика</value>
   </data>
+  <data name="cbDiagnosis.ToolTip" xml:space="preserve">
+    <value>Выберите диагноз</value>
+  </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 14</value>
   </data>

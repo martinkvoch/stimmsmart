@@ -639,4 +639,19 @@
   <data name="chSetCurrAborted" xml:space="preserve">
     <value>Nastavení proudu bylo přerušeno. Pokračujte v nastavení za chvíli.</value>
   </data>
+  <data name="patAddErrBirthDate" xml:space="preserve">
+    <value>Věk pacienta musí být mezi 18 a 99 roky.</value>
+  </data>
+  <data name="patSaveQ" xml:space="preserve">
+    <value>Opravdu chcete zapsat pacienta?</value>
+  </data>
+  <data name="patSaveQH" xml:space="preserve">
+    <value>Zápis pacienta</value>
+  </data>
+  <data name="patDeleteQ" xml:space="preserve">
+    <value>Opravdu chcete smazat tohoto pacienta?</value>
+  </data>
+  <data name="patDeleteQH" xml:space="preserve">
+    <value>Mazání pacienta</value>
+  </data>
 </root>

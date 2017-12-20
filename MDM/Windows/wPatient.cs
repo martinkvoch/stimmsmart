@@ -191,17 +191,24 @@ namespace MDM.Windows
         {
             if(DialogResult == DialogResult.OK)
             {
+                int age = DateTime.Now.Year - BirthDay.Year;
+
                 if(string.IsNullOrEmpty(FirstName))
                 {
                     txtFName.Focus();
-                    DialogBox.ShowError(Resources.patAddErrFName, Resources.patAddErrHdr);
+                    DialogBox.ShowError(Resources.patAddErrFName, Resources.patAddErrHdr).Focus();
                 }
                 if(string.IsNullOrEmpty(LastName))
                 {
                     txtLName.Focus();
-                    DialogBox.ShowError(Resources.patAddErrLName, Resources.patAddErrHdr);
+                    DialogBox.ShowError(Resources.patAddErrLName, Resources.patAddErrHdr).Focus();
                 }
-                e.Cancel = string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(LastName);
+                if(age < 18 || age > 99)
+                {
+                    dtpBirthDate.Focus();
+                    DialogBox.ShowError(Resources.patAddErrBirthDate, Resources.patAddErrHdr).Focus();
+                }
+                e.Cancel = string.IsNullOrEmpty(FirstName) || string.IsNullOrEmpty(LastName) || age < 18 || age > 99;
             }
         }
     }

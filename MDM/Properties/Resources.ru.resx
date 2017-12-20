@@ -642,4 +642,19 @@
   <data name="chSetCurrAborted" xml:space="preserve">
     <value>Текущая настройка прервана. Продолжайте установку в одно мгновение.</value>
   </data>
+  <data name="patAddErrBirthDate" xml:space="preserve">
+    <value>Возраст пациента должен составлять от 18 до 99 лет.</value>
+  </data>
+  <data name="patSaveQ" xml:space="preserve">
+    <value>Вы уверены, что хотите сохранить пациента?</value>
+  </data>
+  <data name="patSaveQH" xml:space="preserve">
+    <value>Сохранение пациента</value>
+  </data>
+  <data name="patDeleteQ" xml:space="preserve">
+    <value>Вы уверены, что хотите удалить этого пациента?</value>
+  </data>
+  <data name="patDeleteQH" xml:space="preserve">
+    <value>Удаление пациента</value>
+  </data>
 </root>

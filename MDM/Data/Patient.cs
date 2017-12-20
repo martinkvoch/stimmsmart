@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Windows.Forms;
 
 using MDM.Controls;
+using MDM.DlgBox;
 using MDM.Properties;
 using MDM.Windows;
 
@@ -213,6 +214,14 @@ namespace MDM.Data
         //}
         #endregion
 
+        #region Delete(id)
+        public override int Delete(object id)
+        {
+            if(DialogBox.ShowYN(Resources.patDeleteQ, Resources.patDeleteQH) == DialogResult.Yes) return base.Delete(id);
+            else return 0;
+        }
+        #endregion
+
         #region Add()
         public override void Add()
         {
@@ -221,9 +230,12 @@ namespace MDM.Data
             using(wPatient frm = new wPatient(true))
             {
                 if(frm.ShowDialog() == DialogResult.OK)
+                {
                     using(Patient pat = new Patient())
-                        if(pat.Insert(string.Format(insertFmt(frm.FirstName, frm.MiddleName, frm.LastName, frm.BirthDay, frm.Sex,
-                            frm.Address, frm.City, frm.ZIP, frm.Country, frm.Phone, frm.MedRec, frm.Note, frm.Diagnosis.ID, /*frm.HIC.Id,*/ frm.Somtype))) > 0)
+                    {
+                        if(DialogBox.ShowYN(Resources.patSaveQ, Resources.patSaveQH) == DialogResult.Yes &&
+                           pat.Insert(string.Format(insertFmt(frm.FirstName, frm.MiddleName, frm.LastName, frm.BirthDay, frm.Sex,
+                                frm.Address, frm.City, frm.ZIP, frm.Country, frm.Phone, frm.MedRec, frm.Note, frm.Diagnosis.ID, /*frm.HIC.Id,*/ frm.Somtype))) > 0)
                         {
                             string msg = string.Format(Resources.PatNewMsg, frm.PatientName);
 
@@ -237,6 +249,8 @@ namespace MDM.Data
                             }
                             Database.Save();
                         }
+                    }
+                }
             }
         }
         #endregion

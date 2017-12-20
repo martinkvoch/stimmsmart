@@ -639,4 +639,19 @@
   <data name="chSetCurrAborted" xml:space="preserve">
     <value>The current setting has been interrupted. Continue setting in a moment.</value>
   </data>
+  <data name="patAddErrBirthDate" xml:space="preserve">
+    <value>The patient's age must be between 18 and 99 years of age.</value>
+  </data>
+  <data name="patSaveQ" xml:space="preserve">
+    <value>Are you sure you want to save the patient?</value>
+  </data>
+  <data name="patSaveQH" xml:space="preserve">
+    <value>Saving the patient</value>
+  </data>
+  <data name="patDeleteQ" xml:space="preserve">
+    <value>Are you sure you want to remove this patient?</value>
+  </data>
+  <data name="patDeleteQH" xml:space="preserve">
+    <value>Removing the patient</value>
+  </data>
 </root>

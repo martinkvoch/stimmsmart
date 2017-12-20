@@ -1207,6 +1207,15 @@ namespace MDM.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The patient&apos;s age must be between 18 and 99 years of age..
+        /// </summary>
+        public static string patAddErrBirthDate {
+            get {
+                return ResourceManager.GetString("patAddErrBirthDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Patient first name must be entered!.
         /// </summary>
         public static string patAddErrFName {
@@ -1230,6 +1239,24 @@ namespace MDM.Properties {
         public static string patAddErrLName {
             get {
                 return ResourceManager.GetString("patAddErrLName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to remove this patient?.
+        /// </summary>
+        public static string patDeleteQ {
+            get {
+                return ResourceManager.GetString("patDeleteQ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Removing the patient.
+        /// </summary>
+        public static string patDeleteQH {
+            get {
+                return ResourceManager.GetString("patDeleteQH", resourceCulture);
             }
         }
         
@@ -1439,6 +1466,24 @@ namespace MDM.Properties {
             get {
                 object obj = ResourceManager.GetObject("patProc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to save the patient?.
+        /// </summary>
+        public static string patSaveQ {
+            get {
+                return ResourceManager.GetString("patSaveQ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saving the patient.
+        /// </summary>
+        public static string patSaveQH {
+            get {
+                return ResourceManager.GetString("patSaveQH", resourceCulture);
             }
         }
         

@@ -120,26 +120,8 @@
   <data name="cbCancel.Text" xml:space="preserve">
     <value>Zp&amp;ět</value>
   </data>
-  <data name="cbCancel.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="cbSave.Text" xml:space="preserve">
     <value>&amp;Uložit</value>
-  </data>
-  <data name="cbSave.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtFName.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lbID.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtMName.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtLName.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
@@ -148,23 +130,14 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Číslo</value>
   </data>
-  <data name="label1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 14</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>&amp;Jméno</value>
   </data>
-  <data name="label2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label3.Text" xml:space="preserve">
     <value>&amp;Druhé jméno</value>
-  </data>
-  <data name="label3.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 14</value>
@@ -172,11 +145,8 @@
   <data name="label4.Text" xml:space="preserve">
     <value>&amp;Příjmení</value>
   </data>
-  <data name="label4.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="dtpBirthDate.ToolTip" xml:space="preserve">
-    <value />
+  <data name="gbSex.Text" xml:space="preserve">
+    <value>  P&amp;ohlaví  </value>
   </data>
   <data name="rbFemale.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 18</value>
@@ -184,23 +154,11 @@
   <data name="rbFemale.Text" xml:space="preserve">
     <value>Žena</value>
   </data>
-  <data name="rbFemale.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="rbMale.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 18</value>
   </data>
   <data name="rbMale.Text" xml:space="preserve">
     <value>Muž</value>
-  </data>
-  <data name="rbMale.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="gbSex.Text" xml:space="preserve">
-    <value>  P&amp;ohlaví  </value>
-  </data>
-  <data name="gbSex.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 14</value>
@@ -208,23 +166,11 @@
   <data name="label5.Text" xml:space="preserve">
     <value>D&amp;atum narození</value>
   </data>
-  <data name="label5.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtAddr.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 14</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Ad&amp;resa</value>
-  </data>
-  <data name="label6.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtCity.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 14</value>
@@ -232,23 +178,11 @@
   <data name="label7.Text" xml:space="preserve">
     <value>&amp;Město</value>
   </data>
-  <data name="label7.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtZip.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>27, 14</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>P&amp;SČ</value>
-  </data>
-  <data name="label8.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtCountry.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 14</value>
@@ -256,23 +190,11 @@
   <data name="label9.Text" xml:space="preserve">
     <value>St&amp;át</value>
   </data>
-  <data name="label9.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtPhone.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 14</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>&amp;Telefon</value>
-  </data>
-  <data name="label10.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtMedRec.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 14</value>
@@ -280,20 +202,14 @@
   <data name="label11.Text" xml:space="preserve">
     <value>&amp;Číslo chorobopisu</value>
   </data>
-  <data name="label11.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtDiagnosis.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 14</value>
   </data>
   <data name="label12.Text" xml:space="preserve">
     <value>D&amp;iagnóza</value>
   </data>
-  <data name="label12.ToolTip" xml:space="preserve">
-    <value />
+  <data name="cbDiagnosis.ToolTip" xml:space="preserve">
+    <value>Vyberte diagnózu</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 14</value>
@@ -301,8 +217,8 @@
   <data name="label13.Text" xml:space="preserve">
     <value>&amp;Zdravotní pojišťovna</value>
   </data>
-  <data name="label13.ToolTip" xml:space="preserve">
-    <value />
+  <data name="gbSomatotype.Text" xml:space="preserve">
+    <value>  Soma&amp;totyp </value>
   </data>
   <data name="rbHypotype.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 18</value>
@@ -310,17 +226,11 @@
   <data name="rbHypotype.Text" xml:space="preserve">
     <value>Hypotyp</value>
   </data>
-  <data name="rbHypotype.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="rbNormotype.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 18</value>
   </data>
   <data name="rbNormotype.Text" xml:space="preserve">
     <value>Normotyp</value>
-  </data>
-  <data name="rbNormotype.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="rbHyperergic.Size" type="System.Drawing.Size, System.Drawing">
     <value>89, 18</value>
@@ -328,31 +238,10 @@
   <data name="rbHyperergic.Text" xml:space="preserve">
     <value>Hyperergický</value>
   </data>
-  <data name="rbHyperergic.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="gbSomatotype.Text" xml:space="preserve">
-    <value>  Soma&amp;totyp </value>
-  </data>
-  <data name="gbSomatotype.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtNote.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 14</value>
   </data>
   <data name="label14.Text" xml:space="preserve">
     <value>Poz&amp;námky</value>
-  </data>
-  <data name="label14.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="cbxHIC.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
   </data>
 </root>
