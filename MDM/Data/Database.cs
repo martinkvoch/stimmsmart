@@ -322,7 +322,7 @@ namespace MDM.Data
                 string oldestFile = Directory.GetFiles(oldestDir ?? baseDir, Path.ChangeExtension("*", EncExt)).OrderBy(f => f).FirstOrDefault();
                 FileInfo fi = new FileInfo(fn);
 
-                while(fi.Length > drive.AvailableFreeSpace && !string.IsNullOrEmpty(oldestFile))
+                while(fi.Exists && fi.Length > drive.AvailableFreeSpace && !string.IsNullOrEmpty(oldestFile))
                 {
                     File.Delete(oldestFile);
                     if(Directory.GetFiles(oldestDir).Length == 0)
@@ -384,14 +384,15 @@ namespace MDM.Data
                     {
                         try
                         {
+                            string bf = Path.Combine(usbFlash, bckFN);
+
+                            if (!Directory.Exists(Path.GetDirectoryName(bf))) Directory.CreateDirectory(Path.GetDirectoryName(bf));
                             checkSpace(Path.ChangeExtension(bckFN, EncExt));
-                            bckFN = Path.Combine(usbFlash, bckFN);
-                            if(!Directory.Exists(Path.GetDirectoryName(bckFN))) Directory.CreateDirectory(Path.GetDirectoryName(bckFN));
-                            File.Copy(dbFileName, bckFN, true);
-                            zip(bckFN);
-                            File.Delete(bckFN);
+                            File.Copy(dbFileName, bf, true);
+                            zip(bf);
+                            File.Delete(bf);
                         }
-                        catch { }
+                        catch(Exception e) { }
                     }
                     Log.InfoToLog(methodName, msg);
                     if(!silent) DialogBox.ShowInfo(msg, Resources.bckDataH);
