@@ -1,4 +1,5 @@
 ﻿using MDM.Classes;
+using System.Windows.Forms;
 
 namespace MDM.Controls
 {
@@ -10,8 +11,16 @@ namespace MDM.Controls
         {
             InitializeComponent();
             if(Channels != null) DisposeMain();
-            Channels = new Channels(this);
-            Channels.On(Program.ChErrors);
+            try
+            {
+                Application.UseWaitCursor = true;
+                Channels = new Channels(this);
+                Channels.On(Program.ChErrors);
+            }
+            finally
+            {
+                Application.UseWaitCursor = false;
+            }
         }
 
         internal void DisposeMain()

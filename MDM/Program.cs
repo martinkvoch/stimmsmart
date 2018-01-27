@@ -220,7 +220,9 @@ namespace MDM
                 KeepRunning = false;
                 while(true)
                 {
+                    Application.UseWaitCursor = true;
                     main = new wMain(Program.Language);
+                    Application.UseWaitCursor = false;
 #if HASP
                     if(!thread.IsAlive) thread.Start();
 #endif

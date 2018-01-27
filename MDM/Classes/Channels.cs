@@ -158,8 +158,8 @@ namespace MDM.Classes
                 while(true)
                 {
                     LANFunc.LanRd();
-                    for(byte b = 1; b <= noc; b++) LANFunc.ChRd(b);
-                    Thread.Sleep(1000);
+                    for (byte b = 1; b <= noc; b++) LANFunc.ChRd(b);
+                    Thread.Sleep(3000);
                 }
             });
 
@@ -202,11 +202,11 @@ namespace MDM.Classes
             // 1. test LED
             led = new Bits();
             for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             led[DioReg.LedR] = true;
             led[DioReg.LedNBlink] = true;
             for(byte b = 1; b <= noc; b++) LANFunc.ChDio(b, led.ByteValue);
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             for(byte b = 1; b <= noc; b++)
             {
                 resp = LANFunc.ChRd(b);
@@ -304,8 +304,9 @@ namespace MDM.Classes
                     }
                 }
             }
+            //lanr.Abort();
             // 4. test zpětné proudové vazby + měření napětí na zátěži
-            for(byte b = 1; b <= noc; b++)
+            for (byte b = 1; b <= noc; b++)
             {
                 if(!chErrors[b - 1])
                 {
@@ -320,7 +321,7 @@ namespace MDM.Classes
                     LAN.MasterCmd(q);
                 }
             }
-            Thread.Sleep(400);
+            Thread.Sleep(800);
             for(byte b = 1; b <= noc; b++)
             {
                 if(!chErrors[b - 1])
@@ -339,7 +340,7 @@ namespace MDM.Classes
             do
             {
                 for(byte b = 1; b <= noc; b++) if(!chErrors[b - 1]) LANFunc.ChAtCf(b, uk);
-                Thread.Sleep(400);
+                Thread.Sleep(800);
                 for(byte b = 1; b <= noc; b++)
                 {
                     if(!chErrors[b - 1])
@@ -507,7 +508,7 @@ namespace MDM.Classes
                 Log.ErrorToLog(methodName, Resources.testChErrors + ":" + Environment.NewLine + protocol);
                 DialogBox.ShowError(protocol, Resources.testChErrors, true);
             }
-            lanr.Abort();
+            if(lanr.IsAlive) lanr.Abort();
 #endif
             return chErrors;
         }
