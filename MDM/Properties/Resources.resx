@@ -608,7 +608,7 @@
     <value>Microcirculation</value>
   </data>
   <data name="patSelCycle" xml:space="preserve">
-    <value>Cycle</value>
+    <value>Therapy</value>
   </data>
   <data name="UserEditHdr" xml:space="preserve">
     <value>Edit user</value>

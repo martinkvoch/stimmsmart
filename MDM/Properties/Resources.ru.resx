@@ -568,7 +568,7 @@
     <value>Плохой статус канала {0}</value>
   </data>
   <data name="patSelCycle" xml:space="preserve">
-    <value>Цикл</value>
+    <value>Терапия</value>
   </data>
   <data name="patSelProcNum" xml:space="preserve">
     <value>Номер процедуры</value>

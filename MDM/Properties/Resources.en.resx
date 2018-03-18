@@ -565,7 +565,7 @@
     <value>Bad status of channel {0}</value>
   </data>
   <data name="patSelCycle" xml:space="preserve">
-    <value>Cycle</value>
+    <value>Therapy</value>
   </data>
   <data name="patSelProcNum" xml:space="preserve">
     <value>Procedure number</value>

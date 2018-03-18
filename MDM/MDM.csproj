@@ -21,7 +21,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\StimSmart\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;LAN xHASP</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;xLAN xHASP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>

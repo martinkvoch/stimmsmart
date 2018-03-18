@@ -565,7 +565,7 @@
     <value>Chybný stav kanálu {0}</value>
   </data>
   <data name="patSelCycle" xml:space="preserve">
-    <value>Cyklus</value>
+    <value>Terapie</value>
   </data>
   <data name="patSelProcNum" xml:space="preserve">
     <value>Číslo procedury</value>

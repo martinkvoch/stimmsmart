@@ -1488,7 +1488,7 @@ namespace MDM.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cycle.
+        ///   Looks up a localized string similar to Therapy.
         /// </summary>
         public static string patSelCycle {
             get {

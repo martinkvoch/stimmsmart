@@ -173,6 +173,7 @@ namespace MDM.Windows
             // 
             // tsMain
             // 
+            resources.ApplyResources(this.tsMain, "tsMain");
             this.tsMain.ImageScalingSize = new System.Drawing.Size(50, 36);
             this.tsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tbAbout,
@@ -185,62 +186,61 @@ namespace MDM.Windows
             this.toolStripSeparator1,
             this.tbProcedures,
             this.tbPatList});
-            resources.ApplyResources(this.tsMain, "tsMain");
             this.tsMain.Name = "tsMain";
             // 
             // tbAbout
             // 
+            resources.ApplyResources(this.tbAbout, "tbAbout");
             this.tbAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tbAbout.Image = global::MDM.Properties.Resources.logo;
-            resources.ApplyResources(this.tbAbout, "tbAbout");
             this.tbAbout.Name = "tbAbout";
             this.tbAbout.Click += new System.EventHandler(this.miAbout_Click);
             // 
             // toolStripSeparator3
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
             resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
             // 
             // tbShutdown
             // 
+            resources.ApplyResources(this.tbShutdown, "tbShutdown");
             this.tbShutdown.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tbShutdown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tbShutdown.Image = global::MDM.Properties.Resources.shutdown64;
-            resources.ApplyResources(this.tbShutdown, "tbShutdown");
             this.tbShutdown.Name = "tbShutdown";
             this.tbShutdown.Click += new System.EventHandler(this.miSwitchOff_Click);
             // 
             // tbRestart
             // 
+            resources.ApplyResources(this.tbRestart, "tbRestart");
             this.tbRestart.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tbRestart.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tbRestart.Image = global::MDM.Properties.Resources.refresh64;
-            resources.ApplyResources(this.tbRestart, "tbRestart");
             this.tbRestart.Name = "tbRestart";
             this.tbRestart.Click += new System.EventHandler(this.miRestart_Click);
             // 
             // tbExit
             // 
+            resources.ApplyResources(this.tbExit, "tbExit");
             this.tbExit.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.tbExit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tbExit.Image = global::MDM.Properties.Resources.exit64;
-            resources.ApplyResources(this.tbExit, "tbExit");
             this.tbExit.Name = "tbExit";
             this.tbExit.Click += new System.EventHandler(this.miExit_Click);
             // 
             // tbLogin
             // 
+            resources.ApplyResources(this.tbLogin, "tbLogin");
             this.tbLogin.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tbLogin.Image = global::MDM.Properties.Resources.login48;
-            resources.ApplyResources(this.tbLogin, "tbLogin");
             this.tbLogin.Name = "tbLogin";
             this.tbLogin.Click += new System.EventHandler(this.miLogIn_Click);
             // 
             // tbLogout
             // 
+            resources.ApplyResources(this.tbLogout, "tbLogout");
             this.tbLogout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tbLogout.Image = global::MDM.Properties.Resources.logout48;
-            resources.ApplyResources(this.tbLogout, "tbLogout");
             this.tbLogout.Name = "tbLogout";
             this.tbLogout.Click += new System.EventHandler(this.miLogOut_Click);
             // 
@@ -251,20 +251,21 @@ namespace MDM.Windows
             // 
             // tbProcedures
             // 
-            this.tbProcedures.Image = global::MDM.Properties.Resources.procedures64;
             resources.ApplyResources(this.tbProcedures, "tbProcedures");
+            this.tbProcedures.Image = global::MDM.Properties.Resources.procedures64;
             this.tbProcedures.Name = "tbProcedures";
             this.tbProcedures.Click += new System.EventHandler(this.tbProcedures_Click);
             // 
             // tbPatList
             // 
-            this.tbPatList.Image = global::MDM.Properties.Resources.patlist64;
             resources.ApplyResources(this.tbPatList, "tbPatList");
+            this.tbPatList.Image = global::MDM.Properties.Resources.patlist64;
             this.tbPatList.Name = "tbPatList";
             this.tbPatList.Click += new System.EventHandler(this.miPatientList_Click);
             // 
             // miFile
             // 
+            resources.ApplyResources(this.miFile, "miFile");
             this.miFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miAbout,
             this.miHelp,
@@ -273,50 +274,50 @@ namespace MDM.Windows
             this.miRestart,
             this.miSwitchOff});
             this.miFile.Name = "miFile";
-            resources.ApplyResources(this.miFile, "miFile");
             // 
             // miAbout
             // 
-            this.miAbout.Image = global::MDM.Properties.Resources.about;
             resources.ApplyResources(this.miAbout, "miAbout");
+            this.miAbout.Image = global::MDM.Properties.Resources.about;
             this.miAbout.Name = "miAbout";
             this.miAbout.Click += new System.EventHandler(this.miAbout_Click);
             // 
             // miHelp
             // 
-            this.miHelp.Image = global::MDM.Properties.Resources.help16;
             resources.ApplyResources(this.miHelp, "miHelp");
+            this.miHelp.Image = global::MDM.Properties.Resources.help16;
             this.miHelp.Name = "miHelp";
             this.miHelp.Click += new System.EventHandler(this.miHelp_Click);
             // 
             // toolStripMenuItem1
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             // 
             // miExit
             // 
-            this.miExit.Image = global::MDM.Properties.Resources.exit;
             resources.ApplyResources(this.miExit, "miExit");
+            this.miExit.Image = global::MDM.Properties.Resources.exit;
             this.miExit.Name = "miExit";
             this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
             // miRestart
             // 
-            this.miRestart.Image = global::MDM.Properties.Resources.restart;
             resources.ApplyResources(this.miRestart, "miRestart");
+            this.miRestart.Image = global::MDM.Properties.Resources.restart;
             this.miRestart.Name = "miRestart";
             this.miRestart.Click += new System.EventHandler(this.miRestart_Click);
             // 
             // miSwitchOff
             // 
-            this.miSwitchOff.Image = global::MDM.Properties.Resources.switchoff;
             resources.ApplyResources(this.miSwitchOff, "miSwitchOff");
+            this.miSwitchOff.Image = global::MDM.Properties.Resources.switchoff;
             this.miSwitchOff.Name = "miSwitchOff";
             this.miSwitchOff.Click += new System.EventHandler(this.miSwitchOff_Click);
             // 
             // miUser
             // 
+            resources.ApplyResources(this.miUser, "miUser");
             this.miUser.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miUserList,
             this.toolStripMenuItem5,
@@ -333,100 +334,100 @@ namespace MDM.Windows
             this.miPurgeUser,
             this.miTruncateUser});
             this.miUser.Name = "miUser";
-            resources.ApplyResources(this.miUser, "miUser");
             // 
             // miUserList
             // 
-            this.miUserList.Image = global::MDM.Properties.Resources.userlist;
             resources.ApplyResources(this.miUserList, "miUserList");
+            this.miUserList.Image = global::MDM.Properties.Resources.userlist;
             this.miUserList.Name = "miUserList";
             this.miUserList.Click += new System.EventHandler(this.miUserList_Click);
             // 
             // toolStripMenuItem5
             // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             // 
             // miLogIn
             // 
-            this.miLogIn.Image = global::MDM.Properties.Resources.login;
             resources.ApplyResources(this.miLogIn, "miLogIn");
+            this.miLogIn.Image = global::MDM.Properties.Resources.login;
             this.miLogIn.Name = "miLogIn";
             this.miLogIn.Click += new System.EventHandler(this.miLogIn_Click);
             // 
             // miLogOut
             // 
-            this.miLogOut.Image = global::MDM.Properties.Resources.logout;
             resources.ApplyResources(this.miLogOut, "miLogOut");
+            this.miLogOut.Image = global::MDM.Properties.Resources.logout;
             this.miLogOut.Name = "miLogOut";
             this.miLogOut.Click += new System.EventHandler(this.miLogOut_Click);
             // 
             // toolStripMenuItem3
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             // 
             // miNewUser
             // 
-            this.miNewUser.Image = global::MDM.Properties.Resources.useradd;
             resources.ApplyResources(this.miNewUser, "miNewUser");
+            this.miNewUser.Image = global::MDM.Properties.Resources.useradd;
             this.miNewUser.Name = "miNewUser";
             this.miNewUser.Click += new System.EventHandler(this.miNewUser_Click);
             // 
             // miEditUser
             // 
-            this.miEditUser.Image = global::MDM.Properties.Resources.useredit;
             resources.ApplyResources(this.miEditUser, "miEditUser");
+            this.miEditUser.Image = global::MDM.Properties.Resources.useredit;
             this.miEditUser.Name = "miEditUser";
             this.miEditUser.Click += new System.EventHandler(this.miEditUser_Click);
             // 
             // toolStripMenuItem8
             // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             resources.ApplyResources(this.toolStripMenuItem8, "toolStripMenuItem8");
+            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             // 
             // miDeleteUser
             // 
-            this.miDeleteUser.Image = global::MDM.Properties.Resources.userdelete;
             resources.ApplyResources(this.miDeleteUser, "miDeleteUser");
+            this.miDeleteUser.Image = global::MDM.Properties.Resources.userdelete;
             this.miDeleteUser.Name = "miDeleteUser";
             this.miDeleteUser.Click += new System.EventHandler(this.miDeleteUser_Click);
             // 
             // miUndeleteUser
             // 
-            this.miUndeleteUser.Image = global::MDM.Properties.Resources.undeleteuser;
             resources.ApplyResources(this.miUndeleteUser, "miUndeleteUser");
+            this.miUndeleteUser.Image = global::MDM.Properties.Resources.undeleteuser;
             this.miUndeleteUser.Name = "miUndeleteUser";
             this.miUndeleteUser.Click += new System.EventHandler(this.miUndeleteUser_Click);
             // 
             // miWipeUser
             // 
-            this.miWipeUser.Image = global::MDM.Properties.Resources.deluser;
             resources.ApplyResources(this.miWipeUser, "miWipeUser");
+            this.miWipeUser.Image = global::MDM.Properties.Resources.deluser;
             this.miWipeUser.Name = "miWipeUser";
             this.miWipeUser.Click += new System.EventHandler(this.miWipeUser_Click);
             // 
             // toolStripMenuItem7
             // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
+            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             // 
             // miPurgeUser
             // 
-            this.miPurgeUser.Image = global::MDM.Properties.Resources.clear;
             resources.ApplyResources(this.miPurgeUser, "miPurgeUser");
+            this.miPurgeUser.Image = global::MDM.Properties.Resources.clear;
             this.miPurgeUser.Name = "miPurgeUser";
             this.miPurgeUser.Click += new System.EventHandler(this.miPurgeUser_Click);
             // 
             // miTruncateUser
             // 
-            this.miTruncateUser.Image = global::MDM.Properties.Resources.erase;
             resources.ApplyResources(this.miTruncateUser, "miTruncateUser");
+            this.miTruncateUser.Image = global::MDM.Properties.Resources.erase;
             this.miTruncateUser.Name = "miTruncateUser";
             this.miTruncateUser.Click += new System.EventHandler(this.miTruncateUser_Click);
             // 
             // miPatient
             // 
+            resources.ApplyResources(this.miPatient, "miPatient");
             this.miPatient.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem9,
             this.miPatientList,
@@ -443,120 +444,120 @@ namespace MDM.Windows
             this.toolStripMenuItem13,
             this.miPatientProc});
             this.miPatient.Name = "miPatient";
-            resources.ApplyResources(this.miPatient, "miPatient");
             // 
             // toolStripMenuItem9
             // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             resources.ApplyResources(this.toolStripMenuItem9, "toolStripMenuItem9");
+            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             // 
             // miPatientList
             // 
-            this.miPatientList.Image = global::MDM.Properties.Resources.userlist;
             resources.ApplyResources(this.miPatientList, "miPatientList");
+            this.miPatientList.Image = global::MDM.Properties.Resources.userlist;
             this.miPatientList.Name = "miPatientList";
             this.miPatientList.Click += new System.EventHandler(this.miPatientList_Click);
             // 
             // toolStripMenuItem10
             // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
             resources.ApplyResources(this.toolStripMenuItem10, "toolStripMenuItem10");
+            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
             // 
             // miNewPatient
             // 
-            this.miNewPatient.Image = global::MDM.Properties.Resources.useradd;
             resources.ApplyResources(this.miNewPatient, "miNewPatient");
+            this.miNewPatient.Image = global::MDM.Properties.Resources.useradd;
             this.miNewPatient.Name = "miNewPatient";
             this.miNewPatient.Click += new System.EventHandler(this.miNewPatient_Click);
             // 
             // miEditPatient
             // 
-            this.miEditPatient.Image = global::MDM.Properties.Resources.useredit;
             resources.ApplyResources(this.miEditPatient, "miEditPatient");
+            this.miEditPatient.Image = global::MDM.Properties.Resources.useredit;
             this.miEditPatient.Name = "miEditPatient";
             this.miEditPatient.Click += new System.EventHandler(this.miEditPatient_Click);
             // 
             // toolStripMenuItem11
             // 
-            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
             resources.ApplyResources(this.toolStripMenuItem11, "toolStripMenuItem11");
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
             // 
             // miDeletePatient
             // 
-            this.miDeletePatient.Image = global::MDM.Properties.Resources.userdelete;
             resources.ApplyResources(this.miDeletePatient, "miDeletePatient");
+            this.miDeletePatient.Image = global::MDM.Properties.Resources.userdelete;
             this.miDeletePatient.Name = "miDeletePatient";
             this.miDeletePatient.Click += new System.EventHandler(this.miDeletePatient_Click);
             // 
             // miUndeletePatient
             // 
-            this.miUndeletePatient.Image = global::MDM.Properties.Resources.undeleteuser;
             resources.ApplyResources(this.miUndeletePatient, "miUndeletePatient");
+            this.miUndeletePatient.Image = global::MDM.Properties.Resources.undeleteuser;
             this.miUndeletePatient.Name = "miUndeletePatient";
             this.miUndeletePatient.Click += new System.EventHandler(this.miUndeletePatient_Click);
             // 
             // miWipePatient
             // 
-            this.miWipePatient.Image = global::MDM.Properties.Resources.deluser;
             resources.ApplyResources(this.miWipePatient, "miWipePatient");
+            this.miWipePatient.Image = global::MDM.Properties.Resources.deluser;
             this.miWipePatient.Name = "miWipePatient";
             this.miWipePatient.Click += new System.EventHandler(this.miWipePatient_Click);
             // 
             // toolStripMenuItem12
             // 
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
             resources.ApplyResources(this.toolStripMenuItem12, "toolStripMenuItem12");
+            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
             // 
             // miPurgePatient
             // 
-            this.miPurgePatient.Image = global::MDM.Properties.Resources.clear;
             resources.ApplyResources(this.miPurgePatient, "miPurgePatient");
+            this.miPurgePatient.Image = global::MDM.Properties.Resources.clear;
             this.miPurgePatient.Name = "miPurgePatient";
             this.miPurgePatient.Click += new System.EventHandler(this.miPurgePatient_Click);
             // 
             // miTruncatePatient
             // 
-            this.miTruncatePatient.Image = global::MDM.Properties.Resources.erase;
             resources.ApplyResources(this.miTruncatePatient, "miTruncatePatient");
+            this.miTruncatePatient.Image = global::MDM.Properties.Resources.erase;
             this.miTruncatePatient.Name = "miTruncatePatient";
             this.miTruncatePatient.Click += new System.EventHandler(this.miTruncatePatient_Click);
             // 
             // toolStripMenuItem13
             // 
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
             resources.ApplyResources(this.toolStripMenuItem13, "toolStripMenuItem13");
+            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
             // 
             // miPatientProc
             // 
-            this.miPatientProc.Image = global::MDM.Properties.Resources.patProc;
             resources.ApplyResources(this.miPatientProc, "miPatientProc");
+            this.miPatientProc.Image = global::MDM.Properties.Resources.patProc;
             this.miPatientProc.Name = "miPatientProc";
             this.miPatientProc.Click += new System.EventHandler(this.miPatientProc_Click);
             // 
             // miSystem
             // 
+            resources.ApplyResources(this.miSystem, "miSystem");
             this.miSystem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miBackupDatabase,
             this.miRestoreDatabase});
             this.miSystem.Name = "miSystem";
-            resources.ApplyResources(this.miSystem, "miSystem");
             // 
             // miBackupDatabase
             // 
-            this.miBackupDatabase.Image = global::MDM.Properties.Resources.dbbackup;
             resources.ApplyResources(this.miBackupDatabase, "miBackupDatabase");
+            this.miBackupDatabase.Image = global::MDM.Properties.Resources.dbbackup;
             this.miBackupDatabase.Name = "miBackupDatabase";
             this.miBackupDatabase.Click += new System.EventHandler(this.miBackupDatabase_Click);
             // 
             // miRestoreDatabase
             // 
-            this.miRestoreDatabase.Image = global::MDM.Properties.Resources.dbrestore;
             resources.ApplyResources(this.miRestoreDatabase, "miRestoreDatabase");
+            this.miRestoreDatabase.Image = global::MDM.Properties.Resources.dbrestore;
             this.miRestoreDatabase.Name = "miRestoreDatabase";
             this.miRestoreDatabase.Click += new System.EventHandler(this.miRestoreDatabase_Click);
             // 
             // miAdministration
             // 
+            resources.ApplyResources(this.miAdministration, "miAdministration");
             this.miAdministration.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miLog,
             this.miConfigSetup,
@@ -565,7 +566,6 @@ namespace MDM.Windows
             this.miNewDatabase,
             this.miCompactDatabase});
             this.miAdministration.Name = "miAdministration";
-            resources.ApplyResources(this.miAdministration, "miAdministration");
             // 
             // miLog
             // 
@@ -575,20 +575,20 @@ namespace MDM.Windows
             // 
             // miConfigSetup
             // 
-            this.miConfigSetup.Image = global::MDM.Properties.Resources.config;
             resources.ApplyResources(this.miConfigSetup, "miConfigSetup");
+            this.miConfigSetup.Image = global::MDM.Properties.Resources.config;
             this.miConfigSetup.Name = "miConfigSetup";
             this.miConfigSetup.Click += new System.EventHandler(this.miConfigSetup_Click);
             // 
             // toolStripMenuItem6
             // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             // 
             // miUpgSegs
             // 
-            this.miUpgSegs.Image = global::MDM.Properties.Resources.segments16;
             resources.ApplyResources(this.miUpgSegs, "miUpgSegs");
+            this.miUpgSegs.Image = global::MDM.Properties.Resources.segments16;
             this.miUpgSegs.Name = "miUpgSegs";
             this.miUpgSegs.Click += new System.EventHandler(this.miUpgSegs_Click);
             // 
@@ -600,22 +600,23 @@ namespace MDM.Windows
             // 
             // miCompactDatabase
             // 
-            this.miCompactDatabase.Image = global::MDM.Properties.Resources.dbcompact;
             resources.ApplyResources(this.miCompactDatabase, "miCompactDatabase");
+            this.miCompactDatabase.Image = global::MDM.Properties.Resources.dbcompact;
             this.miCompactDatabase.Name = "miCompactDatabase";
             this.miCompactDatabase.Click += new System.EventHandler(this.miCompactDatabase_Click);
             // 
             // miTheLog
             // 
+            resources.ApplyResources(this.miTheLog, "miTheLog");
             this.miTheLog.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miClear,
             this.toolStripMenuItem4,
             this.miClosePanel});
             this.miTheLog.Name = "miTheLog";
-            resources.ApplyResources(this.miTheLog, "miTheLog");
             // 
             // miClear
             // 
+            resources.ApplyResources(this.miClear, "miClear");
             this.miClear.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miClearLogInformation,
             this.miClearLogWarning,
@@ -623,53 +624,53 @@ namespace MDM.Windows
             this.miClearLogSelection,
             this.miClearLogAll});
             this.miClear.Image = global::MDM.Properties.Resources.clear;
-            resources.ApplyResources(this.miClear, "miClear");
             this.miClear.Name = "miClear";
             // 
             // miClearLogInformation
             // 
-            this.miClearLogInformation.Name = "miClearLogInformation";
             resources.ApplyResources(this.miClearLogInformation, "miClearLogInformation");
+            this.miClearLogInformation.Name = "miClearLogInformation";
             this.miClearLogInformation.Click += new System.EventHandler(this.miClearLogInformation_Click);
             // 
             // miClearLogWarning
             // 
-            this.miClearLogWarning.Name = "miClearLogWarning";
             resources.ApplyResources(this.miClearLogWarning, "miClearLogWarning");
+            this.miClearLogWarning.Name = "miClearLogWarning";
             this.miClearLogWarning.Click += new System.EventHandler(this.miClearLogWarning_Click);
             // 
             // miClearLogError
             // 
-            this.miClearLogError.Name = "miClearLogError";
             resources.ApplyResources(this.miClearLogError, "miClearLogError");
+            this.miClearLogError.Name = "miClearLogError";
             this.miClearLogError.Click += new System.EventHandler(this.miClearLogError_Click);
             // 
             // miClearLogSelection
             // 
-            this.miClearLogSelection.Name = "miClearLogSelection";
             resources.ApplyResources(this.miClearLogSelection, "miClearLogSelection");
+            this.miClearLogSelection.Name = "miClearLogSelection";
             this.miClearLogSelection.Click += new System.EventHandler(this.miClearLogSelection_Click);
             // 
             // miClearLogAll
             // 
-            this.miClearLogAll.Name = "miClearLogAll";
             resources.ApplyResources(this.miClearLogAll, "miClearLogAll");
+            this.miClearLogAll.Name = "miClearLogAll";
             this.miClearLogAll.Click += new System.EventHandler(this.miClearLogAll_Click);
             // 
             // toolStripMenuItem4
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             // 
             // miClosePanel
             // 
-            this.miClosePanel.Image = global::MDM.Properties.Resources.close16;
             resources.ApplyResources(this.miClosePanel, "miClosePanel");
+            this.miClosePanel.Image = global::MDM.Properties.Resources.close16;
             this.miClosePanel.Name = "miClosePanel";
             this.miClosePanel.Click += new System.EventHandler(this.miCloseLogPanel_Click);
             // 
             // msMain
             // 
+            resources.ApplyResources(this.msMain, "msMain");
             this.msMain.ImageScalingSize = new System.Drawing.Size(12, 16);
             this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miFile,
@@ -681,47 +682,47 @@ namespace MDM.Windows
             this.miLang,
             this.miDBRestore,
             this.miProcedure});
-            resources.ApplyResources(this.msMain, "msMain");
             this.msMain.Name = "msMain";
             // 
             // miLang
             // 
+            resources.ApplyResources(this.miLang, "miLang");
             this.miLang.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.miLang.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miLangCS,
             this.miLangEN,
             this.miLangRU});
             this.miLang.Image = global::MDM.Properties.Resources.cs;
-            resources.ApplyResources(this.miLang, "miLang");
             this.miLang.Name = "miLang";
             this.miLang.Tag = "cs";
             // 
             // miLangCS
             // 
-            this.miLangCS.Image = global::MDM.Properties.Resources.cs;
             resources.ApplyResources(this.miLangCS, "miLangCS");
+            this.miLangCS.Image = global::MDM.Properties.Resources.cs;
             this.miLangCS.Name = "miLangCS";
             this.miLangCS.Tag = "cs";
             this.miLangCS.Click += new System.EventHandler(this.miLangXX_Click);
             // 
             // miLangEN
             // 
-            this.miLangEN.Image = global::MDM.Properties.Resources.en;
             resources.ApplyResources(this.miLangEN, "miLangEN");
+            this.miLangEN.Image = global::MDM.Properties.Resources.en;
             this.miLangEN.Name = "miLangEN";
             this.miLangEN.Tag = "en";
             this.miLangEN.Click += new System.EventHandler(this.miLangXX_Click);
             // 
             // miLangRU
             // 
-            this.miLangRU.Image = global::MDM.Properties.Resources.ru;
             resources.ApplyResources(this.miLangRU, "miLangRU");
+            this.miLangRU.Image = global::MDM.Properties.Resources.ru;
             this.miLangRU.Name = "miLangRU";
             this.miLangRU.Tag = "ru";
             this.miLangRU.Click += new System.EventHandler(this.miLangXX_Click);
             // 
             // miDBRestore
             // 
+            resources.ApplyResources(this.miDBRestore, "miDBRestore");
             this.miDBRestore.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.restoreFromThisBackupToolStripMenuItem,
             this.makeNewBackupToolStripMenuItem,
@@ -729,92 +730,91 @@ namespace MDM.Windows
             this.toolStripMenuItem2,
             this.closeToolStripMenuItem});
             this.miDBRestore.Name = "miDBRestore";
-            resources.ApplyResources(this.miDBRestore, "miDBRestore");
             // 
             // restoreFromThisBackupToolStripMenuItem
             // 
-            this.restoreFromThisBackupToolStripMenuItem.Image = global::MDM.Properties.Resources.backuprestore;
             resources.ApplyResources(this.restoreFromThisBackupToolStripMenuItem, "restoreFromThisBackupToolStripMenuItem");
+            this.restoreFromThisBackupToolStripMenuItem.Image = global::MDM.Properties.Resources.backuprestore;
             this.restoreFromThisBackupToolStripMenuItem.Name = "restoreFromThisBackupToolStripMenuItem";
             this.restoreFromThisBackupToolStripMenuItem.Click += new System.EventHandler(this.miRestoreBackup_Click);
             // 
             // makeNewBackupToolStripMenuItem
             // 
-            this.makeNewBackupToolStripMenuItem.Image = global::MDM.Properties.Resources.backupmakenew;
             resources.ApplyResources(this.makeNewBackupToolStripMenuItem, "makeNewBackupToolStripMenuItem");
+            this.makeNewBackupToolStripMenuItem.Image = global::MDM.Properties.Resources.backupmakenew;
             this.makeNewBackupToolStripMenuItem.Name = "makeNewBackupToolStripMenuItem";
             this.makeNewBackupToolStripMenuItem.Click += new System.EventHandler(this.miMakeNewBackup_Click);
             // 
             // deleteBackupToolStripMenuItem
             // 
-            this.deleteBackupToolStripMenuItem.Image = global::MDM.Properties.Resources.backupdelete;
             resources.ApplyResources(this.deleteBackupToolStripMenuItem, "deleteBackupToolStripMenuItem");
+            this.deleteBackupToolStripMenuItem.Image = global::MDM.Properties.Resources.backupdelete;
             this.deleteBackupToolStripMenuItem.Name = "deleteBackupToolStripMenuItem";
             this.deleteBackupToolStripMenuItem.Click += new System.EventHandler(this.miDeleteBackup_Click);
             // 
             // toolStripMenuItem2
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             // 
             // closeToolStripMenuItem
             // 
-            this.closeToolStripMenuItem.Image = global::MDM.Properties.Resources.close16;
             resources.ApplyResources(this.closeToolStripMenuItem, "closeToolStripMenuItem");
+            this.closeToolStripMenuItem.Image = global::MDM.Properties.Resources.close16;
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.miCloseBackup_Click);
             // 
             // miProcedure
             // 
-            this.miProcedure.Name = "miProcedure";
             resources.ApplyResources(this.miProcedure, "miProcedure");
+            this.miProcedure.Name = "miProcedure";
             // 
             // panProcedure
             // 
-            this.panProcedure.BackColor = System.Drawing.SystemColors.AppWorkspace;
             resources.ApplyResources(this.panProcedure, "panProcedure");
+            this.panProcedure.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panProcedure.Name = "panProcedure";
             // 
             // panPatient
             // 
-            this.panPatient.BackColor = System.Drawing.SystemColors.AppWorkspace;
             resources.ApplyResources(this.panPatient, "panPatient");
+            this.panPatient.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panPatient.Name = "panPatient";
             // 
             // panHIC
             // 
-            this.panHIC.BackColor = System.Drawing.SystemColors.AppWorkspace;
             resources.ApplyResources(this.panHIC, "panHIC");
+            this.panHIC.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panHIC.Name = "panHIC";
             // 
             // panUser
             // 
-            this.panUser.BackColor = System.Drawing.SystemColors.AppWorkspace;
             resources.ApplyResources(this.panUser, "panUser");
+            this.panUser.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panUser.Name = "panUser";
             // 
             // panDBRestore
             // 
-            this.panDBRestore.BackColor = System.Drawing.SystemColors.AppWorkspace;
             resources.ApplyResources(this.panDBRestore, "panDBRestore");
+            this.panDBRestore.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panDBRestore.Name = "panDBRestore";
             // 
             // panLog
             // 
-            this.panLog.BackColor = System.Drawing.SystemColors.AppWorkspace;
             resources.ApplyResources(this.panLog, "panLog");
+            this.panLog.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panLog.Name = "panLog";
             // 
             // panMain
             // 
-            this.panMain.BackColor = System.Drawing.SystemColors.AppWorkspace;
             resources.ApplyResources(this.panMain, "panMain");
+            this.panMain.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panMain.Name = "panMain";
             // 
             // wMain
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ControlBox = false;
             this.Controls.Add(this.panProcedure);
             this.Controls.Add(this.panPatient);
